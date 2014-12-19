@@ -79,3 +79,23 @@ D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\PaintSurfa
 D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\PaintSurface\obj\Debug\PaintSurface.g.resources
 D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
 D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\icon.png
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.xml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe.config
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.pdb
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\EngineIoClientDotNet.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIoClientDotNet.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.csprojResolveAssemblyReference.cache
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.baml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\App.baml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.g.cs
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\App.g.cs
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface_Content.g.cs
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface_MarkupCompile.cache
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.g.resources
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.pdb

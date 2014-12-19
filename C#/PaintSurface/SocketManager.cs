@@ -34,7 +34,7 @@ namespace PaintSurface
 
         private void _connection()
         {
-            if (this.socket != null)
+            if (this.socket == null)
             {
                 System.Net.WebRequest.DefaultWebProxy = null;
 

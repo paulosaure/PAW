@@ -4,7 +4,14 @@
     xmlns:s="http://schemas.microsoft.com/surface/2008"
     Title="PaintSurface"
     >
-  <Grid>
 
-  </Grid>
+    <s:SurfaceWindow.Resources>
+     <!--   <ImageBrush x:Key="icon_crayon" Opacity="1" ImageSource="/Resources/crayon.png"/>
+        <ImageBrush x:Key="icon_eraser" Opacity="1" ImageSource="/Resources/eraser.png"/>
+        <ImageBrush x:Key="icon_draw" Opacity="1" ImageSource="/Resources/draw.png"/>-->
+        <ImageBrush x:Key="icon_erase" Opacity="1" ImageSource="/Resources/icon.png"/>
+    </s:SurfaceWindow.Resources>
+    <Grid Background="Beige" x:Name="myGrid">
+        <Image Source="/Resources/icon.png" />
+    </Grid>
 </s:SurfaceWindow>

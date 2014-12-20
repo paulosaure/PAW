@@ -9,9 +9,11 @@
      <!--   <ImageBrush x:Key="icon_crayon" Opacity="1" ImageSource="/Resources/crayon.png"/>
         <ImageBrush x:Key="icon_eraser" Opacity="1" ImageSource="/Resources/eraser.png"/>
         <ImageBrush x:Key="icon_draw" Opacity="1" ImageSource="/Resources/draw.png"/>-->
-        <ImageBrush x:Key="icon_erase" Opacity="1" ImageSource="/Resources/icon.png"/>
+        <ImageBrush x:Key="icon" Opacity="1" ImageSource="/Resources/icon.png"/>
     </s:SurfaceWindow.Resources>
-    <Grid Background="Beige" x:Name="myGrid">
-        <Image Source="/Resources/icon.png" />
+    <Grid  x:Name="myGrid">
+        <Image Source="/Resources/rond.png"  Width="360" Height="360"/>
+        <Image Source="/Resources/roue.png"  Width="500" Height="560"/>
+        <Image Source="/Resources/text.png"  Width="400" Height="400"/>
     </Grid>
 </s:SurfaceWindow>

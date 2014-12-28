@@ -19,7 +19,7 @@ using Microsoft.Surface.Presentation.Input;
 using System.Diagnostics;
 using System.Net;
 using System.IO;
-
+using System.Threading.Tasks;
 namespace PaintSurface
 {
     /// <summary>
@@ -32,13 +32,21 @@ namespace PaintSurface
         private int _serverPort = 8080;
 
         private SocketManager _sm;
-
+        private MediaPlayer cuisine = new MediaPlayer();
+        private MediaPlayer salon = new MediaPlayer();
+        private MediaPlayer salledebain = new MediaPlayer();
+           
         /// <summary>
         /// Default constructor.
         /// </summary>
         public SurfaceWindow1()
         {
             InitializeComponent();
+
+            //les sons
+            cuisine.Open(new Uri(@"Resources\cuisine.wav", UriKind.Relative));
+            salon.Open(new Uri(@"Resources\salon.wav", UriKind.Relative));
+            salledebain.Open(new Uri(@"Resources\salledebain.wav", UriKind.Relative));
 
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
@@ -147,6 +155,38 @@ namespace PaintSurface
         private void OnWindowUnavailable(object sender, EventArgs e)
         {
             //TODO: disable audio, animations here
+        }
+
+        private async void touchez_Click(object sender, RoutedEventArgs e)
+        {
+            myGrid.Visibility = Visibility.Hidden;
+            maison.Visibility = Visibility.Visible;
+            DoubleAnimation da = new DoubleAnimation();
+            da.To = 1.5;
+            da.Duration = new Duration(TimeSpan.FromSeconds(1));
+            da.AutoReverse = true;
+            cuisineScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            cuisineScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            cuisine.Play();
+            await Task.Delay(2000);
+            salonScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            salonScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            salon.Play();
+            await Task.Delay(2000);
+            salledebainScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            salledebainScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            salledebain.Play();
+            
+        }
+
+        private void ScatterViewDrop(object sender, SurfaceDragDropEventArgs e)
+        {
+
+        }
+
+        private void ScatterViewItemHoldGesture(object sender, TouchEventArgs e)
+        {
+
         }
     }
 }

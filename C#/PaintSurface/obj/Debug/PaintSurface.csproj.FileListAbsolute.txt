@@ -98,3 +98,6 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurfac
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.pdb
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\cuisine.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\salledebain.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\salon.wav

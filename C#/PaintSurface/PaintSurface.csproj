@@ -113,6 +113,19 @@
     <Content Include="PaintSurface.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\cuisine.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\salledebain.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\salon.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\salon.jpg" />
+    <Resource Include="Resources\salledebain.jpg" />
+    <Resource Include="Resources\backgroud.jpg" />
+    <Resource Include="Resources\cuisine.jpg" />
     <Resource Include="Resources\text.png" />
     <Resource Include="Resources\roue.png" />
     <Resource Include="Resources\rond.png" />

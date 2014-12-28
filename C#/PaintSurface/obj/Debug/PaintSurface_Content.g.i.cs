@@ -9,5 +9,8 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("paintsurface.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cuisine.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/salledebain.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/salon.wav")]
 
 

@@ -35,6 +35,10 @@ namespace PaintSurface
         private MediaPlayer cuisine = new MediaPlayer();
         private MediaPlayer salon = new MediaPlayer();
         private MediaPlayer salledebain = new MediaPlayer();
+        private MediaPlayer coiffez = new MediaPlayer();
+        private MediaPlayer rasez = new MediaPlayer();
+        private MediaPlayer brossezdent = new MediaPlayer();
+        private MediaPlayer douchez = new MediaPlayer();
            
         /// <summary>
         /// Default constructor.
@@ -47,6 +51,10 @@ namespace PaintSurface
             cuisine.Open(new Uri(@"Resources\cuisine.wav", UriKind.Relative));
             salon.Open(new Uri(@"Resources\salon.wav", UriKind.Relative));
             salledebain.Open(new Uri(@"Resources\salledebain.wav", UriKind.Relative));
+            coiffez.Open(new Uri(@"Resources\coiffez.wav", UriKind.Relative));
+            rasez.Open(new Uri(@"Resources\rasez.wav", UriKind.Relative));
+            douchez.Open(new Uri(@"Resources\douchez.wav", UriKind.Relative));
+            brossezdent.Open(new Uri(@"Resources\brossezlesdents.wav", UriKind.Relative));
 
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
@@ -157,12 +165,18 @@ namespace PaintSurface
             //TODO: disable audio, animations here
         }
 
-        private async void touchez_Click(object sender, RoutedEventArgs e)
+        private  void touchez_Click(object sender, RoutedEventArgs e)
         {
             myGrid.Visibility = Visibility.Hidden;
             maison.Visibility = Visibility.Visible;
+
+            animeMaison();
+        }
+
+        private async void animeMaison()
+        {
             DoubleAnimation da = new DoubleAnimation();
-            da.To = 1.5;
+            da.To = 1.2;
             da.Duration = new Duration(TimeSpan.FromSeconds(1));
             da.AutoReverse = true;
             cuisineScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
@@ -176,15 +190,63 @@ namespace PaintSurface
             salledebainScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             salledebainScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
             salledebain.Play();
-            
         }
 
+        private async void animeSalleDeBain()
+        {
+            DoubleAnimation da = new DoubleAnimation();
+            da.To = 1.2;
+            da.Duration = new Duration(TimeSpan.FromSeconds(1));
+            da.AutoReverse = true;
+            brosseadentScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            brosseadentScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            brossezdent.Play();
+            await Task.Delay(2000);
+            brosseacheveuxScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            brosseacheveuxScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            coiffez.Play();
+            await Task.Delay(2000);
+            rasoirScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            rasoirScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            rasez.Play();
+            await Task.Delay(2000);
+            doucheScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            doucheScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            douchez.Play();
+        }
         private void ScatterViewDrop(object sender, SurfaceDragDropEventArgs e)
         {
 
         }
 
         private void ScatterViewItemHoldGesture(object sender, TouchEventArgs e)
+        {
+
+        }
+
+        private void salledabain_Click(object sender, RoutedEventArgs e)
+        {
+            maison.Visibility = Visibility.Hidden;
+            atelier.Visibility = Visibility.Visible;
+            animeSalleDeBain();
+        }
+
+        private void brosseadent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void brosseacheveux_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void douche_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rasoir_Click(object sender, RoutedEventArgs e)
         {
 
         }

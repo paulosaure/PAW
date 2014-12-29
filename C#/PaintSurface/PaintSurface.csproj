@@ -113,11 +113,24 @@
     <Content Include="PaintSurface.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\sonBrosseDent.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\sonDentifrice.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\sonVerre.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\verre_grand.png" />
+    <Resource Include="Resources\verre.png" />
     <Resource Include="Resources\brosse_grand.png" />
     <Resource Include="Resources\brosse_cheveux.png" />
+    <Resource Include="Resources\brosseadents.png" />
     <Content Include="Resources\brossezlesdents.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\brosse_grandT.png" />
     <Content Include="Resources\coiffez.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -126,6 +139,8 @@
     </Content>
     <Resource Include="Resources\rasoir.png" />
     <Resource Include="Resources\douche.png" />
+    <Resource Include="Resources\dentifrice.png" />
+    <Resource Include="Resources\dentifrice_grand.png" />
     <Content Include="Resources\douchez.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

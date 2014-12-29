@@ -190,5 +190,59 @@
                 </Grid>
                 </StackPanel>
         </Grid>
+        <Grid Name="objet" Visibility="Hidden">
+            <StackPanel>
+                <TextBlock  Margin="80,0,0,10" Foreground="LightPink"  FontSize="50" >Placer les objets associés au brossage de dents</TextBlock>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <s:TagVisualizer   Name="tagBrosseaDent" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="0" Grid.Row="0" Margin="250,0" VisualizationAdded="OnVisualizationAdded">
+                        <Image Name="brosseadentImage" Height="300" Width="300"></Image>
+                        <s:TagVisualizer.Definitions>
+                    <s:TagVisualizationDefinition Value="0x1" 
+                                              LostTagTimeout="2000"
+                                              MaxCount="2"
+                                              OrientationOffsetFromTag="0"
+                                              PhysicalCenterOffsetFromTag="2,2" 
+                                              TagRemovedBehavior="Fade"
+                                              UsesTagOrientation="True"
+                                                  
+                                              />
+                </s:TagVisualizer.Definitions>
+            </s:TagVisualizer>
+                    <s:TagVisualizer   Name="tagDentifrice" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
+                        <Image Name="dentifriceImage" Height="300" Width="300"></Image>
+                        <s:TagVisualizer.Definitions>
+                            <s:TagVisualizationDefinition Value="0x2" 
+                                              LostTagTimeout="2000"
+                                              MaxCount="2"
+                                              OrientationOffsetFromTag="0"
+                                              PhysicalCenterOffsetFromTag="2,2" 
+                                              TagRemovedBehavior="Fade"
+                                              UsesTagOrientation="True"
+                                              />
+                        </s:TagVisualizer.Definitions>
+                    </s:TagVisualizer>
+                </Grid>
+                <s:TagVisualizer  Margin="0,15,0,0" Name="tagVerre" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="0" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
+                    <Image Name="verreImage" Height="300" Width="300"></Image>
+                    <s:TagVisualizer.Definitions>
+                        <s:TagVisualizationDefinition Value="0x1" 
+                                              LostTagTimeout="2000"
+                                              MaxCount="2"
+                                              OrientationOffsetFromTag="0"
+                                              PhysicalCenterOffsetFromTag="2,2" 
+                                              TagRemovedBehavior="Fade"
+                                              UsesTagOrientation="True"
+                                              />
+                    </s:TagVisualizer.Definitions>
+                </s:TagVisualizer>
+            </StackPanel>
+            </Grid>
     </Grid>
 </s:SurfaceWindow>

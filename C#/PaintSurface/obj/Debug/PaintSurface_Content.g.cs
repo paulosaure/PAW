@@ -9,6 +9,9 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("paintsurface.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sonbrossedent.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sondentifrice.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sonverre.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/brossezlesdents.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/coiffez.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cuisine.wav")]

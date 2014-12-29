@@ -39,7 +39,9 @@ namespace PaintSurface
         private MediaPlayer rasez = new MediaPlayer();
         private MediaPlayer brossezdent = new MediaPlayer();
         private MediaPlayer douchez = new MediaPlayer();
-           
+        private MediaPlayer brosseadentSon = new MediaPlayer();
+        private MediaPlayer dentifriceSon = new MediaPlayer();
+        private MediaPlayer verreSon = new MediaPlayer();
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -55,6 +57,9 @@ namespace PaintSurface
             rasez.Open(new Uri(@"Resources\rasez.wav", UriKind.Relative));
             douchez.Open(new Uri(@"Resources\douchez.wav", UriKind.Relative));
             brossezdent.Open(new Uri(@"Resources\brossezlesdents.wav", UriKind.Relative));
+            brosseadentSon.Open(new Uri(@"Resources\sonBrosseDent.wav", UriKind.Relative));
+            dentifriceSon.Open(new Uri(@"Resources\sonDentifrice.wav", UriKind.Relative));
+            verreSon.Open(new Uri(@"Resources\sonVerre.wav", UriKind.Relative));
 
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
@@ -231,9 +236,22 @@ namespace PaintSurface
             animeSalleDeBain();
         }
 
-        private void brosseadent_Click(object sender, RoutedEventArgs e)
+        private async void brosseadent_Click(object sender, RoutedEventArgs e)
         {
-
+            atelier.Visibility = Visibility.Hidden;
+            objet.Visibility = Visibility.Visible;
+            await Task.Delay(3000);
+            brosseadentImage.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
+            verreImage.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+            await Task.Delay(3000);
+            brosseadentImage.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
+            dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
+            verreImage.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
+            await Task.Delay(3000);
+            brosseadentSon.Play();
+            dentifriceSon.Play();
+            verreSon.Play();
         }
 
         private void brosseacheveux_Click(object sender, RoutedEventArgs e)
@@ -247,6 +265,10 @@ namespace PaintSurface
         }
 
         private void rasoir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
 
         }

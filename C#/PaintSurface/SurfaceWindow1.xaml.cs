@@ -30,7 +30,7 @@ namespace PaintSurface
         private Process _serverProcess;
 
         private int _serverPort = 8080;
-
+        private bool brosseadentBool = false, verreBool = false, dentifriceBool = false;
         private SocketManager _sm;
         private MediaPlayer cuisine = new MediaPlayer();
         private MediaPlayer salon = new MediaPlayer();
@@ -241,11 +241,14 @@ namespace PaintSurface
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
             await Task.Delay(3000);
-            brosseadentImage.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            ImageBrush myBrush = new ImageBrush();
+            myBrush.ImageSource = new BitmapImage(new Uri(@"Resources/brosseadents.png", UriKind.Relative));
+            to.Fill = myBrush;
             dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verreImage.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
             await Task.Delay(3000);
-            brosseadentImage.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
+             myBrush.ImageSource= new BitmapImage(new Uri(@"Resources/brosse_grandT.png", UriKind.Relative));
+             to.Fill = myBrush;
             dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
             verreImage.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
             await Task.Delay(3000);
@@ -270,6 +273,12 @@ namespace PaintSurface
         }
         private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
+            switch(e.TagVisualization.VisualizedTag.Value){
+                case 1: Trace.WriteLine("brosse a dents"); to.Stroke = new SolidColorBrush(Colors.Green); break;
+                case 2: Trace.WriteLine("dentifrice"); break;
+                case 3: Trace.WriteLine("verre"); break;
+                default: break;
+            }
 
         }
     }

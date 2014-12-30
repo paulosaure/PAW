@@ -201,9 +201,15 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <s:TagVisualizer   Name="tagBrosseaDent" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="0" Grid.Row="0" Margin="250,0" VisualizationAdded="OnVisualizationAdded">
-                        <Image Name="brosseadentImage" Height="300" Width="300"></Image>
-                        <s:TagVisualizer.Definitions>
+                    <s:TagVisualizer   Name="tagBrosseaDent"   Height="300" Width="300" Grid.Column="0" Grid.Row="0" Margin="250,0" VisualizationAdded="OnVisualizationAdded">
+                        <Ellipse Name="to" Stroke="red" StrokeThickness="1">
+                            <Ellipse.Fill>
+                                <ImageBrush  Stretch="Fill" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                       
+                       
+                                        <s:TagVisualizer.Definitions>
                     <s:TagVisualizationDefinition Value="0x1" 
                                               LostTagTimeout="2000"
                                               MaxCount="2"
@@ -232,7 +238,7 @@
                 <s:TagVisualizer  Margin="0,15,0,0" Name="tagVerre" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="0" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
                     <Image Name="verreImage" Height="300" Width="300"></Image>
                     <s:TagVisualizer.Definitions>
-                        <s:TagVisualizationDefinition Value="0x1" 
+                        <s:TagVisualizationDefinition Value="0x3" 
                                               LostTagTimeout="2000"
                                               MaxCount="2"
                                               OrientationOffsetFromTag="0"

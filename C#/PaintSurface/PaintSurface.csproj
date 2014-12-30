@@ -126,11 +126,15 @@
     <Resource Include="Resources\verre.png" />
     <Resource Include="Resources\brosse_grand.png" />
     <Resource Include="Resources\brosse_cheveux.png" />
-    <Resource Include="Resources\brosseadents.png" />
+    <CodeAnalysisDictionary Include="Resources\brosseadents.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </CodeAnalysisDictionary>
     <Content Include="Resources\brossezlesdents.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\brosse_grandT.png" />
+    <Content Include="Resources\brosse_grandT.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\coiffez.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

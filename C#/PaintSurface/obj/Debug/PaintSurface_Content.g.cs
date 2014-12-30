@@ -13,6 +13,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sondentifrice.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sonverre.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/brossezlesdents.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/brosse_grandt.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/coiffez.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cuisine.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/douchez.wav")]

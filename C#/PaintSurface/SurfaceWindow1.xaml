@@ -7,7 +7,9 @@
 
     <Grid x:Name="main" >
         <Image Source="/Resources/backgroud.jpg"  Width="1920" Height="1080"/>
-    <Grid  x:Name="myGrid">
+        
+<!--Vue présentation roue-->
+        <Grid  x:Name="myGrid" Visibility="Visible">
         <Image Source="/Resources/rond.png"  Width="360" Height="360">
             <Image.RenderTransform>
                 <RotateTransform CenterX="180" CenterY="180" />
@@ -105,7 +107,7 @@
 
                 </s:ScatterView.ItemContainerStyle>
   
-
+<!--Vue Lieu de la maison -->
 </s:ScatterView>
         <Grid Name="maison" Visibility="Hidden">
             <TextBlock Margin="5,0,5,0" Foreground="LightPink"  FontSize="50" HorizontalAlignment="Center">Choisir une pièce</TextBlock>
@@ -132,6 +134,8 @@
                 </Button>
             </StackPanel>
         </Grid>
+        
+<!--Vue Actions possibles-->
         <Grid Name="atelier" Visibility="Hidden">
             <StackPanel>
                 <TextBlock  Margin="400,0" Foreground="LightPink"  FontSize="50"  Grid.Column="0" Grid.Row="0" >Que voulez-vous faire ?</TextBlock>
@@ -190,6 +194,7 @@
                 </Grid>
                 </StackPanel>
         </Grid>
+<!--Vue objet à poser sur table-->
         <Grid Name="objet" Visibility="Hidden">
             <StackPanel>
                 <TextBlock  Margin="80,0,0,10" Foreground="LightPink"  FontSize="50" >Placer les objets associés au brossage de dents</TextBlock>
@@ -202,13 +207,20 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <s:TagVisualizer   Name="tagBrosseaDent"   Height="300" Width="300" Grid.Column="0" Grid.Row="0" Margin="250,0" VisualizationAdded="OnVisualizationAdded">
-                        <Ellipse Name="to" Stroke="red" StrokeThickness="1">
+                        <Ellipse Name="to">
                             <Ellipse.Fill>
                                 <ImageBrush  Stretch="Fill" />
                             </Ellipse.Fill>
                         </Ellipse>
+<<<<<<< HEAD
                         <s:TagVisualizer.Definitions>
                             <s:TagVisualizationDefinition Value="0x1" 
+=======
+
+
+                        <s:TagVisualizer.Definitions>
+                    <s:TagVisualizationDefinition Value="0x1" 
+>>>>>>> 4410723a6c8007d9aea66a3c1d6864fa17f4db4a
                                               LostTagTimeout="2000"
                                               MaxCount="2"
                                               OrientationOffsetFromTag="0"
@@ -217,9 +229,15 @@
                                               UsesTagOrientation="True"
                                                   
                                               />
+<<<<<<< HEAD
                         </s:TagVisualizer.Definitions>
                     </s:TagVisualizer>
                     <s:TagVisualizer   Name="tagDentifrice" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
+=======
+                </s:TagVisualizer.Definitions>
+            </s:TagVisualizer>
+                    <s:TagVisualizer   Name="tagDentifrice" Height="300" Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
+>>>>>>> 4410723a6c8007d9aea66a3c1d6864fa17f4db4a
                         <Image Name="dentifriceImage" Height="300" Width="300"></Image>
                         <s:TagVisualizer.Definitions>
                             <s:TagVisualizationDefinition Value="0x2" 
@@ -233,7 +251,7 @@
                         </s:TagVisualizer.Definitions>
                     </s:TagVisualizer>
                 </Grid>
-                <s:TagVisualizer  Margin="0,15,0,0" Name="tagVerre" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="0" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
+                <s:TagVisualizer  Margin="0,15,0,0" Name="tagVerre" Height="300" Width="300" Grid.Column="0" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
                     <Image Name="verreImage" Height="300" Width="300"></Image>
                     <s:TagVisualizer.Definitions>
                         <s:TagVisualizationDefinition Value="0x3" 

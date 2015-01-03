@@ -7,6 +7,8 @@
 
     <Grid x:Name="main" >
         <Image Source="/Resources/backgroud.jpg"  Width="1920" Height="1080"/>
+        
+<!--Vue présentation roue-->
         <Grid  x:Name="myGrid" Visibility="Visible">
         <Image Source="/Resources/rond.png"  Width="360" Height="360">
             <Image.RenderTransform>
@@ -105,7 +107,7 @@
 
                 </s:ScatterView.ItemContainerStyle>
   
-
+<!--Vue Lieu de la maison -->
 </s:ScatterView>
         <Grid Name="maison" Visibility="Hidden">
             <TextBlock Margin="5,0,5,0" Foreground="LightPink"  FontSize="50" HorizontalAlignment="Center">Choisir une pièce</TextBlock>
@@ -132,6 +134,8 @@
                 </Button>
             </StackPanel>
         </Grid>
+        
+<!--Vue Actions possibles-->
         <Grid Name="atelier" Visibility="Hidden">
             <StackPanel>
                 <TextBlock  Margin="400,0" Foreground="LightPink"  FontSize="50"  Grid.Column="0" Grid.Row="0" >Que voulez-vous faire ?</TextBlock>
@@ -190,6 +194,7 @@
                 </Grid>
                 </StackPanel>
         </Grid>
+<!--Vue objet à poser sur table-->
         <Grid Name="objet" Visibility="Hidden">
             <StackPanel>
                 <TextBlock  Margin="80,0,0,10" Foreground="LightPink"  FontSize="50" >Placer les objets associés au brossage de dents</TextBlock>

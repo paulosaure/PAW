@@ -32,13 +32,18 @@ namespace PaintSurface
         private int _serverPort = 8080;
         private bool brosseadentBool = false, verreBool = false, dentifriceBool = false;
         private SocketManager _sm;
+        //Vue choix lieu
         private MediaPlayer cuisine = new MediaPlayer();
         private MediaPlayer salon = new MediaPlayer();
         private MediaPlayer salledebain = new MediaPlayer();
+
+        //Vue actions
         private MediaPlayer coiffez = new MediaPlayer();
         private MediaPlayer rasez = new MediaPlayer();
         private MediaPlayer brossezdent = new MediaPlayer();
         private MediaPlayer douchez = new MediaPlayer();
+
+        //Vue objetrs
         private MediaPlayer brosseadentSon = new MediaPlayer();
         private MediaPlayer dentifriceSon = new MediaPlayer();
         private MediaPlayer verreSon = new MediaPlayer();
@@ -184,17 +189,32 @@ namespace PaintSurface
             da.To = 1.2;
             da.Duration = new Duration(TimeSpan.FromSeconds(1));
             da.AutoReverse = true;
+
+            await Task.Delay(1000);
             cuisineScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             cuisineScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            cuisine.Play();
+            try
+            {
+                cuisine.Play();
+            }
+            catch (System.NullReferenceException) { }
+
             await Task.Delay(2000);
             salonScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             salonScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            salon.Play();
+            try
+            {
+                salon.Play();
+            }
+            catch (System.NullReferenceException) { }
+
             await Task.Delay(2000);
             salledebainScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             salledebainScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            salledebain.Play();
+            try{
+                salledebain.Play();
+            }
+            catch (System.NullReferenceException) { }
         }
 
         private async void animeSalleDeBain()
@@ -203,21 +223,35 @@ namespace PaintSurface
             da.To = 1.2;
             da.Duration = new Duration(TimeSpan.FromSeconds(1));
             da.AutoReverse = true;
+
+            await Task.Delay(1000);
             brosseadentScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             brosseadentScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            brossezdent.Play();
+            try {
+                brossezdent.Play();
+            }
+            catch (System.NullReferenceException) { }
             await Task.Delay(2000);
             brosseacheveuxScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             brosseacheveuxScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            coiffez.Play();
+            try{
+                coiffez.Play();
+            }
+            catch (System.NullReferenceException) { }
             await Task.Delay(2000);
             rasoirScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             rasoirScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            rasez.Play();
+            try {
+                rasez.Play();
+            }
+            catch (System.NullReferenceException) { }
             await Task.Delay(2000);
             doucheScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             doucheScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            douchez.Play();
+            try{
+                douchez.Play();
+            }
+            catch (System.NullReferenceException) { }
         }
         private void ScatterViewDrop(object sender, SurfaceDragDropEventArgs e)
         {
@@ -231,6 +265,13 @@ namespace PaintSurface
 
         private void salledabain_Click(object sender, RoutedEventArgs e)
         {
+            cuisine.Stop();
+            salon.Stop();
+            salledebain.Stop();
+            cuisine = null;
+            salon = null;
+            salledebain = null;
+
             maison.Visibility = Visibility.Hidden;
             atelier.Visibility = Visibility.Visible;
             animeSalleDeBain();
@@ -238,23 +279,54 @@ namespace PaintSurface
 
         private async void brosseadent_Click(object sender, RoutedEventArgs e)
         {
+            brossezdent.Stop();
+            rasez.Stop();
+            coiffez.Stop();
+            douchez.Stop();
+            brossezdent = null;
+            rasez = null;
+            coiffez = null;
+            douchez = null;
+
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
+
+            //Objet en Texte
             await Task.Delay(3000);
             ImageBrush myBrush = new ImageBrush();
             myBrush.ImageSource = new BitmapImage(new Uri(@"Resources/brosseadents.png", UriKind.Relative));
             to.Fill = myBrush;
             dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verreImage.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+
+            //Objet en Image
             await Task.Delay(3000);
              myBrush.ImageSource= new BitmapImage(new Uri(@"Resources/brosse_grandT.png", UriKind.Relative));
              to.Fill = myBrush;
             dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
             verreImage.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
+
+            //Objet Son
             await Task.Delay(3000);
-            brosseadentSon.Play();
-            dentifriceSon.Play();
-            verreSon.Play();
+            try
+            {
+                brosseadentSon.Play();
+            }
+            catch (System.NullReferenceException) { }
+
+            await Task.Delay(2000);
+            try
+            {
+                dentifriceSon.Play();
+            }
+            catch (System.NullReferenceException) { }
+
+            await Task.Delay(2000);
+            try
+            {
+                verreSon.Play();
+            }
+            catch (System.NullReferenceException) { }
         }
 
         private void brosseacheveux_Click(object sender, RoutedEventArgs e)

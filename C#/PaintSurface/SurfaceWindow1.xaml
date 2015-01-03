@@ -7,7 +7,7 @@
 
     <Grid x:Name="main" >
         <Image Source="/Resources/backgroud.jpg"  Width="1920" Height="1080"/>
-    <Grid  x:Name="myGrid">
+        <Grid  x:Name="myGrid" Visibility="Visible">
         <Image Source="/Resources/rond.png"  Width="360" Height="360">
             <Image.RenderTransform>
                 <RotateTransform CenterX="180" CenterY="180" />
@@ -202,14 +202,14 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <s:TagVisualizer   Name="tagBrosseaDent"   Height="300" Width="300" Grid.Column="0" Grid.Row="0" Margin="250,0" VisualizationAdded="OnVisualizationAdded">
-                        <Ellipse Name="to" Stroke="red" StrokeThickness="1">
+                        <Ellipse Name="to">
                             <Ellipse.Fill>
                                 <ImageBrush  Stretch="Fill" />
                             </Ellipse.Fill>
                         </Ellipse>
-                       
-                       
-                                        <s:TagVisualizer.Definitions>
+
+
+                        <s:TagVisualizer.Definitions>
                     <s:TagVisualizationDefinition Value="0x1" 
                                               LostTagTimeout="2000"
                                               MaxCount="2"
@@ -221,7 +221,7 @@
                                               />
                 </s:TagVisualizer.Definitions>
             </s:TagVisualizer>
-                    <s:TagVisualizer   Name="tagDentifrice" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
+                    <s:TagVisualizer   Name="tagDentifrice" Height="300" Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
                         <Image Name="dentifriceImage" Height="300" Width="300"></Image>
                         <s:TagVisualizer.Definitions>
                             <s:TagVisualizationDefinition Value="0x2" 
@@ -235,7 +235,7 @@
                         </s:TagVisualizer.Definitions>
                     </s:TagVisualizer>
                 </Grid>
-                <s:TagVisualizer  Margin="0,15,0,0" Name="tagVerre" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="0" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
+                <s:TagVisualizer  Margin="0,15,0,0" Name="tagVerre" Height="300" Width="300" Grid.Column="0" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
                     <Image Name="verreImage" Height="300" Width="300"></Image>
                     <s:TagVisualizer.Definitions>
                         <s:TagVisualizationDefinition Value="0x3" 

@@ -109,3 +109,33 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\s
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonDentifrice.wav
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonVerre.wav
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\brosse_grandT.png
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe.config
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.pdb
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.xml
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\sonBrosseDent.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\sonDentifrice.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\sonVerre.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\brossezlesdents.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\brosse_grandT.png
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\coiffez.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\cuisine.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\douchez.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\rasez.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\salledebain.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Resources\salon.wav
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.pdb
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\EngineIoClientDotNet.dll
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\SocketIoClientDotNet.dll
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.csprojResolveAssemblyReference.cache
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.baml
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\App.baml
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.g.cs
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\App.g.cs
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface_Content.g.cs
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface_MarkupCompile.cache
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.g.resources
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
+C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache

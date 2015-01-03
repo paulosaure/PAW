@@ -43,7 +43,7 @@ namespace PaintSurface
         private MediaPlayer brossezdent = new MediaPlayer();
         private MediaPlayer douchez = new MediaPlayer();
 
-        //Vue objetrs
+        //Vue objets
         private MediaPlayer brosseadentSon = new MediaPlayer();
         private MediaPlayer dentifriceSon = new MediaPlayer();
         private MediaPlayer verreSon = new MediaPlayer();

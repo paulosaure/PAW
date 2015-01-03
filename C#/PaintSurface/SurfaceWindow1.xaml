@@ -212,15 +212,8 @@
                                 <ImageBrush  Stretch="Fill" />
                             </Ellipse.Fill>
                         </Ellipse>
-<<<<<<< HEAD
-                        <s:TagVisualizer.Definitions>
-                            <s:TagVisualizationDefinition Value="0x1" 
-=======
-
-
                         <s:TagVisualizer.Definitions>
                     <s:TagVisualizationDefinition Value="0x1" 
->>>>>>> 4410723a6c8007d9aea66a3c1d6864fa17f4db4a
                                               LostTagTimeout="2000"
                                               MaxCount="2"
                                               OrientationOffsetFromTag="0"
@@ -229,15 +222,10 @@
                                               UsesTagOrientation="True"
                                                   
                                               />
-<<<<<<< HEAD
-                        </s:TagVisualizer.Definitions>
-                    </s:TagVisualizer>
-                    <s:TagVisualizer   Name="tagDentifrice" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
-=======
+
                 </s:TagVisualizer.Definitions>
             </s:TagVisualizer>
                     <s:TagVisualizer   Name="tagDentifrice" Height="300" Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
->>>>>>> 4410723a6c8007d9aea66a3c1d6864fa17f4db4a
                         <Image Name="dentifriceImage" Height="300" Width="300"></Image>
                         <s:TagVisualizer.Definitions>
                             <s:TagVisualizationDefinition Value="0x2" 

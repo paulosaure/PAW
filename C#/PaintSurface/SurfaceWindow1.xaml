@@ -207,10 +207,8 @@
                                 <ImageBrush  Stretch="Fill" />
                             </Ellipse.Fill>
                         </Ellipse>
-                       
-                       
-                                        <s:TagVisualizer.Definitions>
-                    <s:TagVisualizationDefinition Value="0x1" 
+                        <s:TagVisualizer.Definitions>
+                            <s:TagVisualizationDefinition Value="0x1" 
                                               LostTagTimeout="2000"
                                               MaxCount="2"
                                               OrientationOffsetFromTag="0"
@@ -219,8 +217,8 @@
                                               UsesTagOrientation="True"
                                                   
                                               />
-                </s:TagVisualizer.Definitions>
-            </s:TagVisualizer>
+                        </s:TagVisualizer.Definitions>
+                    </s:TagVisualizer>
                     <s:TagVisualizer   Name="tagDentifrice" BorderBrush="Red"  BorderThickness="2" Height="300" Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
                         <Image Name="dentifriceImage" Height="300" Width="300"></Image>
                         <s:TagVisualizer.Definitions>
@@ -249,6 +247,36 @@
                     </s:TagVisualizer.Definitions>
                 </s:TagVisualizer>
             </StackPanel>
-            </Grid>
+        </Grid>
+        <Grid Name="ordonnancement" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <WrapPanel Name="friseHaut" Grid.Column="0" Grid.Row="0" >
+                <Image Name="fleche" Margin="10,0" Height="300" Width="300"  Source="/Resources/friseG.png"  />
+                <Image Name="bloc1" Margin="10,0" Height="300" Width="300"  Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True" />
+                <Image Name="bloc2" Margin="10,0" Height="300" Width="300"  Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True"/>
+                <Image Name="bloc3" Margin="10,0" Height="300" Width="300"  Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True" />
+                <Image Name="bloc4" Margin="10,0"  Height="300" Width="300" Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True"/>
+                <Image Name="bloc5" Margin="10,0"  Height="300" Width="300" Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True"/>
+            </WrapPanel>
+            <WrapPanel Name="ActionPanel" Grid.Column="0" Grid.Row="1" Margin="0,100" >
+                <Image Name="ActionBrosser" Margin="10,0" Height="300" Width="300"  Source="/Resources/brosser.jpg" MouseMove="List_MouseMove"  MouseUp="mouseUp" MouseDown="mouseDown" GiveFeedback="img_GiveFeedback" >
+                    <Image.RenderTransform>
+                        <RotateTransform x:Name="brosserName" CenterX="150" CenterY="150" />
+                    </Image.RenderTransform>
+                </Image>
+                <Image Name="ActionCracher" Margin="10,0" Height="300" Width="300"  Source="/Resources/cracher.png" MouseMove="List_MouseMove"  />
+                <Image Name="ActionPrendreBrosse" Margin="10,0" Height="300" Width="300"  Source="/Resources/prendre_brossedent.png" MouseMove="List_MouseMove"  />
+                <Image Name="ActionMettreDentifrice" Margin="10,0" Height="300" Width="300"  Source="/Resources/mettre_dentifrice.png" MouseMove="List_MouseMove"  />
+                <Image Name="ActionMouilleBrosse" Margin="10,0" Height="300" Width="300"  Source="/Resources/mouiller_brosse.png" MouseMove="List_MouseMove"  />
+                <Image Name="ActionRincer" Margin="10,0" Height="300" Width="300"  Source="/Resources/rincer_bouche.png" MouseMove="List_MouseMove"  />
+            </WrapPanel>
+        </Grid>
     </Grid>
 </s:SurfaceWindow>

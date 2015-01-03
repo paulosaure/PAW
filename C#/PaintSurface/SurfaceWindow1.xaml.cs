@@ -42,6 +42,7 @@ namespace PaintSurface
         private MediaPlayer brosseadentSon = new MediaPlayer();
         private MediaPlayer dentifriceSon = new MediaPlayer();
         private MediaPlayer verreSon = new MediaPlayer();
+        private Point startPoint;
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -170,7 +171,7 @@ namespace PaintSurface
             //TODO: disable audio, animations here
         }
 
-        private  void touchez_Click(object sender, RoutedEventArgs e)
+        private void touchez_Click(object sender, RoutedEventArgs e)
         {
             myGrid.Visibility = Visibility.Hidden;
             maison.Visibility = Visibility.Visible;
@@ -221,7 +222,9 @@ namespace PaintSurface
         }
         private void ScatterViewDrop(object sender, SurfaceDragDropEventArgs e)
         {
+            ImageSource i = new BitmapImage(new Uri(e.Cursor.Data as String));
 
+            fleche.Source = i;
         }
 
         private void ScatterViewItemHoldGesture(object sender, TouchEventArgs e)
@@ -247,8 +250,8 @@ namespace PaintSurface
             dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verreImage.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
             await Task.Delay(3000);
-             myBrush.ImageSource= new BitmapImage(new Uri(@"Resources/brosse_grandT.png", UriKind.Relative));
-             to.Fill = myBrush;
+            myBrush.ImageSource = new BitmapImage(new Uri(@"Resources/brosse_grandT.png", UriKind.Relative));
+            to.Fill = myBrush;
             dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
             verreImage.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
             await Task.Delay(3000);
@@ -273,13 +276,73 @@ namespace PaintSurface
         }
         private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
-            switch(e.TagVisualization.VisualizedTag.Value){
+            switch (e.TagVisualization.VisualizedTag.Value)
+            {
                 case 1: Trace.WriteLine("brosse a dents"); to.Stroke = new SolidColorBrush(Colors.Green); break;
                 case 2: Trace.WriteLine("dentifrice"); break;
-                case 3: Trace.WriteLine("verre"); break;
+                case 3: Trace.WriteLine("verre"); objet.Visibility = Visibility.Hidden; ordonnancement.Visibility = Visibility.Visible; break;
                 default: break;
             }
 
         }
+        private bool t = false;
+        private void List_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (t) { 
+            Point mousePos = e.GetPosition(null);
+            Point position = ActionBrosser.PointToScreen(new Point(0d, 0d));
+            DoubleAnimation da = new DoubleAnimation();
+            Trace.WriteLine("PosX= " + mousePos.X + " PosY = " + mousePos.Y);
+            Trace.WriteLine("ImagePosX= " +position.X + " ImagePosY = " + position.Y);
+                // Get the dragged ListViewItem
+                Image img = sender as Image;
+                DataObject data = new DataObject(typeof(ImageSource), img.Source);
+                DragDrop.DoDragDrop(img, data, DragDropEffects.Move);
+        }
+        }
+
+        private void DropList_Drop(object sender, DragEventArgs e)
+        {
+            Image img = sender as Image;
+            if (img != null)
+            {
+                // Save the current Fill brush so that you can revert back to this value in DragLeave.
+   
+
+                // If the DataObject contains string data, extract it.
+                if (e.Data.GetData(typeof(ImageSource)) != null)
+                {
+                    Trace.WriteLine("Entre DROP 2");
+                    ImageSource image = e.Data.GetData(typeof(ImageSource)) as ImageSource;
+
+                    img.Source = image;
+                }
+            }
+        }
+
+        private void img_GiveFeedback(object sender, System.Windows.GiveFeedbackEventArgs e)
+        {
+
+        }
+
+        private void mouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image img = sender as Image;
+            if (img != null)
+            {
+                Point mousePos = e.GetPosition(null);
+                Point position = ActionBrosser.PointToScreen(new Point(0d, 0d));
+                DoubleAnimation da = new DoubleAnimation();
+                Trace.WriteLine("PosX= " + mousePos.X + " PosY = " + mousePos.Y);
+                Trace.WriteLine("ImagePosX= " + position.X + " ImagePosY = " + position.Y);
+                t = true;
+            }
+        }
+
+        private void mouseUp(object sender, MouseButtonEventArgs e)
+        {
+            t = false;
+        }
     }
 }
+

@@ -6,6 +6,12 @@
 // project.
 
 
+// OBDragDrop
+#define COCOAPODS_POD_AVAILABLE_OBDragDrop
+#define COCOAPODS_VERSION_MAJOR_OBDragDrop 1
+#define COCOAPODS_VERSION_MINOR_OBDragDrop 0
+#define COCOAPODS_VERSION_PATCH_OBDragDrop 0
+
 // SIOSocket
 #define COCOAPODS_POD_AVAILABLE_SIOSocket
 #define COCOAPODS_VERSION_MAJOR_SIOSocket 0

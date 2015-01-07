@@ -10,5 +10,6 @@
 #define Workshop_Workshop_Bridging_Header_h
 
 #import <SIOSocket/SIOSocket.h>
+#import <OBDragDrop/OBDragDrop.h>
 
 #endif

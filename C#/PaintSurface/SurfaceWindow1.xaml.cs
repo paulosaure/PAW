@@ -115,9 +115,11 @@ namespace PaintSurface
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-
-            this._serverProcess.CloseMainWindow();
-
+            try
+            {
+                this._serverProcess.CloseMainWindow();
+            }
+            catch (Exception ex) { }
             // Remove handlers for window availability events
             RemoveWindowAvailabilityHandlers();
         }

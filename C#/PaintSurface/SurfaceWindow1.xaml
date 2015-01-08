@@ -196,36 +196,32 @@
         </Grid>
 <!--Vue objet à poser sur table-->
         <Grid Name="objet" Visibility="Hidden">
-            <StackPanel>
-                <TextBlock  Margin="80,0,0,10" Foreground="LightPink"  FontSize="50" >Placer les objets associés au brossage de dents</TextBlock>
+                <TextBlock  Margin="80,0,0,100" Foreground="LightPink"  FontSize="50" >Placer les objets associés au brossage de dents</TextBlock>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="300" />
+                        <RowDefinition Height="650" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <s:TagVisualizer   Name="tagBrosseaDent"   Height="300" Width="300" Grid.Column="0" Grid.Row="0" Margin="250,0" VisualizationAdded="OnVisualizationAdded">
+                        <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <s:TagVisualizer   Name="tagBrosseaDent"   Height="600" Width="600" Grid.Column="0" Grid.Row="0"  VisualizationAdded="OnVisualizationAdded">
                         <Ellipse Name="to">
                             <Ellipse.Fill>
                                 <ImageBrush  Stretch="Fill" />
                             </Ellipse.Fill>
                         </Ellipse>
                         <s:TagVisualizer.Definitions>
-                    <s:TagVisualizationDefinition Value="0x1" 
-                                              LostTagTimeout="2000"
-                                              MaxCount="2"
-                                              OrientationOffsetFromTag="0"
-                                              PhysicalCenterOffsetFromTag="2,2" 
-                                              TagRemovedBehavior="Fade"
-                                              UsesTagOrientation="True"
+                    <s:TagVisualizationDefinition Source="brosseDents.xaml"
+                                                  Value="0x1" 
+                                             OrientationOffsetFromTag="0" PhysicalCenterOffsetFromTag="0,0"
                                                   
                                               />
 
                 </s:TagVisualizer.Definitions>
             </s:TagVisualizer>
-                    <s:TagVisualizer   Name="tagDentifrice" Height="300" Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
+                    <s:TagVisualizer   Name="tagDentifrice" Height="300"  Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
                         <Image Name="dentifriceImage" Height="300" Width="300"></Image>
                         <s:TagVisualizer.Definitions>
                             <s:TagVisualizationDefinition Value="0x2" 
@@ -238,11 +234,11 @@
                                               />
                         </s:TagVisualizer.Definitions>
                     </s:TagVisualizer>
-                </Grid>
-                <s:TagVisualizer  Margin="0,15,0,0" Name="tagVerre" Height="300" Width="300" Grid.Column="0" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
-                    <Image Name="verreImage" Height="300" Width="300"></Image>
-                    <s:TagVisualizer.Definitions>
-                        <s:TagVisualizationDefinition Value="0x3" 
+
+                <s:TagVisualizer    Name="tagVerre" Height="300" Width="300" Grid.Column="2" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
+                <Image Name="verreImage" Height="300" Width="300"></Image>
+                <s:TagVisualizer.Definitions>
+                    <s:TagVisualizationDefinition Value="0x3" 
                                               LostTagTimeout="2000"
                                               MaxCount="2"
                                               OrientationOffsetFromTag="0"
@@ -250,10 +246,10 @@
                                               TagRemovedBehavior="Fade"
                                               UsesTagOrientation="True"
                                               />
-                    </s:TagVisualizer.Definitions>
-                </s:TagVisualizer>
-            </StackPanel>
-        </Grid>
+                </s:TagVisualizer.Definitions>
+            </s:TagVisualizer>
+         </Grid>
+       </Grid>
         <Grid Name="ordonnancement" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />

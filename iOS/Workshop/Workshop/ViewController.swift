@@ -13,19 +13,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var friezeCollectionView: UICollectionView!
     @IBOutlet weak var actionCollectionView: UICollectionView!
     
+    @IBOutlet weak var actionCollectionViewCellHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var friezeCollectionViewCellHeightConstraint: NSLayoutConstraint!
+    
     let numberOfItem = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        actionCollectionView.backgroundColor = UIColor.clearColor()
+        friezeCollectionView.backgroundColor = UIColor.clearColor()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        invalidateCollectionViewLayout()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+       invalidateCollectionViewLayout()
+    }
+    
+    func invalidateCollectionViewLayout() {
         friezeCollectionView.collectionViewLayout.invalidateLayout()
         actionCollectionView.collectionViewLayout.invalidateLayout()
     }
@@ -39,6 +52,11 @@ extension ViewController: UICollectionViewDataSource {
         let identifier = (collectionView.isEqual(friezeCollectionView)) ? "friezeCell" : "actionCell"
         
         let cell : UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as UICollectionViewCell
+        
+        
+        cell.layer.borderWidth = 3.0
+        cell.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell.layer.cornerRadius = 5.0
         
         if(collectionView.isEqual(friezeCollectionView)){
             cell.dropZoneHandler = self
@@ -61,8 +79,6 @@ extension ViewController: UICollectionViewDataSource {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-    
-    
 }
 
 extension ViewController: UICollectionViewDelegate {
@@ -71,13 +87,15 @@ extension ViewController: UICollectionViewDelegate {
 }
 
 extension ViewController : UICollectionViewDelegateFlowLayout{
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     
         let width = (collectionView.frame.size.width - CGFloat(numberOfItem-1) * 5) / CGFloat(numberOfItem)
-        collectionView.frame.size.height = width
+        
+        actionCollectionViewCellHeightConstraint.constant = width
+        friezeCollectionViewCellHeightConstraint.constant = width + 64
         
         return CGSizeMake(width, width)
-        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -88,7 +106,7 @@ extension ViewController : OBDropZone{
     
     func ovumEntered(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) -> OBDropAction {
         if let cell = view as? UICollectionViewCell {
-            cell.layer.borderWidth = 2.0
+            cell.layer.borderWidth = 5.0
             cell.layer.borderColor = UIColor.redColor().CGColor
         }
         return OBDropActionMove
@@ -96,8 +114,10 @@ extension ViewController : OBDropZone{
     
     func ovumExited(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
         if let cell = view as? UICollectionViewCell{
-            cell.layer.borderWidth = 0
-            cell.layer.borderColor = UIColor.clearColor().CGColor
+            cell.layer.borderWidth = 3.0
+            cell.layer.borderColor = UIColor.lightGrayColor().CGColor
+            cell.layer.cornerRadius = 5.0
+
             view.backgroundColor = UIColor.clearColor()
         }
     }
@@ -115,7 +135,6 @@ extension ViewController : OBDropZone{
             cell.removeFromSuperview()
         }
     }
-    
 }
 
 extension ViewController : OBOvumSource{
@@ -126,6 +145,18 @@ extension ViewController : OBOvumSource{
         return ovum
     }
 
+    func createDragRepresentationOfSourceView(sourceView: UIView!, inWindow window: UIWindow!) -> UIView! {
+        
+        var frame = sourceView.convertRect(sourceView.bounds, toView:sourceView.window)
+        frame = window.convertRect(frame, fromWindow:sourceView.window);
+        
+        var view = UIView(frame: frame.rectByInsetting(dx: 5, dy: 5))
+        view.backgroundColor = sourceView.backgroundColor
+        view.layer.cornerRadius = 5
+        view.alpha = 0.7
+        return view
+    }
+    
 }
 
 extension UIColor{

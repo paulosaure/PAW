@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var actionCollectionViewCellHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var friezeCollectionViewCellHeightConstraint: NSLayoutConstraint!
     
+    
+    let frieze : Workshop?
     let numberOfItem = 6
     
     override func viewDidLoad() {
@@ -53,26 +55,31 @@ extension ViewController: UICollectionViewDataSource {
         
         let cell : UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as UICollectionViewCell
         
-        
+            
         cell.layer.borderWidth = 3.0
         cell.layer.borderColor = UIColor.lightGrayColor().CGColor
         cell.layer.cornerRadius = 5.0
-        
+            
         if(collectionView.isEqual(friezeCollectionView)){
             cell.dropZoneHandler = self
         }
         else{
-            cell.backgroundColor = UIColor.randomColor()
-            
-            let dragDropManager = OBDragDropManager.sharedManager()
-            let panRecognizer = dragDropManager.createDragDropGestureRecognizerWithClass(UIPanGestureRecognizer.self, source: self)
-            cell.addGestureRecognizer(panRecognizer)
+            //if let frieze = self.frieze {
+                    
+                cell.backgroundColor = UIColor.randomColor()
+                
+                let dragDropManager = OBDragDropManager.sharedManager()
+                let panRecognizer = dragDropManager.createDragDropGestureRecognizerWithClass(UIPanGestureRecognizer.self, source: self)
+                cell.addGestureRecognizer(panRecognizer)
+           // }
         }
-        
         return cell;
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let frieze = self.frieze {
+            return frieze.slots.count
+        }
         return numberOfItem
     }
     
@@ -93,7 +100,7 @@ extension ViewController : UICollectionViewDelegateFlowLayout{
         let width = (collectionView.frame.size.width - CGFloat(numberOfItem-1) * 5) / CGFloat(numberOfItem)
         
         actionCollectionViewCellHeightConstraint.constant = width
-        friezeCollectionViewCellHeightConstraint.constant = width + 64
+        friezeCollectionViewCellHeightConstraint.constant = width
         
         return CGSizeMake(width, width)
     }

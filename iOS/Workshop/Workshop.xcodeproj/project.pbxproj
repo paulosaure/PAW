@@ -14,6 +14,8 @@
 		92BC8F8C1A59C630004437B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BC8F8B1A59C630004437B9 /* Images.xcassets */; };
 		92BC8F8F1A59C630004437B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BC8F8D1A59C630004437B9 /* LaunchScreen.xib */; };
 		92BC8F9B1A59C630004437B9 /* WorkshopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F9A1A59C630004437B9 /* WorkshopTests.swift */; };
+		92F4ACA21A5FC0AC00C29FFB /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA11A5FC0AC00C29FFB /* Slot.swift */; };
+		92F4ACA41A5FC7CC00C29FFB /* Workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */; };
 		D1A67ED3493F5ECCF63E2320 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B951575F004E68B0145AF930 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		92BC8F991A59C630004437B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92BC8F9A1A59C630004437B9 /* WorkshopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTests.swift; sourceTree = "<group>"; };
 		92D72B641A59C8BF00AEE3FC /* Workshop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Workshop-Bridging-Header.h"; sourceTree = "<group>"; };
+		92F4ACA11A5FC0AC00C29FFB /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
+		92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workshop.swift; sourceTree = "<group>"; };
 		B951575F004E68B0145AF930 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB352EAD91B780E13CC1A7DA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,9 +108,10 @@
 		92BC8F7E1A59C630004437B9 /* Workshop */ = {
 			isa = PBXGroup;
 			children = (
-				92BC8F811A59C630004437B9 /* AppDelegate.swift */,
-				92BC8F861A59C630004437B9 /* ViewController.swift */,
+				92F4AC9F1A5FBFB300C29FFB /* Model */,
 				92BC8F881A59C630004437B9 /* Main.storyboard */,
+				92F4ACA01A5FBFC000C29FFB /* Controller */,
+				92BC8F811A59C630004437B9 /* AppDelegate.swift */,
 				92BC8F8B1A59C630004437B9 /* Images.xcassets */,
 				92BC8F8D1A59C630004437B9 /* LaunchScreen.xib */,
 				92BC8F831A59C630004437B9 /* Workshop.xcdatamodeld */,
@@ -147,6 +152,23 @@
 				92D72B641A59C8BF00AEE3FC /* Workshop-Bridging-Header.h */,
 			);
 			name = "Bridge objC to Swift";
+			sourceTree = "<group>";
+		};
+		92F4AC9F1A5FBFB300C29FFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92F4ACA11A5FC0AC00C29FFB /* Slot.swift */,
+				92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		92F4ACA01A5FBFC000C29FFB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92BC8F861A59C630004437B9 /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +309,8 @@
 				92BC8F871A59C630004437B9 /* ViewController.swift in Sources */,
 				92BC8F851A59C630004437B9 /* Workshop.xcdatamodeld in Sources */,
 				92BC8F821A59C630004437B9 /* AppDelegate.swift in Sources */,
+				92F4ACA21A5FC0AC00C29FFB /* Slot.swift in Sources */,
+				92F4ACA41A5FC7CC00C29FFB /* Workshop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +441,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/anthony/Developer/PolytechNice/SI5/Multi-Support/iOS/Workshop/Workshop/Workshop-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -430,6 +455,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/anthony/Developer/PolytechNice/SI5/Multi-Support/iOS/Workshop/Workshop/Workshop-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

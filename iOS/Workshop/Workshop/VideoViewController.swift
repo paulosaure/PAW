@@ -21,7 +21,7 @@ class VideoViewController: UIViewController {
                 
                 var alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil);
+                self.presentViewController(alert, animated: true, completion: nil)
 
                 NSLog("Connection")
 

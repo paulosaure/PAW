@@ -22,3 +22,11 @@ D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\bin\debug\
 D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\SocketIO\obj\Debug\SocketIOClient.csprojResolveAssemblyReference.cache
 D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\SocketIO\obj\Debug\SocketIOClient.dll
 D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\SocketIO\obj\Debug\SocketIOClient.pdb
+C:\Users\Val\Desktop\Interface\C#\bin\debug\SocketIOClient.xml
+C:\Users\Val\Desktop\Interface\C#\bin\debug\SocketIOClient.dll
+C:\Users\Val\Desktop\Interface\C#\bin\debug\SocketIOClient.pdb
+C:\Users\Val\Desktop\Interface\C#\bin\debug\SocketIOClient.dll.CodeAnalysisLog.xml
+C:\Users\Val\Desktop\Interface\C#\bin\debug\SocketIOClient.dll.lastcodeanalysissucceeded
+C:\Users\Val\Desktop\Interface\C#\SocketIO\obj\Debug\SocketIOClient.csprojResolveAssemblyReference.cache
+C:\Users\Val\Desktop\Interface\C#\SocketIO\obj\Debug\SocketIOClient.dll
+C:\Users\Val\Desktop\Interface\C#\SocketIO\obj\Debug\SocketIOClient.pdb

@@ -39,15 +39,9 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EngineIoClientDotNet">
-      <HintPath>libs\EngineIoClientDotNet.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>libs\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SocketIoClientDotNet">
-      <HintPath>libs\SocketIoClientDotNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -181,6 +175,12 @@
     <Resource Include="Resources\text.png" />
     <Resource Include="Resources\roue.png" />
     <Resource Include="Resources\rond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocketIO\SocketIOClient.csproj">
+      <Project>{352c9bc1-f74c-4741-a09d-7227bc60c057}</Project>
+      <Name>SocketIOClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -20,6 +20,8 @@ using System.Diagnostics;
 using System.Net;
 using System.IO;
 using System.Threading.Tasks;
+using SocketIOClient;
+
 namespace PaintSurface
 {
     /// <summary>

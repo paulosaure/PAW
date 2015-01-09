@@ -107,3 +107,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
+
+#node_module
+C#/PaintServer/PaintServer/node_modules

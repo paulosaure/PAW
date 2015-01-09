@@ -17,6 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="23D-ed-uNT">
+                                <rect key="frame" x="16" y="28" width="568" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="aSX-Dm-ssc"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="uv0-OE-I0e">
+                                    <size key="itemSize" width="60" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friezeCell" id="WEX-TS-1Ar">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="OgH-zv-GZa"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="E7D-9Q-qVn"/>
+                                </connections>
+                            </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ewJ-sy-Zqt">
                                 <rect key="frame" x="16" y="213" width="568" height="125"/>
                                 <constraints>
@@ -44,33 +72,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="VTd-17-LxH"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="23D-ed-uNT">
-                                <rect key="frame" x="16" y="28" width="568" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="aSX-Dm-ssc"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="uv0-OE-I0e">
-                                    <size key="itemSize" width="60" height="60"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friezeCell" id="WEX-TS-1Ar">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="OgH-zv-GZa"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="E7D-9Q-qVn"/>
-                                </connections>
-                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -82,7 +83,7 @@
                             <constraint firstItem="ewJ-sy-Zqt" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="plM-KV-knH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ordonnancement" image="realtime_protection-25" id="H7l-Mf-lZc"/>
+                    <tabBarItem key="tabBarItem" title="Ordonnancement" image="realtime_protection-25" id="3Qp-XV-UO7"/>
                     <navigationItem key="navigationItem" id="QLs-T6-p3i"/>
                     <connections>
                         <outlet property="actionCollectionView" destination="ewJ-sy-Zqt" id="wwV-nj-fxX"/>
@@ -93,12 +94,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598" y="284"/>
+            <point key="canvasLocation" x="598" y="296"/>
         </scene>
         <!--Vidéos-->
         <scene sceneID="C0u-bI-Fek">
             <objects>
-                <viewController id="MAs-9G-Jg7" sceneMemberID="viewController">
+                <viewController id="MAs-9G-Jg7" customClass="VideoViewController" customModule="Workshop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fS3-4Q-70v"/>
                         <viewControllerLayoutGuide type="bottom" id="Yj5-FA-wkH"/>
@@ -125,8 +126,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="qqj-xd-Zvz"/>
                         <segue destination="MAs-9G-Jg7" kind="relationship" relationship="viewControllers" id="tbI-ON-ImH"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="SlJ-RT-sYA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrT-aS-9At" userLabel="First Responder" sceneMemberID="firstResponder"/>

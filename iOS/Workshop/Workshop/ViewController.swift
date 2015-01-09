@@ -59,7 +59,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.layer.borderWidth = 3.0
         cell.layer.borderColor = UIColor.lightGrayColor().CGColor
         cell.layer.cornerRadius = 5.0
-            
+        
         if(collectionView.isEqual(friezeCollectionView)){
             cell.dropZoneHandler = self
         }
@@ -67,7 +67,6 @@ extension ViewController: UICollectionViewDataSource {
             //if let frieze = self.frieze {
                     
                 cell.backgroundColor = UIColor.randomColor()
-                
                 let dragDropManager = OBDragDropManager.sharedManager()
                 let panRecognizer = dragDropManager.createDragDropGestureRecognizerWithClass(UIPanGestureRecognizer.self, source: self)
                 cell.addGestureRecognizer(panRecognizer)

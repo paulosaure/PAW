@@ -1,3 +1,0 @@
-node PaintServer.js
-
-pause

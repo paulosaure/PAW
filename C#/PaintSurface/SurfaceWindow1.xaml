@@ -197,22 +197,45 @@
 <!--Vue objet à poser sur table-->
         <Grid Name="objet" Visibility="Hidden">
             <StackPanel>
-                <WrapPanel Name="aideTop" Height="200" Orientation="Horizontal" Margin="0,0,200,0">
-                        <Image Name="textAide" Height="200" Width="200" />
-                    <Border Name="borderAideBrosseDent" BorderBrush="Green" BorderThickness="4" Visibility="Hidden">
-                        <Image Name="brosseDent" Height="200" Width="200" />
+                <WrapPanel Name="aideTop" Height="200"  Orientation="Horizontal" Margin="0,0,0,0">
+                    <Border Name="borderVerre"  BorderThickness="4" >
+                        <Image Name="verre" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5" >
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="180"/>
+                            </Image.RenderTransform>
+                        </Image>
                     </Border>
-                    <Border Name="borderDentifrice" BorderBrush="Green" BorderThickness="4" Visibility="Hidden">
-                        <Image Name="dentifrice" Height="200" Width="200" />
+                    <Border Name="borderDentifrice"  BorderThickness="4" >
+                        <Image Name="dentifrice" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5" >
+                            <Image.RenderTransform>
+                                <RotateTransform  Angle="180"/>
+                            </Image.RenderTransform>
+                        </Image>
                     </Border>
-                    <Border Name="borderVerre" BorderBrush="Green" BorderThickness="4" Visibility="Hidden">
-                        <Image Name="verre" Height="200" Width="200" />
+                    <Border Name="borderAideBrosseDent"  BorderThickness="4" >
+                        <Image Name="brosseDent" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5">
+                            <Image.RenderTransform>
+                                <RotateTransform  Angle="180"/>
+                            </Image.RenderTransform>
+                        </Image>
                     </Border>
+                    <TextBlock   Foreground="LightPink"  FontSize="50" Text="Aide :" Height="200" RenderTransformOrigin="0.5, 0.5">                     
+                        <TextBlock.RenderTransform>
+                                <RotateTransform  Angle="180"/>
+                            </TextBlock.RenderTransform></TextBlock>
                 </WrapPanel>
                 <Border BorderBrush="Black" BorderThickness="5">
-                    <Grid>
-                        <TextBlock  Margin="80,0,0,0" Foreground="LightPink"  FontSize="50" >Placer les objets associés au brossage de dents</TextBlock>
-
+                    <Grid Height="650" Width="1080">
+                        <TextBlock   Height="100" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " >
+                            <TextBlock.RenderTransform>
+                                <RotateTransform  Angle="-90"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock   Height="100" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " >
+                            <TextBlock.RenderTransform>
+                                <RotateTransform  Angle="90"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
                         <Grid >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="650" />
@@ -237,13 +260,23 @@
                                               PhysicalCenterOffsetFromTag="0,0" 
                                               UsesTagOrientation="True"
                                               />
-
                                 </s:TagVisualizer.Definitions>
-
                             </s:TagVisualizer>
                         </Grid>
                     </Grid>
                 </Border>
+                <WrapPanel Name="aideBot" Height="200" Orientation="Horizontal" Margin="0,0,0,0">
+                    <TextBlock   Foreground="LightPink"  FontSize="50" >Aide :</TextBlock>
+                    <Border Name="borderAideBrosseDent2"  BorderThickness="4" >
+                        <Image Name="brosseDent2" Height="200" Width="200" />
+                    </Border>
+                    <Border Name="borderDentifrice2"  BorderThickness="4" >
+                        <Image Name="dentifrice2" Height="200" Width="200" />
+                    </Border>
+                    <Border Name="borderVerre2"  BorderThickness="4" >
+                        <Image Name="verre2" Height="200" Width="200" />
+                    </Border>
+                </WrapPanel>
             </StackPanel>
         </Grid>
         <Grid Name="ordonnancement" Visibility="Hidden">

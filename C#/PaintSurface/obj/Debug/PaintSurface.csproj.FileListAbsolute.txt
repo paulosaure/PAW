@@ -83,9 +83,7 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurfac
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe.config
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.pdb
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\EngineIoClientDotNet.dll
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.dll
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIoClientDotNet.dll
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.csprojResolveAssemblyReference.cache
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.baml
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\App.baml
@@ -108,7 +106,6 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\r
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonBrosseDent.wav
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonDentifrice.wav
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonVerre.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\brosse_grandT.png
 C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe.config
 C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
 C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.pdb
@@ -177,3 +174,11 @@ C:\Users\Val\Desktop\Interface\C#\PaintSurface\bin\Debug\SocketIOClient.dll
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\bin\Debug\SocketIOClient.pdb
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\bin\Debug\SocketIOClient.xml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.baml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\verre.baml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.g.cs
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\verre.g.cs
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIOClient.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIOClient.pdb
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIOClient.xml

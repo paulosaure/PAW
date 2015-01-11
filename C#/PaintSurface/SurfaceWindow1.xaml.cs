@@ -297,22 +297,20 @@ namespace PaintSurface
 
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
-
+            
             //Objet en Texte
             await Task.Delay(3000);
-            ImageBrush myBrush = new ImageBrush();
-            myBrush.ImageSource = new BitmapImage(new Uri(@"Resources/brosseadents.png", UriKind.Relative));
-            to.Fill = myBrush;
-            dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
-            verreImage.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
+            verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
 
             //Objet en Image
             await Task.Delay(3000);
-            myBrush.ImageSource = new BitmapImage(new Uri(@"Resources/brosse_grandT.png", UriKind.Relative));
-            to.Fill = myBrush;
-            dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
-            verreImage.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
 
+            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
+            verre.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
+            
             //Objet Son
             await Task.Delay(3000);
             try
@@ -350,13 +348,21 @@ namespace PaintSurface
         {
 
         }
+        private void valideObjet(){
+
+            if (brosseadentBool && verreBool && dentifriceBool)
+            {
+                aideTop.Visibility = Visibility.Hidden;
+                ordonnancement.Visibility = Visibility.Visible;
+            }
+        }
         private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
             switch (e.TagVisualization.VisualizedTag.Value)
             {
-                case 1: Trace.WriteLine("brosse a dents"); to.Stroke = new SolidColorBrush(Colors.Green); break;
-                case 2: Trace.WriteLine("dentifrice"); break;
-                case 3: Trace.WriteLine("verre"); objet.Visibility = Visibility.Hidden; ordonnancement.Visibility = Visibility.Visible; break;
+                case 1: brosseadentBool = true; valideObjet(); break;
+                case 2: dentifriceBool = true; valideObjet(); break;
+                case 3: verreBool = true; valideObjet(); break;
                 default: break;
             }
 

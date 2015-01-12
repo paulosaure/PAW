@@ -38,3 +38,11 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\bin\debug\SocketIOClient.dll.lastc
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\SocketIO\obj\Debug\SocketIOClient.csprojResolveAssemblyReference.cache
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\SocketIO\obj\Debug\SocketIOClient.dll
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\SocketIO\obj\Debug\SocketIOClient.pdb
+C:\Users\ILoveOL\Documents\paw\C#\bin\debug\SocketIOClient.xml
+C:\Users\ILoveOL\Documents\paw\C#\bin\debug\SocketIOClient.dll
+C:\Users\ILoveOL\Documents\paw\C#\bin\debug\SocketIOClient.pdb
+C:\Users\ILoveOL\Documents\paw\C#\bin\debug\SocketIOClient.dll.CodeAnalysisLog.xml
+C:\Users\ILoveOL\Documents\paw\C#\bin\debug\SocketIOClient.dll.lastcodeanalysissucceeded
+C:\Users\ILoveOL\Documents\paw\C#\SocketIO\obj\Debug\SocketIOClient.csprojResolveAssemblyReference.cache
+C:\Users\ILoveOL\Documents\paw\C#\SocketIO\obj\Debug\SocketIOClient.dll
+C:\Users\ILoveOL\Documents\paw\C#\SocketIO\obj\Debug\SocketIOClient.pdb

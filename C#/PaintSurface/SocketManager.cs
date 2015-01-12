@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 //using SocketIOClient;
 //using SocketIOClient.Messages;
-//using Quobject.SocketIoClientDotNet.Client;
+using Quobject.SocketIoClientDotNet.Client;
 using Newtonsoft.Json;
-using SocketIOClient;
 
 namespace PaintSurface
 {
@@ -14,73 +13,78 @@ namespace PaintSurface
     {
 
         private string _serverURL;
-        public string ServerUrl {
-            get {
+        public string ServerUrl
+        {
+            get
+            {
                 return this._serverURL;
             }
-            set {
+            set
+            {
                 this._serverURL = value;
                 this._connection();
             }
         }
 
         //public Client socket;
-        //public Socket socket;
+        public Socket socket;
 
         public SocketManager(string serverUrl)
         {
+            this.socket = null;
+
             this.ServerUrl = serverUrl;
         }
 
         private void _connection()
         {
-            
+            if (this.socket == null)
+            {
                 System.Net.WebRequest.DefaultWebProxy = null;
 
-                Client socket = new Client(this.ServerUrl);
+                this.socket = IO.Socket(this.ServerUrl);
                 /*this.socket.Opened += SocketOpened;
                 this.socket.Error += SocketError;
                 this.socket.Message += SocketMessage;
                 */
 
-                socket.On("connect", (data) =>
+                this.socket.On("connect", (data) =>
                 {
                     Console.WriteLine("Connected to PaintServer.");
-                    socket.Emit("isTable", null);
-                    Console.WriteLine("Emit isTable done.");
+                    socket.Emit("isTable");
                 });
 
-                socket.On("disconnect", (data) =>
+                this.socket.On("disconnect", (data) =>
                 {
                     Console.WriteLine("Disconnected from PaintServer.");
                 });
 
-                socket.On("reconnect", (data) =>
+                this.socket.On("reconnect", (data) =>
                 {
                     Console.WriteLine("Connected to PaintServer after " + data + " attempts.");
                 });
 
-                socket.On("reconnect_attempt", (data) =>
+                this.socket.On("reconnect_attempt", (data) =>
                 {
                     Console.WriteLine("Trying to reconnect to PaintServer.");
                 });
 
-                socket.On("reconnecting", (data) =>
+                this.socket.On("reconnecting", (data) =>
                 {
                     Console.WriteLine("Trying to connect to PaintServer - Attempt number " + data + ".");
                 });
 
-                socket.On("reconnect_error", (data) =>
+                this.socket.On("reconnect_error", (data) =>
                 {
                     Console.WriteLine("An error occured during reconenction to PaintServer.");
                 });
 
-                socket.On("reconnect_failed", (data) =>
+                this.socket.On("reconnect_failed", (data) =>
                 {
                     Console.WriteLine("Failed to connect to PaintServer. No new attempt will be done.");
                 });
 
-                /*
+
                 this.socket.On("newTablet", (data) =>
                 {
                     Console.WriteLine(data);
@@ -92,9 +96,9 @@ namespace PaintSurface
                     viewportDesc.Add("height", "300");
                     socket.Emit("setTabletViewport", JsonConvert.SerializeObject(viewportDesc));
                 });
-                */
-                socket.Connect();
-            
+
+                this.socket.Connect();
+            }
         }
 
         /*
@@ -118,6 +122,6 @@ namespace PaintSurface
 
         */
 
-        
+
     }
 }

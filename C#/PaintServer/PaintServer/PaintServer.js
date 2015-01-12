@@ -13,7 +13,6 @@ app.get('/', function (req, res) {
 httpserver.listen(port);
 
 console.log("Server listening on *:" + port);
-console.log("go!");
 
 var tableSocket = null;
 var tablets = [];
@@ -56,18 +55,11 @@ io.on('connection', function(socket){
 	
     socket.on('isTable', function(){
         console.log("isTable");
-        /*isTable = true;
+        isTable = true;
 		tableSocket = tablets[socket.id];
 		tablets[socket.id] = "";
 		delete(tablets[socket.id]);
-        */
-        socket.emit('change_vue', "vue ordonnancement");
     });
-
-
-    
-
-
 	
 	socket.on('setTabletViewport', function(viewportDescription){
         console.log("setTabletViewport");

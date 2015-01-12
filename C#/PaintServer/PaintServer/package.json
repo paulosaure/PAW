@@ -4,7 +4,8 @@
   "description": "TODO : PaintServer project.",
   "author": "Christian Brel",
   "dependencies": {
-    "express": "~3.4.7",
-    "socket.io": "~0.9.16"
+    "express": "^4.10.6",
+    "http": "0.0.0",
+    "socket.io": "~1.2.1"
   }
 }

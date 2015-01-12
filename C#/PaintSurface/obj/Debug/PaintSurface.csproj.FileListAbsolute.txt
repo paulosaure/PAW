@@ -182,3 +182,41 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIOCli
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIOClient.pdb
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIOClient.xml
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\brosseDents.baml
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\dentifrice.baml
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.baml
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\verre.baml
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\App.baml
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\brosseDents.g.cs
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\dentifrice.g.cs
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.g.cs
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\verre.g.cs
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\App.g.cs
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface_Content.g.cs
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface_MarkupCompile.cache
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface.g.resources
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface.pdb
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe.config
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\PaintSurface.xml
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\sonBrosseDent.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\sonDentifrice.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\sonVerre.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\brossezlesdents.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\coiffez.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\cuisine.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\douchez.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\rasez.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\salledebain.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Resources\salon.wav
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\brosseDents.xaml.cs
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\PaintSurface.pdb
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\EngineIoClientDotNet.dll
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\SocketIoClientDotNet.dll
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface.csprojResolveAssemblyReference.cache

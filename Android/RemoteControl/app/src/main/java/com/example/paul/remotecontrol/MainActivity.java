@@ -3,6 +3,7 @@ package com.example.paul.remotecontrol;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Menu;
@@ -10,10 +11,21 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URISyntaxException;
+
 
 public class MainActivity extends ActionBarActivity {
 
     private MediaPlayer mPlayer = null;
+    Socket socket;
+    String currentViewTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +35,11 @@ public class MainActivity extends ActionBarActivity {
         loadData();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        socket.disconnect();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,6 +65,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void loadData(){
         loadSoundButton();
+        connectionServer();
     }
 
     public void loadSoundButton(){
@@ -56,7 +74,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                playSound(R.raw.encouragement);
+                sendMsg("sound_encouragement");
             }
 
         });
@@ -66,7 +84,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                playSound(R.raw.bravo);
+                sendMsg("sound_felicitation");
             }
 
         });
@@ -77,7 +95,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                playSound(R.raw.erreur);
+                sendMsg("sound_erreur");
             }
 
         });
@@ -87,7 +105,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                playSound(R.raw.essaie_encore);
+                sendMsg("sound_essaie_encore");
             }
 
         });
@@ -103,24 +121,36 @@ public class MainActivity extends ActionBarActivity {
         });
     }
 
-    //Play Sound
-    @Override
-    public void onPause() {
-        super.onPause();
-        if(mPlayer != null) {
-            mPlayer.stop();
-            mPlayer.release();
+    public void connectionServer(){
+        try {
+        socket = IO.socket("http://134.59.214.247:8080");
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
         }
+
+        socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                socket.emit("foo", "hi"); //TODO clean when check
+            }
+        }).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
+
+            @Override
+            public void call(Object... args) {}
+
+        }).on("change_vue", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                currentViewTable = (String) args[0];
+                Log.e("Server" , "Result : " + currentViewTable);
+            }
+        });
+        socket.connect();
     }
 
-    private void playSound(int resId) {
-        if(mPlayer != null) {
-            mPlayer.stop();
-            mPlayer.release();
-        }
-        mPlayer = MediaPlayer.create(this, resId);
-        mPlayer.start();
+    public JSONObject sendMsg(String msg){
+        JSONObject obj = new JSONObject();
+        socket.emit("isTable", msg);
+        return null;
     }
-
-
 }

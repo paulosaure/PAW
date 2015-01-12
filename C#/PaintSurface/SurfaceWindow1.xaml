@@ -196,60 +196,83 @@
         </Grid>
 <!--Vue objet à poser sur table-->
         <Grid Name="objet" Visibility="Hidden">
-                <TextBlock  Margin="80,0,0,100" Foreground="LightPink"  FontSize="50" >Placer les objets associés au brossage de dents</TextBlock>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="650" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <s:TagVisualizer   Name="tagBrosseaDent"   Height="600" Width="600" Grid.Column="0" Grid.Row="0"  VisualizationAdded="OnVisualizationAdded">
-                        <Ellipse Name="to">
-                            <Ellipse.Fill>
-                                <ImageBrush  Stretch="Fill" />
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <s:TagVisualizer.Definitions>
-                    <s:TagVisualizationDefinition Source="brosseDents.xaml"
+            <StackPanel >
+                <WrapPanel Name="aideTop" Height="200"  Orientation="Horizontal" Margin="0,0,0,0">
+                    <Border Name="borderVerre"  BorderThickness="4" >
+                        <Image Name="verre" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5" >
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="180"/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Border>
+                    <Border Name="borderDentifrice"  BorderThickness="4" >
+                        <Image Name="dentifrice" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5" >
+                            <Image.RenderTransform>
+                                <RotateTransform  Angle="180"/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Border>
+                    <Border Name="borderAideBrosseDent"  BorderThickness="4" >
+                        <Image Name="brosseDent" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5">
+                            <Image.RenderTransform>
+                                <RotateTransform  Angle="180"/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Border>
+                    <TextBlock   Foreground="LightPink"  FontSize="50" Text="Aide :" Height="200" HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5">                     
+                        <TextBlock.RenderTransform>
+                                <RotateTransform  Angle="180"/>
+                            </TextBlock.RenderTransform></TextBlock>
+                </WrapPanel>
+                <Border BorderBrush="Black" BorderThickness="5">
+                    <Grid Height="650" Width="1920">
+                        <TextBlock  Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " >
+                            <TextBlock.RenderTransform>
+                                <RotateTransform  Angle="-90"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock    Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " >
+                            <TextBlock.RenderTransform>
+                                <RotateTransform  Angle="90"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <Grid >
+                            <s:TagVisualizer  Height="650" Width="1920" Name="tagBrosseaDent"   VisualizationAdded="OnVisualizationAdded">
+                                <s:TagVisualizer.Definitions>
+                                    <s:TagVisualizationDefinition Source="brosseDents.xaml"
                                                   Value="0x1" 
                                              OrientationOffsetFromTag="0" PhysicalCenterOffsetFromTag="0,0"
-                                                  
+                                                  UsesTagOrientation="True"
                                               />
-
-                </s:TagVisualizer.Definitions>
-            </s:TagVisualizer>
-                    <s:TagVisualizer   Name="tagDentifrice" Height="300"  Width="300" Grid.Column="1" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
-                        <Image Name="dentifriceImage" Height="300" Width="300"></Image>
-                        <s:TagVisualizer.Definitions>
-                            <s:TagVisualizationDefinition Value="0x2" 
-                                              LostTagTimeout="2000"
-                                              MaxCount="2"
+                                    <s:TagVisualizationDefinition Value="0x2"  Source="dentifrice.xaml"
                                               OrientationOffsetFromTag="0"
-                                              PhysicalCenterOffsetFromTag="2,2" 
-                                              TagRemovedBehavior="Fade"
+                                              PhysicalCenterOffsetFromTag="0,0" 
                                               UsesTagOrientation="True"
                                               />
-                        </s:TagVisualizer.Definitions>
-                    </s:TagVisualizer>
-
-                <s:TagVisualizer    Name="tagVerre" Height="300" Width="300" Grid.Column="2" Grid.Row="0" VisualizationAdded="OnVisualizationAdded">
-                <Image Name="verreImage" Height="300" Width="300"></Image>
-                <s:TagVisualizer.Definitions>
-                    <s:TagVisualizationDefinition Value="0x3" 
-                                              LostTagTimeout="2000"
-                                              MaxCount="2"
+                                    <s:TagVisualizationDefinition Value="0x3" Source="verre.xaml"
                                               OrientationOffsetFromTag="0"
-                                              PhysicalCenterOffsetFromTag="2,2" 
-                                              TagRemovedBehavior="Fade"
+                                              PhysicalCenterOffsetFromTag="0,0" 
                                               UsesTagOrientation="True"
                                               />
-                </s:TagVisualizer.Definitions>
-            </s:TagVisualizer>
-         </Grid>
-       </Grid>
+                                </s:TagVisualizer.Definitions>
+                            </s:TagVisualizer>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <WrapPanel Name="aideBot" Height="200" Orientation="Horizontal" Margin="0,0,0,0">
+                    <TextBlock   Foreground="LightPink"  FontSize="50" Height="200" HorizontalAlignment="Center" >Aide :</TextBlock>
+                    <Border Name="borderAideBrosseDent2"  BorderThickness="4" >
+                        <Image Name="brosseDent2" Height="200" Width="200" />
+                    </Border>
+                    <Border Name="borderDentifrice2"  BorderThickness="4" >
+                        <Image Name="dentifrice2" Height="200" Width="200" />
+                    </Border>
+                    <Border Name="borderVerre2"  BorderThickness="4" >
+                        <Image Name="verre2" Height="200" Width="200" />
+                    </Border>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
         <Grid Name="ordonnancement" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -260,12 +283,12 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <WrapPanel Name="friseHaut" Grid.Column="0" Grid.Row="0" >
-                <Image Name="fleche" Margin="10,0" Height="300" Width="300"  Source="/Resources/friseG.png"  />
-                <Image Name="bloc1" Margin="10,0" Height="300" Width="300"  Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True" />
-                <Image Name="bloc2" Margin="10,0" Height="300" Width="300"  Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True"/>
-                <Image Name="bloc3" Margin="10,0" Height="300" Width="300"  Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True" />
-                <Image Name="bloc4" Margin="10,0"  Height="300" Width="300" Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True"/>
-                <Image Name="bloc5" Margin="10,0"  Height="300" Width="300" Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True"/>
+                <Image Name="fleche" Margin="10,0" Height="200" Width="300"  Source="/Resources/friseG.png"  />
+                <Image Name="bloc1" Margin="10,0" Height="200" Width="300"  Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True" />
+                <Image Name="bloc2" Margin="10,0" Height="200" Width="300"  Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True"/>
+                <Image Name="bloc3" Margin="10,0" Height="200" Width="300"  Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True" />
+                <Image Name="bloc4" Margin="10,0"  Height="200" Width="300" Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True"/>
+                <Image Name="bloc5" Margin="10,0"  Height="200" Width="300" Source="/Resources/elt.png" Drop="DropList_Drop"  AllowDrop="True"/>
             </WrapPanel>
             <WrapPanel Name="ActionPanel" Grid.Column="0" Grid.Row="1" Margin="0,100" >
                 <Image Name="ActionBrosser" Margin="10,0" Height="300" Width="300"  Source="/Resources/brosser.jpg" MouseMove="List_MouseMove"  MouseUp="mouseUp" MouseDown="mouseDown" GiveFeedback="img_GiveFeedback" >

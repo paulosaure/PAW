@@ -10,27 +10,34 @@ import UIKit
 
 class VideoViewController: UIViewController {
     
+    var socket : SIOSocket!
+    var socketIsConnected : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        SIOSocket.socketWithHost("http://134.59.215.166:8080", response: { (socket: SIOSocket!) -> Void in
+        SIOSocket.socketWithHost("http://134.59.214.247:8080", response: { (socket: SIOSocket!) -> Void in
             
+            self.socket = socket
             
-            socket.onConnect = {() -> Void in
-                
-                var alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-
+            self.socket.onConnect = {() -> Void in
+                self.socketIsConnected = true
                 NSLog("Connection")
-
             }
             
             socket.onError = {(var errorInfo) -> Void in
                 NSLog("Connection to server failed")
             }
 
+            socket.onDisconnect = {() -> Void in
+                self.socketIsConnected = false
+            }
+            
+            socket.on("change_vue", callback: { (mes: [AnyObject]!) -> Void in
+                if let message = mes[0] as? String{
+                    NSLog(message)
+                }
+            })
             
         })
         
@@ -42,6 +49,11 @@ class VideoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func emit(sender: UIButton) {
+        
+        socket.emit("isTable")
+        
+    }
 
     /*
     // MARK: - Navigation

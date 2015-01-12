@@ -20,6 +20,9 @@ using System.Diagnostics;
 using System.Net;
 using System.IO;
 using System.Threading.Tasks;
+using SocketIOClient;
+using System.ComponentModel;
+
 namespace PaintSurface
 {
     /// <summary>
@@ -54,7 +57,7 @@ namespace PaintSurface
         public SurfaceWindow1()
         {
             InitializeComponent();
-
+            this.Closing += new CancelEventHandler(Window1_Closing);
             //les sons
             cuisine.Open(new Uri(@"Resources\cuisine.wav", UriKind.Relative));
             salon.Open(new Uri(@"Resources\salon.wav", UriKind.Relative));
@@ -74,7 +77,7 @@ namespace PaintSurface
 
             string localIp = this._getLocalIPAddress();
 
-            Console.WriteLine("http://" + localIp + ":" + this._serverPort.ToString());
+            //Console.WriteLine("http://" + localIp + ":" + this._serverPort.ToString());
 
             this._sm = new SocketManager("http://localhost:" + this._serverPort.ToString());
 
@@ -295,22 +298,24 @@ namespace PaintSurface
 
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
-
+            
             //Objet en Texte
             await Task.Delay(3000);
-            ImageBrush myBrush = new ImageBrush();
-            myBrush.ImageSource = new BitmapImage(new Uri(@"Resources/brosseadents.png", UriKind.Relative));
-            to.Fill = myBrush;
-            dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
-            verreImage.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
+            verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
+            verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
 
             //Objet en Image
             await Task.Delay(3000);
-            myBrush.ImageSource = new BitmapImage(new Uri(@"Resources/brosse_grandT.png", UriKind.Relative));
-            to.Fill = myBrush;
-            dentifriceImage.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
-            verreImage.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
-
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
+            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
+            verre.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
+            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
+            verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
             //Objet Son
             await Task.Delay(3000);
             try
@@ -348,17 +353,26 @@ namespace PaintSurface
         {
 
         }
+        private void valideObjet(){
+
+            if (brosseadentBool && verreBool && dentifriceBool)
+            {
+                aideTop.Visibility = Visibility.Hidden;
+                aideTop.Visibility = Visibility.Hidden;
+                ordonnancement.Visibility = Visibility.Visible;
+            }
+        }
         private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
             switch (e.TagVisualization.VisualizedTag.Value)
             {
-                case 1: Trace.WriteLine("brosse a dents"); to.Stroke = new SolidColorBrush(Colors.Green); break;
-                case 2: Trace.WriteLine("dentifrice"); break;
-                case 3: Trace.WriteLine("verre"); objet.Visibility = Visibility.Hidden; ordonnancement.Visibility = Visibility.Visible; break;
+                case 1: borderAideBrosseDent.BorderBrush = Brushes.Green; borderAideBrosseDent2.BorderBrush = Brushes.Green; brosseadentBool = true; valideObjet(); break;
+                case 2: borderDentifrice.BorderBrush = Brushes.Green; borderDentifrice2.BorderBrush = Brushes.Green; borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
+                case 3: borderVerre.BorderBrush = Brushes.Green; borderVerre2.BorderBrush = Brushes.Green; borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
                 default: break;
             }
-
         }
+
         private bool t = false;
         private void List_MouseMove(object sender, MouseEventArgs e)
         {
@@ -366,8 +380,8 @@ namespace PaintSurface
             Point mousePos = e.GetPosition(null);
             Point position = ActionBrosser.PointToScreen(new Point(0d, 0d));
             DoubleAnimation da = new DoubleAnimation();
-            Trace.WriteLine("PosX= " + mousePos.X + " PosY = " + mousePos.Y);
-            Trace.WriteLine("ImagePosX= " +position.X + " ImagePosY = " + position.Y);
+            //Trace.WriteLine("PosX= " + mousePos.X + " PosY = " + mousePos.Y);
+            //Trace.WriteLine("ImagePosX= " +position.X + " ImagePosY = " + position.Y);
                 // Get the dragged ListViewItem
                 Image img = sender as Image;
                 DataObject data = new DataObject(typeof(ImageSource), img.Source);
@@ -386,7 +400,7 @@ namespace PaintSurface
                 // If the DataObject contains string data, extract it.
                 if (e.Data.GetData(typeof(ImageSource)) != null)
                 {
-                    Trace.WriteLine("Entre DROP 2");
+                    //Trace.WriteLine("Entre DROP 2");
                     ImageSource image = e.Data.GetData(typeof(ImageSource)) as ImageSource;
 
                     img.Source = image;
@@ -407,8 +421,8 @@ namespace PaintSurface
                 Point mousePos = e.GetPosition(null);
                 Point position = ActionBrosser.PointToScreen(new Point(0d, 0d));
                 DoubleAnimation da = new DoubleAnimation();
-                Trace.WriteLine("PosX= " + mousePos.X + " PosY = " + mousePos.Y);
-                Trace.WriteLine("ImagePosX= " + position.X + " ImagePosY = " + position.Y);
+                //Trace.WriteLine("PosX= " + mousePos.X + " PosY = " + mousePos.Y);
+                //Trace.WriteLine("ImagePosX= " + position.X + " ImagePosY = " + position.Y);
                 t = true;
             }
         }
@@ -416,6 +430,12 @@ namespace PaintSurface
         private void mouseUp(object sender, MouseButtonEventArgs e)
         {
             t = false;
+        }
+        void Window1_Closing(object sender, CancelEventArgs e)
+        {
+
+            Application.Current.Shutdown();
+
         }
     }
 }

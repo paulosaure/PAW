@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 //using SocketIOClient;
 //using SocketIOClient.Messages;
-using Quobject.SocketIoClientDotNet.Client;
+//using Quobject.SocketIoClientDotNet.Client;
 using Newtonsoft.Json;
+using SocketIOClient;
 
 namespace PaintSurface
 {
@@ -24,63 +25,62 @@ namespace PaintSurface
         }
 
         //public Client socket;
-        public Socket socket;
+        //public Socket socket;
 
         public SocketManager(string serverUrl)
         {
             this.ServerUrl = serverUrl;
-            this.socket = null;
         }
 
         private void _connection()
         {
-            if (this.socket == null)
-            {
+            
                 System.Net.WebRequest.DefaultWebProxy = null;
 
-                this.socket = IO.Socket(this.ServerUrl);
+                Client socket = new Client(this.ServerUrl);
                 /*this.socket.Opened += SocketOpened;
                 this.socket.Error += SocketError;
                 this.socket.Message += SocketMessage;
                 */
 
-                this.socket.On("connect", (data) =>
+                socket.On("connect", (data) =>
                 {
                     Console.WriteLine("Connected to PaintServer.");
-                    socket.Emit("isTable");
+                    socket.Emit("isTable", null);
+                    Console.WriteLine("Emit isTable done.");
                 });
 
-                this.socket.On("disconnect", (data) =>
+                socket.On("disconnect", (data) =>
                 {
                     Console.WriteLine("Disconnected from PaintServer.");
                 });
 
-                this.socket.On("reconnect", (data) =>
+                socket.On("reconnect", (data) =>
                 {
                     Console.WriteLine("Connected to PaintServer after " + data + " attempts.");
                 });
 
-                this.socket.On("reconnect_attempt", (data) =>
+                socket.On("reconnect_attempt", (data) =>
                 {
                     Console.WriteLine("Trying to reconnect to PaintServer.");
                 });
 
-                this.socket.On("reconnecting", (data) =>
+                socket.On("reconnecting", (data) =>
                 {
                     Console.WriteLine("Trying to connect to PaintServer - Attempt number " + data + ".");
                 });
 
-                this.socket.On("reconnect_error", (data) =>
+                socket.On("reconnect_error", (data) =>
                 {
                     Console.WriteLine("An error occured during reconenction to PaintServer.");
                 });
 
-                this.socket.On("reconnect_failed", (data) =>
+                socket.On("reconnect_failed", (data) =>
                 {
                     Console.WriteLine("Failed to connect to PaintServer. No new attempt will be done.");
                 });
 
-
+                /*
                 this.socket.On("newTablet", (data) =>
                 {
                     Console.WriteLine(data);
@@ -92,9 +92,9 @@ namespace PaintSurface
                     viewportDesc.Add("height", "300");
                     socket.Emit("setTabletViewport", JsonConvert.SerializeObject(viewportDesc));
                 });
-
-                this.socket.Connect();
-            }
+                */
+                socket.Connect();
+            
         }
 
         /*

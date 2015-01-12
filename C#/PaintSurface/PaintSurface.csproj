@@ -39,15 +39,9 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EngineIoClientDotNet">
-      <HintPath>libs\EngineIoClientDotNet.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>libs\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SocketIoClientDotNet">
-      <HintPath>libs\SocketIoClientDotNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -70,10 +64,20 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="dentifrice.xaml.cs">
+      <DependentUpon>dentifrice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="verre.xaml.cs">
+      <DependentUpon>verre.xaml</DependentUpon>
+    </Compile>
     <Page Include="brosseDents.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="dentifrice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="SurfaceWindow1.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +96,10 @@
       <DependentUpon>SurfaceWindow1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="verre.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -143,15 +151,13 @@
     <Resource Include="Resources\verre.png" />
     <Resource Include="Resources\brosse_grand.png" />
     <Resource Include="Resources\brosse_cheveux.png" />
-    <CodeAnalysisDictionary Include="Resources\brosseadents.png">
+    <Resource Include="Resources\brosseadents.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </CodeAnalysisDictionary>
+    </Resource>
     <Content Include="Resources\brossezlesdents.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\brosse_grandT.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="Resources\brosse_grandT.png" />
     <Content Include="Resources\coiffez.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -182,6 +188,13 @@
     <Resource Include="Resources\roue.png" />
     <Resource Include="Resources\rond.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocketIO\SocketIOClient.csproj">
+      <Project>{352c9bc1-f74c-4741-a09d-7227bc60c057}</Project>
+      <Name>SocketIOClient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

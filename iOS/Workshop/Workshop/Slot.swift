@@ -12,6 +12,6 @@ class Slot {
     
     var pictureUrl : NSURL?
     var soundUrl : NSURL?
-    var text : NSString?
+    var text : String?
     var index : Int = 0
 }

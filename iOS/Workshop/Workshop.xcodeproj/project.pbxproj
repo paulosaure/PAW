@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		922F0ADB1A6474B1005B417C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922F0ADA1A6474B1005B417C /* Images.xcassets */; };
+		922F0AE31A6474C5005B417C /* brosser.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0ADD1A6474C5005B417C /* brosser.mp4 */; };
+		922F0AE41A6474C5005B417C /* cracher.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0ADE1A6474C5005B417C /* cracher.mp4 */; };
+		922F0AE51A6474C5005B417C /* mettre_dentifrice.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0ADF1A6474C5005B417C /* mettre_dentifrice.mp4 */; };
+		922F0AE61A6474C5005B417C /* mouiller.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0AE01A6474C5005B417C /* mouiller.mp4 */; };
+		922F0AE71A6474C5005B417C /* prendre_brosse.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0AE11A6474C5005B417C /* prendre_brosse.mp4 */; };
+		922F0AE81A6474C5005B417C /* rincer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0AE21A6474C5005B417C /* rincer.mp4 */; };
+		927D08EC1A6475BF00A2F545 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */; };
 		92BC8F821A59C630004437B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F811A59C630004437B9 /* AppDelegate.swift */; };
 		92BC8F851A59C630004437B9 /* Workshop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F831A59C630004437B9 /* Workshop.xcdatamodeld */; };
 		92BC8F871A59C630004437B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F861A59C630004437B9 /* ViewController.swift */; };
 		92BC8F8A1A59C630004437B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BC8F881A59C630004437B9 /* Main.storyboard */; };
-		92BC8F8C1A59C630004437B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BC8F8B1A59C630004437B9 /* Images.xcassets */; };
 		92BC8F8F1A59C630004437B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BC8F8D1A59C630004437B9 /* LaunchScreen.xib */; };
 		92BC8F9B1A59C630004437B9 /* WorkshopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F9A1A59C630004437B9 /* WorkshopTests.swift */; };
-		92D674501A640390001DA606 /* brosser.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 92D6744B1A640390001DA606 /* brosser.mp4 */; };
-		92D674511A640390001DA606 /* cracher.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 92D6744C1A640390001DA606 /* cracher.mp4 */; };
-		92D674521A640390001DA606 /* mouiller.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 92D6744D1A640390001DA606 /* mouiller.mp4 */; };
-		92D674531A640390001DA606 /* prendre_brosse.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 92D6744E1A640390001DA606 /* prendre_brosse.mp4 */; };
-		92D674541A640390001DA606 /* rincer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 92D6744F1A640390001DA606 /* rincer.mp4 */; };
 		92F4ACA21A5FC0AC00C29FFB /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA11A5FC0AC00C29FFB /* Slot.swift */; };
 		92F4ACA41A5FC7CC00C29FFB /* Workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */; };
 		92F4ACA61A60083900C29FFB /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA51A60083900C29FFB /* VideoViewController.swift */; };
@@ -37,22 +39,24 @@
 
 /* Begin PBXFileReference section */
 		8BE6958D02847A5BB29621F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		922F0ADA1A6474B1005B417C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Workshop/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		922F0ADD1A6474C5005B417C /* brosser.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = brosser.mp4; sourceTree = "<group>"; };
+		922F0ADE1A6474C5005B417C /* cracher.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cracher.mp4; sourceTree = "<group>"; };
+		922F0ADF1A6474C5005B417C /* mettre_dentifrice.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mettre_dentifrice.mp4; sourceTree = "<group>"; };
+		922F0AE01A6474C5005B417C /* mouiller.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mouiller.mp4; sourceTree = "<group>"; };
+		922F0AE11A6474C5005B417C /* prendre_brosse.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prendre_brosse.mp4; sourceTree = "<group>"; };
+		922F0AE21A6474C5005B417C /* rincer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rincer.mp4; sourceTree = "<group>"; };
+		927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		92BC8F7C1A59C630004437B9 /* Workshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BC8F801A59C630004437B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92BC8F811A59C630004437B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92BC8F841A59C630004437B9 /* Workshop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Workshop.xcdatamodel; sourceTree = "<group>"; };
 		92BC8F861A59C630004437B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92BC8F891A59C630004437B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		92BC8F8B1A59C630004437B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		92BC8F8E1A59C630004437B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		92BC8F941A59C630004437B9 /* WorkshopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkshopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BC8F991A59C630004437B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92BC8F9A1A59C630004437B9 /* WorkshopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTests.swift; sourceTree = "<group>"; };
-		92D6744B1A640390001DA606 /* brosser.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = brosser.mp4; sourceTree = "<group>"; };
-		92D6744C1A640390001DA606 /* cracher.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cracher.mp4; sourceTree = "<group>"; };
-		92D6744D1A640390001DA606 /* mouiller.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mouiller.mp4; sourceTree = "<group>"; };
-		92D6744E1A640390001DA606 /* prendre_brosse.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prendre_brosse.mp4; sourceTree = "<group>"; };
-		92D6744F1A640390001DA606 /* rincer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rincer.mp4; sourceTree = "<group>"; };
 		92D72B641A59C8BF00AEE3FC /* Workshop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Workshop-Bridging-Header.h"; sourceTree = "<group>"; };
 		92F4ACA11A5FC0AC00C29FFB /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workshop.swift; sourceTree = "<group>"; };
@@ -97,6 +101,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		922F0ADC1A6474C5005B417C /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				922F0ADD1A6474C5005B417C /* brosser.mp4 */,
+				922F0ADE1A6474C5005B417C /* cracher.mp4 */,
+				922F0ADF1A6474C5005B417C /* mettre_dentifrice.mp4 */,
+				922F0AE01A6474C5005B417C /* mouiller.mp4 */,
+				922F0AE11A6474C5005B417C /* prendre_brosse.mp4 */,
+				922F0AE21A6474C5005B417C /* rincer.mp4 */,
+			);
+			name = Videos;
+			path = ../../../../../../../../Desktop/Videos;
+			sourceTree = "<group>";
+		};
 		92BC8F731A59C630004437B9 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +138,7 @@
 		92BC8F7E1A59C630004437B9 /* Workshop */ = {
 			isa = PBXGroup;
 			children = (
+				927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */,
 				92D674551A64039A001DA606 /* Ressources */,
 				92F4AC9F1A5FBFB300C29FFB /* Model */,
 				92BC8F881A59C630004437B9 /* Main.storyboard */,
@@ -158,23 +177,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		92D6744A1A640390001DA606 /* Videos */ = {
-			isa = PBXGroup;
-			children = (
-				92D6744B1A640390001DA606 /* brosser.mp4 */,
-				92D6744C1A640390001DA606 /* cracher.mp4 */,
-				92D6744D1A640390001DA606 /* mouiller.mp4 */,
-				92D6744E1A640390001DA606 /* prendre_brosse.mp4 */,
-				92D6744F1A640390001DA606 /* rincer.mp4 */,
-			);
-			name = Videos;
-			sourceTree = "<group>";
-		};
 		92D674551A64039A001DA606 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				92BC8F8B1A59C630004437B9 /* Images.xcassets */,
-				92D6744A1A640390001DA606 /* Videos */,
+				922F0ADC1A6474C5005B417C /* Videos */,
+				922F0ADA1A6474B1005B417C /* Images.xcassets */,
 			);
 			name = Ressources;
 			path = Videos;
@@ -288,14 +295,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92D674521A640390001DA606 /* mouiller.mp4 in Resources */,
+				922F0AE61A6474C5005B417C /* mouiller.mp4 in Resources */,
+				922F0ADB1A6474B1005B417C /* Images.xcassets in Resources */,
 				92BC8F8A1A59C630004437B9 /* Main.storyboard in Resources */,
+				922F0AE81A6474C5005B417C /* rincer.mp4 in Resources */,
+				922F0AE31A6474C5005B417C /* brosser.mp4 in Resources */,
+				922F0AE41A6474C5005B417C /* cracher.mp4 in Resources */,
 				92BC8F8F1A59C630004437B9 /* LaunchScreen.xib in Resources */,
-				92D674531A640390001DA606 /* prendre_brosse.mp4 in Resources */,
-				92D674541A640390001DA606 /* rincer.mp4 in Resources */,
-				92D674501A640390001DA606 /* brosser.mp4 in Resources */,
-				92D674511A640390001DA606 /* cracher.mp4 in Resources */,
-				92BC8F8C1A59C630004437B9 /* Images.xcassets in Resources */,
+				922F0AE71A6474C5005B417C /* prendre_brosse.mp4 in Resources */,
+				922F0AE51A6474C5005B417C /* mettre_dentifrice.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +359,7 @@
 				92F4ACA61A60083900C29FFB /* VideoViewController.swift in Sources */,
 				92BC8F821A59C630004437B9 /* AppDelegate.swift in Sources */,
 				92F4ACA21A5FC0AC00C29FFB /* Slot.swift in Sources */,
+				927D08EC1A6475BF00A2F545 /* SwiftyJSON.swift in Sources */,
 				92F4ACA41A5FC7CC00C29FFB /* Workshop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

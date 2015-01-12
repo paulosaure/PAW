@@ -48,7 +48,7 @@ public enum Type :Int{
     case Array
     case Dictionary
     case Null
-    case Unknown
+    case Unknow
 }
 
 // MARK: - JSON Base
@@ -108,12 +108,12 @@ public struct JSON {
                 _type = .String
             case let null as NSNull:
                 _type = .Null
-            case let array as [AnyObject]:
+            case let array as Array<AnyObject>:
                 _type = .Array
-            case let dictionary as [String : AnyObject]:
+            case let dictionary as Dictionary<String, AnyObject>:
                 _type = .Dictionary
             default:
-                _type = .Unknown
+                _type = .Unknow
                 _object = NSNull()
                 _error = NSError(domain: ErrorDomain, code: ErrorUnsupportedType, userInfo: [NSLocalizedDescriptionKey: "It is a unsupported type"])
             }
@@ -135,13 +135,13 @@ public struct JSON {
 extension JSON: SequenceType{
     
     /// If `type` is `.Array` or `.Dictionary`, return `array.empty` or `dictonary.empty` otherwise return `false`.
-    public var isEmpty: Bool {
+    var isEmpty: Bool {
         get {
             switch self.type {
             case .Array:
-                return (self.object as [AnyObject]).isEmpty
+                return (self.object as Array<AnyObject>).isEmpty
             case .Dictionary:
-                return (self.object as [String : AnyObject]).isEmpty
+                return (self.object as Dictionary<String, AnyObject>).isEmpty
             default:
                 return false
             }
@@ -170,7 +170,7 @@ extension JSON: SequenceType{
     public func generate() -> GeneratorOf <(String, JSON)> {
         switch self.type {
         case .Array:
-            let array_ = object as [AnyObject]
+            let array_ = object as Array<AnyObject>
             var generate_ = array_.generate()
             var index_: Int = 0
             return GeneratorOf<(String, JSON)> {
@@ -181,7 +181,7 @@ extension JSON: SequenceType{
                 }
             }
         case .Dictionary:
-            let dictionary_ = object as [String : AnyObject]
+            let dictionary_ = object as Dictionary<String, AnyObject>
             var generate_ = dictionary_.generate()
             return GeneratorOf<(String, JSON)> {
                 if let (key_: String, value_: AnyObject) = generate_.next() {
@@ -233,7 +233,7 @@ extension JSON {
         }
         set {
             if self.type == .Array {
-                var array_ = self.object as [AnyObject]
+                var array_ = self.object as Array<AnyObject>
                 if array_.count > index {
                     array_[index] = newValue.object
                     self.object = array_
@@ -259,7 +259,7 @@ extension JSON {
         }
         set {
             if self.type == .Dictionary {
-                var dictionary_ = self.object as [String : AnyObject]
+                var dictionary_ = self.object as Dictionary<String, AnyObject>
                 dictionary_[key] = newValue.object
                 self.object = dictionary_
             }
@@ -421,7 +421,7 @@ extension JSON: NilLiteralConvertible {
 extension JSON: RawRepresentable {
 	
 	public init?(rawValue: AnyObject) {
-		if JSON(rawValue).type == .Unknown {
+		if JSON(rawValue).type == .Unknow {
 			return nil
 		} else {
 			self.init(rawValue)
@@ -432,27 +432,14 @@ extension JSON: RawRepresentable {
 		return self.object
 	}
 
-    public func rawData(options opt: NSJSONWritingOptions = NSJSONWritingOptions(0), error: NSErrorPointer = nil) -> NSData? {
+    public func rawData(options opt: NSJSONWritingOptions = .PrettyPrinted, error: NSErrorPointer = nil) -> NSData? {
         return NSJSONSerialization.dataWithJSONObject(self.object, options: opt, error:error)
     }
     
-    public func rawString(encoding: UInt = NSUTF8StringEncoding, options opt: NSJSONWritingOptions = .PrettyPrinted) -> String? {
-        switch self.type {
-        case .Array, .Dictionary:
-            if let data = self.rawData(options: opt) {
-                return NSString(data: data, encoding: encoding)
-            } else {
-                return nil
-            }
-        case .String:
-            return (self.object as String)
-        case .Number:
-            return (self.object as NSNumber).stringValue
-        case .Bool:
-            return (self.object as Bool).description
-        case .Null:
-            return "null"
-        default:
+    public func rawString(encoding: UInt = NSUTF8StringEncoding, options opt: NSJSONWritingOptions = .PrettyPrinted, error: NSErrorPointer = nil) -> String? {
+        if let data = self.rawData(options: opt, error:error) {
+            return NSString(data: data, encoding: encoding)
+        } else {
             return nil
         }
     }
@@ -463,15 +450,45 @@ extension JSON: RawRepresentable {
 extension JSON: Printable, DebugPrintable {
     
     public var description: String {
-        if let string = self.rawString(options:.PrettyPrinted) {
-            return string
-        } else {
-            return "unknown"
+        get {
+            switch type {
+            case .Number:
+                return self.object.description
+            case .String:
+                return self.object as String
+            case .Array:
+                return (self.object as Array<AnyObject>).description
+            case .Dictionary:
+                return (self.object as Dictionary<String, AnyObject>).description
+            case .Bool:
+                return (self.object as Bool).description
+            case .Null:
+                return self.error?.description ?? "null"
+            default:
+                return self.error?.description ?? "unknown"
+            }
         }
     }
     
     public var debugDescription: String {
-        return description
+        get {
+            switch type {
+            case .Number:
+                return (self.object as NSNumber).debugDescription
+            case .String:
+                return self.object as String
+            case .Array:
+                return (self.object as Array<AnyObject>).debugDescription
+            case .Dictionary:
+                return (self.object as Dictionary<String, AnyObject>).debugDescription
+            case .Bool:
+                return (self.object as Bool).description
+            case .Null:
+                return self.error?.debugDescription ?? "null"
+            default:
+                return self.error?.debugDescription ?? "unknown"
+            }
+        }
     }
 }
 
@@ -479,30 +496,30 @@ extension JSON: Printable, DebugPrintable {
 
 extension JSON {
 
-    //Optional [JSON]
-    public var array: [JSON]? {
+    //Optional Array<JSON>
+    public var array: Array<JSON>? {
         get {
             if self.type == .Array {
-                return map(self.object as [AnyObject]){ JSON($0) }
+                return map(self.object as Array<AnyObject>){ JSON($0) }
             } else {
                 return nil
             }
         }
     }
     
-    //Non-optional [JSON]
-    public var arrayValue: [JSON] {
+    //Non-optional Array<JSON>
+    public var arrayValue: Array<JSON> {
         get {
             return self.array ?? []
         }
     }
     
-    //Optional [AnyObject]
-    public var arrayObject: [AnyObject]? {
+    //Optional Array<AnyObject>
+    public var arrayObject: Array<AnyObject>? {
         get {
             switch self.type {
             case .Array:
-                return self.object as? [AnyObject]
+                return self.object as? Array<AnyObject>
             default:
                 return nil
             }
@@ -529,30 +546,30 @@ extension JSON {
         return result
     }
 
-    //Optional [String : JSON]
-    public var dictionary: [String : JSON]? {
+    //Optional Dictionary<String, JSON>
+    public var dictionary: Dictionary<String, JSON>? {
         get {
             if self.type == .Dictionary {
-                return _map(self.object as [String : AnyObject]){ JSON($0) }
+                return _map(self.object as Dictionary<String, AnyObject>){ JSON($0) }
             } else {
                 return nil
             }
         }
     }
     
-    //Non-optional [String : JSON]
-    public var dictionaryValue: [String : JSON] {
+    //Non-optional Dictionary<String, JSON>
+    public var dictionaryValue: Dictionary<String, JSON> {
         get {
             return self.dictionary ?? [:]
         }
     }
     
-    //Optional [String : AnyObject]
-    public var dictionaryObject: [String : AnyObject]? {
+    //Optional Dictionary<String, AnyObject>
+    public var dictionaryObject: Dictionary<String, AnyObject>? {
         get {
             switch self.type {
             case .Dictionary:
-                return self.object as? [String : AnyObject]
+                return self.object as? Dictionary<String, AnyObject>
             default:
                 return nil
             }
@@ -663,7 +680,11 @@ extension JSON {
             }
         }
         set {
-            self.object = newValue?.copy() ?? NSNull()
+            if newValue != nil {
+                self.object = newValue!.copy()
+            } else {
+                self.object = NSNull()
+            }
         }
     }
     
@@ -1120,7 +1141,7 @@ public func ==(lhs: NSNumber, rhs: NSNumber) -> Bool {
 }
 
 public func !=(lhs: NSNumber, rhs: NSNumber) -> Bool {
-    return !(lhs == rhs)
+    return !(rhs == rhs)
 }
 
 public func <(lhs: NSNumber, rhs: NSNumber) -> Bool {
@@ -1184,12 +1205,12 @@ extension JSON {
     }
     
     @availability(*, unavailable, renamed="dictionaryObject")
-    public var dictionaryObjects: [String : AnyObject]? {
+    public var dictionaryObjects: Dictionary<String, AnyObject>? {
         get { return self.dictionaryObject }
     }
     
     @availability(*, unavailable, renamed="arrayObject")
-    public var arrayObjects: [AnyObject]? {
+    public var arrayObjects: Array<AnyObject>? {
         get { return self.arrayObject }
     }
     

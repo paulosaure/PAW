@@ -12,10 +12,10 @@ class VideoViewController: UIViewController {
     
     var socket : SIOSocket!
     var socketIsConnected : Bool = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         SIOSocket.socketWithHost("http://134.59.214.247:8080", response: { (socket: SIOSocket!) -> Void in
             
             self.socket = socket

@@ -1,3 +1,2 @@
 pod 'SIOSocket', '~> 0.2.0'
 pod 'OBDragDrop', '~> 1.0'
-pod 'SwiftyJSON', '2.1.3'

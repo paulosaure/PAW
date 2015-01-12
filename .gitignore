@@ -112,4 +112,4 @@ crashlytics-build.properties
 C#/PaintServer/PaintServer/node_modules
 
 #ios Videos
-iOS/Workshop/Workshop/Videos
+*.mp4

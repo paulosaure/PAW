@@ -196,7 +196,7 @@
         </Grid>
 <!--Vue objet à poser sur table-->
         <Grid Name="objet" Visibility="Hidden">
-            <StackPanel>
+            <StackPanel >
                 <WrapPanel Name="aideTop" Height="200"  Orientation="Horizontal" Margin="0,0,0,0">
                     <Border Name="borderVerre"  BorderThickness="4" >
                         <Image Name="verre" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5" >
@@ -219,31 +219,25 @@
                             </Image.RenderTransform>
                         </Image>
                     </Border>
-                    <TextBlock   Foreground="LightPink"  FontSize="50" Text="Aide :" Height="200" RenderTransformOrigin="0.5, 0.5">                     
+                    <TextBlock   Foreground="LightPink"  FontSize="50" Text="Aide :" Height="200" HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5">                     
                         <TextBlock.RenderTransform>
                                 <RotateTransform  Angle="180"/>
                             </TextBlock.RenderTransform></TextBlock>
                 </WrapPanel>
                 <Border BorderBrush="Black" BorderThickness="5">
-                    <Grid Height="650" Width="1080">
-                        <TextBlock   Height="100" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " >
+                    <Grid Height="650" Width="1920">
+                        <TextBlock  Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " >
                             <TextBlock.RenderTransform>
                                 <RotateTransform  Angle="-90"/>
                             </TextBlock.RenderTransform>
                         </TextBlock>
-                        <TextBlock   Height="100" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " >
+                        <TextBlock    Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " >
                             <TextBlock.RenderTransform>
                                 <RotateTransform  Angle="90"/>
                             </TextBlock.RenderTransform>
                         </TextBlock>
                         <Grid >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="650" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1080" />
-                            </Grid.ColumnDefinitions>
-                            <s:TagVisualizer   Name="tagBrosseaDent"   Grid.Column="0" Grid.Row="0"  VisualizationAdded="OnVisualizationAdded">
+                            <s:TagVisualizer  Height="650" Width="1920" Name="tagBrosseaDent"   VisualizationAdded="OnVisualizationAdded">
                                 <s:TagVisualizer.Definitions>
                                     <s:TagVisualizationDefinition Source="brosseDents.xaml"
                                                   Value="0x1" 
@@ -266,7 +260,7 @@
                     </Grid>
                 </Border>
                 <WrapPanel Name="aideBot" Height="200" Orientation="Horizontal" Margin="0,0,0,0">
-                    <TextBlock   Foreground="LightPink"  FontSize="50" >Aide :</TextBlock>
+                    <TextBlock   Foreground="LightPink"  FontSize="50" Height="200" HorizontalAlignment="Center" >Aide :</TextBlock>
                     <Border Name="borderAideBrosseDent2"  BorderThickness="4" >
                         <Image Name="brosseDent2" Height="200" Width="200" />
                     </Border>

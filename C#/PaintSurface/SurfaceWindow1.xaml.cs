@@ -304,14 +304,18 @@ namespace PaintSurface
             brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
             dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
+            verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
 
             //Objet en Image
             await Task.Delay(3000);
             brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
-
             dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
             verre.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
-            
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
+            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
+            verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
             //Objet Son
             await Task.Delay(3000);
             try
@@ -353,6 +357,7 @@ namespace PaintSurface
 
             if (brosseadentBool && verreBool && dentifriceBool)
             {
+                aideTop.Visibility = Visibility.Hidden;
                 aideTop.Visibility = Visibility.Hidden;
                 ordonnancement.Visibility = Visibility.Visible;
             }

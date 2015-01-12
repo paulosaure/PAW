@@ -110,3 +110,6 @@ crashlytics-build.properties
 
 #node_module
 C#/PaintServer/PaintServer/node_modules
+
+#ios Videos
+iOS/Workshop/Workshop/Videos

@@ -99,4 +99,41 @@ io.on('connection', function(socket){
     socket.on('reconnect_failed', function(){
         console.log("Failed to reconnect Client : " + socket.id + ". No new attempt will be done.");
     });
+    
+    
+    socket.on('ask_for_workshop', function(){
+    
+    	console.log("ask_for_workshop");
+    	var json = {
+			"name": "brossage de dents",
+			"frieze": [
+			{
+				"position": 1,
+				"image": "prendre_brossedent"
+			},
+			{
+				"position": 2,
+				"image": "mouiller_brosse"
+			},
+			{
+				"position": 3,
+				"image": "mettre_dentifrice"
+			},
+			{
+				"position": 4,
+				"image": "brosser"
+			},
+			{
+				"position": 5,
+				"image": "cracher"
+			},
+			{
+				"position": 6,
+				"image": "rincer_bouche"
+			}
+			]
+		};
+	    socket.emit('workshop', json);
+    });
+    
 });

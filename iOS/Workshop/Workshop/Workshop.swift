@@ -11,12 +11,24 @@ import UIKit
 class Workshop {
     
     var slots : [Slot] = [Slot]()
-    var fullVideoUrl : NSURL?
+    var name: String
     
-    
-    
-    init(fromSlots slots:[Slot]){
-        self.slots = slots
+    init(fromJSON jsonObject:AnyObject){
+        
+        let json = JSON(jsonObject)
+        
+        self.name = json["name"].stringValue;
+        
+        if let frieze = json["frieze"].array {
+            for item in frieze{
+                
+                let index = item["position"].intValue
+                let imageName = item["image"].stringValue
+                let slot = Slot(index: index, withPictureName: imageName)
+
+                self.slots.append(slot)
+            }
+        }
     }
     
 }

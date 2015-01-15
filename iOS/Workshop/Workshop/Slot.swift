@@ -10,8 +10,12 @@ import UIKit
 
 class Slot {
     
-    var pictureUrl : NSURL?
-    var soundUrl : NSURL?
-    var text : String?
+    var pictureName : String = ""
     var index : Int = 0
+    
+    init(index:Int, withPictureName pictureName:String){
+        self.index = index
+        self.pictureName = pictureName
+    }
+    
 }

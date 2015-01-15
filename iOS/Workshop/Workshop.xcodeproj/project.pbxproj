@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		922F0ADB1A6474B1005B417C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922F0ADA1A6474B1005B417C /* Images.xcassets */; };
-		922F0AE31A6474C5005B417C /* brosser.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0ADD1A6474C5005B417C /* brosser.mp4 */; };
-		922F0AE41A6474C5005B417C /* cracher.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0ADE1A6474C5005B417C /* cracher.mp4 */; };
-		922F0AE51A6474C5005B417C /* mettre_dentifrice.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0ADF1A6474C5005B417C /* mettre_dentifrice.mp4 */; };
-		922F0AE61A6474C5005B417C /* mouiller.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0AE01A6474C5005B417C /* mouiller.mp4 */; };
-		922F0AE71A6474C5005B417C /* prendre_brosse.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0AE11A6474C5005B417C /* prendre_brosse.mp4 */; };
-		922F0AE81A6474C5005B417C /* rincer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 922F0AE21A6474C5005B417C /* rincer.mp4 */; };
+		927CF09A1A65DAFA00C4F61F /* atelier.json in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0991A65DAFA00C4F61F /* atelier.json */; };
 		927D08EC1A6475BF00A2F545 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */; };
+		92AB81B51A67377C000057EE /* brosser.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0931A65D9A300C4F61F /* brosser.mp4 */; };
+		92AB81B61A67377C000057EE /* cracher.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0941A65D9A300C4F61F /* cracher.mp4 */; };
+		92AB81B71A67377C000057EE /* mettre_dentifrice.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0951A65D9A300C4F61F /* mettre_dentifrice.mp4 */; };
+		92AB81B81A67377C000057EE /* mouiller_brosse.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0961A65D9A300C4F61F /* mouiller_brosse.mp4 */; };
+		92AB81B91A67377C000057EE /* prendre_brossedent.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0971A65D9A300C4F61F /* prendre_brossedent.mp4 */; };
+		92AB81BA1A67377C000057EE /* rincer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0981A65D9A300C4F61F /* rincer.mp4 */; };
 		92BC8F821A59C630004437B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F811A59C630004437B9 /* AppDelegate.swift */; };
 		92BC8F851A59C630004437B9 /* Workshop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F831A59C630004437B9 /* Workshop.xcdatamodeld */; };
 		92BC8F871A59C630004437B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F861A59C630004437B9 /* ViewController.swift */; };
@@ -40,12 +41,13 @@
 /* Begin PBXFileReference section */
 		8BE6958D02847A5BB29621F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		922F0ADA1A6474B1005B417C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Workshop/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		922F0ADD1A6474C5005B417C /* brosser.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = brosser.mp4; sourceTree = "<group>"; };
-		922F0ADE1A6474C5005B417C /* cracher.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cracher.mp4; sourceTree = "<group>"; };
-		922F0ADF1A6474C5005B417C /* mettre_dentifrice.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mettre_dentifrice.mp4; sourceTree = "<group>"; };
-		922F0AE01A6474C5005B417C /* mouiller.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mouiller.mp4; sourceTree = "<group>"; };
-		922F0AE11A6474C5005B417C /* prendre_brosse.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prendre_brosse.mp4; sourceTree = "<group>"; };
-		922F0AE21A6474C5005B417C /* rincer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rincer.mp4; sourceTree = "<group>"; };
+		927CF0931A65D9A300C4F61F /* brosser.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = brosser.mp4; sourceTree = "<group>"; };
+		927CF0941A65D9A300C4F61F /* cracher.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cracher.mp4; sourceTree = "<group>"; };
+		927CF0951A65D9A300C4F61F /* mettre_dentifrice.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mettre_dentifrice.mp4; sourceTree = "<group>"; };
+		927CF0961A65D9A300C4F61F /* mouiller_brosse.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mouiller_brosse.mp4; sourceTree = "<group>"; };
+		927CF0971A65D9A300C4F61F /* prendre_brossedent.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prendre_brossedent.mp4; sourceTree = "<group>"; };
+		927CF0981A65D9A300C4F61F /* rincer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rincer.mp4; sourceTree = "<group>"; };
+		927CF0991A65DAFA00C4F61F /* atelier.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = atelier.json; sourceTree = "<group>"; };
 		927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		92BC8F7C1A59C630004437B9 /* Workshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BC8F801A59C630004437B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,18 +103,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		922F0ADC1A6474C5005B417C /* Videos */ = {
+		927CF0921A65D98C00C4F61F /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				922F0ADD1A6474C5005B417C /* brosser.mp4 */,
-				922F0ADE1A6474C5005B417C /* cracher.mp4 */,
-				922F0ADF1A6474C5005B417C /* mettre_dentifrice.mp4 */,
-				922F0AE01A6474C5005B417C /* mouiller.mp4 */,
-				922F0AE11A6474C5005B417C /* prendre_brosse.mp4 */,
-				922F0AE21A6474C5005B417C /* rincer.mp4 */,
+				927CF0931A65D9A300C4F61F /* brosser.mp4 */,
+				927CF0941A65D9A300C4F61F /* cracher.mp4 */,
+				927CF0951A65D9A300C4F61F /* mettre_dentifrice.mp4 */,
+				927CF0961A65D9A300C4F61F /* mouiller_brosse.mp4 */,
+				927CF0971A65D9A300C4F61F /* prendre_brossedent.mp4 */,
+				927CF0981A65D9A300C4F61F /* rincer.mp4 */,
 			);
 			name = Videos;
-			path = ../../../../../../../../Desktop/Videos;
 			sourceTree = "<group>";
 		};
 		92BC8F731A59C630004437B9 = {
@@ -180,8 +181,9 @@
 		92D674551A64039A001DA606 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				922F0ADC1A6474C5005B417C /* Videos */,
+				927CF0921A65D98C00C4F61F /* Videos */,
 				922F0ADA1A6474B1005B417C /* Images.xcassets */,
+				927CF0991A65DAFA00C4F61F /* atelier.json */,
 			);
 			name = Ressources;
 			path = Videos;
@@ -295,15 +297,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				922F0AE61A6474C5005B417C /* mouiller.mp4 in Resources */,
+				92AB81B51A67377C000057EE /* brosser.mp4 in Resources */,
+				92AB81B61A67377C000057EE /* cracher.mp4 in Resources */,
+				92AB81B71A67377C000057EE /* mettre_dentifrice.mp4 in Resources */,
+				92AB81B81A67377C000057EE /* mouiller_brosse.mp4 in Resources */,
+				92AB81B91A67377C000057EE /* prendre_brossedent.mp4 in Resources */,
+				92AB81BA1A67377C000057EE /* rincer.mp4 in Resources */,
 				922F0ADB1A6474B1005B417C /* Images.xcassets in Resources */,
 				92BC8F8A1A59C630004437B9 /* Main.storyboard in Resources */,
-				922F0AE81A6474C5005B417C /* rincer.mp4 in Resources */,
-				922F0AE31A6474C5005B417C /* brosser.mp4 in Resources */,
-				922F0AE41A6474C5005B417C /* cracher.mp4 in Resources */,
+				927CF09A1A65DAFA00C4F61F /* atelier.json in Resources */,
 				92BC8F8F1A59C630004437B9 /* LaunchScreen.xib in Resources */,
-				922F0AE71A6474C5005B417C /* prendre_brosse.mp4 in Resources */,
-				922F0AE51A6474C5005B417C /* mettre_dentifrice.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

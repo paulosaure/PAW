@@ -7,35 +7,52 @@
 //
 
 import UIKit
+import MediaPlayer
 
-class VideoViewController: UIViewController {
+class VideoViewController: UICollectionViewController {
     
-    var socket : SIOSocket!
-    var socketIsConnected : Bool = false
+    private var socket : SIOSocket!
+    private var socketIsConnected : Bool = false
+    
+    private var workshop : Workshop? {
+        didSet {
+            collectionView?.reloadData();
+        }
+    }
+    
+    var moviePlayer : MPMoviePlayerViewController?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SIOSocket.socketWithHost("http://134.59.214.247:8080", response: { (socket: SIOSocket!) -> Void in
+        SIOSocket.socketWithHost("http://localhost:8080", response: { (socket: SIOSocket!) -> Void in
             
             self.socket = socket
             
             self.socket.onConnect = {() -> Void in
                 self.socketIsConnected = true
-                NSLog("Connection")
+                println("Connection")
             }
             
-            socket.onError = {(var errorInfo) -> Void in
-                NSLog("Connection to server failed")
+            self.socket.onError = {(var errorInfo) -> Void in
+                println("Connection to server failed")
             }
 
-            socket.onDisconnect = {() -> Void in
+            self.socket.onDisconnect = {() -> Void in
                 self.socketIsConnected = false
             }
             
-            socket.on("change_vue", callback: { (mes: [AnyObject]!) -> Void in
+            self.socket.on("change_vue", callback: { (mes: [AnyObject]!) -> Void in
                 if let message = mes[0] as? String{
-                    NSLog(message)
+                    println(message)
+                }
+            })
+            
+            self.socket.on("workshop", callback: { (mes :[AnyObject]!) -> Void in
+                
+                if let message = mes[0] as? [String:AnyObject]{
+                    self.workshop = Workshop(fromJSON: message)
                 }
             })
             
@@ -49,9 +66,9 @@ class VideoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func emit(sender: UIButton) {
+    @IBAction func refreshWorkshop(sender: AnyObject) {
         
-        socket.emit("isTable")
+        socket.emit("ask_for_workshop")
         
     }
 
@@ -64,5 +81,51 @@ class VideoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - UICollectionViewDatasource
+    
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        if let workshop = self.workshop{
+            return 1;
+        }
+        return 0;
+    }
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if let workshop = self.workshop{
+            return workshop.slots.count;
+        }
+        return 0;
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("videoCell", forIndexPath: indexPath) as UICollectionViewCell
+        
+
+        if let workshop = self.workshop{
+
+            let slot = workshop.slots[indexPath.row];
+            cell.backgroundView = UIImageView(image: UIImage(named: slot.pictureName));
+            
+        }
+
+        // Configure the cell
+        return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let name = workshop?.slots[indexPath.row].pictureName;
+        
+        let path = NSBundle.mainBundle().pathForResource(name, ofType:"mp4")
+        let url = NSURL.fileURLWithPath(path!)
+        moviePlayer = MPMoviePlayerViewController(contentURL: url)
+        
+        if let player = moviePlayer {
+            presentMoviePlayerViewControllerAnimated(player)
+        }
+    
+    }
 
 }

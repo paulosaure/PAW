@@ -1,0 +1,29 @@
+{
+    "name" : "brossage de dents",
+    "frieze": [
+        {
+            "position": 1,
+            "image": "prendre_brossedent"
+        },
+        {
+            "position": 2,
+            "image": "mouiller_brosse"
+        },
+        {
+            "position": 3,
+            "image": "mettre_dentifrice"
+        },
+        {
+            "position": 4,
+            "image": "brosser"
+        },
+        {
+            "position": 5,
+            "image": "cracher"
+        },
+        {
+            "position": 6,
+            "image": "rincer_bouche"
+        }
+    ]
+}

@@ -94,37 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598" y="296"/>
-        </scene>
-        <!--Vidéos-->
-        <scene sceneID="C0u-bI-Fek">
-            <objects>
-                <viewController id="MAs-9G-Jg7" customClass="VideoViewController" customModule="Workshop" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fS3-4Q-70v"/>
-                        <viewControllerLayoutGuide type="bottom" id="Yj5-FA-wkH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aUz-lh-D60">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tu-9d-CfJ">
-                                <rect key="frame" x="277" y="225" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="emit:" destination="MAs-9G-Jg7" eventType="touchUpInside" id="978-BR-8Mw"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Vidéos" image="movie" id="7ew-5J-9oc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OTc-kV-Oic" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="598" y="946"/>
+            <point key="canvasLocation" x="598" y="282"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HTN-7O-Sk3">
@@ -137,7 +107,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="MAs-9G-Jg7" kind="relationship" relationship="viewControllers" id="tbI-ON-ImH"/>
+                        <segue destination="aOF-tD-ToG" kind="relationship" relationship="viewControllers" id="tbI-ON-ImH"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="SlJ-RT-sYA"/>
                     </connections>
                 </tabBarController>
@@ -145,9 +115,85 @@
             </objects>
             <point key="canvasLocation" x="-354" y="596"/>
         </scene>
+        <!--Vidéos-->
+        <scene sceneID="cgG-TU-bjK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aOF-tD-ToG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Vidéos" image="movie" id="7ew-5J-9oc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6ca-jQ-85T">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NOz-GN-iFK" kind="relationship" relationship="rootViewController" id="5BE-AZ-322"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yWk-yB-cks" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="598" y="946"/>
+        </scene>
+        <!--Vidéos-->
+        <scene sceneID="tpH-uD-l0A">
+            <objects>
+                <collectionViewController id="NOz-GN-iFK" customClass="VideoViewController" customModule="Workshop" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gF6-nb-rBA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bC8-YJ-mHL">
+                            <size key="itemSize" width="200" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="ANq-CQ-HUX">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49r-4q-vlH">
+                                            <rect key="frame" x="65" y="65" width="70" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="Bjd-17-FaO"/>
+                                                <constraint firstAttribute="width" constant="70" id="IHL-gB-qn6"/>
+                                            </constraints>
+                                            <state key="normal" image="play"/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="49r-4q-vlH" secondAttribute="centerY" id="45r-3A-HGj"/>
+                                    <constraint firstAttribute="centerX" secondItem="49r-4q-vlH" secondAttribute="centerX" id="c35-Qj-ut5"/>
+                                </constraints>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="NOz-GN-iFK" id="s6k-yu-f6d"/>
+                            <outlet property="delegate" destination="NOz-GN-iFK" id="SRy-JH-RkR"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Vidéos" id="JYr-Gb-7Fm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="WJv-77-KRc">
+                            <connections>
+                                <action selector="refreshWorkshop:" destination="NOz-GN-iFK" id="xTM-k7-lxj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QQU-wp-drG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334" y="946"/>
+        </scene>
     </scenes>
     <resources>
         <image name="movie" width="24" height="24"/>
+        <image name="play" width="255" height="255"/>
         <image name="realtime_protection-25" width="24" height="24"/>
     </resources>
 </document>

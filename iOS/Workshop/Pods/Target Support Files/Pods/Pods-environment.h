@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_OBDragDrop 0
 #define COCOAPODS_VERSION_PATCH_OBDragDrop 0
 
+// QRCodeReaderViewController
+#define COCOAPODS_POD_AVAILABLE_QRCodeReaderViewController
+#define COCOAPODS_VERSION_MAJOR_QRCodeReaderViewController 2
+#define COCOAPODS_VERSION_MINOR_QRCodeReaderViewController 0
+#define COCOAPODS_VERSION_PATCH_QRCodeReaderViewController 0
+
 // SIOSocket
 #define COCOAPODS_POD_AVAILABLE_SIOSocket
 #define COCOAPODS_VERSION_MAJOR_SIOSocket 0

@@ -1,2 +1,3 @@
 pod 'SIOSocket', '~> 0.2.0'
 pod 'OBDragDrop', '~> 1.0'
+pod 'QRCodeReaderViewController', '~> 2.0.0'

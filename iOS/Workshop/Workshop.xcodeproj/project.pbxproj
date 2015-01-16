@@ -15,13 +15,18 @@
 		92AB81B71A67377C000057EE /* mettre_dentifrice.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0951A65D9A300C4F61F /* mettre_dentifrice.mp4 */; };
 		92AB81B81A67377C000057EE /* mouiller_brosse.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0961A65D9A300C4F61F /* mouiller_brosse.mp4 */; };
 		92AB81B91A67377C000057EE /* prendre_brossedent.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0971A65D9A300C4F61F /* prendre_brossedent.mp4 */; };
-		92AB81BA1A67377C000057EE /* rincer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0981A65D9A300C4F61F /* rincer.mp4 */; };
+		92AB81BA1A67377C000057EE /* rincer_bouche.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0981A65D9A300C4F61F /* rincer_bouche.mp4 */; };
 		92BC8F821A59C630004437B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F811A59C630004437B9 /* AppDelegate.swift */; };
 		92BC8F851A59C630004437B9 /* Workshop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F831A59C630004437B9 /* Workshop.xcdatamodeld */; };
 		92BC8F871A59C630004437B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F861A59C630004437B9 /* ViewController.swift */; };
 		92BC8F8A1A59C630004437B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BC8F881A59C630004437B9 /* Main.storyboard */; };
 		92BC8F8F1A59C630004437B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BC8F8D1A59C630004437B9 /* LaunchScreen.xib */; };
 		92BC8F9B1A59C630004437B9 /* WorkshopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC8F9A1A59C630004437B9 /* WorkshopTests.swift */; };
+		92BDE72D1A68502200667003 /* SocketSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BDE72C1A68502200667003 /* SocketSingleton.swift */; };
+		92BDE7311A68F83B00667003 /* SlotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BDE7301A68F83B00667003 /* SlotCollectionViewCell.swift */; };
+		92BDE7331A68FCA000667003 /* SlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BDE7321A68FCA000667003 /* SlotView.swift */; };
+		92BDE7361A69040700667003 /* ShuffleArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BDE7351A69040700667003 /* ShuffleArray.swift */; };
+		92C6FD071A691DAF007C4422 /* ActionVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6FD061A691DAF007C4422 /* ActionVideoCollectionViewCell.swift */; };
 		92F4ACA21A5FC0AC00C29FFB /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA11A5FC0AC00C29FFB /* Slot.swift */; };
 		92F4ACA41A5FC7CC00C29FFB /* Workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */; };
 		92F4ACA61A60083900C29FFB /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA51A60083900C29FFB /* VideoViewController.swift */; };
@@ -46,7 +51,7 @@
 		927CF0951A65D9A300C4F61F /* mettre_dentifrice.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mettre_dentifrice.mp4; sourceTree = "<group>"; };
 		927CF0961A65D9A300C4F61F /* mouiller_brosse.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mouiller_brosse.mp4; sourceTree = "<group>"; };
 		927CF0971A65D9A300C4F61F /* prendre_brossedent.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prendre_brossedent.mp4; sourceTree = "<group>"; };
-		927CF0981A65D9A300C4F61F /* rincer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rincer.mp4; sourceTree = "<group>"; };
+		927CF0981A65D9A300C4F61F /* rincer_bouche.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rincer_bouche.mp4; sourceTree = "<group>"; };
 		927CF0991A65DAFA00C4F61F /* atelier.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = atelier.json; sourceTree = "<group>"; };
 		927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		92BC8F7C1A59C630004437B9 /* Workshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +64,11 @@
 		92BC8F941A59C630004437B9 /* WorkshopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkshopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BC8F991A59C630004437B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92BC8F9A1A59C630004437B9 /* WorkshopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTests.swift; sourceTree = "<group>"; };
+		92BDE72C1A68502200667003 /* SocketSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketSingleton.swift; sourceTree = "<group>"; };
+		92BDE7301A68F83B00667003 /* SlotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotCollectionViewCell.swift; sourceTree = "<group>"; };
+		92BDE7321A68FCA000667003 /* SlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotView.swift; sourceTree = "<group>"; };
+		92BDE7351A69040700667003 /* ShuffleArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShuffleArray.swift; sourceTree = "<group>"; };
+		92C6FD061A691DAF007C4422 /* ActionVideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionVideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		92D72B641A59C8BF00AEE3FC /* Workshop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Workshop-Bridging-Header.h"; sourceTree = "<group>"; };
 		92F4ACA11A5FC0AC00C29FFB /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workshop.swift; sourceTree = "<group>"; };
@@ -111,7 +121,7 @@
 				927CF0951A65D9A300C4F61F /* mettre_dentifrice.mp4 */,
 				927CF0961A65D9A300C4F61F /* mouiller_brosse.mp4 */,
 				927CF0971A65D9A300C4F61F /* prendre_brossedent.mp4 */,
-				927CF0981A65D9A300C4F61F /* rincer.mp4 */,
+				927CF0981A65D9A300C4F61F /* rincer_bouche.mp4 */,
 			);
 			name = Videos;
 			sourceTree = "<group>";
@@ -139,15 +149,13 @@
 		92BC8F7E1A59C630004437B9 /* Workshop */ = {
 			isa = PBXGroup;
 			children = (
+				92BDE7341A6903F400667003 /* Extension */,
 				927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */,
+				92BDE72C1A68502200667003 /* SocketSingleton.swift */,
+				92BDE72E1A68F74400667003 /* View */,
 				92D674551A64039A001DA606 /* Ressources */,
 				92F4AC9F1A5FBFB300C29FFB /* Model */,
-				92BC8F881A59C630004437B9 /* Main.storyboard */,
 				92F4ACA01A5FBFC000C29FFB /* Controller */,
-				92BC8F811A59C630004437B9 /* AppDelegate.swift */,
-				92BC8F8D1A59C630004437B9 /* LaunchScreen.xib */,
-				92BC8F831A59C630004437B9 /* Workshop.xcdatamodeld */,
-				92D72B651A59C8C500AEE3FC /* Bridge objC to Swift */,
 				92BC8F7F1A59C630004437B9 /* Supporting Files */,
 			);
 			path = Workshop;
@@ -156,6 +164,8 @@
 		92BC8F7F1A59C630004437B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				92BC8F811A59C630004437B9 /* AppDelegate.swift */,
+				92D72B651A59C8C500AEE3FC /* Bridge objC to Swift */,
 				92BC8F801A59C630004437B9 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -176,6 +186,34 @@
 				92BC8F991A59C630004437B9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92BDE72E1A68F74400667003 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				92BC8F881A59C630004437B9 /* Main.storyboard */,
+				92BC8F8D1A59C630004437B9 /* LaunchScreen.xib */,
+				92BDE72F1A68F75A00667003 /* Cell */,
+				92BDE7321A68FCA000667003 /* SlotView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		92BDE72F1A68F75A00667003 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				92BDE7301A68F83B00667003 /* SlotCollectionViewCell.swift */,
+				92C6FD061A691DAF007C4422 /* ActionVideoCollectionViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		92BDE7341A6903F400667003 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				92BDE7351A69040700667003 /* ShuffleArray.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		92D674551A64039A001DA606 /* Ressources */ = {
@@ -200,6 +238,7 @@
 		92F4AC9F1A5FBFB300C29FFB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92BC8F831A59C630004437B9 /* Workshop.xcdatamodeld */,
 				92F4ACA11A5FC0AC00C29FFB /* Slot.swift */,
 				92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */,
 			);
@@ -302,7 +341,7 @@
 				92AB81B71A67377C000057EE /* mettre_dentifrice.mp4 in Resources */,
 				92AB81B81A67377C000057EE /* mouiller_brosse.mp4 in Resources */,
 				92AB81B91A67377C000057EE /* prendre_brossedent.mp4 in Resources */,
-				92AB81BA1A67377C000057EE /* rincer.mp4 in Resources */,
+				92AB81BA1A67377C000057EE /* rincer_bouche.mp4 in Resources */,
 				922F0ADB1A6474B1005B417C /* Images.xcassets in Resources */,
 				92BC8F8A1A59C630004437B9 /* Main.storyboard in Resources */,
 				927CF09A1A65DAFA00C4F61F /* atelier.json in Resources */,
@@ -357,10 +396,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92BDE7331A68FCA000667003 /* SlotView.swift in Sources */,
 				92BC8F871A59C630004437B9 /* ViewController.swift in Sources */,
 				92BC8F851A59C630004437B9 /* Workshop.xcdatamodeld in Sources */,
+				92BDE72D1A68502200667003 /* SocketSingleton.swift in Sources */,
+				92BDE7361A69040700667003 /* ShuffleArray.swift in Sources */,
 				92F4ACA61A60083900C29FFB /* VideoViewController.swift in Sources */,
+				92C6FD071A691DAF007C4422 /* ActionVideoCollectionViewCell.swift in Sources */,
 				92BC8F821A59C630004437B9 /* AppDelegate.swift in Sources */,
+				92BDE7311A68F83B00667003 /* SlotCollectionViewCell.swift in Sources */,
 				92F4ACA21A5FC0AC00C29FFB /* Slot.swift in Sources */,
 				927D08EC1A6475BF00A2F545 /* SwiftyJSON.swift in Sources */,
 				92F4ACA41A5FC7CC00C29FFB /* Workshop.swift in Sources */,

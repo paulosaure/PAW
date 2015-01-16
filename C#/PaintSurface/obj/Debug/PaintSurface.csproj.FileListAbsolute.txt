@@ -136,9 +136,6 @@ C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface_MarkupCompile.cache
 C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.g.resources
 C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
 C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\brosseDents.baml
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\brosseDents.g.cs
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\brosseDents.xaml.cs
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\bin\Debug\PaintSurface.exe.config
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\obj\Debug\PaintSurface.exe
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\obj\Debug\PaintSurface.pdb
@@ -170,9 +167,7 @@ C:\Users\Val\Desktop\Interface\C#\PaintSurface\obj\Debug\PaintSurface.g.resource
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.baml
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\verre.baml
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.g.cs
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\verre.g.cs
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
 C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
 C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\brosseDents.baml

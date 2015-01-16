@@ -136,6 +136,7 @@
     <Resource Include="Resources\prendre_brossedent.png" />
     <Resource Include="Resources\rincer_bouche.png" />
     <Resource Include="Resources\friseG.png" />
+    <Resource Include="Resources\friseD.png" />
     <Content Include="Resources\sonBrosseDent.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

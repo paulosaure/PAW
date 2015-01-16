@@ -60,7 +60,13 @@ io.on('connection', function(socket){
 		tablets[socket.id] = "";
 		delete(tablets[socket.id]);
     });
-	
+    socket.on('isTableSurface', function () {
+        console.log("isTableSurface");
+        isTable = true;
+        tableSocket = tablets[socket.id];
+        tablets[socket.id] = "";
+        delete (tablets[socket.id]);
+    });
 	socket.on('setTabletViewport', function(viewportDescription){
         console.log("setTabletViewport");
         if(isTable) {
@@ -139,14 +145,14 @@ io.on('connection', function(socket){
     socket.on('changeMode', function (mode) {
 
         console.log("change_mode");
-        socket.emit("changeMode", mode);
+        socket.broadcast.emit('changeMode', mode);
 
     });
 
     socket.on('vue', function (vue) {
 
         console.log("change_vue");
-        socket.emit("change_mode", vue);
+        socket.emit("changeVue", vue);
 
     });
 

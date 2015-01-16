@@ -51,7 +51,7 @@ namespace PaintSurface
                 this.socket.On("connect", (data) =>
                 {
                     Console.WriteLine("Connected to PaintServer.");
-                    socket.Emit("isTable");
+                    socket.Emit("isTableSurface");
                 });
 
                 this.socket.On("disconnect", (data) =>
@@ -84,7 +84,10 @@ namespace PaintSurface
                     Console.WriteLine("Failed to connect to PaintServer. No new attempt will be done.");
                 });
 
-
+                this.socket.On("changeMode", (data) =>
+                    {
+                        Console.WriteLine(data);
+                    });
                 this.socket.On("newTablet", (data) =>
                 {
                     Console.WriteLine(data);

@@ -163,7 +163,7 @@ io.on('connection', function (socket) {
         });
         */
     socket.on('aide', function (data) {
-        console.log("aide");
+        console.log("aide" + data);
         socket.broadcast.emit('aide', data);
     });
     /*

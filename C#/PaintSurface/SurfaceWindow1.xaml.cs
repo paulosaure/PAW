@@ -99,6 +99,10 @@ namespace PaintSurface
         }
         public  void aide(String str)
         {
+            this.Dispatcher.Invoke((Action)(() =>
+    {
+       
+    
             String[] order = str.Split(' ');
             switch (order[0])
             {
@@ -107,11 +111,15 @@ namespace PaintSurface
                 case "verre": switch (order[1]) { case "texte": verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break; case "image": verre.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative)); break; case "son": verreSon.Play(); break; } break;
                 case "brosse": switch (order[1]) { case "texte":  brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break; case "image": brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break; case "son": brosseadentSon.Play(); break; } break;
             }
-            
-           
+
+    }));
         }
         private  void texteAide()
         {
+            brossezdent = null;
+            rasez = null;
+            coiffez = null;
+            douchez = null;
             brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
             dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
@@ -131,7 +139,8 @@ namespace PaintSurface
         }
         private async void sonAide()
         {
-            await Task.Delay(3000);
+            Trace.WriteLine("SON AIDE");
+            await Task.Delay(1000);
             try
             {
                 brosseadentSon.Play();
@@ -149,6 +158,14 @@ namespace PaintSurface
             try
             {
                 verreSon.Play();
+            }
+            catch (System.NullReferenceException) { }
+            await Task.Delay(1000);
+            try
+            {
+                verreSon.Stop();
+                dentifriceSon.Stop();
+                brosseadentSon.Stop();
             }
             catch (System.NullReferenceException) { }
         }
@@ -367,10 +384,7 @@ namespace PaintSurface
             rasez.Stop();
             coiffez.Stop();
             douchez.Stop();
-            brossezdent = null;
-            rasez = null;
-            coiffez = null;
-            douchez = null;
+
 
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;

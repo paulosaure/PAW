@@ -751,6 +751,7 @@ namespace PaintSurface
         }
 
         private bool drop = false;
+        private bool touchSurFrise = false;
         private void touchTEST(object sender, TouchEventArgs e)
         {
             Trace.WriteLine("touh up frise");
@@ -766,19 +767,23 @@ namespace PaintSurface
                     case 6: img.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative));canvas.Children.Add(i6); break;
                     default: break;
             }
+                canvas.Children.Remove(imgTmp);
                 drop = false;
+                touchSurFrise = true;
             }
         }
 
         private void mouveDelete(object sender, TouchEventArgs e)
         {
+            touchSurFrise = true;
             Image img = sender as Image;
             img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative));
             
         }
   private void imgTmp_TouchUp(object sender, TouchEventArgs e)
-        {
-            if (ordonnacement)
+  {
+      Trace.WriteLine("canvas touch up");
+            if (ordonnacement && !touchSurFrise)
             {
                 switch (image)
                 {
@@ -791,6 +796,10 @@ namespace PaintSurface
                     default: break;
                 }
                 canvas.Children.Remove(imgTmp);
+            }
+            else
+            {
+                touchSurFrise = false;
             }
         }
     }

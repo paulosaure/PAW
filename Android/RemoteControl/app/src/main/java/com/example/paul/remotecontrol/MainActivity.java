@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 
 import com.github.nkzawa.emitter.Emitter;
@@ -74,7 +75,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                sendMsg("sound_encouragement");
+                sendSound("sound_encouragement");
             }
 
         });
@@ -84,7 +85,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                sendMsg("sound_felicitation");
+                sendSound("sound_felicitation");
             }
 
         });
@@ -95,7 +96,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                sendMsg("sound_erreur");
+                sendSound("sound_erreur");
             }
 
         });
@@ -105,12 +106,12 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                sendMsg("sound_essaie_encore");
+                sendSound("sound_essaie_encore");
             }
 
         });
 
-        ImageButton btn_next_view = (ImageButton) findViewById(R.id.imageButton);
+        //ImageButton btn_next_view = (ImageButton) findViewById(R.id.imageButton);
         btn_sound_essaieEncore.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -121,6 +122,24 @@ public class MainActivity extends ActionBarActivity {
         });
     }
 
+
+    //Action checkBox
+    public void onCheckboxClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+
+        switch(view.getId()) {
+            case R.id.checkBoxTexte:
+                if (checked){sendMode("string");}
+                else{sendMode("none_string");}
+                break;
+            case R.id.checkBoxImage:
+                if (checked){sendMode("image");}
+                else{sendMode("none_image");}
+                break;
+        }
+    }
+
+//Partie Server
     public void connectionServer(){
         try {
         socket = IO.socket("http://134.59.214.247:8080");
@@ -148,9 +167,17 @@ public class MainActivity extends ActionBarActivity {
         socket.connect();
     }
 
-    public JSONObject sendMsg(String msg){
+
+    public JSONObject sendSound(String msg){
         JSONObject obj = new JSONObject();
-        socket.emit("isTable", msg);
+        socket.emit("sound", msg);
         return null;
     }
+
+    public JSONObject sendMode(String msg){
+        JSONObject obj = new JSONObject();
+        socket.emit("changeMode", msg);
+        return null;
+    }
+
 }

@@ -135,5 +135,27 @@ io.on('connection', function(socket){
 		};
 	    socket.emit('workshop', json);
     });
+
+    socket.on('changeMode', function (mode) {
+
+        console.log("change_mode");
+        socket.emit("changeMode", mode);
+
+    });
+
+    socket.on('vue', function (vue) {
+
+        console.log("change_vue");
+        socket.emit("change_mode", vue);
+
+    });
+
+    socket.on('play_video', function (video) {
+
+        console.log("play_video");
+        socket.emit("play_video", video);
+
+    });
+
     
 });

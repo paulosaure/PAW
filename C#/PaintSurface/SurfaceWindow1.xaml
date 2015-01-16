@@ -194,7 +194,7 @@
             </StackPanel>
         </Grid>
         <!--Vue objet à poser sur table-->
-        <Canvas Name="canvas" TouchMove="imgTmp_TouchMove">
+        <Canvas Name="canvas" TouchMove="imgTmp_TouchMove" TouchUp="imgTmp_TouchUp">
             <Grid Name="objet" Visibility="Hidden" Grid.ColumnSpan="2">
                 <StackPanel >
                     <WrapPanel Name="aideTop" Height="200"  Orientation="Horizontal" Margin="0,0,0,0">

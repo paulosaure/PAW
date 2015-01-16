@@ -26,13 +26,14 @@ namespace PaintSurface
             }
         }
 
+        public SurfaceWindow1 sur;
         //public Client socket;
         public Socket socket;
 
-        public SocketManager(string serverUrl)
+        public SocketManager(string serverUrl,SurfaceWindow1 sur)
         {
             this.socket = null;
-
+            this.sur = sur;
             this.ServerUrl = serverUrl;
         }
 
@@ -51,7 +52,7 @@ namespace PaintSurface
                 this.socket.On("connect", (data) =>
                 {
                     Console.WriteLine("Connected to PaintServer.");
-                    socket.Emit("isTable");
+                    socket.Emit("isTableSurface");
                 });
 
                 this.socket.On("disconnect", (data) =>
@@ -84,7 +85,14 @@ namespace PaintSurface
                     Console.WriteLine("Failed to connect to PaintServer. No new attempt will be done.");
                 });
 
-
+                this.socket.On("changeMode", (data) =>
+                    {
+                        Console.WriteLine(data);
+                    });
+                this.socket.On("aide", (data) =>
+                    {
+                        sur.aide((String)data);
+                    });
                 this.socket.On("newTablet", (data) =>
                 {
                     Console.WriteLine(data);

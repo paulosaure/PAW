@@ -39,17 +39,17 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EngineIoClientDotNet, Version=0.9.14.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EngineIoClientDotNet, Version=0.9.15.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EngineIoClientDotNet.0.9.14\lib\net45\EngineIoClientDotNet.dll</HintPath>
+      <HintPath>..\packages\EngineIoClientDotNet.0.9.15\lib\net45\EngineIoClientDotNet.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SocketIoClientDotNet, Version=0.9.8.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SocketIoClientDotNet, Version=0.9.9.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SocketIoClientDotNet.0.9.8\lib\net45\SocketIoClientDotNet.dll</HintPath>
+      <HintPath>..\packages\SocketIoClientDotNet.0.9.9\lib\net45\SocketIoClientDotNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -62,9 +62,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="WebSocket4Net, Version=0.10.0.0, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL">
+    <Reference Include="WebSocket4Net, Version=0.11.0.0, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WebSocket4Net.0.10\lib\net45\WebSocket4Net.dll</HintPath>
+      <HintPath>..\packages\WebSocket4Net.0.11\lib\net45\WebSocket4Net.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -80,14 +80,6 @@
     <Compile Include="dentifrice.xaml.cs">
       <DependentUpon>dentifrice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="verre.xaml.cs">
-      <DependentUpon>verre.xaml</DependentUpon>
-    </Compile>
-    <Page Include="brosseDents.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Page>
     <Page Include="dentifrice.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,19 +92,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="brosseDents.xaml.cs">
-      <DependentUpon>brosseDents.xaml</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="SocketManager.cs" />
     <Compile Include="SurfaceWindow1.xaml.cs">
       <DependentUpon>SurfaceWindow1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="verre.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -152,6 +136,7 @@
     <Resource Include="Resources\prendre_brossedent.png" />
     <Resource Include="Resources\rincer_bouche.png" />
     <Resource Include="Resources\friseG.png" />
+    <Resource Include="Resources\friseD.png" />
     <Content Include="Resources\sonBrosseDent.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

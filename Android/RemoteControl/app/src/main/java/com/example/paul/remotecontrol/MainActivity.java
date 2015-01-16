@@ -27,6 +27,8 @@ public class MainActivity extends ActionBarActivity {
     private MediaPlayer mPlayer = null;
     Socket socket;
     String currentViewTable;
+    private int viewPosition = 1;
+    private String url = "http://192.168.1.2:8080";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,13 +71,39 @@ public class MainActivity extends ActionBarActivity {
         connectionServer();
     }
 
+
+//Buttons
+    public void onPreviousView()
+    {
+        if(viewPosition >1){
+            viewPosition--;
+            forcePush("next");
+        }
+    }
+
+    public void onNextView()
+    {
+        if(viewPosition<6){
+            viewPosition++;
+            forcePush("previous");
+        }
+    }
+
+    //Button Useless
+    public void buttonSendAide(View v)
+    {
+        String msg = (((Button) v).getText()).toString();
+        sendAide(msg);
+    }
+
+//Sound
     public void loadSoundButton(){
         Button btn_sound_encouragement = (Button) findViewById(R.id.buttonEncouragement);
         btn_sound_encouragement.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                sendSound("sound_encouragement");
+                sendSound("encouragement");
             }
 
         });
@@ -85,7 +113,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                sendSound("sound_felicitation");
+                sendSound("felicitation");
             }
 
         });
@@ -96,7 +124,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                sendSound("sound_erreur");
+                sendSound("erreur");
             }
 
         });
@@ -106,7 +134,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                sendSound("sound_essaie_encore");
+                sendSound("essaieEncore");
             }
 
         });
@@ -123,18 +151,39 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    //Action checkBox
+//Action checkBox
     public void onCheckboxClicked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
 
         switch(view.getId()) {
             case R.id.checkBoxTexte:
-                if (checked){sendMode("string");}
-                else{sendMode("none_string");}
+                if (checked){sendAide("string");}
+                else{sendAide("none_string");}
                 break;
             case R.id.checkBoxImage:
-                if (checked){sendMode("image");}
-                else{sendMode("none_image");}
+                if (checked){sendAide("image");}
+                else{sendAide("none_image");}
+                break;
+        }
+    }
+
+    public void loadView(int view)
+    {
+        switch (view)
+        {
+            case 1: //Vue roue
+                break;
+            case 2: //Vue choix piece
+                break;
+            case 3: //Vue choix atelier
+                break;
+            case 4: //Vue trouver les objets avec les aides
+                break;
+            case 5: //Vue ordonnancer les objets
+                break;
+            case 6: //Vue afficher les vidéos
+                break;
+            default:
                 break;
         }
     }
@@ -142,7 +191,8 @@ public class MainActivity extends ActionBarActivity {
 //Partie Server
     public void connectionServer(){
         try {
-        socket = IO.socket("http://134.59.214.247:8080");
+       // socket = IO.socket("http://192.168.1.6:8080");
+        socket = IO.socket(url);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -157,7 +207,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void call(Object... args) {}
 
-        }).on("change_vue", new Emitter.Listener() {
+        }).on("changeVue", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
                 currentViewTable = (String) args[0];
@@ -167,16 +217,36 @@ public class MainActivity extends ActionBarActivity {
         socket.connect();
     }
 
-
+//Envoie des messages
     public JSONObject sendSound(String msg){
-        JSONObject obj = new JSONObject();
         socket.emit("sound", msg);
         return null;
     }
 
-    public JSONObject sendMode(String msg){
-        JSONObject obj = new JSONObject();
-        socket.emit("changeMode", msg);
+//Event
+    public JSONObject sendClignoter (String msg){
+        socket.emit("clignoter", msg);
+        return null;
+    }
+
+    public JSONObject sendFlash(String msg){
+        socket.emit("flash", msg);
+        return null;
+    }
+
+    public JSONObject sendZoom(String msg){
+        socket.emit("zoom", msg);
+        return null;
+    }
+//Aide
+    public JSONObject sendAide(String msg){
+        socket.emit("aide", msg);
+        return null;
+    }
+
+//ForcePush
+    public JSONObject forcePush(String msg){
+        socket.emit("hardPush", msg);
         return null;
     }
 

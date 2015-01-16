@@ -73,7 +73,8 @@
         android:id="@+id/imageButton"
         android:background="@drawable/fleche"
         android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="onPreviousView"/>
 
     <ImageButton
         android:layout_width="50dp"
@@ -82,50 +83,8 @@
         android:background="@drawable/flechegauche"
         android:layout_below="@+id/checkBoxTexte"
         android:layout_toEndOf="@+id/buttonClignote"
-        android:layout_marginLeft="40dp" />
-
-    <TabHost
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/tabHost"
-        android:layout_above="@+id/buttonFelicitation"
-        android:layout_toLeftOf="@+id/imageButton"
-        android:layout_toRightOf="@+id/imageButton2"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="40dp">
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical">
-
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"></TabWidget>
-
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <LinearLayout
-                    android:id="@+id/User_1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical"></LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/User_2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical"></LinearLayout>
-
-            </FrameLayout>
-        </LinearLayout>
-    </TabHost>
+        android:onClick="onNextView"/>
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -151,6 +110,100 @@
         android:clickable="true"
         android:layout_marginBottom="40dp"
         android:onClick="onCheckboxClicked"/>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignTop="@+id/checkBoxImage"
+        android:layout_above="@+id/buttonFelicitation"
+        android:layout_toEndOf="@id/imageButton2"
+        android:layout_toStartOf="@+id/imageButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="all texte"
+            android:tag="all texte"
+            android:id="@+id/button"
+            android:layout_gravity="left|top"
+            android:onClick="buttonSendAide" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="all image"
+            android:tag="all image"
+            android:id="@+id/button2"
+            android:layout_gravity="center_horizontal|top"
+            android:onClick="buttonSendAide" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="all son"
+            android:tag="all son"
+            android:id="@+id/button3"
+            android:layout_gravity="right|top"
+            android:onClick="buttonSendAide" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dentifrice image"
+            android:tag="dentifrice image"
+            android:id="@+id/button4"
+            android:layout_gravity="left|center_vertical"
+            android:onClick="buttonSendAide" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dentifrice texte"
+            android:tag="dentifrice texte"
+            android:id="@+id/button5"
+            android:layout_gravity="center"
+            android:onClick="buttonSendAide" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="verre image"
+            android:tag="verre image"
+            android:id="@+id/button6"
+            android:layout_gravity="right|center_vertical"
+            android:onClick="buttonSendAide" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="verre texte"
+            android:tag="verre texte"
+            android:id="@+id/button7"
+            android:layout_gravity="left|bottom"
+            android:onClick="buttonSendAide" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="brosse image"
+            android:tag="brosse image"
+            android:id="@+id/button8"
+            android:layout_gravity="center_horizontal|bottom"
+            android:onClick="buttonSendAide" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="brosse texte"
+            android:tag="brosse texte"
+            android:id="@+id/button9"
+            android:layout_gravity="right|bottom"
+            android:onClick="buttonSendAide" />
+    </FrameLayout>
 
 </RelativeLayout>
 

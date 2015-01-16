@@ -26,6 +26,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.paul.remotecontrol.ViewWheel"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".ChoicePlace"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".ChoiceActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".FindObject"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".Scheduling"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".DisplayVideo"
+            android:label="@string/app_name" />
+
+
     </application>
 
 </manifest>

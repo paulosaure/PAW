@@ -26,13 +26,14 @@ namespace PaintSurface
             }
         }
 
+        public SurfaceWindow1 sur;
         //public Client socket;
         public Socket socket;
 
-        public SocketManager(string serverUrl)
+        public SocketManager(string serverUrl,SurfaceWindow1 sur)
         {
             this.socket = null;
-
+            this.sur = sur;
             this.ServerUrl = serverUrl;
         }
 
@@ -87,6 +88,10 @@ namespace PaintSurface
                 this.socket.On("changeMode", (data) =>
                     {
                         Console.WriteLine(data);
+                    });
+                this.socket.On("aide", (data) =>
+                    {
+                        sur.aide((String)data);
                     });
                 this.socket.On("newTablet", (data) =>
                 {

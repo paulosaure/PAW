@@ -173,10 +173,7 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\verre.baml
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.g.cs
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\verre.g.cs
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIOClient.dll
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIOClient.pdb
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIOClient.xml
 C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
 C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\brosseDents.baml
 C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\dentifrice.baml
@@ -261,3 +258,6 @@ C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\EngineIoClientDotN
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\SocketIoClientDotNet.dll
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.xml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\EngineIoClientDotNet.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIoClientDotNet.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.xml

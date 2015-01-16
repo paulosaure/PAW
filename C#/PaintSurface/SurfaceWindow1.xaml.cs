@@ -94,10 +94,64 @@ namespace PaintSurface
 
 
 
-            this._sm = new SocketManager("http://localhost:" + this._serverPort.ToString());
+            this._sm = new SocketManager("http://localhost:" + this._serverPort.ToString(),this);
 
         }
+        public  void aide(String str)
+        {
+            String[] order = str.Split(' ');
+            switch (order[0])
+            {
+                case "all": switch (order[1]) { case "texte": texteAide(); break; case "image": imageAide(); break; case "son": sonAide(); break; } break;
+                case "dentifrice": switch (order[1]) { case "texte": dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break; case "image": dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break; case "son": dentifriceSon.Play(); break; } break;
+                case "verre": switch (order[1]) { case "texte": verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break; case "image": verre.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative)); break; case "son": verreSon.Play(); break; } break;
+                case "brosse": switch (order[1]) { case "texte":  brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break; case "image": brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break; case "son": brosseadentSon.Play(); break; } break;
+            }
+            
+           
+        }
+        private  void texteAide()
+        {
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
+            verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
+            verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+        }
 
+        private void imageAide()
+        {
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
+            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
+            verre.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
+            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
+            verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
+        }
+        private async void sonAide()
+        {
+            await Task.Delay(3000);
+            try
+            {
+                brosseadentSon.Play();
+            }
+            catch (System.NullReferenceException) { }
+
+            await Task.Delay(2000);
+            try
+            {
+                dentifriceSon.Play();
+            }
+            catch (System.NullReferenceException) { }
+
+            await Task.Delay(2000);
+            try
+            {
+                verreSon.Play();
+            }
+            catch (System.NullReferenceException) { }
+        }
         private void _startServer()
         {
 
@@ -307,7 +361,7 @@ namespace PaintSurface
             animeSalleDeBain();
         }
 
-        private async void brosseadent_Click(object sender, RoutedEventArgs e)
+        private  void brosseadent_Click(object sender, RoutedEventArgs e)
         {
             brossezdent.Stop();
             rasez.Stop();
@@ -322,6 +376,7 @@ namespace PaintSurface
             objet.Visibility = Visibility.Visible;
             
             //Objet en Texte
+            /*
             await Task.Delay(3000);
             brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
             dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
@@ -358,7 +413,7 @@ namespace PaintSurface
             {
                 verreSon.Play();
             }
-            catch (System.NullReferenceException) { }
+            catch (System.NullReferenceException) { }*/
         }
 
         private void brosseacheveux_Click(object sender, RoutedEventArgs e)

@@ -39,22 +39,9 @@ namespace PaintSurface
         private bool brosseadentBool = false, verreBool = false, dentifriceBool = false;
 
         private SocketManager _sm;
-        //Vue choix lieu
-        private MediaPlayer poubelle = new MediaPlayer();
-        private MediaPlayer cuisine = new MediaPlayer();
-        private MediaPlayer salon = new MediaPlayer();
-        private MediaPlayer salledebain = new MediaPlayer();
 
-        //Vue actions
-        private MediaPlayer coiffez = new MediaPlayer();
-        private MediaPlayer rasez = new MediaPlayer();
-        private MediaPlayer brossezdent = new MediaPlayer();
-        private MediaPlayer douchez = new MediaPlayer();
-
-        //Vue objets
-        private MediaPlayer brosseadentSon = new MediaPlayer();
-        private MediaPlayer dentifriceSon = new MediaPlayer();
-        private MediaPlayer verreSon = new MediaPlayer();
+        private MediaPlayer son = new MediaPlayer();
+        
         
         /// <summary>
         /// Default constructor.
@@ -63,22 +50,7 @@ namespace PaintSurface
         {
             InitializeComponent();
             this.Closing += new CancelEventHandler(Window1_Closing);
-            //les sons
-            try
-            {
-                poubelle.Open(new Uri(@"\Resources\cuisine.wav", UriKind.Relative));
-                cuisine.Open(new Uri(@"\Resources\cuisine.wav", UriKind.Relative));
-                salon.Open(new Uri(@"Resources\salon.wav", UriKind.Relative));
-                salledebain.Open(new Uri(@"Resources\salledebain.wav", UriKind.Relative));
-                coiffez.Open(new Uri(@"Resources\coiffez.wav", UriKind.Relative));
-                rasez.Open(new Uri(@"Resources\rasez.wav", UriKind.Relative));
-                douchez.Open(new Uri(@"Resources\douchez.wav", UriKind.Relative));
-                brossezdent.Open(new Uri(@"Resources\brossezlesdents.wav", UriKind.Relative));
-                brosseadentSon.Open(new Uri(@"Resources\sonBrosseDent.wav", UriKind.Relative));
-                dentifriceSon.Open(new Uri(@"Resources\sonDentifrice.wav", UriKind.Relative));
-                verreSon.Open(new Uri(@"Resources\sonVerre.wav", UriKind.Relative));
-            }
-            catch (System.Exception e) { Trace.WriteLine("EXECPTION = " + e); }
+
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
 
@@ -107,19 +79,34 @@ namespace PaintSurface
             switch (order[0])
             {
                 case "all": switch (order[1]) { case "texte": texteAide(); break; case "image": imageAide(); break; case "son": sonAide(); break; } break;
-                case "dentifrice": switch (order[1]) { case "texte": dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break; case "image": dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break; case "son": dentifriceSon.Play(); break; } break;
-                case "verre": switch (order[1]) { case "texte": verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break; case "image": verre.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative)); break; case "son": verreSon.Play(); break; } break;
-                case "brosse": switch (order[1]) { case "texte":  brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break; case "image": brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break; case "son": brosseadentSon.Play(); break; } break;
+                case "dentifrice": switch (order[1])
+                    {
+                        case "texte": dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break;
+                        case "image": dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break;
+                        case "son": son.Open(new Uri(@"Resources\sonDentifrice.wav", UriKind.Relative));
+                            son.Play(); break;
+                    } break;
+                case "verre": switch (order[1])
+                    {
+                        case "texte": verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break;
+                        case "image": verre.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative)); break;
+                        case "son": son.Open(new Uri(@"Resources\sonVerre.wav", UriKind.Relative));
+                            son.Play(); break;
+                    } break;
+                case "brosse": switch (order[1])
+                    {
+                        case "texte": brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break;
+                        case "image": brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break;
+                        case "son": son.Open(new Uri(@"Resources\sonBrosseDent.wav", UriKind.Relative));
+                            son.Play(); break;
+                    } break;
             }
 
     }));
         }
         private  void texteAide()
         {
-            brossezdent = null;
-            rasez = null;
-            coiffez = null;
-            douchez = null;
+
             brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
             dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
@@ -141,33 +128,18 @@ namespace PaintSurface
         {
             Trace.WriteLine("SON AIDE");
             await Task.Delay(1000);
-            try
-            {
-                brosseadentSon.Play();
-            }
-            catch (System.NullReferenceException) { }
+            son.Open(new Uri(@"Resources\sonBrosseDent.wav", UriKind.Relative));
+            son.Play();
 
             await Task.Delay(2000);
-            try
-            {
-                dentifriceSon.Play();
-            }
-            catch (System.NullReferenceException) { }
+            son.Open(new Uri(@"Resources\sonDentifrice.wav", UriKind.Relative));
+            son.Play();
 
             await Task.Delay(2000);
-            try
-            {
-                verreSon.Play();
-            }
-            catch (System.NullReferenceException) { }
+            son.Open(new Uri(@"Resources\sonVerre.wav", UriKind.Relative));
+            son.Play();
             await Task.Delay(1000);
-            try
-            {
-                verreSon.Stop();
-                dentifriceSon.Stop();
-                brosseadentSon.Stop();
-            }
-            catch (System.NullReferenceException) { }
+          
         }
         private void _startServer()
         {
@@ -289,31 +261,23 @@ namespace PaintSurface
             da.AutoReverse = true;
 
             await Task.Delay(1000);
+            son.Open(new Uri(@"Resources\cuisine.wav", UriKind.Relative));
+            son.Play();
             cuisineScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             cuisineScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            try
-            {
-                poubelle.Play();
-                cuisine.Play();
-            }
-            catch (System.Exception e) { Trace.WriteLine("execption = " +e); }
 
             await Task.Delay(2000);
+            son.Open(new Uri(@"Resources\salon.wav", UriKind.Relative));
+            son.Play();
             salonScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             salonScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            try
-            {
-                salon.Play();
-            }
-            catch (System.Exception e) { Trace.WriteLine("execption = " + e); }
 
             await Task.Delay(2000);
+            son.Open(new Uri(@"Resources\salledebain.wav", UriKind.Relative));
+            son.Play();
             salledebainScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             salledebainScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            try{
-                salledebain.Play();
-            }
-            catch (System.Exception e) { Trace.WriteLine("execption = " + e); }
+
         }
 
         private async void animeSalleDeBain()
@@ -326,31 +290,24 @@ namespace PaintSurface
             await Task.Delay(1000);
             brosseadentScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             brosseadentScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            try {
-                brossezdent.Play();
-            }
-            catch (System.Exception e) { Trace.WriteLine("execption = " + e); }
+            son.Open(new Uri(@"Resources\brossezlesdents.wav", UriKind.Relative));
+            son.Play();
+
             await Task.Delay(2000);
             brosseacheveuxScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             brosseacheveuxScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            try{
-                coiffez.Play();
-            }
-            catch (System.Exception e) { Trace.WriteLine("execption = " + e); }
+            son.Open(new Uri(@"Resources\coiffez.wav", UriKind.Relative));
+            son.Play();
             await Task.Delay(2000);
             rasoirScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             rasoirScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            try {
-                rasez.Play();
-            }
-            catch (System.Exception e) { Trace.WriteLine("execption = " + e); }
+            son.Open(new Uri(@"Resources\rasez.wav", UriKind.Relative));
+            son.Play();
             await Task.Delay(2000);
             doucheScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             doucheScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
-            try{
-                douchez.Play();
-            }
-            catch (System.Exception e) { Trace.WriteLine("execption = " + e); }
+            son.Open(new Uri(@"Resources\douchez.wav", UriKind.Relative));
+            son.Play();
         }
         private void ScatterViewDrop(object sender, SurfaceDragDropEventArgs e)
         {
@@ -366,13 +323,6 @@ namespace PaintSurface
 
         private void salledabain_Click(object sender, RoutedEventArgs e)
         {
-            cuisine.Stop();
-            salon.Stop();
-            salledebain.Stop();
-            cuisine = null;
-            salon = null;
-            salledebain = null;
-
             maison.Visibility = Visibility.Hidden;
             atelier.Visibility = Visibility.Visible;
             animeSalleDeBain();
@@ -380,12 +330,6 @@ namespace PaintSurface
 
         private  void brosseadent_Click(object sender, RoutedEventArgs e)
         {
-            brossezdent.Stop();
-            rasez.Stop();
-            coiffez.Stop();
-            douchez.Stop();
-
-
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
             
@@ -675,18 +619,10 @@ namespace PaintSurface
 
         private async void brosseadent_Touch(object sender, TouchEventArgs e)
         {
-            brossezdent.Stop();
-            rasez.Stop();
-            coiffez.Stop();
-            douchez.Stop();
-            brossezdent = null;
-            rasez = null;
-            coiffez = null;
-            douchez = null;
 
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
-
+            /*
             //Objet en Texte
             await Task.Delay(3000);
             brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
@@ -724,18 +660,11 @@ namespace PaintSurface
             {
                 verreSon.Play();
             }
-            catch (System.NullReferenceException) { }
+            catch (System.NullReferenceException) { }*/
         }
 
         private void salledebain_Touch(object sender, TouchEventArgs e)
         {
-            cuisine.Stop();
-            salon.Stop();
-            salledebain.Stop();
-            cuisine = null;
-            salon = null;
-            salledebain = null;
-
             maison.Visibility = Visibility.Hidden;
             atelier.Visibility = Visibility.Visible;
             animeSalleDeBain();

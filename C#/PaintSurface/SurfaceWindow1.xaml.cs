@@ -776,6 +776,23 @@ namespace PaintSurface
             img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative));
             
         }
+  private void imgTmp_TouchUp(object sender, TouchEventArgs e)
+        {
+            if (ordonnacement)
+            {
+                switch (image)
+                {
+                    case 1:  canvas.Children.Add(i); break;
+                    case 2:  canvas.Children.Add(i2); break;
+                    case 3:  canvas.Children.Add(i3); break;
+                    case 4:  canvas.Children.Add(i4); break;
+                    case 5:  canvas.Children.Add(i5); break;
+                    case 6:  canvas.Children.Add(i6); break;
+                    default: break;
+                }
+                canvas.Children.Remove(imgTmp);
+            }
+        }
     }
 }
 

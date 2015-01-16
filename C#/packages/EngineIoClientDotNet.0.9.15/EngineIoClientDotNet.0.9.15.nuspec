@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>EngineIoClientDotNet</id>
+    <version>0.9.15</version>
+    <title>EngineIoClientDotNet</title>
+    <authors>Matthias Ludwig</authors>
+    <owners>Matthias Ludwig</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/Quobject/EngineIoClientDotNet/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>This is the Engine.IO Client Library for C#.</description>
+    <summary>This library supports all of the features the JS client does, including events, options and upgrading transport. EngineIoClientDotNet has a similar api to those of the JavaScript client.</summary>
+    <releaseNotes>fixed EngineIOException when node server sends latin characters to client #24</releaseNotes>
+    <tags>engine.io.client</tags>
+    <dependencies>
+      <group targetFramework="Windows0.0">
+        <dependency id="Newtonsoft.Json" version="6.0.8" />
+      </group>
+      <group targetFramework=".NETPortable0.0-wpa81+wp81">
+        <dependency id="Newtonsoft.Json" version="6.0.8" />
+      </group>
+      <group targetFramework=".NETFramework3.5">
+        <dependency id="WebSocket4Net" version="0.11" />
+        <dependency id="Newtonsoft.Json" version="6.0.8" />
+        <dependency id="System.Threading.Tasks" version="3.1.1" />
+      </group>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="WebSocket4Net" version="0.11" />
+        <dependency id="Newtonsoft.Json" version="6.0.8" />
+      </group>
+      <group targetFramework="WindowsPhone8.0">
+        <dependency id="WebSocket4Net" version="0.11" />
+        <dependency id="Newtonsoft.Json" version="6.0.8" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

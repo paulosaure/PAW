@@ -69,6 +69,9 @@ namespace PaintSurface
             this._sm = new SocketManager("http://localhost:" + this._serverPort.ToString(),this);
 
         }
+        private bool aideDentifrice = false;
+        private bool aideBrosse = false;
+        private bool aideVerre = false;
         public  void aide(String str)
         {
             this.Dispatcher.Invoke((Action)(() =>
@@ -78,25 +81,25 @@ namespace PaintSurface
             String[] order = str.Split(' ');
             switch (order[0])
             {
-                case "all": switch (order[1]) { case "texte": texteAide(); break; case "image": imageAide(); break; case "son": sonAide(); break; } break;
+                case "all": aideBool = true; switch (order[1]) { case "texte": texteAide(); break; case "image": imageAide(); break; case "son": sonAide(); break; } break;
                 case "dentifrice": switch (order[1])
                     {
-                        case "texte": dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break;
-                        case "image": dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break;
+                        case "texte": aideDentifrice = true; dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break;
+                        case "image": aideDentifrice = true; dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break;
                         case "son": son.Open(new Uri(@"Resources\sonDentifrice.wav", UriKind.Relative));
                             son.Play(); break;
                     } break;
                 case "verre": switch (order[1])
                     {
-                        case "texte": verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break;
-                        case "image": verre.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative)); break;
+                        case "texte": aideVerre = true; verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative)); break;
+                        case "image": aideVerre = true; verre.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative)); verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative)); break;
                         case "son": son.Open(new Uri(@"Resources\sonVerre.wav", UriKind.Relative));
                             son.Play(); break;
                     } break;
                 case "brosse": switch (order[1])
                     {
-                        case "texte": brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative)); break;
-                        case "image": brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative)); break;
+                        case "texte": aideBrosse = true; brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative)); break;
+                        case "image": aideBrosse = true; brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); break;
                         case "son": son.Open(new Uri(@"Resources\sonBrosseDent.wav", UriKind.Relative));
                             son.Play(); break;
                     } break;
@@ -309,17 +312,7 @@ namespace PaintSurface
             son.Open(new Uri(@"Resources\douchez.wav", UriKind.Relative));
             son.Play();
         }
-        private void ScatterViewDrop(object sender, SurfaceDragDropEventArgs e)
-        {
-            ImageSource i = new BitmapImage(new Uri(e.Cursor.Data as String));
 
-            fleche.Source = i;
-        }
-
-        private void ScatterViewItemHoldGesture(object sender, TouchEventArgs e)
-        {
-
-        }
 
         private void salledabain_Click(object sender, RoutedEventArgs e)
         {
@@ -332,46 +325,6 @@ namespace PaintSurface
         {
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
-            
-            //Objet en Texte
-            /*
-            await Task.Delay(3000);
-            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
-            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
-            verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
-            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
-            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
-            verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
-
-            //Objet en Image
-            await Task.Delay(3000);
-            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
-            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
-            verre.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
-            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
-            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
-            verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
-            //Objet Son
-            await Task.Delay(3000);
-            try
-            {
-                brosseadentSon.Play();
-            }
-            catch (System.NullReferenceException) { }
-
-            await Task.Delay(2000);
-            try
-            {
-                dentifriceSon.Play();
-            }
-            catch (System.NullReferenceException) { }
-
-            await Task.Delay(2000);
-            try
-            {
-                verreSon.Play();
-            }
-            catch (System.NullReferenceException) { }*/
         }
 
         private void brosseacheveux_Click(object sender, RoutedEventArgs e)
@@ -388,7 +341,7 @@ namespace PaintSurface
         {
 
         }
-        private void valideObjet(){
+        private async void valideObjet(){
 
             if (brosseadentBool && verreBool && dentifriceBool)
             {
@@ -396,7 +349,38 @@ namespace PaintSurface
                 aideBot.Visibility = Visibility.Hidden;
                 ordonnancement.Visibility = Visibility.Visible;
                 ordonnacement = true;
+                await Task.Delay(1000);
+                rotateAllImage();
             }
+        }
+        private void rotateAllImage()
+        {
+            DoubleAnimation rotateAnimation = new DoubleAnimation(0, 180, TimeSpan.FromSeconds(1));
+            i.RenderTransform = new RotateTransform();
+            i.RenderTransformOrigin = new Point(0.5, 0.5);
+            RotateTransform rt = (RotateTransform)i.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i2.RenderTransform = new RotateTransform();
+            i2.RenderTransformOrigin = new Point(0.5, 0.5);
+             rt = (RotateTransform)i2.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i3.RenderTransform = new RotateTransform();
+            i3.RenderTransformOrigin = new Point(0.5, 0.5);
+             rt = (RotateTransform)i3.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i4.RenderTransform = new RotateTransform();
+            i4.RenderTransformOrigin = new Point(0.5, 0.5);
+            rt = (RotateTransform)i4.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i5.RenderTransform = new RotateTransform();
+            i5.RenderTransformOrigin = new Point(0.5, 0.5);
+             rt = (RotateTransform)i5.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i6.RenderTransform = new RotateTransform();
+            i6.RenderTransformOrigin = new Point(0.5, 0.5);
+             rt = (RotateTransform)i6.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
         }
         private void createImageVerre(Point p)
         {
@@ -445,22 +429,28 @@ namespace PaintSurface
         }
         private int image=-1;
         private Image imgTmp = new Image();
+        private bool touchDownImage = false;
         void i3_TouchDown(object sender, TouchEventArgs e)
         {
-            Trace.WriteLine("touch down img");
-            imgTmp.Margin = new Thickness(50, 50, 50, 50);
-            imgTmp.Width = i3.Width+100;
-            imgTmp.Height = i3.Height+100;
-            imgTmp.Source = i3.Source;
-            TouchPoint p = e.GetTouchPoint(this.canvas);
-            imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i3));
-            imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i3));
-            imgTmp.TouchMove += imgTmp_TouchMove;
-            canvas.Children.Remove(i3);
-            canvas.Children.Add(imgTmp);
-
-            image = 3;
-            drop = true;
+            if (ordonnacement)
+            {
+                Trace.WriteLine("touch down img");
+                TouchPoint p2 = e.GetTouchPoint(i3);
+                Trace.WriteLine("Position touch down i3 = " + p2.Position);
+                imgTmp.Margin = new Thickness(50, 50, 50, 50);
+                imgTmp.Width = i3.Width;
+                imgTmp.Height = i3.Height;
+                imgTmp.Source = i3.Source;
+                TouchPoint p = e.GetTouchPoint(this.canvas);
+                imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i3)-p2.Position.X);
+                imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i3)-p2.Position.Y);
+                imgTmp.TouchMove += imgTmp_TouchMove;
+                canvas.Children.Remove(i3);
+                canvas.Children.Add(imgTmp);
+                touchDownImage = true;
+                image = 3;
+                drop = true;
+            }
             
         }
         private bool ordonnacement = false;
@@ -472,8 +462,8 @@ namespace PaintSurface
                 Trace.WriteLine(" ENTRE  MOUVE CLONE");
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 Trace.WriteLine(p.Position);
-                imgTmp.SetValue(Canvas.LeftProperty, p.Position.X);
-                imgTmp.SetValue(Canvas.TopProperty, p.Position.Y);
+                imgTmp.SetValue(Canvas.LeftProperty, p.Position.X-40 );
+                imgTmp.SetValue(Canvas.TopProperty, p.Position.Y-40 );
             }
         }
        
@@ -524,6 +514,8 @@ namespace PaintSurface
             image = 4;
             drop = true;
         }
+
+        private bool aideBool = false;
         private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
             Point p=e.TagVisualization.Center;
@@ -534,9 +526,9 @@ namespace PaintSurface
             {
                 switch (e.TagVisualization.VisualizedTag.Value)
                 {
-                    case 0x01: createImageBrosse(t); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; brosseadentBool = true; valideObjet(); break;
-                    case 0x20: createImageDentifrice(t); borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
-                    case 0xC5: createImageVerre(t); borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
+                    case 0x01: createImageBrosse(t); if (aideBool||aideBrosse) { borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; } brosseadentBool = true; valideObjet(); break;
+                    case 0x20: createImageDentifrice(t); if (aideBool||aideDentifrice) { borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; } borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
+                    case 0xC5: createImageVerre(t); if (aideBool||aideVerre) { borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; } borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
                     default: break;
                 }
             }
@@ -544,64 +536,7 @@ namespace PaintSurface
         }
 
 
-       /* private void List_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (t) { 
-            Point mousePos = e.GetPosition(null);
-            Point position = ActionBrosser.PointToScreen(new Point(0d, 0d));
-            DoubleAnimation da = new DoubleAnimation();
-            //Trace.WriteLine("PosX= " + mousePos.X + " PosY = " + mousePos.Y);
-            //Trace.WriteLine("ImagePosX= " +position.X + " ImagePosY = " + position.Y);
-                // Get the dragged ListViewItem
-                Image img = sender as Image;
-                DataObject data = new DataObject(typeof(ImageSource), img.Source);
-                DragDrop.DoDragDrop(img, data, DragDropEffects.Move);
-        }
-        }*/
 
-        private void DropList_Drop(object sender, DragEventArgs e)
-        {
-            Trace.WriteLine("test drop");
-            Image img = sender as Image;
-            if (img != null)
-            {
-                // Save the current Fill brush so that you can revert back to this value in DragLeave.
-   
-
-                // If the DataObject contains string data, extract it.
-                if (e.Data.GetData(typeof(ImageSource)) != null)
-                {
-                    //Trace.WriteLine("Entre DROP 2");
-                    ImageSource image = e.Data.GetData(typeof(ImageSource)) as ImageSource;
-
-                    img.Source = image;
-                }
-            }
-        }
-
-        private void img_GiveFeedback(object sender, System.Windows.GiveFeedbackEventArgs e)
-        {
-
-        }
-
-       /* private void mouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Image img = sender as Image;
-            if (img != null)
-            {
-                Point mousePos = e.GetPosition(null);
-                Point position = ActionBrosser.PointToScreen(new Point(0d, 0d));
-                DoubleAnimation da = new DoubleAnimation();
-                //Trace.WriteLine("PosX= " + mousePos.X + " PosY = " + mousePos.Y);
-                //Trace.WriteLine("ImagePosX= " + position.X + " ImagePosY = " + position.Y);
-                t = true;
-            }
-        }*/
-
-        private void mouseUp(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
         void Window1_Closing(object sender, CancelEventArgs e)
         {
 
@@ -617,50 +552,12 @@ namespace PaintSurface
             animeMaison();
         }
 
-        private async void brosseadent_Touch(object sender, TouchEventArgs e)
+        private  void brosseadent_Touch(object sender, TouchEventArgs e)
         {
 
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
-            /*
-            //Objet en Texte
-            await Task.Delay(3000);
-            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
-            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
-            verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
-            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
-            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
-            verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
-
-            //Objet en Image
-            await Task.Delay(3000);
-            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
-            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
-            verre.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
-            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
-            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
-            verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
-            //Objet Son
-            await Task.Delay(3000);
-            try
-            {
-                brosseadentSon.Play();
-            }
-            catch (System.NullReferenceException) { }
-
-            await Task.Delay(2000);
-            try
-            {
-                dentifriceSon.Play();
-            }
-            catch (System.NullReferenceException) { }
-
-            await Task.Delay(2000);
-            try
-            {
-                verreSon.Play();
-            }
-            catch (System.NullReferenceException) { }*/
+           
         }
 
         private void salledebain_Touch(object sender, TouchEventArgs e)
@@ -703,25 +600,7 @@ namespace PaintSurface
             }
         }
 
-        private void OnvisualMoved(object sender, TagVisualizerEventArgs e)
-        {
-            Point p = e.TagVisualization.Center;
-            Point t = new Point(p.X, p.Y + 210);
-            try
-            {
-                switch (e.TagVisualization.VisualizedTag.Value)
-                {
-                    case 0x01: moveImageBrosse(t); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; break;
-                    case 0x20: moveImageDentifrice(t); borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; break;
-                    case 0xC5: moveImageVerre(t); borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; break;
-                    default: break;
-                }
-            }
-            catch (System.Exception ex)
-            {
-                Trace.WriteLine("exeption " + ex);
-            }
-        }
+     
 
         private void moveImageVerre(Point p)
         {
@@ -768,6 +647,7 @@ namespace PaintSurface
                 canvas.Children.Remove(imgTmp);
                 drop = false;
                 touchSurFrise = true;
+                touchDownImage = false;
             }
         }
 
@@ -781,8 +661,10 @@ namespace PaintSurface
   private void imgTmp_TouchUp(object sender, TouchEventArgs e)
   {
       Trace.WriteLine("canvas touch up");
-            if (ordonnacement && !touchSurFrise)
+      drop = false;
+            if (ordonnacement && !touchSurFrise && touchDownImage)
             {
+                touchDownImage = false;
                 switch (image)
                 {
                     case 1:  canvas.Children.Add(i); break;

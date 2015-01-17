@@ -312,17 +312,7 @@ namespace PaintSurface
             son.Open(new Uri(@"Resources\douchez.wav", UriKind.Relative));
             son.Play();
         }
-        private void ScatterViewDrop(object sender, SurfaceDragDropEventArgs e)
-        {
-            ImageSource i = new BitmapImage(new Uri(e.Cursor.Data as String));
 
-            fleche.Source = i;
-        }
-
-        private void ScatterViewItemHoldGesture(object sender, TouchEventArgs e)
-        {
-
-        }
 
         private void salledabain_Click(object sender, RoutedEventArgs e)
         {
@@ -351,7 +341,7 @@ namespace PaintSurface
         {
 
         }
-        private void valideObjet(){
+        private async void valideObjet(){
 
             if (brosseadentBool && verreBool && dentifriceBool)
             {
@@ -359,7 +349,38 @@ namespace PaintSurface
                 aideBot.Visibility = Visibility.Hidden;
                 ordonnancement.Visibility = Visibility.Visible;
                 ordonnacement = true;
+                await Task.Delay(1000);
+                rotateAllImage();
             }
+        }
+        private void rotateAllImage()
+        {
+            DoubleAnimation rotateAnimation = new DoubleAnimation(0, 180, TimeSpan.FromSeconds(1));
+            i.RenderTransform = new RotateTransform();
+            i.RenderTransformOrigin = new Point(0.5, 0.5);
+            RotateTransform rt = (RotateTransform)i.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i2.RenderTransform = new RotateTransform();
+            i2.RenderTransformOrigin = new Point(0.5, 0.5);
+             rt = (RotateTransform)i2.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i3.RenderTransform = new RotateTransform();
+            i3.RenderTransformOrigin = new Point(0.5, 0.5);
+             rt = (RotateTransform)i3.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i4.RenderTransform = new RotateTransform();
+            i4.RenderTransformOrigin = new Point(0.5, 0.5);
+            rt = (RotateTransform)i4.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i5.RenderTransform = new RotateTransform();
+            i5.RenderTransformOrigin = new Point(0.5, 0.5);
+             rt = (RotateTransform)i5.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            i6.RenderTransform = new RotateTransform();
+            i6.RenderTransformOrigin = new Point(0.5, 0.5);
+             rt = (RotateTransform)i6.RenderTransform;
+            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
         }
         private void createImageVerre(Point p)
         {
@@ -441,8 +462,8 @@ namespace PaintSurface
                 Trace.WriteLine(" ENTRE  MOUVE CLONE");
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 Trace.WriteLine(p.Position);
-                imgTmp.SetValue(Canvas.LeftProperty, p.Position.X);
-                imgTmp.SetValue(Canvas.TopProperty, p.Position.Y);
+                imgTmp.SetValue(Canvas.LeftProperty, p.Position.X-40 );
+                imgTmp.SetValue(Canvas.TopProperty, p.Position.Y-40 );
             }
         }
        
@@ -516,36 +537,6 @@ namespace PaintSurface
 
 
 
-        private void DropList_Drop(object sender, DragEventArgs e)
-        {
-            Trace.WriteLine("test drop");
-            Image img = sender as Image;
-            if (img != null)
-            {
-                // Save the current Fill brush so that you can revert back to this value in DragLeave.
-   
-
-                // If the DataObject contains string data, extract it.
-                if (e.Data.GetData(typeof(ImageSource)) != null)
-                {
-                    //Trace.WriteLine("Entre DROP 2");
-                    ImageSource image = e.Data.GetData(typeof(ImageSource)) as ImageSource;
-
-                    img.Source = image;
-                }
-            }
-        }
-
-        private void img_GiveFeedback(object sender, System.Windows.GiveFeedbackEventArgs e)
-        {
-
-        }
-
-
-        private void mouseUp(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
         void Window1_Closing(object sender, CancelEventArgs e)
         {
 
@@ -609,25 +600,7 @@ namespace PaintSurface
             }
         }
 
-        private void OnvisualMoved(object sender, TagVisualizerEventArgs e)
-        {
-            Point p = e.TagVisualization.Center;
-            Point t = new Point(p.X, p.Y + 210);
-            try
-            {
-                switch (e.TagVisualization.VisualizedTag.Value)
-                {
-                    case 0x01: moveImageBrosse(t); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; break;
-                    case 0x20: moveImageDentifrice(t); borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; break;
-                    case 0xC5: moveImageVerre(t); borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; break;
-                    default: break;
-                }
-            }
-            catch (System.Exception ex)
-            {
-                Trace.WriteLine("exeption " + ex);
-            }
-        }
+     
 
         private void moveImageVerre(Point p)
         {

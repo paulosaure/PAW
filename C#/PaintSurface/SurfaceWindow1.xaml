@@ -240,17 +240,19 @@
                                         <s:TagVisualizationDefinition Source="dentifrice.xaml" 
                                                   Value="0x01" 
                                              OrientationOffsetFromTag="0" PhysicalCenterOffsetFromTag="0,0"
-                                                  UsesTagOrientation="True"
+                                                  UsesTagOrientation="True" TagRemovedBehavior="Fade"
                                               />
                                         <s:TagVisualizationDefinition Value="0x20"  Source="dentifrice.xaml"
                                               OrientationOffsetFromTag="0"
                                               PhysicalCenterOffsetFromTag="0,0" 
                                               UsesTagOrientation="True"
+                                                                      TagRemovedBehavior="Fade"
                                               />
                                         <s:TagVisualizationDefinition Value="0xC5" Source="dentifrice.xaml"
                                               OrientationOffsetFromTag="0"
                                               PhysicalCenterOffsetFromTag="0,0" 
                                               UsesTagOrientation="True"
+                                                                      TagRemovedBehavior="Fade"
                                               />
                                     </s:TagVisualizer.Definitions>
                                 </s:TagVisualizer>

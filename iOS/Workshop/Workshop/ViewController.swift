@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         invalidateCollectionViewLayout()
         
-        SIOSocket.socketWithHost("http://192.168.1.7:8080", response: { (socket: SIOSocket!) -> Void in
+        SIOSocket.socketWithHost("http://192.168.1.6:8080", response: { (socket: SIOSocket!) -> Void in
             
             self.socket = socket
             
@@ -87,7 +87,42 @@ class ViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return false
     }
-      
+    
+    /*
+    @IBAction func scanQRCode(sender: AnyObject) {
+        
+        let reader = QRCodeReaderViewController()
+        
+        reader.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+       // reader.delegate = self
+        reader.setCompletionWithBlock { (result: String!) -> Void in
+            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                println(result)
+            })
+        }
+        
+        self.presentViewController(reader, animated: true, completion: nil)
+        
+    
+        QRCodeReaderViewController *reader = [QRCodeReaderViewController new];
+        reader.modalPresentationStyle      = UIModalPresentationFormSheet;
+        
+        // Using delegate methods
+        reader.delegate                    = self;
+        
+        // Or by using blocks
+        [reader setCompletionWithBlock:^(NSString *resultAsString) {
+            [self dismissViewControllerAnimated:YES completion:^{
+            NSLog(@"%@", result);
+            }];
+            }];
+        
+        [self presentViewController:reader animated:YES completion:NULL];
+
+    }
+
+*/
+    
 }
 
 extension ViewController: UICollectionViewDataSource {

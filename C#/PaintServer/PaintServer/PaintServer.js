@@ -113,10 +113,15 @@ io.on('connection', function (socket) {
     });
 
 
-    socket.on('ask_for_workshop', function () {
+    socket.on('ask_for_workshop', function (side) {
 
         console.log("ask_for_workshop");
-        var json = {
+        
+      
+        
+        console.log(side);
+        if(side === "left"){
+            socket.emit('workshop', {
             "name": "brossage de dents",
             "frieze": [
 			{
@@ -144,8 +149,29 @@ io.on('connection', function (socket) {
 			    "image": "rincer_bouche"
 			}
             ]
-        };
-        socket.emit('workshop', json);
+        });
+            console.log("emit left workshop");
+        }
+         if(side === "right"){
+            console.log("emit right workshop");
+            socket.emit('workshop', {
+            "name": "fake droit",
+            "frieze": [
+			{
+			    "position": 1,
+			    "image": "prendre_brossedent"
+			},
+			{
+			    "position": 2,
+			    "image": "mouiller_brosse"
+			},
+			{
+			    "position": 3,
+			    "image": "mettre_dentifrice"
+			}
+            ]
+        });
+        }
     });
     /*
         socket.on('changeMode', function (mode) {

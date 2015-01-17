@@ -25,7 +25,7 @@ class VideoViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        SIOSocket.socketWithHost("http://192.168.1.7:8080", response: { (socket: SIOSocket!) -> Void in
+        SIOSocket.socketWithHost("http://192.168.1.12:8080", response: { (socket: SIOSocket!) -> Void in
             
             self.socket = socket
             
@@ -63,7 +63,7 @@ class VideoViewController: UICollectionViewController {
     
     @IBAction func refreshWorkshop(sender: AnyObject) {
         
-        self.socket.emit("ask_for_workshop")
+        self.socket.emit("ask_for_workshop",args: ["left"])
         
     }
     

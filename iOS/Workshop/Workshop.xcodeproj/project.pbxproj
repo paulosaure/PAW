@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		922F0ADB1A6474B1005B417C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922F0ADA1A6474B1005B417C /* Images.xcassets */; };
+		9261E3F31A6A7EC9009B83EB /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E3F21A6A7EC9009B83EB /* QRCodeReaderViewController.swift */; };
 		927CF09A1A65DAFA00C4F61F /* atelier.json in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0991A65DAFA00C4F61F /* atelier.json */; };
-		927D08EC1A6475BF00A2F545 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */; };
 		92AB81B51A67377C000057EE /* brosser.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0931A65D9A300C4F61F /* brosser.mp4 */; };
 		92AB81B61A67377C000057EE /* cracher.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0941A65D9A300C4F61F /* cracher.mp4 */; };
 		92AB81B71A67377C000057EE /* mettre_dentifrice.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 927CF0951A65D9A300C4F61F /* mettre_dentifrice.mp4 */; };
@@ -27,6 +27,7 @@
 		92BDE7331A68FCA000667003 /* SlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BDE7321A68FCA000667003 /* SlotView.swift */; };
 		92BDE7361A69040700667003 /* ShuffleArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BDE7351A69040700667003 /* ShuffleArray.swift */; };
 		92C6FD071A691DAF007C4422 /* ActionVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6FD061A691DAF007C4422 /* ActionVideoCollectionViewCell.swift */; };
+		92ED9E361A6B1E1600AB628E /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ED9E351A6B1E1600AB628E /* json.swift */; };
 		92F4ACA21A5FC0AC00C29FFB /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA11A5FC0AC00C29FFB /* Slot.swift */; };
 		92F4ACA41A5FC7CC00C29FFB /* Workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */; };
 		92F4ACA61A60083900C29FFB /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F4ACA51A60083900C29FFB /* VideoViewController.swift */; };
@@ -46,6 +47,9 @@
 /* Begin PBXFileReference section */
 		8BE6958D02847A5BB29621F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		922F0ADA1A6474B1005B417C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Workshop/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		9261E3F21A6A7EC9009B83EB /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
+		9261E3F41A6B11C1009B83EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		9261E3F51A6B11C1009B83EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		927CF0931A65D9A300C4F61F /* brosser.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = brosser.mp4; sourceTree = "<group>"; };
 		927CF0941A65D9A300C4F61F /* cracher.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cracher.mp4; sourceTree = "<group>"; };
 		927CF0951A65D9A300C4F61F /* mettre_dentifrice.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mettre_dentifrice.mp4; sourceTree = "<group>"; };
@@ -53,7 +57,6 @@
 		927CF0971A65D9A300C4F61F /* prendre_brossedent.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prendre_brossedent.mp4; sourceTree = "<group>"; };
 		927CF0981A65D9A300C4F61F /* rincer_bouche.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rincer_bouche.mp4; sourceTree = "<group>"; };
 		927CF0991A65DAFA00C4F61F /* atelier.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = atelier.json; sourceTree = "<group>"; };
-		927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		92BC8F7C1A59C630004437B9 /* Workshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BC8F801A59C630004437B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92BC8F811A59C630004437B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		92BDE7351A69040700667003 /* ShuffleArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShuffleArray.swift; sourceTree = "<group>"; };
 		92C6FD061A691DAF007C4422 /* ActionVideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionVideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		92D72B641A59C8BF00AEE3FC /* Workshop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Workshop-Bridging-Header.h"; sourceTree = "<group>"; };
+		92ED9E351A6B1E1600AB628E /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		92F4ACA11A5FC0AC00C29FFB /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		92F4ACA31A5FC7CC00C29FFB /* Workshop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workshop.swift; sourceTree = "<group>"; };
 		92F4ACA51A60083900C29FFB /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				92BDE7341A6903F400667003 /* Extension */,
-				927D08EB1A6475BF00A2F545 /* SwiftyJSON.swift */,
 				92BDE72C1A68502200667003 /* SocketSingleton.swift */,
 				92BDE72E1A68F74400667003 /* View */,
 				92D674551A64039A001DA606 /* Ressources */,
@@ -211,6 +214,7 @@
 		92BDE7341A6903F400667003 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				92ED9E351A6B1E1600AB628E /* json.swift */,
 				92BDE7351A69040700667003 /* ShuffleArray.swift */,
 			);
 			name = Extension;
@@ -250,6 +254,7 @@
 			children = (
 				92BC8F861A59C630004437B9 /* ViewController.swift */,
 				92F4ACA51A60083900C29FFB /* VideoViewController.swift */,
+				9261E3F21A6A7EC9009B83EB /* QRCodeReaderViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -399,14 +404,15 @@
 				92BDE7331A68FCA000667003 /* SlotView.swift in Sources */,
 				92BC8F871A59C630004437B9 /* ViewController.swift in Sources */,
 				92BC8F851A59C630004437B9 /* Workshop.xcdatamodeld in Sources */,
+				9261E3F31A6A7EC9009B83EB /* QRCodeReaderViewController.swift in Sources */,
 				92BDE72D1A68502200667003 /* SocketSingleton.swift in Sources */,
 				92BDE7361A69040700667003 /* ShuffleArray.swift in Sources */,
 				92F4ACA61A60083900C29FFB /* VideoViewController.swift in Sources */,
 				92C6FD071A691DAF007C4422 /* ActionVideoCollectionViewCell.swift in Sources */,
+				92ED9E361A6B1E1600AB628E /* json.swift in Sources */,
 				92BC8F821A59C630004437B9 /* AppDelegate.swift in Sources */,
 				92BDE7311A68F83B00667003 /* SlotCollectionViewCell.swift in Sources */,
 				92F4ACA21A5FC0AC00C29FFB /* Slot.swift in Sources */,
-				927D08EC1A6475BF00A2F545 /* SwiftyJSON.swift in Sources */,
 				92F4ACA41A5FC7CC00C29FFB /* Workshop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +440,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				92BC8F891A59C630004437B9 /* Base */,
+				9261E3F41A6B11C1009B83EB /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -442,6 +449,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				92BC8F8E1A59C630004437B9 /* Base */,
+				9261E3F51A6B11C1009B83EB /* fr */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

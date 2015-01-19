@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MediaPlayer
 
 class VideoViewController: UICollectionViewController {
     
@@ -20,13 +19,13 @@ class VideoViewController: UICollectionViewController {
         }
     }
     
-    var moviePlayer : MPMoviePlayerViewController?
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        SIOSocket.socketWithHost("http://localhost:8080", response: { (socket: SIOSocket!) -> Void in
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        SIOSocket.socketWithHost("http://192.168.1.12:8080", response: { (socket: SIOSocket!) -> Void in
             
             self.socket = socket
             
@@ -38,16 +37,10 @@ class VideoViewController: UICollectionViewController {
             self.socket.onError = {(var errorInfo) -> Void in
                 println("Connection to server failed")
             }
-
+            
             self.socket.onDisconnect = {() -> Void in
                 self.socketIsConnected = false
             }
-            
-            self.socket.on("change_vue", callback: { (mes: [AnyObject]!) -> Void in
-                if let message = mes[0] as? String{
-                    println(message)
-                }
-            })
             
             self.socket.on("workshop", callback: { (mes :[AnyObject]!) -> Void in
                 
@@ -57,10 +50,12 @@ class VideoViewController: UICollectionViewController {
             })
             
         })
-        
-        // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.socket.close()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,17 +63,17 @@ class VideoViewController: UICollectionViewController {
     
     @IBAction func refreshWorkshop(sender: AnyObject) {
         
-        socket.emit("ask_for_workshop")
+        self.socket.emit("ask_for_workshop",args: ["left"])
         
     }
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
     
@@ -100,32 +95,26 @@ class VideoViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("videoCell", forIndexPath: indexPath) as UICollectionViewCell
         
-
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("videoCell", forIndexPath: indexPath) as ActionVideoCollectionViewCell
+        
+        
         if let workshop = self.workshop{
-
-            let slot = workshop.slots[indexPath.row];
-            cell.backgroundView = UIImageView(image: UIImage(named: slot.pictureName));
-            
+            cell.slot = workshop.slots[indexPath.row];
         }
-
+        
         // Configure the cell
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let name = workshop?.slots[indexPath.row].pictureName;
-        
-        let path = NSBundle.mainBundle().pathForResource(name, ofType:"mp4")
-        let url = NSURL.fileURLWithPath(path!)
-        moviePlayer = MPMoviePlayerViewController(contentURL: url)
-        
-        if let player = moviePlayer {
-            presentMoviePlayerViewControllerAnimated(player)
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ActionVideoCollectionViewCell{
+            cell.launchVideo()
         }
-    
     }
-
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
+    
 }

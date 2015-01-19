@@ -17,13 +17,13 @@ class Workshop {
         
         let json = JSON(jsonObject)
         
-        self.name = json["name"].stringValue;
+        self.name = json["name"].asString!
         
-        if let frieze = json["frieze"].array {
+        if let frieze = json["frieze"].asArray {
             for item in frieze{
                 
-                let index = item["position"].intValue
-                let imageName = item["image"].stringValue
+                let index = item["position"].asInt!
+                let imageName = item["image"].asString!
                 let slot = Slot(index: index, withPictureName: imageName)
 
                 self.slots.append(slot)

@@ -41,7 +41,11 @@ namespace PaintSurface
         private SocketManager _sm;
 
         private MediaPlayer son = new MediaPlayer();
-        
+        private bool drop = false;
+        private bool touchSurFrise = false;
+        private int[] trueOrder;
+        private int[] orderFriseHaut;
+        private int[] orderFriseBas;
         
         /// <summary>
         /// Default constructor.
@@ -67,6 +71,9 @@ namespace PaintSurface
 
 
             this._sm = new SocketManager("http://localhost:" + this._serverPort.ToString(),this);
+            trueOrder = new int[6] { 6, 4,3, 5, 2, 1};
+            orderFriseBas = new int[6];
+            orderFriseHaut = new int[6];
 
         }
         private bool aideDentifrice = false;
@@ -390,7 +397,7 @@ namespace PaintSurface
             i.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative));
             i.SetValue(Canvas.LeftProperty, p.X-110);
             i.SetValue(Canvas.TopProperty, p.Y-230);
-            i.TouchMove += i_TouchMove;
+            i.TouchDown += i_TouchDown;
             canvas.Children.Add(i);
 
             i2 = new Image();
@@ -399,22 +406,11 @@ namespace PaintSurface
             i2.Source = new BitmapImage(new Uri("/Resources/cracher.png", UriKind.Relative));
             i2.SetValue(Canvas.LeftProperty, p.X-110);
             i2.SetValue(Canvas.TopProperty, p.Y+30);
-            i2.TouchMove += i2_TouchMove;
+            i2.TouchDown += i2_TouchDown;
             canvas.Children.Add(i2);
         }
 
-        private void i_TouchMove(object sender, TouchEventArgs e)
-        {
-            image = 1;
-            drop = true;
-        }
-
-        private void i2_TouchMove(object sender, TouchEventArgs e)
-        {
-            image = 2;
-            drop = true;
-        }
-         private Image i,i2,i3,i4,i5,i6;
+        private Image i,i2,i3,i4,i5,i6;
         private void createImageDentifrice(Point p)
         {
             i3 = new Image();
@@ -430,10 +426,13 @@ namespace PaintSurface
         private int image=-1;
         private Image imgTmp = new Image();
         private bool touchDownImage = false;
+        private bool simpleTouch = false;
+
         void i3_TouchDown(object sender, TouchEventArgs e)
         {
-            if (ordonnacement)
+            if (ordonnacement && !simpleTouch)
             {
+                simpleTouch = true;
                 Trace.WriteLine("touch down img");
                 TouchPoint p2 = e.GetTouchPoint(i3);
                 Trace.WriteLine("Position touch down i3 = " + p2.Position);
@@ -453,13 +452,130 @@ namespace PaintSurface
             }
             
         }
+        void i2_TouchDown(object sender, TouchEventArgs e)
+        {
+            if (ordonnacement && !simpleTouch)
+            {
+                simpleTouch = true;
+                Trace.WriteLine("touch down img");
+                TouchPoint p2 = e.GetTouchPoint(i2);
+                Trace.WriteLine("Position touch down i2 = " + p2.Position);
+                imgTmp.Margin = new Thickness(50, 50, 50, 50);
+                imgTmp.Width = i2.Width;
+                imgTmp.Height = i2.Height;
+                imgTmp.Source = i2.Source;
+                TouchPoint p = e.GetTouchPoint(this.canvas);
+                imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i2) - p2.Position.X);
+                imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i2) - p2.Position.Y);
+                imgTmp.TouchMove += imgTmp_TouchMove;
+                canvas.Children.Remove(i2);
+                canvas.Children.Add(imgTmp);
+                touchDownImage = true;
+                image = 2;
+                drop = true;
+            }
+
+        }
+        void i_TouchDown(object sender, TouchEventArgs e)
+        {
+            if (ordonnacement && !simpleTouch)
+            {
+                simpleTouch = true;
+                Trace.WriteLine("touch down img");
+                TouchPoint p2 = e.GetTouchPoint(i);
+                Trace.WriteLine("Position touch down i = " + p2.Position);
+                imgTmp.Margin = new Thickness(50, 50, 50, 50);
+                imgTmp.Width = i.Width;
+                imgTmp.Height = i.Height;
+                imgTmp.Source = i.Source;
+                TouchPoint p = e.GetTouchPoint(this.canvas);
+                imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i) - p2.Position.X);
+                imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i) - p2.Position.Y);
+                imgTmp.TouchMove += imgTmp_TouchMove;
+                canvas.Children.Remove(i);
+                canvas.Children.Add(imgTmp);
+                touchDownImage = true;
+                image = 1;
+                drop = true;
+            }
+
+        }
+
+        void i4_TouchDown(object sender, TouchEventArgs e)
+        {
+            if (ordonnacement && !simpleTouch)
+            {
+                simpleTouch = true;
+                Trace.WriteLine("touch down img");
+                TouchPoint p2 = e.GetTouchPoint(i4);
+                Trace.WriteLine("Position touch down i4 = " + p2.Position);
+                imgTmp.Margin = new Thickness(50, 50, 50, 50);
+                imgTmp.Width = i4.Width;
+                imgTmp.Height = i4.Height;
+                imgTmp.Source = i4.Source;
+                TouchPoint p = e.GetTouchPoint(this.canvas);
+                imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i4) - p2.Position.X);
+                imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i4) - p2.Position.Y);
+                imgTmp.TouchMove += imgTmp_TouchMove;
+                canvas.Children.Remove(i4);
+                canvas.Children.Add(imgTmp);
+                touchDownImage = true;
+                image = 4;
+                drop = true;
+            }
+
+        }
+        void i5_TouchDown(object sender, TouchEventArgs e)
+        {
+            if (ordonnacement && !simpleTouch)
+            {
+                simpleTouch = true;
+                Trace.WriteLine("touch down img");
+                TouchPoint p2 = e.GetTouchPoint(i5);
+                imgTmp.Margin = new Thickness(50, 50, 50, 50);
+                imgTmp.Width = i5.Width;
+                imgTmp.Height = i5.Height;
+                imgTmp.Source = i5.Source;
+                TouchPoint p = e.GetTouchPoint(this.canvas);
+                imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i5) - p2.Position.X);
+                imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i5) - p2.Position.Y);
+                imgTmp.TouchMove += imgTmp_TouchMove;
+                canvas.Children.Remove(i5);
+                canvas.Children.Add(imgTmp);
+                touchDownImage = true;
+                image = 5;
+                drop = true;
+            }
+        }
+
+        void i6_TouchDown(object sender, TouchEventArgs e)
+        {
+            if (ordonnacement)
+            {
+                simpleTouch = true;
+                TouchPoint p2 = e.GetTouchPoint(i6);
+                imgTmp.Margin = new Thickness(50, 50, 50, 50);
+                imgTmp.Width = i6.Width;
+                imgTmp.Height = i6.Height;
+                imgTmp.Source = i6.Source;
+                TouchPoint p = e.GetTouchPoint(this.canvas);
+                imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i6) - p2.Position.X);
+                imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i6) - p2.Position.Y);
+                imgTmp.TouchMove += imgTmp_TouchMove;
+                canvas.Children.Remove(i6);
+                canvas.Children.Add(imgTmp);
+                touchDownImage = true;
+                image = 6;
+                drop = true;
+            }
+
+        }
         private bool ordonnacement = false;
         private void imgTmp_TouchMove(object sender, TouchEventArgs e)
         
         {
             if (ordonnacement)
             {
-                Trace.WriteLine(" ENTRE  MOUVE CLONE");
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 Trace.WriteLine(p.Position);
                 imgTmp.SetValue(Canvas.LeftProperty, p.Position.X-40 );
@@ -475,7 +591,7 @@ namespace PaintSurface
             i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.png", UriKind.Relative));
             i4.SetValue(Canvas.LeftProperty, p.X +110);
             i4.SetValue(Canvas.TopProperty, p.Y - 130);
-            i4.TouchMove += i4_TouchMove;
+            i4.TouchDown += i4_TouchDown;
             canvas.Children.Add(i4);
 
             i5 = new Image();
@@ -484,7 +600,7 @@ namespace PaintSurface
             i5.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative));
             i5.SetValue(Canvas.LeftProperty, p.X - 280);
             i5.SetValue(Canvas.TopProperty, p.Y - 130);
-            i5.TouchMove += i5_TouchMove;
+            i5.TouchDown += i5_TouchDown;
             canvas.Children.Add(i5);
 
             i6 = new Image();
@@ -493,35 +609,17 @@ namespace PaintSurface
             i6.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative));
             i6.SetValue(Canvas.LeftProperty, p.X - 110);
             i6.SetValue(Canvas.TopProperty, p.Y + 100);
-            i6.TouchMove += i6_TouchMove;
+            i6.TouchDown += i6_TouchDown;
             canvas.Children.Add(i6);
         }
 
-        private void i6_TouchMove(object sender, TouchEventArgs e)
-        {
-            image = 6;
-            drop = true; ;
-        }
-
-        private void i5_TouchMove(object sender, TouchEventArgs e)
-        {
-            image = 5;
-            drop = true;
-        }
-
-        private void i4_TouchMove(object sender, TouchEventArgs e)
-        {
-            image = 4;
-            drop = true;
-        }
+     
 
         private bool aideBool = false;
         private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
             Point p=e.TagVisualization.Center;
-
             Point t = new Point(p.X, p.Y+210);
-
             try
             {
                 switch (e.TagVisualization.VisualizedTag.Value)
@@ -548,7 +646,6 @@ namespace PaintSurface
         {
             myGrid.Visibility = Visibility.Hidden;
             maison.Visibility = Visibility.Visible;
-
             animeMaison();
         }
 
@@ -571,7 +668,6 @@ namespace PaintSurface
             canvas.Children.Remove(i4);
             canvas.Children.Remove(i5);
             canvas.Children.Remove(i6);
-
         }
         private void deleteImageDentifrice(Point p){
             canvas.Children.Remove(i3);
@@ -620,18 +716,15 @@ namespace PaintSurface
         {
             i4.SetValue(Canvas.LeftProperty, p.X + 110);
             i4.SetValue(Canvas.TopProperty, p.Y - 130);
-
             i5.SetValue(Canvas.LeftProperty, p.X - 280);
             i5.SetValue(Canvas.TopProperty, p.Y - 130);
             i6.SetValue(Canvas.LeftProperty, p.X - 110);
             i6.SetValue(Canvas.TopProperty, p.Y + 100);
         }
 
-        private bool drop = false;
-        private bool touchSurFrise = false;
+
         private void touchTEST(object sender, TouchEventArgs e)
         {
-            Trace.WriteLine("touh up frise");
             if (drop)
             {
                 Image img = sender as Image;
@@ -644,6 +737,7 @@ namespace PaintSurface
                     case 6: img.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative));canvas.Children.Add(i6); break;
                     default: break;
             }
+                entreOrdre(img);
                 canvas.Children.Remove(imgTmp);
                 drop = false;
                 touchSurFrise = true;
@@ -651,6 +745,51 @@ namespace PaintSurface
             }
         }
 
+        private void entreOrdre(Image img)
+        {
+            switch (img.Name)
+            {
+                case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[0]) borderbloc1.BorderBrush = Brushes.LightGreen; break;
+                case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[1]) borderbloc2.BorderBrush = Brushes.LightGreen; break;
+                case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[2]) borderbloc3.BorderBrush = Brushes.LightGreen; break;
+                case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[3]) borderbloc4.BorderBrush = Brushes.LightGreen; break;
+                case "bloc5": orderFriseHaut[4] = image; if (image == trueOrder[4]) borderbloc5.BorderBrush = Brushes.LightGreen; break;
+                case "bloc6": orderFriseHaut[5] = image; if (image == trueOrder[5]) borderbloc6.BorderBrush = Brushes.LightGreen; break;
+                case "bloc1B": orderFriseBas[0] = image; if (image == trueOrder[0]) borderbloc7.BorderBrush = Brushes.LightGreen; break;
+                case "bloc2B": orderFriseBas[1] = image; if (image == trueOrder[1]) borderbloc8.BorderBrush = Brushes.LightGreen; break;
+                case "bloc3B": orderFriseBas[2] = image; if (image == trueOrder[2]) borderbloc9.BorderBrush = Brushes.LightGreen; break;
+                case "bloc4B": orderFriseBas[3] = image; if (image == trueOrder[3]) borderbloc10.BorderBrush = Brushes.LightGreen; break;
+                case "bloc5B": orderFriseBas[4] = image; if (image == trueOrder[4]) borderbloc11.BorderBrush = Brushes.LightGreen; break;
+                case "bloc6B": orderFriseBas[5] = image; if (image == trueOrder[5]) borderbloc12.BorderBrush = Brushes.LightGreen; break;
+            }
+            testOrdre();
+        }
+
+        private bool ordreFriseHaut = false, ordreFriseBas = false;
+        private void testOrdre()
+        {
+            ordreFriseBas = true;
+            ordreFriseHaut = true;
+            int i = 0;
+            for (i = 0; i < 6; i++)
+            {
+                if (trueOrder[i] != orderFriseHaut[i])
+                {
+                    ordreFriseHaut = false; 
+                    break;
+                }
+                if (trueOrder[i] != orderFriseBas[i])
+                {
+                    ordreFriseBas = false; 
+                    break;
+                }
+                
+            }
+            if(ordreFriseHaut && ordreFriseBas)
+                Trace.WriteLine("SUCCES BRAVO");
+            else
+                Trace.WriteLine("Pas encore");
+        }
         private void mouveDelete(object sender, TouchEventArgs e)
         {
             touchSurFrise = true;
@@ -660,7 +799,7 @@ namespace PaintSurface
         }
   private void imgTmp_TouchUp(object sender, TouchEventArgs e)
   {
-      Trace.WriteLine("canvas touch up");
+      
       drop = false;
             if (ordonnacement && !touchSurFrise && touchDownImage)
             {

@@ -226,33 +226,33 @@
                     </WrapPanel>
                     <Border BorderBrush="Black" BorderThickness="5">
                         <Grid Height="650" Width="1920">
-                            <TextBlock  Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " Margin="24,23,0,560" >
+                            <TextBlock Name="text" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " Margin="24,23,0,560" >
 
                             </TextBlock>
-                            <TextBlock    Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " Margin="0,546,150,37" >
+                            <TextBlock   Name="text2" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " Margin="0,546,150,37" >
                                 <TextBlock.RenderTransform>
                                     <RotateTransform  Angle="180"/>
                                 </TextBlock.RenderTransform>
                             </TextBlock>
                             <Grid >
-                                <s:TagVisualizer  Height="649" Width="1920" Name="tagBrosseaDent"  VisualizationRemoved="OnvisualEnd" VisualizationAdded="OnVisualizationAdded">
+                                <s:TagVisualizer  Height="649" Width="1920" Name="tagBrosseaDent"  VisualizationMoved="OnvisualMoved" VisualizationRemoved="OnvisualEnd" VisualizationAdded="OnVisualizationAdded">
                                     <s:TagVisualizer.Definitions>
                                         <s:TagVisualizationDefinition Source="dentifrice.xaml" 
                                                   Value="0x01" 
                                              OrientationOffsetFromTag="0" PhysicalCenterOffsetFromTag="0,0"
-                                                  UsesTagOrientation="True" TagRemovedBehavior="Fade"
+                                                  UsesTagOrientation="True" 
                                               />
                                         <s:TagVisualizationDefinition Value="0x20"  Source="dentifrice.xaml"
                                               OrientationOffsetFromTag="0"
                                               PhysicalCenterOffsetFromTag="0,0" 
                                               UsesTagOrientation="True"
-                                                                      TagRemovedBehavior="Fade"
+                                                                      
                                               />
                                         <s:TagVisualizationDefinition Value="0xC5" Source="dentifrice.xaml"
                                               OrientationOffsetFromTag="0"
                                               PhysicalCenterOffsetFromTag="0,0" 
                                               UsesTagOrientation="True"
-                                                                      TagRemovedBehavior="Fade"
+                                                                      
                                               />
                                     </s:TagVisualizer.Definitions>
                                 </s:TagVisualizer>

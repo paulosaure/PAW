@@ -356,8 +356,8 @@ namespace PaintSurface
                 aideBot.Visibility = Visibility.Hidden;
                 ordonnancement.Visibility = Visibility.Visible;
                 ordonnacement = true;
-                await Task.Delay(1000);
-                rotateAllImage();
+                text.Text = "Ordonnacer les actions";
+                text2.Text = "Ordonnacer les actions";
             }
         }
         private void rotateAllImage()
@@ -725,6 +725,7 @@ namespace PaintSurface
 
         private void touchTEST(object sender, TouchEventArgs e)
         {
+            simpleTouch = false;
             if (drop)
             {
                 Image img = sender as Image;
@@ -799,7 +800,7 @@ namespace PaintSurface
         }
   private void imgTmp_TouchUp(object sender, TouchEventArgs e)
   {
-      
+      simpleTouch = false;
       drop = false;
             if (ordonnacement && !touchSurFrise && touchDownImage)
             {
@@ -821,6 +822,40 @@ namespace PaintSurface
                 touchSurFrise = false;
             }
         }
+
+  private void OnvisualMoved(object sender, TagVisualizerEventArgs e)
+  {
+
+      Point p = e.TagVisualization.Center;
+
+      Point t = new Point(p.X, p.Y + 210);
+
+      try
+      {
+
+          switch (e.TagVisualization.VisualizedTag.Value)
+          {
+
+              case 0x01: moveImageBrosse(t); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; break;
+
+              case 0x20: moveImageDentifrice(t); borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; break;
+
+              case 0xC5: moveImageVerre(t); borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; break;
+
+              default: break;
+
+          }
+
+      }
+
+      catch (System.Exception ex)
+      {
+
+          Trace.WriteLine("exeption " + ex);
+
+      }
+
+  }
     }
 }
 

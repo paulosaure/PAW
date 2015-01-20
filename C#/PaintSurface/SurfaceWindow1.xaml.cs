@@ -41,6 +41,7 @@ namespace PaintSurface
         private SocketManager _sm;
 
         private MediaPlayer son = new MediaPlayer();
+        private MediaPlayer video = new MediaPlayer();
         private bool drop = false;
         private bool touchSurFrise = false;
         private int[] trueOrder;
@@ -74,6 +75,7 @@ namespace PaintSurface
             trueOrder = new int[6] { 6, 4,3, 5, 2, 1};
             orderFriseBas = new int[6];
             orderFriseHaut = new int[6];
+
 
         }
         private bool aideDentifrice = false;
@@ -348,7 +350,7 @@ namespace PaintSurface
         {
 
         }
-        private async void valideObjet(){
+        private void valideObjet(){
 
             if (brosseadentBool && verreBool && dentifriceBool)
             {
@@ -624,7 +626,7 @@ namespace PaintSurface
             {
                 switch (e.TagVisualization.VisualizedTag.Value)
                 {
-                    case 0x01: createImageBrosse(t); if (aideBool||aideBrosse) { borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; } brosseadentBool = true; valideObjet(); break;
+                    case 0x01: createImageBrosse(t); if (aideBool || aideBrosse) { Trace.WriteLine("BOOL =" + aideBool + " " + aideBrosse); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; } brosseadentBool = true; valideObjet(); break;
                     case 0x20: createImageDentifrice(t); if (aideBool||aideDentifrice) { borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; } borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
                     case 0xC5: createImageVerre(t); if (aideBool||aideVerre) { borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; } borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
                     default: break;
@@ -750,12 +752,12 @@ namespace PaintSurface
         {
             switch (img.Name)
             {
-                case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[0]) borderbloc1.BorderBrush = Brushes.LightGreen; break;
-                case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[1]) borderbloc2.BorderBrush = Brushes.LightGreen; break;
-                case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[2]) borderbloc3.BorderBrush = Brushes.LightGreen; break;
-                case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[3]) borderbloc4.BorderBrush = Brushes.LightGreen; break;
-                case "bloc5": orderFriseHaut[4] = image; if (image == trueOrder[4]) borderbloc5.BorderBrush = Brushes.LightGreen; break;
-                case "bloc6": orderFriseHaut[5] = image; if (image == trueOrder[5]) borderbloc6.BorderBrush = Brushes.LightGreen; break;
+                case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5]) borderbloc1.BorderBrush = Brushes.LightGreen; break;
+                case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[4]) borderbloc2.BorderBrush = Brushes.LightGreen; break;
+                case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[3]) borderbloc3.BorderBrush = Brushes.LightGreen; break;
+                case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[2]) borderbloc4.BorderBrush = Brushes.LightGreen; break;
+                case "bloc5": orderFriseHaut[4] = image; if (image == trueOrder[1]) borderbloc5.BorderBrush = Brushes.LightGreen; break;
+                case "bloc6": orderFriseHaut[5] = image; if (image == trueOrder[0]) borderbloc6.BorderBrush = Brushes.LightGreen; break;
                 case "bloc1B": orderFriseBas[0] = image; if (image == trueOrder[0]) borderbloc7.BorderBrush = Brushes.LightGreen; break;
                 case "bloc2B": orderFriseBas[1] = image; if (image == trueOrder[1]) borderbloc8.BorderBrush = Brushes.LightGreen; break;
                 case "bloc3B": orderFriseBas[2] = image; if (image == trueOrder[2]) borderbloc9.BorderBrush = Brushes.LightGreen; break;
@@ -774,7 +776,7 @@ namespace PaintSurface
             int i = 0;
             for (i = 0; i < 6; i++)
             {
-                if (trueOrder[i] != orderFriseHaut[i])
+                if (trueOrder[5-i] != orderFriseHaut[i])
                 {
                     ordreFriseHaut = false; 
                     break;
@@ -786,8 +788,14 @@ namespace PaintSurface
                 }
                 
             }
-            if(ordreFriseHaut && ordreFriseBas)
+            if (ordreFriseHaut && ordreFriseBas)
+            {
+                //son bravo
+                // vue vidéo
+                video.Open(new Uri(@"Resources\videoBrossage.mp4", UriKind.Relative));
+                video.Play();
                 Trace.WriteLine("SUCCES BRAVO");
+            }
             else
                 Trace.WriteLine("Pas encore");
         }
@@ -795,6 +803,7 @@ namespace PaintSurface
         {
             touchSurFrise = true;
             Image img = sender as Image;
+            
             img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative));
             
         }
@@ -836,11 +845,11 @@ namespace PaintSurface
           switch (e.TagVisualization.VisualizedTag.Value)
           {
 
-              case 0x01: moveImageBrosse(t); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; break;
+              case 0x01: moveImageBrosse(t);  break;
 
-              case 0x20: moveImageDentifrice(t); borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; break;
+              case 0x20: moveImageDentifrice(t); break;
 
-              case 0xC5: moveImageVerre(t); borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; break;
+              case 0xC5: moveImageVerre(t); break;
 
               default: break;
 

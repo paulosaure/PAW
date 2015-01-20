@@ -282,47 +282,49 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <WrapPanel Name="friseHaut" Grid.Column="0"  Grid.Row="0" Margin="-10,-10,10,10"  >
+                <WrapPanel Name="friseHaut" Grid.Column="0"  Grid.Row="0" Margin="-104,-10,104,10"  >
                     <Image Name="fleche" Margin="30,0,30,0" Height="200" Width="300"  Source="/Resources/friseG.png"  />
                     <Border x:Name="borderbloc1"  BorderThickness="4" Margin="30,0,30,0">
                         <Image x:Name="bloc1" Margin="0,0,0,0" Height="200" Width="200"  Source="/Resources/elt.png" TouchUp="touchTEST" TouchMove="mouveDelete" HorizontalAlignment="Left" />
                     </Border>
                     <Border x:Name="borderbloc2"  BorderThickness="4" Margin="30,0,30,0">
-                        <Image Name="bloc2" Margin="30,0,30,0" Height="200" Width="200"  Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete" />
+                        <Image Name="bloc2"  Height="200" Width="200"  Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete" />
                     </Border>
                     <Border x:Name="borderbloc3"  BorderThickness="4" Margin="30,0,30,0">
-                    <Image Name="bloc3" Margin="30,0,30,0" Height="200" Width="200"  Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                    <Image Name="bloc3"  Height="200" Width="200"  Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc4"  BorderThickness="4" Margin="30,0,30,0">
-                    <Image Name="bloc4" Margin="30,0,30,0"  Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                    <Image Name="bloc4"   Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc5"  BorderThickness="4" Margin="30,0,30,0">
-                        <Image Name="bloc5" Margin="30,0,30,0"  Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                        <Image Name="bloc5"   Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc6"  BorderThickness="4" Margin="30,0,30,0">
-                        <Image Name="bloc6" Margin="30,0,30,0"  Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                        <Image Name="bloc6"   Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                 </WrapPanel>
-                <WrapPanel Name="friseBas" Grid.Column="0" Grid.Row="2" Margin="0,650,0,0" >
+                <WrapPanel Name="friseBas" Grid.Column="0" Grid.Row="2" Margin="32,650,-32,0" >
                     <Border x:Name="borderbloc7"  BorderThickness="4" Margin="30,0,30,0">
-                        <Image x:Name="bloc1B"  Height="200" Width="200"  Margin="30,0,30,0" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                        <Image x:Name="bloc1B"  Height="200" Width="200"   Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc8"  BorderThickness="4" Margin="30,0,30,0">
-                            <Image x:Name="bloc2B"  Height="200" Margin="30,0,30,0" Width="201"  Source="/Resources/elt.png" TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                        <Image x:Name="bloc2B"  Height="200"  Width="200"  Source="/Resources/elt.png" TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
-                        <Image x:Name="bloc3B"  Height="200" Width="199" Margin="30,0,30,0" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
-                    <Border x:Name="borderbloc9"  BorderThickness="4" Margin="30,0,30,0">
-                        <Image x:Name="bloc4B"   Height="200" Width="201" Margin="30,0,30,0" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                        
+                    <Border x:Name="borderbloc9"  BorderThickness="4" >
+                        <Image x:Name="bloc3B"  Height="200" Width="199" 
+                               Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc10"  BorderThickness="4" Margin="30,0,30,0">
-                        <Image x:Name="bloc5B"   Height="200" Width="200" Margin="30,0,30,0" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                        <Image x:Name="bloc4B"   Height="200" Width="200"  Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc11"  BorderThickness="4" Margin="30,0,30,0">
-                        <Image Name="bloc6B" Margin="30,0,30,0"  Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                        <Image x:Name="bloc5B"   Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc12"  BorderThickness="4" Margin="30,0,30,0">
-                        <Image x:Name="flecheB"  Height="200" Width="257" Margin="30,0,30,0" Source="/Resources/friseD.png"  />
+                        <Image Name="bloc6B"   Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
+                    <Image x:Name="flecheB"  Height="200" Width="257" Source="/Resources/friseD.png"  />
                 </WrapPanel>
                 <!--<WrapPanel Name="ActionPanel" Grid.Column="0" Grid.Row="1" Margin="0,100" >
                 <Image Name="ActionBrosser" Margin="10,0" Height="300" Width="300"  Source="/Resources/brosser.jpg" MouseMove="List_MouseMove"  MouseUp="mouseUp" MouseDown="mouseDown" GiveFeedback="img_GiveFeedback" >

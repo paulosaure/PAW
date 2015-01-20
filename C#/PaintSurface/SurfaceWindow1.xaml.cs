@@ -41,7 +41,6 @@ namespace PaintSurface
         private SocketManager _sm;
 
         private MediaPlayer son = new MediaPlayer();
-        private MediaPlayer video = new MediaPlayer();
         private bool drop = false;
         private bool touchSurFrise = false;
         private int[] trueOrder;
@@ -358,8 +357,8 @@ namespace PaintSurface
                 aideBot.Visibility = Visibility.Hidden;
                 ordonnancement.Visibility = Visibility.Visible;
                 ordonnacement = true;
-                text.Text = "Ordonnacer les actions";
-                text2.Text = "Ordonnacer les actions";
+                text.Text = "Ordonnancer les actions";
+                text2.Text = "Ordonnancer les actions";
             }
         }
         private void rotateAllImage()
@@ -647,8 +646,9 @@ namespace PaintSurface
         private void touch(object sender, TouchEventArgs e)
         {
             myGrid.Visibility = Visibility.Hidden;
-            maison.Visibility = Visibility.Visible;
-            animeMaison();
+            video.Visibility = Visibility.Visible;
+           // maison.Visibility = Visibility.Visible;
+            //animeMaison();
         }
 
         private  void brosseadent_Touch(object sender, TouchEventArgs e)
@@ -792,8 +792,8 @@ namespace PaintSurface
             {
                 //son bravo
                 // vue vidéo
-                video.Open(new Uri(@"Resources\videoBrossage.mp4", UriKind.Relative));
-                video.Play();
+                ordonnancement.Visibility = Visibility.Hidden;
+                video.Visibility = Visibility.Hidden;
                 Trace.WriteLine("SUCCES BRAVO");
             }
             else

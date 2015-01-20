@@ -128,7 +128,6 @@
     <Content Include="PaintSurface.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\videoBrossage.mp4" />
     <Content Include="Resources\videoBrossage.mpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -252,3 +252,4 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\EngineIoCli
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIoClientDotNet.dll
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.xml
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoBrossage.mpg
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoBrossage.mpg

@@ -291,10 +291,10 @@
                         <Image Name="bloc2"  Height="200" Width="200"  Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete" />
                     </Border>
                     <Border x:Name="borderbloc3"  BorderThickness="4" Margin="30,0,30,0">
-                    <Image Name="bloc3"  Height="200" Width="200"  Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                        <Image Name="bloc3"  Height="200" Width="200"  Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc4"  BorderThickness="4" Margin="30,0,30,0">
-                    <Image Name="bloc4"   Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
+                        <Image Name="bloc4"   Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc5"  BorderThickness="4" Margin="30,0,30,0">
                         <Image Name="bloc5"   Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
@@ -310,7 +310,7 @@
                     <Border x:Name="borderbloc8"  BorderThickness="4" Margin="30,0,30,0">
                         <Image x:Name="bloc2B"  Height="200"  Width="200"  Source="/Resources/elt.png" TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
-                        
+
                     <Border x:Name="borderbloc9"  BorderThickness="4" >
                         <Image x:Name="bloc3B"  Height="200" Width="199" 
                                Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
@@ -336,17 +336,24 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <WrapPanel Name="videoHaut" Grid.Column="0"  Grid.Row="0" Margin="-104,-10,104,10"  >
-                    <TextBlock  Margin="100,0,100,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="200" HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5">
+                <WrapPanel Name="videoHaut" Grid.Column="0"  Grid.Row="0" Margin="127,0,-127,0"  >
+                    <MediaElement x:Name="media1" Source="Resources/videoBrossage.mpg" Height="300" Width="300"  Margin="650,0,100,0" >
+                        <MediaElement.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="-180"/>
+                            </TransformGroup>
+                        </MediaElement.LayoutTransform>
+                    </MediaElement>
+                    <TextBlock  Margin="100,0,100,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="200" HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5" Width="168">
                         <TextBlock.RenderTransform>
                             <RotateTransform  Angle="180"/>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-                    <MediaElement Name="media1" Source="Resources/videoBrossage.mpg" />
+
                 </WrapPanel>
-                <WrapPanel Name="videoBas" Grid.Column="0" Grid.Row="2" Margin="32,650,-32,0" >
-                    <TextBlock  Margin="100,0,100,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="200" HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5"/>
-                    <MediaElement Name="media2" Source="Resources/videoBrossage.mpg" />
+                <WrapPanel Name="videoBas" Grid.Column="0" Grid.Row="2" Margin="46,450,-46,100" >
+                    <TextBlock  Margin="200,0,200,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="73" VerticalAlignment="Center" RenderTransformOrigin="0.5, 0.5"/>
+                    <MediaElement Margin="200,0,200,0" x:Name="media2" Source="Resources/videoBrossage.mpg" Height="300" Width="300" />
                 </WrapPanel>
             </Grid>
         </Canvas>

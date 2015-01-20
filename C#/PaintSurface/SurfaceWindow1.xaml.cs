@@ -646,9 +646,9 @@ namespace PaintSurface
         private void touch(object sender, TouchEventArgs e)
         {
             myGrid.Visibility = Visibility.Hidden;
-            video.Visibility = Visibility.Visible;
-           // maison.Visibility = Visibility.Visible;
-            //animeMaison();
+      
+           maison.Visibility = Visibility.Visible;
+           animeMaison();
         }
 
         private  void brosseadent_Touch(object sender, TouchEventArgs e)
@@ -793,7 +793,7 @@ namespace PaintSurface
                 //son bravo
                 // vue vidéo
                 ordonnancement.Visibility = Visibility.Hidden;
-                video.Visibility = Visibility.Hidden;
+                video.Visibility = Visibility.Visible;
                 Trace.WriteLine("SUCCES BRAVO");
             }
             else

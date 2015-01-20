@@ -89,7 +89,6 @@
 
 
         <!--Vue Lieu de la maison -->
-
         <Grid Name="maison" Visibility="Hidden" Grid.ColumnSpan="2">
             <TextBlock Margin="5,0,5,0" Foreground="LightPink"  FontSize="50" HorizontalAlignment="Center">Choisir une pièce</TextBlock>
             <StackPanel  Orientation="Horizontal" Height="auto" Width="auto"  >
@@ -224,18 +223,28 @@
                                 <RotateTransform  Angle="180"/>
                             </TextBlock.RenderTransform></TextBlock>
                     </WrapPanel>
-                    <Border BorderBrush="Black" BorderThickness="5">
+                    <Border BorderBrush="Black" BorderThickness="5" Name="borderObjet" >
                         <Grid Height="650" Width="1920">
                             <TextBlock Name="text" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " Margin="24,23,0,560" >
 
                             </TextBlock>
+                            <Image Name="rotateFleche" Source="Resources/rotateImg.png" TouchDown="rotateHaut" RenderTransformOrigin="0.5, 0.5" Height="100" Width="100" Margin="1781,27,39,523" >
+                                <Image.RenderTransform>
+                                    <RotateTransform  Angle="180"/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Image Name="rotateFleche2" TouchDown="rotateBas" Source="Resources/rotateImg.png" Height="100" Width="100" Margin="24,540,1796,10"/>
                             <TextBlock   Name="text2" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " Margin="0,546,150,37" >
                                 <TextBlock.RenderTransform>
                                     <RotateTransform  Angle="180"/>
                                 </TextBlock.RenderTransform>
                             </TextBlock>
                             <Grid >
-                                <s:TagVisualizer  Height="649" Width="1920" Name="tagBrosseaDent"  VisualizationMoved="OnvisualMoved" VisualizationRemoved="OnvisualEnd" VisualizationAdded="OnVisualizationAdded">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="81*"/>
+                                    <RowDefinition Height="244*"/>
+                                </Grid.RowDefinitions>
+                                <s:TagVisualizer  Height="649" Width="1920" Name="tagBrosseaDent"  VisualizationMoved="OnvisualMoved" VisualizationRemoved="OnvisualEnd" VisualizationAdded="OnVisualizationAdded" Grid.RowSpan="2">
                                     <s:TagVisualizer.Definitions>
                                         <s:TagVisualizationDefinition Source="dentifrice.xaml" 
                                                   Value="0x01" 
@@ -337,7 +346,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <WrapPanel Name="videoHaut" Grid.Column="0"  Grid.Row="0" Margin="127,0,-127,0"  >
-                    <MediaElement x:Name="media1" Source="Resources/videoBrossage.mpg" Height="300" Width="300"  Margin="650,0,100,0" >
+                    <MediaElement x:Name="media1"  LoadedBehavior="Manual" Height="200" Width="200"  Margin="650,0,100,0" >
                         <MediaElement.LayoutTransform>
                             <TransformGroup>
                                 <RotateTransform Angle="-180"/>
@@ -349,11 +358,12 @@
                             <RotateTransform  Angle="180"/>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-
                 </WrapPanel>
-                <WrapPanel Name="videoBas" Grid.Column="0" Grid.Row="2" Margin="46,450,-46,100" >
-                    <TextBlock  Margin="200,0,200,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="73" VerticalAlignment="Center" RenderTransformOrigin="0.5, 0.5"/>
-                    <MediaElement Margin="200,0,200,0" x:Name="media2" Source="Resources/videoBrossage.mpg" Height="300" Width="300" />
+
+
+                <WrapPanel Name="videoBas" Grid.Column="0" Grid.Row="2" Margin="57,662,-57,-112" >
+                    <TextBlock  Margin="200,0,200,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="200" VerticalAlignment="Center" RenderTransformOrigin="0.5, 0.5"/>
+                    <MediaElement Margin="200,0,200,0" x:Name="media2" LoadedBehavior="Manual" Height="200" Width="200" />
                 </WrapPanel>
             </Grid>
         </Canvas>

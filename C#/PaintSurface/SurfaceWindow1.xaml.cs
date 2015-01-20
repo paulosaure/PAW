@@ -361,34 +361,42 @@ namespace PaintSurface
                 text2.Text = "Ordonnancer les actions";
             }
         }
-        private void rotateAllImage()
+        private void rotateAllImage(int ind)
         {
-            DoubleAnimation rotateAnimation = new DoubleAnimation(0, 180, TimeSpan.FromSeconds(1));
-            i.RenderTransform = new RotateTransform();
-            i.RenderTransformOrigin = new Point(0.5, 0.5);
-            RotateTransform rt = (RotateTransform)i.RenderTransform;
-            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-            i2.RenderTransform = new RotateTransform();
-            i2.RenderTransformOrigin = new Point(0.5, 0.5);
-             rt = (RotateTransform)i2.RenderTransform;
-            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-            i3.RenderTransform = new RotateTransform();
-            i3.RenderTransformOrigin = new Point(0.5, 0.5);
-             rt = (RotateTransform)i3.RenderTransform;
-            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-            i4.RenderTransform = new RotateTransform();
-            i4.RenderTransformOrigin = new Point(0.5, 0.5);
-            rt = (RotateTransform)i4.RenderTransform;
-            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-            i5.RenderTransform = new RotateTransform();
-            i5.RenderTransformOrigin = new Point(0.5, 0.5);
-             rt = (RotateTransform)i5.RenderTransform;
-            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-            i6.RenderTransform = new RotateTransform();
-            i6.RenderTransformOrigin = new Point(0.5, 0.5);
-             rt = (RotateTransform)i6.RenderTransform;
-            rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-
+            DoubleAnimation rotateAnimation=null;
+            if (ind == 0)
+            {
+                rotateAnimation = new DoubleAnimation(0, 180, TimeSpan.FromSeconds(1));
+            }
+            else
+            {
+                rotateAnimation = new DoubleAnimation(180,0, TimeSpan.FromSeconds(1));
+            }
+                i.RenderTransform = new RotateTransform();
+                i.RenderTransformOrigin = new Point(0.5, 0.5);
+                RotateTransform rt = (RotateTransform)i.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+                i2.RenderTransform = new RotateTransform();
+                i2.RenderTransformOrigin = new Point(0.5, 0.5);
+                rt = (RotateTransform)i2.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+                i3.RenderTransform = new RotateTransform();
+                i3.RenderTransformOrigin = new Point(0.5, 0.5);
+                rt = (RotateTransform)i3.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+                i4.RenderTransform = new RotateTransform();
+                i4.RenderTransformOrigin = new Point(0.5, 0.5);
+                rt = (RotateTransform)i4.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+                i5.RenderTransform = new RotateTransform();
+                i5.RenderTransformOrigin = new Point(0.5, 0.5);
+                rt = (RotateTransform)i5.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+                i6.RenderTransform = new RotateTransform();
+                i6.RenderTransformOrigin = new Point(0.5, 0.5);
+                rt = (RotateTransform)i6.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            
         }
         private void createImageVerre(Point p)
         {
@@ -451,7 +459,13 @@ namespace PaintSurface
                 image = 3;
                 drop = true;
             }
-            
+            if (dernièreVue)
+            {
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Play();
+                media2.Play();
+            }
         }
         void i2_TouchDown(object sender, TouchEventArgs e)
         {
@@ -475,7 +489,13 @@ namespace PaintSurface
                 image = 2;
                 drop = true;
             }
-
+            if (dernièreVue)
+            {
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Play();
+                media2.Play();
+            }
         }
         void i_TouchDown(object sender, TouchEventArgs e)
         {
@@ -499,7 +519,13 @@ namespace PaintSurface
                 image = 1;
                 drop = true;
             }
-
+            if (dernièreVue)
+            {
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Play();
+                media2.Play();
+            }
         }
 
         void i4_TouchDown(object sender, TouchEventArgs e)
@@ -524,6 +550,13 @@ namespace PaintSurface
                 image = 4;
                 drop = true;
             }
+            if (dernièreVue)
+            {
+                media1.Source=new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Play();
+                media2.Play();
+            }
 
         }
         void i5_TouchDown(object sender, TouchEventArgs e)
@@ -547,11 +580,18 @@ namespace PaintSurface
                 image = 5;
                 drop = true;
             }
+            if (dernièreVue)
+            {
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Play();
+                media2.Play();
+            }
         }
 
         void i6_TouchDown(object sender, TouchEventArgs e)
         {
-            if (ordonnacement)
+            if (ordonnacement && !simpleTouch)
             {
                 simpleTouch = true;
                 TouchPoint p2 = e.GetTouchPoint(i6);
@@ -568,6 +608,13 @@ namespace PaintSurface
                 touchDownImage = true;
                 image = 6;
                 drop = true;
+            }
+            if (dernièreVue)
+            {
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Play();
+                media2.Play();
             }
 
         }
@@ -619,19 +666,22 @@ namespace PaintSurface
         private bool aideBool = false;
         private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
-            Point p=e.TagVisualization.Center;
-            Point t = new Point(p.X, p.Y+210);
-            try
+            if (!dernièreVue)
             {
-                switch (e.TagVisualization.VisualizedTag.Value)
+                Point p = e.TagVisualization.Center;
+                Point t = new Point(p.X, p.Y + 210);
+                try
                 {
-                    case 0x01: createImageBrosse(t); if (aideBool || aideBrosse) { Trace.WriteLine("BOOL =" + aideBool + " " + aideBrosse); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; } brosseadentBool = true; valideObjet(); break;
-                    case 0x20: createImageDentifrice(t); if (aideBool||aideDentifrice) { borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; } borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
-                    case 0xC5: createImageVerre(t); if (aideBool||aideVerre) { borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; } borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
-                    default: break;
+                    switch (e.TagVisualization.VisualizedTag.Value)
+                    {
+                        case 0x01: createImageBrosse(t); if (aideBool || aideBrosse) { Trace.WriteLine("BOOL =" + aideBool + " " + aideBrosse); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; } brosseadentBool = true; valideObjet(); break;
+                        case 0x20: createImageDentifrice(t); if (aideBool || aideDentifrice) { borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; } borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
+                        case 0xC5: createImageVerre(t); if (aideBool || aideVerre) { borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; } borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
+                        default: break;
+                    }
                 }
+                catch (System.Exception ex) { Trace.WriteLine("exeption " + ex); }
             }
-            catch (System.Exception ex) { Trace.WriteLine("exeption "+ex); }
         }
 
 
@@ -769,6 +819,7 @@ namespace PaintSurface
         }
 
         private bool ordreFriseHaut = false, ordreFriseBas = false;
+        private bool dernièreVue = false;
         private void testOrdre()
         {
             ordreFriseBas = true;
@@ -792,8 +843,13 @@ namespace PaintSurface
             {
                 //son bravo
                 // vue vidéo
+                dernièreVue = true;
+                ordonnacement = false;
                 ordonnancement.Visibility = Visibility.Hidden;
+                borderObjet.Visibility = Visibility.Hidden;
                 video.Visibility = Visibility.Visible;
+                text.Text = "Touchez une image pour lancer la vidéo";
+                text2.Text = "Touchez une image pour lancer la vidéo";
                 Trace.WriteLine("SUCCES BRAVO");
             }
             else
@@ -864,6 +920,25 @@ namespace PaintSurface
 
       }
 
+  }
+
+  private bool versLeBas = true;
+  private void rotateHaut(object sender, TouchEventArgs e)
+  {
+      if (versLeBas)
+      {
+          versLeBas = false;
+          rotateAllImage(0);
+      }
+  }
+
+  private void rotateBas(object sender, TouchEventArgs e)
+  {
+      if (!versLeBas)
+      {
+          versLeBas = true;
+          rotateAllImage(1);
+      }
   }
     }
 }

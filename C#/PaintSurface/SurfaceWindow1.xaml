@@ -192,8 +192,13 @@
                 </Grid>
             </StackPanel>
         </Grid>
+        
+
+
+
         <!--Vue objet à poser sur table-->
         <Canvas Name="canvas" TouchMove="imgTmp_TouchMove" TouchUp="imgTmp_TouchUp" Height="1080" Width="1920">
+          
             <Grid Name="objet" Visibility="Hidden" Grid.ColumnSpan="2">
                 <StackPanel >
                     <WrapPanel Name="aideTop" Height="200"  Orientation="Horizontal" Margin="0,0,0,0">
@@ -228,12 +233,7 @@
                             <TextBlock Name="text" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " Margin="24,23,0,560" >
 
                             </TextBlock>
-                            <Image Name="rotateFleche" Source="Resources/rotateImg.png" TouchDown="rotateHaut" RenderTransformOrigin="0.5, 0.5" Height="100" Width="100" Margin="1781,27,39,523" >
-                                <Image.RenderTransform>
-                                    <RotateTransform  Angle="180"/>
-                                </Image.RenderTransform>
-                            </Image>
-                            <Image Name="rotateFleche2" TouchDown="rotateBas" Source="Resources/rotateImg.png" Height="100" Width="100" Margin="24,540,1796,10"/>
+
                             <TextBlock   Name="text2" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " Margin="0,546,150,37" >
                                 <TextBlock.RenderTransform>
                                     <RotateTransform  Angle="180"/>
@@ -291,8 +291,34 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <WrapPanel Name="friseHaut" Grid.Column="0"  Grid.Row="0" Margin="-104,-10,104,10"  >
-                    <Image Name="fleche" Margin="30,0,30,0" Height="200" Width="300"  Source="/Resources/friseG.png"  />
+                <WrapPanel Name="videoHaut" Visibility="Hidden" Grid.Column="0"  Grid.Row="0" Margin="127,0,-127,0"  >
+                    <MediaElement x:Name="media1"  LoadedBehavior="Manual" Height="200" Width="200"  Margin="650,0,100,0" >
+                        <MediaElement.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="-180"/>
+                            </TransformGroup>
+                        </MediaElement.LayoutTransform>
+                    </MediaElement>
+                    <TextBlock  Margin="100,0,100,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="200" HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5" Width="168">
+                        <TextBlock.RenderTransform>
+                            <RotateTransform  Angle="180"/>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </WrapPanel>
+                <WrapPanel Name="friseHaut" Grid.Column="0"  Grid.Row="0" Margin="0,-10,0,10"  >
+                    <Button Name="rotatefecheHaut"  TouchDown="rotateHaut"  Height="100" Width="100"  >
+
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Image Name="rotateFleche" Source="Resources/rotateImg.png" RenderTransformOrigin="0.5, 0.5">
+                                    <Image.RenderTransform>
+                                        <RotateTransform  Angle="180"/>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Image x:Name="fleche" Margin="30,0,30,0" Height="200" Width="146"  Source="/Resources/friseG2.png"  />
                     <Border x:Name="borderbloc1"  BorderThickness="4" Margin="30,0,30,0">
                         <Image x:Name="bloc1" Margin="0,0,0,0" Height="200" Width="200"  Source="/Resources/elt.png" TouchUp="touchTEST" TouchMove="mouveDelete" HorizontalAlignment="Left" />
                     </Border>
@@ -333,39 +359,26 @@
                     <Border x:Name="borderbloc12"  BorderThickness="4" Margin="30,0,30,0">
                         <Image Name="bloc6B"   Height="200" Width="200" Source="/Resources/elt.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
-                    <Image x:Name="flecheB"  Height="200" Width="257" Source="/Resources/friseD.png"  />
-                </WrapPanel>
-            </Grid>
-            <Grid Name="video" Visibility="Hidden" Margin="10,0,-10,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <WrapPanel Name="videoHaut" Grid.Column="0"  Grid.Row="0" Margin="127,0,-127,0"  >
-                    <MediaElement x:Name="media1"  LoadedBehavior="Manual" Height="200" Width="200"  Margin="650,0,100,0" >
-                        <MediaElement.LayoutTransform>
-                            <TransformGroup>
-                                <RotateTransform Angle="-180"/>
-                            </TransformGroup>
-                        </MediaElement.LayoutTransform>
-                    </MediaElement>
-                    <TextBlock  Margin="100,0,100,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="200" HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5" Width="168">
-                        <TextBlock.RenderTransform>
-                            <RotateTransform  Angle="180"/>
-                        </TextBlock.RenderTransform>
-                    </TextBlock>
-                </WrapPanel>
+                    <Image x:Name="flecheB"  Height="200"  Source="/Resources/friseD2.png"  />
+                    <Button x:Name="rotatefecheBas"  TouchDown="rotateBas"  Height="100" Width="192"  >
 
-
-                <WrapPanel Name="videoBas" Grid.Column="0" Grid.Row="2" Margin="57,662,-57,-112" >
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Image x:Name="rotateFleche" Source="Resources/rotateImg.png" RenderTransformOrigin="0.5, 0.5"/>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </WrapPanel>
+                <WrapPanel Name="videoBas" Visibility="Hidden" Grid.Column="0" Grid.Row="2" Margin="57,662,-57,-112" >
                     <TextBlock  Margin="200,0,200,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="200" VerticalAlignment="Center" RenderTransformOrigin="0.5, 0.5"/>
                     <MediaElement Margin="200,0,200,0" x:Name="media2" LoadedBehavior="Manual" Height="200" Width="200" />
                 </WrapPanel>
             </Grid>
+           
+        
+
+
+
         </Canvas>
     </Grid>
 </s:SurfaceWindow>

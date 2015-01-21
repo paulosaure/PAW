@@ -356,6 +356,9 @@ namespace PaintSurface
                 aideTop.Visibility = Visibility.Hidden;
                 aideBot.Visibility = Visibility.Hidden;
                 ordonnancement.Visibility = Visibility.Visible;
+                rotatefecheBas.Visibility = Visibility.Visible;
+                rotatefecheHaut.Visibility = Visibility.Visible;
+
                 ordonnacement = true;
                 text.Text = "Ordonnancer les actions";
                 text2.Text = "Ordonnancer les actions";
@@ -366,6 +369,7 @@ namespace PaintSurface
             DoubleAnimation rotateAnimation=null;
             if (ind == 0)
             {
+                Trace.WriteLine(" rotate 0");
                 rotateAnimation = new DoubleAnimation(0, 180, TimeSpan.FromSeconds(1));
             }
             else
@@ -461,8 +465,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/mettre_dentifrice.mp4", UriKind.Relative);
-                media2.Source = new Uri("/Resources/mettre_dentifrice.mp4", UriKind.Relative);
+                media1.Source = new Uri("Resources/mettre_dentifrice.mp4", UriKind.Relative);
+                media2.Source = new Uri("Resources/mettre_dentifrice.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -491,8 +495,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/cracher.mp4", UriKind.Relative);
-                media2.Source = new Uri("/Resources/cracher.mp4", UriKind.Relative);
+                media1.Source = new Uri("Resources/cracher.mp4", UriKind.Relative);
+                media2.Source = new Uri("Resources/cracher.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -521,8 +525,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/rincer.mp4", UriKind.Relative);
-                media2.Source = new Uri("/Resources/rincer.mp4", UriKind.Relative);
+                media1.Source = new Uri("Resources/rincer.mp4", UriKind.Relative);
+                media2.Source = new Uri("Resources/rincer.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -552,8 +556,9 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source=new Uri("/Resources/mouiller.mp4", UriKind.Relative);
-                media2.Source = new Uri("/Resources/mouiller.mp4", UriKind.Relative);
+                Trace.WriteLine("motherfucker");
+                media1.Source=new Uri("Resources/mouiller.mp4", UriKind.Relative);
+                media2.Source = new Uri("Resources/mouiller.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -582,8 +587,9 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/brosser.mp4", UriKind.Relative);
-                media2.Source = new Uri("/Resources/brosser.mp4", UriKind.Relative);
+                Trace.WriteLine("motherfucker");
+                media1.Source = new Uri("Resources/brosser.mp4", UriKind.Relative);
+                media2.Source = new Uri("Resources/brosser.mp4", UriKind.Relative);
                 media2.Play();
                 media2.Play();
             }
@@ -611,8 +617,9 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/prendre_brosse.mp4", UriKind.Relative);
-                media2.Source = new Uri("/Resources/prendre_brosse.mp4", UriKind.Relative);
+                Trace.WriteLine("motherfucker");
+                media1.Source = new Uri("Resources/prendre_brosse.mp4", UriKind.Relative);
+                media2.Source = new Uri("Resources/prendre_brosse.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -845,9 +852,12 @@ namespace PaintSurface
                 // vue vidéo
                 dernièreVue = true;
                 ordonnacement = false;
-                ordonnancement.Visibility = Visibility.Hidden;
-                borderObjet.Visibility = Visibility.Hidden;
-                video.Visibility = Visibility.Visible;
+                ordonnancement.Visibility = Visibility.Visible;
+               
+                videoHaut.Visibility = Visibility.Visible;
+                videoBas.Visibility = Visibility.Visible;
+                friseBas.Visibility = Visibility.Hidden;
+                friseHaut.Visibility = Visibility.Hidden;
                 text.Text = "Touchez une image pour lancer la vidéo";
                 text2.Text = "Touchez une image pour lancer la vidéo";
                 Trace.WriteLine("SUCCES BRAVO");
@@ -927,6 +937,7 @@ namespace PaintSurface
   {
       if (versLeBas)
       {
+          Trace.WriteLine(" rotate vers le haut");
           versLeBas = false;
           rotateAllImage(0);
       }

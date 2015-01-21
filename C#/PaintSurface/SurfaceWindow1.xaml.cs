@@ -270,8 +270,9 @@ namespace PaintSurface
             da.To = 1.2;
             da.Duration = new Duration(TimeSpan.FromSeconds(1));
             da.AutoReverse = true;
-
-            await Task.Delay(1000);
+            son.Open(new Uri(@"Resources\choixPiece.wav", UriKind.Relative));
+            son.Play();
+            await Task.Delay(3000);
             son.Open(new Uri(@"Resources\cuisine.wav", UriKind.Relative));
             son.Play();
             cuisineScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
@@ -297,8 +298,9 @@ namespace PaintSurface
             da.To = 1.2;
             da.Duration = new Duration(TimeSpan.FromSeconds(1));
             da.AutoReverse = true;
-
-            await Task.Delay(1000);
+            son.Open(new Uri(@"Resources\choixAtelier.wav", UriKind.Relative));
+            son.Play();
+            await Task.Delay(2000);
             brosseadentScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
             brosseadentScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
             son.Open(new Uri(@"Resources\brossezlesdents.wav", UriKind.Relative));
@@ -333,6 +335,7 @@ namespace PaintSurface
         {
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
+
         }
 
         private void brosseacheveux_Click(object sender, RoutedEventArgs e)
@@ -358,7 +361,8 @@ namespace PaintSurface
                 ordonnancement.Visibility = Visibility.Visible;
                 rotatefecheBas.Visibility = Visibility.Visible;
                 rotatefecheHaut.Visibility = Visibility.Visible;
-
+                son.Open(new Uri(@"Resources\placerActions.wav", UriKind.Relative));
+                son.Play();
                 ordonnacement = true;
                 text.Text = "Ordonnancer les actions";
                 text2.Text = "Ordonnancer les actions";
@@ -556,7 +560,7 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                Trace.WriteLine("motherfucker");
+
                 media1.Source=new Uri("Resources/mouiller.mp4", UriKind.Relative);
                 media2.Source = new Uri("Resources/mouiller.mp4", UriKind.Relative);
                 media1.Play();
@@ -587,7 +591,7 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                Trace.WriteLine("motherfucker");
+
                 media1.Source = new Uri("Resources/brosser.mp4", UriKind.Relative);
                 media2.Source = new Uri("Resources/brosser.mp4", UriKind.Relative);
                 media2.Play();
@@ -617,7 +621,7 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                Trace.WriteLine("motherfucker");
+
                 media1.Source = new Uri("Resources/prendre_brosse.mp4", UriKind.Relative);
                 media2.Source = new Uri("Resources/prendre_brosse.mp4", UriKind.Relative);
                 media1.Play();
@@ -713,6 +717,8 @@ namespace PaintSurface
 
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
+            son.Open(new Uri(@"Resources\poserObjetBrossageDents.wav", UriKind.Relative));
+            son.Play();
            
         }
 
@@ -861,6 +867,8 @@ namespace PaintSurface
                 text.Text = "Touchez une image pour lancer la vidéo";
                 text2.Text = "Touchez une image pour lancer la vidéo";
                 Trace.WriteLine("SUCCES BRAVO");
+                son.Open(new Uri(@"Resources\selectionnerImagePourVideo.wav", UriKind.Relative));
+                son.Play();
             }
             else
                 Trace.WriteLine("Pas encore");

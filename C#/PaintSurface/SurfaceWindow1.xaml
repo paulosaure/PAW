@@ -92,7 +92,7 @@
         <Grid Name="maison" Visibility="Hidden" Grid.ColumnSpan="2">
             <TextBlock Margin="5,0,5,0" Foreground="LightPink"  FontSize="50" HorizontalAlignment="Center">Choisir une pièce</TextBlock>
             <StackPanel  Orientation="Horizontal" Height="auto" Width="auto"  >
-                <Button  Name="buttonCuisine" Width="350" Click="salledabain_Click" Height="350" Margin="150,100,150,100">
+                <Button  Name="buttonCuisine" Width="350"  Height="350" Margin="150,100,150,100">
                     <Button.RenderTransform>
                         <ScaleTransform x:Name= "cuisineScale" ScaleX="1" ScaleY="1" CenterX="200"  CenterY="150"/>
                     </Button.RenderTransform>

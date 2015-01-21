@@ -9,6 +9,17 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("paintsurface.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/brosser.mp4")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/choixatelier.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/choixpiece.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cracher.mp4")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/mettre_dentifrice.mp4")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/mouiller.mp4")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/placeractions.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/poserobjetbrossagedents.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/prendre_brosse.mp4")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/rincer.mp4")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/selectionnerimagepourvideo.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/videobrossage.mpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sonbrossedent.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sondentifrice.wav")]

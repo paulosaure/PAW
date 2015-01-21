@@ -461,8 +461,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/mettre_dentifrice.mp4", UriKind.Relative);
+                media2.Source = new Uri("/Resources/mettre_dentifrice.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -491,8 +491,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/cracher.mp4", UriKind.Relative);
+                media2.Source = new Uri("/Resources/cracher.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -521,8 +521,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/rincer.mp4", UriKind.Relative);
+                media2.Source = new Uri("/Resources/rincer.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -552,8 +552,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source=new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source=new Uri("/Resources/mouiller.mp4", UriKind.Relative);
+                media2.Source = new Uri("/Resources/mouiller.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -582,9 +582,9 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
-                media1.Play();
+                media1.Source = new Uri("/Resources/brosser.mp4", UriKind.Relative);
+                media2.Source = new Uri("/Resources/brosser.mp4", UriKind.Relative);
+                media2.Play();
                 media2.Play();
             }
         }
@@ -611,8 +611,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
-                media1.Source = new Uri("/Resources/videoBrossage.mpg", UriKind.Relative);
+                media1.Source = new Uri("/Resources/prendre_brosse.mp4", UriKind.Relative);
+                media2.Source = new Uri("/Resources/prendre_brosse.mp4", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }

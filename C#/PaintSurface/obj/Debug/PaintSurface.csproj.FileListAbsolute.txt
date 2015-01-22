@@ -264,3 +264,14 @@ C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\placerAc
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\poserObjetBrossageDents.wav
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\selectionnerImagePourVideo.wav
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\brosser.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\brosser.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\choixAtelier.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\choixPiece.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\cracher.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\mettre_dentifrice.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\mouiller.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\placerActions.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\poserObjetBrossageDents.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\prendre_brosse.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\rincer.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\selectionnerImagePourVideo.wav

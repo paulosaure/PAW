@@ -64,7 +64,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Button Height="400" Width="400" TouchDown="touch" Click="touchez_Click" Name="button" RenderTransformOrigin="0.5,0.5">
+            <Button Height="400" Width="400" TouchDown="touch"  Name="button" RenderTransformOrigin="0.5,0.5">
                 <Button.Template>
                     <ControlTemplate>
                         <Image Source="/Resources/text.png"  Width="400" Height="400" Name="touchez">
@@ -92,7 +92,7 @@
         <Grid Name="maison" Visibility="Hidden" Grid.ColumnSpan="2">
             <TextBlock Margin="5,0,5,0" Foreground="LightPink"  FontSize="50" HorizontalAlignment="Center">Choisir une pièce</TextBlock>
             <StackPanel  Orientation="Horizontal" Height="auto" Width="auto"  >
-                <Button  Name="buttonCuisine" Width="350"  Height="350" Margin="150,100,150,100">
+                <Button  Name="buttonCuisine" TouchDown="salledebain_Touch" Width="350"  Height="350" Margin="150,100,150,100">
                     <Button.RenderTransform>
                         <ScaleTransform x:Name= "cuisineScale" ScaleX="1" ScaleY="1" CenterX="200"  CenterY="150"/>
                     </Button.RenderTransform>
@@ -112,7 +112,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button Click="salledabain_Click" TouchDown="salledebain_Touch" Name="buttonSalledebain" Width="350"  Height="350" Margin="150,100,150,100">
+                <Button  TouchDown="salledebain_Touch" Name="buttonSalledebain" Width="350"  Height="350" Margin="150,100,150,100">
                     <Button.RenderTransform>
                         <ScaleTransform x:Name="salledebainScale" ScaleX="1" ScaleY="1" CenterX="200"  CenterY="150"/>
                     </Button.RenderTransform>

@@ -457,6 +457,11 @@ namespace PaintSurface
                 imgTmp.Width = i3.Width;
                 imgTmp.Height = i3.Height;
                 imgTmp.Source = i3.Source;
+                if (!versLeBas)
+                {
+                    imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
+                    imgTmp.RenderTransform = new RotateTransform(180);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i3)-p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i3)-p2.Position.Y);
@@ -487,6 +492,11 @@ namespace PaintSurface
                 imgTmp.Width = i2.Width;
                 imgTmp.Height = i2.Height;
                 imgTmp.Source = i2.Source;
+                if (!versLeBas)
+                {
+                    imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
+                    imgTmp.RenderTransform = new RotateTransform(180);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i2) - p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i2) - p2.Position.Y);
@@ -517,6 +527,11 @@ namespace PaintSurface
                 imgTmp.Width = i.Width;
                 imgTmp.Height = i.Height;
                 imgTmp.Source = i.Source;
+                if (!versLeBas)
+                {
+                    imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
+                    imgTmp.RenderTransform = new RotateTransform(180);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i) - p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i) - p2.Position.Y);
@@ -548,6 +563,11 @@ namespace PaintSurface
                 imgTmp.Width = i4.Width;
                 imgTmp.Height = i4.Height;
                 imgTmp.Source = i4.Source;
+                if (!versLeBas)
+                {
+                    imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
+                    imgTmp.RenderTransform = new RotateTransform(180);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i4) - p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i4) - p2.Position.Y);
@@ -579,6 +599,11 @@ namespace PaintSurface
                 imgTmp.Width = i5.Width;
                 imgTmp.Height = i5.Height;
                 imgTmp.Source = i5.Source;
+                if (!versLeBas)
+                {
+                    imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
+                    imgTmp.RenderTransform = new RotateTransform(180);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i5) - p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i5) - p2.Position.Y);
@@ -609,6 +634,11 @@ namespace PaintSurface
                 imgTmp.Width = i6.Width;
                 imgTmp.Height = i6.Height;
                 imgTmp.Source = i6.Source;
+                if (!versLeBas)
+                {
+                    imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
+                    imgTmp.RenderTransform = new RotateTransform(180);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i6) - p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i6) - p2.Position.Y);
@@ -795,12 +825,12 @@ namespace PaintSurface
             {
                 Image img = sender as Image;
                 switch (image) {
-                    case 1: img.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative));canvas.Children.Add(i);break;
-                    case 2: img.Source = new BitmapImage(new Uri("/Resources/cracher.png", UriKind.Relative));canvas.Children.Add(i2); break;
-                    case 3: img.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative));canvas.Children.Add(i3); break;
-                    case 4: img.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.png", UriKind.Relative)); canvas.Children.Add(i4);break;
-                    case 5: img.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative)); canvas.Children.Add(i5);break;
-                    case 6: img.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative));canvas.Children.Add(i6); break;
+                    case 1: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6" ) { img.RenderTransformOrigin = new Point(0.5, 0.5);img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); canvas.Children.Add(i); break;
+                    case 2: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/cracher.png", UriKind.Relative)); canvas.Children.Add(i2); break;
+                    case 3: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); canvas.Children.Add(i3); break;
+                    case 4: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.png", UriKind.Relative)); canvas.Children.Add(i4); break;
+                    case 5: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative)); canvas.Children.Add(i5); break;
+                    case 6: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative)); canvas.Children.Add(i6); break;
                     default: break;
             }
                 entreOrdre(img);
@@ -815,18 +845,18 @@ namespace PaintSurface
         {
             switch (img.Name)
             {
-                case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5]) borderbloc1.BorderBrush = Brushes.LightGreen; break;
-                case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[4]) borderbloc2.BorderBrush = Brushes.LightGreen; break;
-                case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[3]) borderbloc3.BorderBrush = Brushes.LightGreen; break;
-                case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[2]) borderbloc4.BorderBrush = Brushes.LightGreen; break;
-                case "bloc5": orderFriseHaut[4] = image; if (image == trueOrder[1]) borderbloc5.BorderBrush = Brushes.LightGreen; break;
-                case "bloc6": orderFriseHaut[5] = image; if (image == trueOrder[0]) borderbloc6.BorderBrush = Brushes.LightGreen; break;
-                case "bloc1B": orderFriseBas[0] = image; if (image == trueOrder[0]) borderbloc7.BorderBrush = Brushes.LightGreen; break;
-                case "bloc2B": orderFriseBas[1] = image; if (image == trueOrder[1]) borderbloc8.BorderBrush = Brushes.LightGreen; break;
-                case "bloc3B": orderFriseBas[2] = image; if (image == trueOrder[2]) borderbloc9.BorderBrush = Brushes.LightGreen; break;
-                case "bloc4B": orderFriseBas[3] = image; if (image == trueOrder[3]) borderbloc10.BorderBrush = Brushes.LightGreen; break;
-                case "bloc5B": orderFriseBas[4] = image; if (image == trueOrder[4]) borderbloc11.BorderBrush = Brushes.LightGreen; break;
-                case "bloc6B": orderFriseBas[5] = image; if (image == trueOrder[5]) borderbloc12.BorderBrush = Brushes.LightGreen; break;
+                case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5]) { borderbloc1.BorderBrush = Brushes.LightGreen;h1=true } break;
+                case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[4]) {borderbloc2.BorderBrush = Brushes.LightGreen; h2=true; }break;
+                case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[3]){ borderbloc3.BorderBrush = Brushes.LightGreen;h3=true; } break;
+                case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[2]){ borderbloc4.BorderBrush = Brushes.LightGreen; h4=true; }break;
+                case "bloc5": orderFriseHaut[4] = image; if (image == trueOrder[1]) {borderbloc5.BorderBrush = Brushes.LightGreen;h5=true; } break;
+                case "bloc6": orderFriseHaut[5] = image; if (image == trueOrder[0]) {borderbloc6.BorderBrush = Brushes.LightGreen; h6=true; }break;
+                case "bloc1B": orderFriseBas[0] = image; if (image == trueOrder[0]) {borderbloc7.BorderBrush = Brushes.LightGreen; b1=true; }break;
+                case "bloc2B": orderFriseBas[1] = image; if (image == trueOrder[1]) {borderbloc8.BorderBrush = Brushes.LightGreen; b2=true; }break;
+                case "bloc3B": orderFriseBas[2] = image; if (image == trueOrder[2]) {borderbloc9.BorderBrush = Brushes.LightGreen; b3=true; }break;
+                case "bloc4B": orderFriseBas[3] = image; if (image == trueOrder[3]) {borderbloc10.BorderBrush = Brushes.LightGreen;b4=true; } break;
+                case "bloc5B": orderFriseBas[4] = image; if (image == trueOrder[4]) {borderbloc11.BorderBrush = Brushes.LightGreen; b5=true; }break;
+                case "bloc6B": orderFriseBas[5] = image; if (image == trueOrder[5]) {borderbloc12.BorderBrush = Brushes.LightGreen; b6=true; }break;
             }
             testOrdre();
         }
@@ -875,12 +905,30 @@ namespace PaintSurface
         }
         private void mouveDelete(object sender, TouchEventArgs e)
         {
-            touchSurFrise = true;
-            Image img = sender as Image;
-            
-            img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative));
-            
+            if (!drop)
+            {
+                touchSurFrise = true;
+                Image img = sender as Image;
+                switch (img.Name)
+                {
+                    case "bloc1": if(!h1) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc2": if (!h2) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc3": if (!h3) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc4": if (!h4) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc5": if (!h5) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc6": if (!h6) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc1B": if (!b1) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc2B": if (!b2) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc3B": if (!b3) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc4B": if (!b4) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc5B": if (!b5) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc6B": if (!b6) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                }
+                
+
+            }
         }
+        private bool h1, h2, h3, h4, h5, h6, b1, b2, b3, b4, b5, b6;
   private void imgTmp_TouchUp(object sender, TouchEventArgs e)
   {
       simpleTouch = false;

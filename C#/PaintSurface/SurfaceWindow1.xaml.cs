@@ -413,7 +413,7 @@ namespace PaintSurface
             i.Height = 200;
             i.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative));
             i.SetValue(Canvas.LeftProperty, p.X-110);
-            i.SetValue(Canvas.TopProperty, p.Y-230);
+            i.SetValue(Canvas.TopProperty, p.Y-280);
             i.TouchDown += i_TouchDown;
             canvas.Children.Add(i);
 
@@ -422,7 +422,7 @@ namespace PaintSurface
             i2.Height = 200;
             i2.Source = new BitmapImage(new Uri("/Resources/cracher.png", UriKind.Relative));
             i2.SetValue(Canvas.LeftProperty, p.X-110);
-            i2.SetValue(Canvas.TopProperty, p.Y+30);
+            i2.SetValue(Canvas.TopProperty, p.Y+80);
             i2.TouchDown += i2_TouchDown;
             canvas.Children.Add(i2);
         }
@@ -435,7 +435,7 @@ namespace PaintSurface
             i3.Height = 200;
             i3.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative));
             i3.SetValue(Canvas.LeftProperty, p.X - 110);
-            i3.SetValue(Canvas.TopProperty, p.Y - 230);
+            i3.SetValue(Canvas.TopProperty, p.Y - 280);
             i3.TouchDown += i3_TouchDown;
             canvas.Children.Add(i3);
 
@@ -462,6 +462,10 @@ namespace PaintSurface
                     imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
                     imgTmp.RenderTransform = new RotateTransform(180);
                 }
+                else
+                {
+                    imgTmp.RenderTransform = new RotateTransform(0);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i3)-p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i3)-p2.Position.Y);
@@ -474,8 +478,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("Resources/mettre_dentifrice.mp4", UriKind.Relative);
-                media2.Source = new Uri("Resources/mettre_dentifrice.mp4", UriKind.Relative);
+                media1.Source = new Uri("Resources/videoAction3.wmv", UriKind.Relative);
+                media2.Source = new Uri("Resources/videoAction3.wmv", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -494,8 +498,13 @@ namespace PaintSurface
                 imgTmp.Source = i2.Source;
                 if (!versLeBas)
                 {
+                    Trace.WriteLine("ne retre pas mother");
                     imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
                     imgTmp.RenderTransform = new RotateTransform(180);
+                }
+                else
+                {
+                    imgTmp.RenderTransform = new RotateTransform(0);
                 }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i2) - p2.Position.X);
@@ -509,8 +518,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("Resources/cracher.mp4", UriKind.Relative);
-                media2.Source = new Uri("Resources/cracher.mp4", UriKind.Relative);
+                media1.Source = new Uri("Resources/videoAction5.wmv", UriKind.Relative);
+                media2.Source = new Uri("Resources/videoAction5.wmv", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -532,6 +541,10 @@ namespace PaintSurface
                     imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
                     imgTmp.RenderTransform = new RotateTransform(180);
                 }
+                else
+                {
+                    imgTmp.RenderTransform = new RotateTransform(0);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i) - p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i) - p2.Position.Y);
@@ -544,8 +557,8 @@ namespace PaintSurface
             }
             if (dernièreVue)
             {
-                media1.Source = new Uri("Resources/rincer.mp4", UriKind.Relative);
-                media2.Source = new Uri("Resources/rincer.mp4", UriKind.Relative);
+                media1.Source = new Uri("Resources/videoAction6.wmv", UriKind.Relative);
+                media2.Source = new Uri("Resources/videoAction6.wmv", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -568,6 +581,10 @@ namespace PaintSurface
                     imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
                     imgTmp.RenderTransform = new RotateTransform(180);
                 }
+                else
+                {
+                    imgTmp.RenderTransform = new RotateTransform(0);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i4) - p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i4) - p2.Position.Y);
@@ -581,8 +598,8 @@ namespace PaintSurface
             if (dernièreVue)
             {
 
-                media1.Source=new Uri("Resources/mouiller.mp4", UriKind.Relative);
-                media2.Source = new Uri("Resources/mouiller.mp4", UriKind.Relative);
+                media1.Source=new Uri("Resources/videoAction2.wmv", UriKind.Relative);
+                media2.Source = new Uri("Resources/videoAction2.wmv", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -604,6 +621,10 @@ namespace PaintSurface
                     imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
                     imgTmp.RenderTransform = new RotateTransform(180);
                 }
+                else
+                {
+                    imgTmp.RenderTransform = new RotateTransform(0);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i5) - p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i5) - p2.Position.Y);
@@ -617,8 +638,8 @@ namespace PaintSurface
             if (dernièreVue)
             {
 
-                media1.Source = new Uri("Resources/brosser.mp4", UriKind.Relative);
-                media2.Source = new Uri("Resources/brosser.mp4", UriKind.Relative);
+                media1.Source = new Uri("Resources/videoAction4.wmv", UriKind.Relative);
+                media2.Source = new Uri("Resources/videoAction4.wmv", UriKind.Relative);
                 media2.Play();
                 media2.Play();
             }
@@ -639,6 +660,10 @@ namespace PaintSurface
                     imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
                     imgTmp.RenderTransform = new RotateTransform(180);
                 }
+                else
+                {
+                    imgTmp.RenderTransform = new RotateTransform(0);
+                }
                 TouchPoint p = e.GetTouchPoint(this.canvas);
                 imgTmp.SetValue(Canvas.LeftProperty, Canvas.GetLeft(i6) - p2.Position.X);
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i6) - p2.Position.Y);
@@ -652,8 +677,8 @@ namespace PaintSurface
             if (dernièreVue)
             {
 
-                media1.Source = new Uri("Resources/prendre_brosse.mp4", UriKind.Relative);
-                media2.Source = new Uri("Resources/prendre_brosse.mp4", UriKind.Relative);
+                media1.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
+                media2.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
                 media1.Play();
                 media2.Play();
             }
@@ -665,10 +690,13 @@ namespace PaintSurface
         {
             if (ordonnacement)
             {
-                TouchPoint p = e.GetTouchPoint(this.canvas);
-                Trace.WriteLine(p.Position);
-                imgTmp.SetValue(Canvas.LeftProperty, p.Position.X-40 );
-                imgTmp.SetValue(Canvas.TopProperty, p.Position.Y-40 );
+                if (e.TouchDevice.GetIsFingerRecognized() )
+                {
+                    TouchPoint p = e.GetTouchPoint(this.canvas);
+                    //Trace.WriteLine(p.Position);
+                    imgTmp.SetValue(Canvas.LeftProperty, p.Position.X - 40);
+                    imgTmp.SetValue(Canvas.TopProperty, p.Position.Y - 40);
+                }
             }
         }
        
@@ -679,7 +707,7 @@ namespace PaintSurface
             i4.Height = 200;
             i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.png", UriKind.Relative));
             i4.SetValue(Canvas.LeftProperty, p.X +110);
-            i4.SetValue(Canvas.TopProperty, p.Y - 130);
+            i4.SetValue(Canvas.TopProperty, p.Y - 280);
             i4.TouchDown += i4_TouchDown;
             canvas.Children.Add(i4);
 
@@ -688,7 +716,7 @@ namespace PaintSurface
             i5.Height = 200;
             i5.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative));
             i5.SetValue(Canvas.LeftProperty, p.X - 280);
-            i5.SetValue(Canvas.TopProperty, p.Y - 130);
+            i5.SetValue(Canvas.TopProperty, p.Y - 280);
             i5.TouchDown += i5_TouchDown;
             canvas.Children.Add(i5);
 
@@ -707,22 +735,21 @@ namespace PaintSurface
         private bool aideBool = false;
         private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
-            if (!dernièreVue)
-            {
+
                 Point p = e.TagVisualization.Center;
                 Point t = new Point(p.X, p.Y + 210);
                 try
                 {
                     switch (e.TagVisualization.VisualizedTag.Value)
                     {
-                        case 0x01: createImageBrosse(t); if (aideBool || aideBrosse) { Trace.WriteLine("BOOL =" + aideBool + " " + aideBrosse); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; } brosseadentBool = true; valideObjet(); break;
-                        case 0x20: createImageDentifrice(t); if (aideBool || aideDentifrice) { borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; } borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
-                        case 0xC5: createImageVerre(t); if (aideBool || aideVerre) { borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; } borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
+                        case 0x31: createImageBrosse(t); if (aideBool || aideBrosse) { Trace.WriteLine("BOOL =" + aideBool + " " + aideBrosse); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; } brosseadentBool = true; valideObjet(); break;
+                        case 0x05: createImageDentifrice(t); if (aideBool || aideDentifrice) { borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; } borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
+                        case 0x24: createImageVerre(t); if (aideBool || aideVerre) { borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; } borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
                         default: break;
                     }
                 }
                 catch (System.Exception ex) { Trace.WriteLine("exeption " + ex); }
-            }
+            
         }
 
 
@@ -742,13 +769,30 @@ namespace PaintSurface
            animeMaison();
         }
 
-        private  void brosseadent_Touch(object sender, TouchEventArgs e)
+        private async void brosseadent_Touch(object sender, TouchEventArgs e)
         {
 
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
             son.Open(new Uri(@"Resources\poserObjetBrossageDents.wav", UriKind.Relative));
             son.Play();
+            //Objet en Texte
+            await Task.Delay(3000);
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
+            verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
+            verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
+            aideBool = true;
+            //Objet en Image
+            await Task.Delay(3000);
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
+            dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
+            verre.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
+            dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
+            verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
            
         }
 
@@ -773,21 +817,24 @@ namespace PaintSurface
         }
         private void OnvisualEnd(object sender, TagVisualizerEventArgs e)
         {
-            Point p = e.TagVisualization.Center;
-            Point t = new Point(p.X, p.Y + 210);
-            try
+            if (!dernièreVue)
             {
-                switch (e.TagVisualization.VisualizedTag.Value)
+                Point p = e.TagVisualization.Center;
+                Point t = new Point(p.X, p.Y + 210);
+                try
                 {
-                    case 0x01: deleteImageBrosse(t); borderAideBrosseDent.BorderBrush = Brushes.Transparent; borderAideBrosseDent2.BorderBrush = Brushes.Transparent; brosseadentBool = false; break;
-                    case 0x20: deleteImageDentifrice(t); borderDentifrice.BorderBrush = Brushes.Transparent; borderDentifrice2.BorderBrush = Brushes.Transparent; dentifriceBool = false; break;
-                    case 0xC5: deleteImageVerre(t); borderVerre.BorderBrush = Brushes.Transparent; borderVerre2.BorderBrush = Brushes.Transparent; verreBool = false; break;
-                    default: break;
+                    switch (e.TagVisualization.VisualizedTag.Value)
+                    {
+                        case 0x31: deleteImageBrosse(t); borderAideBrosseDent.BorderBrush = Brushes.Transparent; borderAideBrosseDent2.BorderBrush = Brushes.Transparent; brosseadentBool = false; break;
+                        case 0x05: deleteImageDentifrice(t); borderDentifrice.BorderBrush = Brushes.Transparent; borderDentifrice2.BorderBrush = Brushes.Transparent; dentifriceBool = false; break;
+                        case 0x24: deleteImageVerre(t); borderVerre.BorderBrush = Brushes.Transparent; borderVerre2.BorderBrush = Brushes.Transparent; verreBool = false; break;
+                        default: break;
+                    }
                 }
-            }
-            catch (System.Exception ex)
-            {
-                Trace.WriteLine("exeption " + ex);
+                catch (System.Exception ex)
+                {
+                    Trace.WriteLine("exeption " + ex);
+                }
             }
         }
 
@@ -796,23 +843,23 @@ namespace PaintSurface
         private void moveImageVerre(Point p)
         {
             i.SetValue(Canvas.LeftProperty, p.X - 110);
-            i.SetValue(Canvas.TopProperty, p.Y - 230);
+            i.SetValue(Canvas.TopProperty, p.Y - 280);
             i2.SetValue(Canvas.LeftProperty, p.X - 110);
-            i2.SetValue(Canvas.TopProperty, p.Y + 30);
+            i2.SetValue(Canvas.TopProperty, p.Y + 80);
         }
 
         private void moveImageDentifrice(Point p)
         {
             i3.SetValue(Canvas.LeftProperty, p.X - 110);
-            i3.SetValue(Canvas.TopProperty, p.Y - 230);
+            i3.SetValue(Canvas.TopProperty, p.Y - 280);
         }
 
         private void moveImageBrosse(Point p)
         {
             i4.SetValue(Canvas.LeftProperty, p.X + 110);
-            i4.SetValue(Canvas.TopProperty, p.Y - 130);
+            i4.SetValue(Canvas.TopProperty, p.Y - 280);
             i5.SetValue(Canvas.LeftProperty, p.X - 280);
-            i5.SetValue(Canvas.TopProperty, p.Y - 130);
+            i5.SetValue(Canvas.TopProperty, p.Y - 280);
             i6.SetValue(Canvas.LeftProperty, p.X - 110);
             i6.SetValue(Canvas.TopProperty, p.Y + 100);
         }
@@ -845,7 +892,7 @@ namespace PaintSurface
         {
             switch (img.Name)
             {
-                case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5]) { borderbloc1.BorderBrush = Brushes.LightGreen;h1=true } break;
+                case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5]) { borderbloc1.BorderBrush = Brushes.LightGreen; h1 = true; } break;
                 case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[4]) {borderbloc2.BorderBrush = Brushes.LightGreen; h2=true; }break;
                 case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[3]){ borderbloc3.BorderBrush = Brushes.LightGreen;h3=true; } break;
                 case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[2]){ borderbloc4.BorderBrush = Brushes.LightGreen; h4=true; }break;
@@ -911,18 +958,18 @@ namespace PaintSurface
                 Image img = sender as Image;
                 switch (img.Name)
                 {
-                    case "bloc1": if(!h1) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc2": if (!h2) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc3": if (!h3) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc4": if (!h4) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc5": if (!h5) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc6": if (!h6) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc1B": if (!b1) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc2B": if (!b2) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc3B": if (!b3) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc4B": if (!b4) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc5B": if (!b5) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
-                    case "bloc6B": if (!b6) img.Source = new BitmapImage(new Uri("/Resources/elt.png", UriKind.Relative)); break;
+                    case "bloc1": if(!h1) img.Source = new BitmapImage(new Uri("/Resources/cubeTop.png", UriKind.Relative)); break;
+                    case "bloc2": if (!h2) img.Source = new BitmapImage(new Uri("/Resources/cubeTop.png", UriKind.Relative)); break;
+                    case "bloc3": if (!h3) img.Source = new BitmapImage(new Uri("/Resources/cubeTop.png", UriKind.Relative)); break;
+                    case "bloc4": if (!h4) img.Source = new BitmapImage(new Uri("/Resources/cubeTop.png", UriKind.Relative)); break;
+                    case "bloc5": if (!h5) img.Source = new BitmapImage(new Uri("/Resources/cubeTop.png", UriKind.Relative)); break;
+                    case "bloc6": if (!h6) img.Source = new BitmapImage(new Uri("/Resources/cubeTopCoin.png", UriKind.Relative)); break;
+                    case "bloc1B": if (!b1) img.Source = new BitmapImage(new Uri("/Resources/cubeBotCoin.png", UriKind.Relative)); break;
+                    case "bloc2B": if (!b2) img.Source = new BitmapImage(new Uri("/Resources/cubeBot.png", UriKind.Relative)); break;
+                    case "bloc3B": if (!b3) img.Source = new BitmapImage(new Uri("/Resources/cubeBot.png", UriKind.Relative)); break;
+                    case "bloc4B": if (!b4) img.Source = new BitmapImage(new Uri("/Resources/cubeBot.png", UriKind.Relative)); break;
+                    case "bloc5B": if (!b5) img.Source = new BitmapImage(new Uri("/Resources/cubeBot.png", UriKind.Relative)); break;
+                    case "bloc6B": if (!b6) img.Source = new BitmapImage(new Uri("/Resources/cubeBot.png", UriKind.Relative)); break;
                 }
                 
 
@@ -931,27 +978,30 @@ namespace PaintSurface
         private bool h1, h2, h3, h4, h5, h6, b1, b2, b3, b4, b5, b6;
   private void imgTmp_TouchUp(object sender, TouchEventArgs e)
   {
-      simpleTouch = false;
-      drop = false;
-            if (ordonnacement && !touchSurFrise && touchDownImage)
-            {
-                touchDownImage = false;
-                switch (image)
-                {
-                    case 1:  canvas.Children.Add(i); break;
-                    case 2:  canvas.Children.Add(i2); break;
-                    case 3:  canvas.Children.Add(i3); break;
-                    case 4:  canvas.Children.Add(i4); break;
-                    case 5:  canvas.Children.Add(i5); break;
-                    case 6:  canvas.Children.Add(i6); break;
-                    default: break;
-                }
-                canvas.Children.Remove(imgTmp);
-            }
-            else
-            {
-                touchSurFrise = false;
-            }
+      if (e.TouchDevice.GetIsFingerRecognized())
+      {
+          simpleTouch = false;
+          drop = false;
+          if (ordonnacement && !touchSurFrise && touchDownImage)
+          {
+              touchDownImage = false;
+              switch (image)
+              {
+                  case 1: canvas.Children.Add(i); break;
+                  case 2: canvas.Children.Add(i2); break;
+                  case 3: canvas.Children.Add(i3); break;
+                  case 4: canvas.Children.Add(i4); break;
+                  case 5: canvas.Children.Add(i5); break;
+                  case 6: canvas.Children.Add(i6); break;
+                  default: break;
+              }
+              canvas.Children.Remove(imgTmp);
+          }
+          else
+          {
+              touchSurFrise = false;
+          }
+      }
         }
 
   private void OnvisualMoved(object sender, TagVisualizerEventArgs e)
@@ -967,11 +1017,11 @@ namespace PaintSurface
           switch (e.TagVisualization.VisualizedTag.Value)
           {
 
-              case 0x01: moveImageBrosse(t);  break;
+              case 0x31: moveImageBrosse(t);  break;
 
-              case 0x20: moveImageDentifrice(t); break;
+              case 0x05: moveImageDentifrice(t); break;
 
-              case 0xC5: moveImageVerre(t); break;
+              case 0x24: moveImageVerre(t); break;
 
               default: break;
 

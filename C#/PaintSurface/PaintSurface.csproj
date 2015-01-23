@@ -143,6 +143,12 @@
     <Content Include="Resources\cracher.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\cubeBot.png" />
+    <Resource Include="Resources\cubeBotCoin.png" />
+    <Resource Include="Resources\cubeTop.png" />
+    <Resource Include="Resources\cubeTopCoin.png" />
+    <Resource Include="Resources\flechebot.png" />
+    <Resource Include="Resources\flecheTop.png" />
     <Content Include="Resources\mettre_dentifrice.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -162,6 +168,25 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\selectionnerImagePourVideo.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\SurfaceShell.exe" />
+    <Content Include="Resources\videoAction1.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction2.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction3.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction4.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction5.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction6.wmv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\videoBrossage.mpg">

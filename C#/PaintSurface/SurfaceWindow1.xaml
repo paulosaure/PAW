@@ -292,6 +292,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <WrapPanel Name="videoHaut" Visibility="Hidden" Grid.Column="0"  Grid.Row="0" Margin="127,0,-127,0"  >
+                    <Image Name="QrcodeHaut" Height="200" Width="200" Margin="50,0,0,0"></Image>
                     <MediaElement x:Name="media1"  LoadedBehavior="Manual" Height="200" Width="200"  Margin="650,0,100,0" >
                         <MediaElement.LayoutTransform>
                             <TransformGroup>
@@ -372,6 +373,7 @@
                 <WrapPanel Name="videoBas" Visibility="Hidden" Grid.Column="0" Grid.Row="2" Margin="57,662,-57,-112" >
                     <TextBlock  Margin="200,0,200,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="200" VerticalAlignment="Center" RenderTransformOrigin="0.5, 0.5"/>
                     <MediaElement Margin="200,0,200,0" x:Name="media2" LoadedBehavior="Manual" Height="200" Width="200" />
+                    <Image Name="QrcodeBas" Height="200" Width="200" Margin="50,0,0,0"></Image>
                 </WrapPanel>
             </Grid>
            

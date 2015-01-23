@@ -281,3 +281,10 @@ C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAct
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction4.wmv
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction5.wmv
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction6.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction1.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction2.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction3.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction4.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction5.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction6.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\MessagingToolkit.QRCode.dll

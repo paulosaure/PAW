@@ -75,11 +75,19 @@ namespace PaintSurface
             orderFriseBas = new int[6];
             orderFriseHaut = new int[6];
 
+            QrcodeBas.Source = QRCodeGenerator.generatorQRCodeForTableSide("left");
+            QrcodeHaut.Source = QRCodeGenerator.generatorQRCodeForTableSide("right");
 
         }
         private bool aideDentifrice = false;
         private bool aideBrosse = false;
         private bool aideVerre = false;
+
+        public void sound(String str)
+        {
+
+        }
+
         public  void aide(String str)
         {
             this.Dispatcher.Invoke((Action)(() =>

@@ -29,18 +29,10 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:text="Erreur"
-        android:id="@+id/buttonErreur"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/buttonEncouragement" />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="100dp"
         android:text="Essaie Encore"
         android:id="@+id/buttonEssaieEncore"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/buttonErreur" />
+        android:layout_toEndOf="@+id/buttonEncouragement" />
 
     <Button
         android:layout_width="90dp"
@@ -74,136 +66,51 @@
         android:background="@drawable/fleche"
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
-        android:onClick="onPreviousView"/>
+        android:onClick="onNextView"/>
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="70dp"
         android:id="@+id/imageButton2"
         android:background="@drawable/flechegauche"
-        android:layout_below="@+id/checkBoxTexte"
-        android:layout_toEndOf="@+id/buttonClignote"
         android:layout_marginLeft="40dp"
-        android:onClick="onNextView"/>
+        android:onClick="onPreviousView"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/buttonSon" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Image"
-        android:id="@+id/checkBoxImage"
-        android:checked="false"
-        android:textSize="40dp"
-        android:layout_above="@+id/checkBoxTexte"
-        android:layout_alignParentStart="true"
-        android:clickable="true"
-        android:onClick="onCheckboxClicked"/>
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Texte"
-        android:id="@+id/checkBoxTexte"
-        android:checked="false"
-        android:layout_above="@+id/buttonClignote"
-        android:layout_alignParentStart="true"
-        android:textSize="40dp"
-        android:clickable="true"
-        android:layout_marginBottom="40dp"
-        android:onClick="onCheckboxClicked"/>
 
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignTop="@+id/checkBoxImage"
         android:layout_above="@+id/buttonFelicitation"
         android:layout_toEndOf="@id/imageButton2"
         android:layout_toStartOf="@+id/imageButton"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:id="@+id/frameLayout">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="all texte"
-            android:tag="all texte"
-            android:id="@+id/button"
-            android:layout_gravity="left|top"
-            android:onClick="buttonSendAide" />
+        <fragment
+            android:name="com.example.paul.telecommande.Empty"
+            android:id="@+id/fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/empty"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="all image"
-            android:tag="all image"
-            android:id="@+id/button2"
-            android:layout_gravity="center_horizontal|top"
-            android:onClick="buttonSendAide" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="all son"
-            android:tag="all son"
-            android:id="@+id/button3"
-            android:layout_gravity="right|top"
-            android:onClick="buttonSendAide" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="dentifrice image"
-            android:tag="dentifrice image"
-            android:id="@+id/button4"
-            android:layout_gravity="left|center_vertical"
-            android:onClick="buttonSendAide" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="dentifrice texte"
-            android:tag="dentifrice texte"
-            android:id="@+id/button5"
-            android:layout_gravity="center"
-            android:onClick="buttonSendAide" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="verre image"
-            android:tag="verre image"
-            android:id="@+id/button6"
-            android:layout_gravity="right|center_vertical"
-            android:onClick="buttonSendAide" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="verre texte"
-            android:tag="verre texte"
-            android:id="@+id/button7"
-            android:layout_gravity="left|bottom"
-            android:onClick="buttonSendAide" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="brosse image"
-            android:tag="brosse image"
-            android:id="@+id/button8"
-            android:layout_gravity="center_horizontal|bottom"
-            android:onClick="buttonSendAide" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="brosse texte"
-            android:tag="brosse texte"
-            android:id="@+id/button9"
-            android:layout_gravity="right|bottom"
-            android:onClick="buttonSendAide" />
     </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/frameLayout"
+        android:layout_alignEnd="@+id/imageButton2"
+        android:layout_marginTop="51dp"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
 

@@ -145,6 +145,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\brosserText.png" />
+    <Content Include="Resources\brosser.wav" />
     <Content Include="Resources\choixAtelier.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -162,6 +163,7 @@
     <Resource Include="Resources\flechebot.png" />
     <Resource Include="Resources\flecheTop.png" />
     <Resource Include="Resources\cracherText.png" />
+    <Content Include="Resources\cracher.wav" />
     <Content Include="Resources\encouragement.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -169,6 +171,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\mettreDentifriceText.png" />
+    <Content Include="Resources\mettreDentifrice.wav" />
     <Content Include="Resources\mettre_dentifrice.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -177,6 +180,7 @@
     </Content>
     <Resource Include="Resources\mouiller_brosse.jpg" />
     <Resource Include="Resources\mouillerBrosseText.png" />
+    <Content Include="Resources\mouillerBrosse.wav" />
     <Content Include="Resources\placerActions.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -184,6 +188,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\prendreBrosseText.png" />
+    <Content Include="Resources\prendreBrosse.wav" />
     <Content Include="Resources\prendre_brosse.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -191,6 +196,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\rincerText.png" />
+    <Content Include="Resources\rincer.wav" />
     <Content Include="Resources\selectionnerImagePourVideo.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

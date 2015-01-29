@@ -136,6 +136,12 @@ namespace PaintSurface
                 case "encouragement": son.Open(new Uri(@"Resources\encouragement.mp3", UriKind.Relative));son.Play(); break;
                 case "essaieEncore": son.Open(new Uri(@"Resources\essaie_encore.mp3", UriKind.Relative)); son.Play(); break;
                 case "felicitation": son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); break;
+                case "prendreBrosse": son.Open(new Uri(@"Resources\prendreBrosse.wav", UriKind.Relative)); son.Play(); break;
+                case "mouillerBrosse": son.Open(new Uri(@"Resources\mouillerBrosse.wav", UriKind.Relative)); son.Play(); break;
+                case "mettreDentifrice": son.Open(new Uri(@"Resources\mettreDentifrice.wav", UriKind.Relative)); son.Play(); break;
+                case "brosser": son.Open(new Uri(@"Resources\brosser.wav", UriKind.Relative)); son.Play(); break;
+                case "rincer": son.Open(new Uri(@"Resources\rincer.wav", UriKind.Relative)); son.Play(); break;
+                case "cracher": son.Open(new Uri(@"Resources\cracher.wav", UriKind.Relative)); son.Play(); break;
                 default: break;
             }
     }));
@@ -1152,9 +1158,6 @@ namespace PaintSurface
                 }
             }
         }
-
-     
-
         private void moveImageVerre(Point p)
         {
             i.SetValue(Canvas.LeftProperty, p.X - 110);

@@ -103,16 +103,31 @@ namespace PaintSurface
                 });
                 this.socket.On("clignoter", (data) =>
                 {
-                    sur.hardPushRequete((String)data);
+                    sur.clignoterRequete((String)data);
                 });
                 this.socket.On("view", (data) =>
                 {
                     this.socket.Emit("changeView",sur.vueCourante);
                 });
+                this.socket.On("aidePlace", (data) =>
+                {
+                    sur.aidePlaceRequete((String)data);
+                });
+                this.socket.On("aideAction", (data) =>
+                {
+                    sur.aideActionRequete((String)data);
+                });
+                this.socket.On("aideAtelier", (data) =>
+                {
+                    sur.aideAtelierRequete((String)data);
+                });
                 this.socket.On("getFrise", (data) =>
                 {
-                    sur.getFrise((int)data);
+                    String str =sur.getFrise((int)data);
+                    this.socket.Emit("pushFrise", str);
                 });
+
+
                 this.socket.On("newTablet", (data) =>
                 {
                     Console.WriteLine(data);

@@ -21,6 +21,8 @@ using System.Net;
 using System.IO;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace PaintSurface
 {
@@ -31,15 +33,9 @@ namespace PaintSurface
     {
 
         private Process _serverProcess;
-
-
-
         private int _serverPort = 8080;
-
         private bool brosseadentBool = false, verreBool = false, dentifriceBool = false;
-
         private SocketManager _sm;
-
         private MediaPlayer son = new MediaPlayer();
         private bool drop = false;
         private bool touchSurFrise = false;
@@ -47,7 +43,16 @@ namespace PaintSurface
         private int[] orderFriseHaut;
         private int[] orderFriseBas;
         public int vueCourante = 1; //1= roue 2=piece 3=atelier 4= objet 5=ordonnancement 6=video
-        
+        private bool aideDentifrice = false;
+        private bool aideBrosse = false;
+        private bool aideVerre = false;
+        private int image = -1;
+        private Image imgTmp = new Image();
+        private bool touchDownImage = false;
+        private bool simpleTouch = false;
+        private bool imageBloc1 = true, imageBloc1B = true, imageBloc2 = true, imageBloc2B = true, imageBloc3 = true, imageBloc3B = true, imageBloc4 = true, imageBloc4B = true, imageBloc5 = true, imageBloc5B = true, imageBloc6 = true, imageBloc6B = true;
+        private Image i, i2, i3, i4, i5, i6;
+        private Frise friseHautObjet, friseBasObjet;
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -78,11 +83,10 @@ namespace PaintSurface
 
             QrcodeBas.Source = QRCodeGenerator.generatorQRCodeForTableSide("left");
             QrcodeHaut.Source = QRCodeGenerator.generatorQRCodeForTableSide("right");
-
+            friseBasObjet = new Frise();
+            friseHautObjet = new Frise();
         }
-        private bool aideDentifrice = false;
-        private bool aideBrosse = false;
-        private bool aideVerre = false;
+
 
 
 
@@ -124,6 +128,8 @@ namespace PaintSurface
 
         public void soundRequete(String str)
         {
+                     this.Dispatcher.Invoke((Action)(() =>
+    {
             son.Stop();
             switch (str)
             {
@@ -132,123 +138,242 @@ namespace PaintSurface
                 case "felicitation": son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); break;
                 default: break;
             }
+    }));
         }
 
         public void clignoterRequete(string str)
         {
-            if (ordonnacement)
-            {
-                DoubleAnimation da = new DoubleAnimation();
-                da.To = 1.2;
-                da.Duration = new Duration(TimeSpan.FromSeconds(1));
-                da.AutoReverse = true;
+            this.Dispatcher.Invoke((Action)(() =>
+{
+    if (ordonnacement)
+    {
+        DoubleAnimation da = new DoubleAnimation();
+        da.To = 1.2;
+        da.Duration = new Duration(TimeSpan.FromSeconds(1));
+        da.AutoReverse = true;
 
-                switch (str)
-                {
-                    case "dentifrice": if(dentifriceBool) createCircleDentifrice(dentifriceObjetPoint); break;
-                    case "verre": if(verreBool) createCircleVerre(verreObjetPoint); break;
-                    case "brosse": if(brosseadentBool) createCircleBrosse(brosseObjetPoint); break;
-                    case "prendreBrosse": ScaleTransform trans6 = new ScaleTransform();
-                        i6.RenderTransform = trans6;
-                        i6.RenderTransformOrigin = new Point(0.5, 0.5);
-                        trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
-                        trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
-                    case "mouillerBrosse": ScaleTransform trans4 = new ScaleTransform();
-                        i4.RenderTransform = trans4;
-                        i4.RenderTransformOrigin = new Point(0.5, 0.5);
-                        trans4.BeginAnimation(ScaleTransform.ScaleXProperty, da);
-                        trans4.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
-                    case "mettreDentifrice": ScaleTransform trans3 = new ScaleTransform();
-                        i3.RenderTransform = trans3;
-                        i3.RenderTransformOrigin = new Point(0.5, 0.5);
-                        trans3.BeginAnimation(ScaleTransform.ScaleXProperty, da);
-                        trans3.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
-                    case "brosser": ScaleTransform trans5 = new ScaleTransform();
-                        i5.RenderTransform = trans5;
-                        i5.RenderTransformOrigin = new Point(0.5, 0.5);
-                        trans5.BeginAnimation(ScaleTransform.ScaleXProperty, da);
-                        trans5.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
-                    case "rincer":
-                        ScaleTransform trans = new ScaleTransform();
-                        i.RenderTransform = trans;
-                        i.RenderTransformOrigin = new Point(0.5, 0.5);
-                        trans.BeginAnimation(ScaleTransform.ScaleXProperty, da);
-                        trans.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
-                    case "cracher": ScaleTransform trans2 = new ScaleTransform();
-                        i2.RenderTransform = trans2;
-                        i2.RenderTransformOrigin = new Point(0.5, 0.5);
-                        trans2.BeginAnimation(ScaleTransform.ScaleXProperty, da);
-                        trans2.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
-                    default: break;
-                }
-            }
+        switch (str)
+        {
+            case "dentifrice": if (dentifriceBool) createCircleDentifrice(dentifriceObjetPoint); break;
+            case "verre": if (verreBool) createCircleVerre(verreObjetPoint); break;
+            case "brosse": if (brosseadentBool) createCircleBrosse(brosseObjetPoint); break;
+            case "prendreBrosse": ScaleTransform trans6 = new ScaleTransform();
+                i6.RenderTransform = trans6;
+                i6.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+            case "mouillerBrosse": ScaleTransform trans4 = new ScaleTransform();
+                i4.RenderTransform = trans4;
+                i4.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans4.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans4.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+            case "mettreDentifrice": ScaleTransform trans3 = new ScaleTransform();
+                i3.RenderTransform = trans3;
+                i3.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans3.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans3.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+            case "brosser": ScaleTransform trans5 = new ScaleTransform();
+                i5.RenderTransform = trans5;
+                i5.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans5.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans5.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+            case "rincer":
+                ScaleTransform trans = new ScaleTransform();
+                i.RenderTransform = trans;
+                i.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+            case "cracher": ScaleTransform trans2 = new ScaleTransform();
+                i2.RenderTransform = trans2;
+                i2.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans2.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans2.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+            default: break;
+        }
+    }
+}));
         }
         public void hardPushRequete(string str)
         {
-            if (str == "next")
-            {
-                if(vueCourante<6)
-                    vueCourante++;
-                switch (vueCourante)
-                {
-                    case 1: break;
-                    case 2: myGrid.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
-                    case 3: maison.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
-                    case 4: objetVue(); break;
-                    case 5: aideTop.Visibility = Visibility.Hidden;
-                        aideBot.Visibility = Visibility.Hidden;
-                        ordonnancement.Visibility = Visibility.Visible;
-                        rotatefecheBas.Visibility = Visibility.Visible;
-                        rotatefecheHaut.Visibility = Visibility.Visible;
-                        son.Open(new Uri(@"Resources\placerActions.wav", UriKind.Relative));
-                        son.Play();
-                        ordonnacement = true;
-                        text.Text = "Ordonnancer les actions";
-                        text2.Text = "Ordonnancer les actions"; break;
-                    case 6: dernièreVue = true;
-                        ordonnacement = false;
-                        ordonnancement.Visibility = Visibility.Visible;
+            this.Dispatcher.Invoke((Action)(() =>
+{
+    if (str == "next")
+    {
+        if (vueCourante < 6)
+            vueCourante++;
+        switch (vueCourante)
+        {
+            case 1: break;
+            case 2: myGrid.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
+            case 3: maison.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
+            case 4: objetVue(); break;
+            case 5: aideTop.Visibility = Visibility.Hidden;
+                aideBot.Visibility = Visibility.Hidden;
+                ordonnancement.Visibility = Visibility.Visible;
+                rotatefecheBas.Visibility = Visibility.Visible;
+                rotatefecheHaut.Visibility = Visibility.Visible;
+                son.Open(new Uri(@"Resources\placerActions.wav", UriKind.Relative));
+                son.Play();
+                ordonnacement = true;
+                text.Text = "Ordonnancer les actions";
+                text2.Text = "Ordonnancer les actions"; break;
+            case 6: dernièreVue = true;
+                ordonnacement = false;
+                ordonnancement.Visibility = Visibility.Visible;
 
-                        videoHaut.Visibility = Visibility.Visible;
-                        videoBas.Visibility = Visibility.Visible;
-                        friseBas.Visibility = Visibility.Hidden;
-                        friseHaut.Visibility = Visibility.Hidden;
-                        text.Text = "Touchez une image pour lancer la vidéo";
-                        text2.Text = "Touchez une image pour lancer la vidéo";
-                        Trace.WriteLine("SUCCES BRAVO");
-                        son.Open(new Uri(@"Resources\selectionnerImagePourVideo.wav", UriKind.Relative));
-                        son.Play(); break;
-                    default: break;
-                }
-            }
-            else
+                videoHaut.Visibility = Visibility.Visible;
+                videoBas.Visibility = Visibility.Visible;
+                friseBas.Visibility = Visibility.Hidden;
+                friseHaut.Visibility = Visibility.Hidden;
+                text.Text = "Touchez une image pour lancer la vidéo";
+                text2.Text = "Touchez une image pour lancer la vidéo";
+                Trace.WriteLine("SUCCES BRAVO");
+                son.Open(new Uri(@"Resources\selectionnerImagePourVideo.wav", UriKind.Relative));
+                son.Play(); break;
+            default: break;
+        }
+    }
+    else
+    {
+        if (vueCourante > 2)
+            vueCourante--;
+        switch (vueCourante)
+        {
+            case 1: break;
+            case 2: myGrid.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
+            case 3: maison.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
+            case 4: objetVue(); ordonnacement = false; break;
+            case 5: dernièreVue = false;
+                aideTop.Visibility = Visibility.Hidden;
+                aideBot.Visibility = Visibility.Hidden;
+                ordonnancement.Visibility = Visibility.Visible;
+                rotatefecheBas.Visibility = Visibility.Visible;
+                rotatefecheHaut.Visibility = Visibility.Visible;
+                son.Open(new Uri(@"Resources\placerActions.wav", UriKind.Relative));
+                son.Play();
+                ordonnacement = true;
+                text.Text = "Ordonnancer les actions";
+                text2.Text = "Ordonnancer les actions"; break;
+            case 6: break;
+            default: break;
+        }
+    }
+}));
+        }
+        public void aideAtelierRequete(string str)
+        {
+            this.Dispatcher.Invoke((Action)(() =>
+{
+    son.Stop();
+    DoubleAnimation da = new DoubleAnimation();
+    da.To = 1.2;
+    da.Duration = new Duration(TimeSpan.FromSeconds(1));
+    da.AutoReverse = true;
+    switch (str)
+    {
+        case "all": animeSalleDeBain(); break;
+        case "brosserDents": brosseadentScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            brosseadentScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            son.Open(new Uri(@"Resources\brossezlesdents.wav", UriKind.Relative));
+            son.Play(); break;
+        case "brosserCheveux": brosseacheveuxScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            brosseacheveuxScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            son.Open(new Uri(@"Resources\coiffez.wav", UriKind.Relative));
+            son.Play(); break;
+        case "doucher": doucheScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            doucheScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            son.Open(new Uri(@"Resources\douchez.wav", UriKind.Relative));
+            son.Play(); break;
+        case "raser": rasoirScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            rasoirScale.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+            son.Open(new Uri(@"Resources\rasez.wav", UriKind.Relative));
+            son.Play(); break;
+        default: break;
+    }
+}));
+        }
+        public void aidePlaceRequete(string str)
+        {
+            this.Dispatcher.Invoke((Action)(() =>
+{
+    son.Stop();
+    DoubleAnimation da = new DoubleAnimation();
+    da.To = 1.2;
+    da.Duration = new Duration(TimeSpan.FromSeconds(1));
+    da.AutoReverse = true;
+    switch (str)
+    {
+        case "all": animeMaison(); break;
+        case "cuisine": son.Open(new Uri(@"Resources\cuisine.wav", UriKind.Relative));
+            son.Play();
+            cuisineScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            cuisineScale.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+        case "salleDeBain": son.Open(new Uri(@"Resources\salledebain.wav", UriKind.Relative));
+            son.Play();
+            salledebainScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            salledebainScale.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+        case "salon": son.Open(new Uri(@"Resources\salon.wav", UriKind.Relative));
+            son.Play();
+            salonScale.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            salonScale.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+        default: break;
+    }
+}));
+        }
+        public void aideActionRequete(string str)
+        {
+            this.Dispatcher.Invoke((Action)(() =>
             {
-                if(vueCourante>2)
-                vueCourante--;
-                switch (vueCourante)
-                {
-                    case 1: break;
-                    case 2: myGrid.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
-                    case 3: maison.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
-                    case 4: objetVue(); ordonnacement = false; break;
-                    case 5: dernièreVue = false;
-                        aideTop.Visibility = Visibility.Hidden;
-                        aideBot.Visibility = Visibility.Hidden;
-                        ordonnancement.Visibility = Visibility.Visible;
-                        rotatefecheBas.Visibility = Visibility.Visible;
-                        rotatefecheHaut.Visibility = Visibility.Visible;
-                        son.Open(new Uri(@"Resources\placerActions.wav", UriKind.Relative));
-                        son.Play();
-                        ordonnacement = true;
-                        text.Text = "Ordonnancer les actions";
-                        text2.Text = "Ordonnancer les actions"; break; 
-                    case 6: break;
-                    default: break;
-                }
-            }
+                son.Stop();
+                String[] order = str.Split(' ');
+            switch (order[0])
+            {
+                case "all": switch (order[1]) { case "texte": actionTexte(); break; case "image": actionImage(); break; } break;
+                case "prendreBrosse": switch (order[1]) { case "texte": i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative)); break; case "image": i6.Source = new BitmapImage(new Uri("/Resources/prendre_brosseadent.png", UriKind.Relative)); break; } break;
+                case "mouillerBrosse": switch (order[1]) { case "texte":    i4.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseText.png", UriKind.Relative)); break; case "image": i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative)); break; } break;
+                case "mettreDentifrice": switch (order[1]) { case "texte": i3.Source = new BitmapImage(new Uri("/Resources/mettreDentifriceText.png", UriKind.Relative)); break; case "image": i3.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); break; } break;
+                case "rincer": switch (order[1]) { case "texte": i.Source = new BitmapImage(new Uri("/Resources/rincerText.png", UriKind.Relative)); break; case "image": i.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); break; } break;
+                case "cracher": switch (order[1]) { case "texte": i2.Source = new BitmapImage(new Uri("/Resources/cracherText.png", UriKind.Relative)); break; case "image": i2.Source = new BitmapImage(new Uri("/Resources/cracher.jpg", UriKind.Relative)); break; } break;
+                case "brosser": switch (order[1]) { case "texte": i5.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative)); break; case "image": i2.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative)); break; } break;
+
+    }   
+            }));
         }
 
-        public void getFrise(int num) { }
+        private void actionTexte()
+        {
+            i.Source = new BitmapImage(new Uri("/Resources/rincerText.png", UriKind.Relative));
+            i2.Source = new BitmapImage(new Uri("/Resources/cracherText.png", UriKind.Relative));
+            i3.Source = new BitmapImage(new Uri("/Resources/mettreDentifriceText.png", UriKind.Relative));
+            i4.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseText.png", UriKind.Relative));
+            i5.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative));
+            i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative));
+        }
+        private void actionImage()
+        {
+            i.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative));
+            i2.Source = new BitmapImage(new Uri("/Resources/cracher.jpg", UriKind.Relative));
+            i3.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative));
+            i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative));
+            i5.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative));
+            i6.Source = new BitmapImage(new Uri("/Resources/prendre_brosseadent.png", UriKind.Relative));
+        }
+
+        public string getFrise(int num) {
+
+    DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Frise));
+    MemoryStream ms = new MemoryStream();
+    if (num==0){
+    js.WriteObject(ms, friseHautObjet);
+    Console.WriteLine(js);
+    }
+    else {
+            js.WriteObject(ms, friseBasObjet);
+    Console.WriteLine(js);
+    }
+
+            return js.ToString();
+    }
         private  void texteAide()
         {
 
@@ -392,14 +517,6 @@ namespace PaintSurface
             //TODO: disable audio, animations here
         }
 
-        private void touchez_Click(object sender, RoutedEventArgs e)
-        {
-            vueCourante++;
-            myGrid.Visibility = Visibility.Hidden;
-            maison.Visibility = Visibility.Visible;
-            animeMaison();
-        }
-
         private async void animeMaison()
         {
             son.Stop();
@@ -539,7 +656,7 @@ namespace PaintSurface
             canvas.Children.Add(i2);
         }
 
-        private Image i,i2,i3,i4,i5,i6;
+ 
         private void createImageDentifrice(Point p)
         {
             i3 = new Image();
@@ -552,10 +669,7 @@ namespace PaintSurface
             canvas.Children.Add(i3);
 
         }
-        private int image=-1;
-        private Image imgTmp = new Image();
-        private bool touchDownImage = false;
-        private bool simpleTouch = false;
+
 
         void i3_TouchDown(object sender, TouchEventArgs e)
         {
@@ -1095,18 +1209,18 @@ namespace PaintSurface
             {
                 case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5])
                     {
-                        borderbloc1.BorderBrush = Brushes.LightGreen; h1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play();} break;
-                case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[4]) { borderbloc2.BorderBrush = Brushes.LightGreen; h2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[3]) { borderbloc3.BorderBrush = Brushes.LightGreen; h3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[2]) { borderbloc4.BorderBrush = Brushes.LightGreen; h4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc5": orderFriseHaut[4] = image; if (image == trueOrder[1]) { borderbloc5.BorderBrush = Brushes.LightGreen; h5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc6": orderFriseHaut[5] = image; if (image == trueOrder[0]) { borderbloc6.BorderBrush = Brushes.LightGreen; h6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc1B": orderFriseBas[0] = image; if (image == trueOrder[0]) { borderbloc7.BorderBrush = Brushes.LightGreen; b1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc2B": orderFriseBas[1] = image; if (image == trueOrder[1]) { borderbloc8.BorderBrush = Brushes.LightGreen; b2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc3B": orderFriseBas[2] = image; if (image == trueOrder[2]) { borderbloc9.BorderBrush = Brushes.LightGreen; b3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc4B": orderFriseBas[3] = image; if (image == trueOrder[3]) { borderbloc10.BorderBrush = Brushes.LightGreen; b4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc5B": orderFriseBas[4] = image; if (image == trueOrder[4]) { borderbloc11.BorderBrush = Brushes.LightGreen; b5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc6B": orderFriseBas[5] = image; if (image == trueOrder[5]) { borderbloc12.BorderBrush = Brushes.LightGreen; b6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                       if(imageBloc1){friseHautObjet.bloc1="image";} else{friseHautObjet.bloc1="text";}  borderbloc1.BorderBrush = Brushes.LightGreen; h1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play();} break;
+                case "bloc2": if (imageBloc2) { friseHautObjet.bloc2 = "image"; } else { friseHautObjet.bloc2 = "text"; } orderFriseHaut[1] = image; if (image == trueOrder[4]) { borderbloc2.BorderBrush = Brushes.LightGreen; h2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc3": if (imageBloc3) { friseHautObjet.bloc3 = "image"; } else { friseHautObjet.bloc3 = "text"; } orderFriseHaut[2] = image; if (image == trueOrder[3]) { borderbloc3.BorderBrush = Brushes.LightGreen; h3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc4": if (imageBloc4) { friseHautObjet.bloc4 = "image"; } else { friseHautObjet.bloc4 = "text"; } orderFriseHaut[3] = image; if (image == trueOrder[2]) { borderbloc4.BorderBrush = Brushes.LightGreen; h4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc5": if (imageBloc5) { friseHautObjet.bloc5 = "image"; } else { friseHautObjet.bloc5 = "text"; } orderFriseHaut[4] = image; if (image == trueOrder[1]) { borderbloc5.BorderBrush = Brushes.LightGreen; h5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc6": if (imageBloc6) { friseHautObjet.bloc6 = "image"; } else { friseHautObjet.bloc6 = "text"; } orderFriseHaut[5] = image; if (image == trueOrder[0]) { borderbloc6.BorderBrush = Brushes.LightGreen; h6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc1B": if (imageBloc1B) { friseHautObjet.bloc1 = "image"; } else { friseHautObjet.bloc1 = "text"; } orderFriseBas[0] = image; if (image == trueOrder[0]) { borderbloc7.BorderBrush = Brushes.LightGreen; b1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc2B": if (imageBloc2B) { friseHautObjet.bloc2 = "image"; } else { friseHautObjet.bloc2 = "text"; } orderFriseBas[1] = image; if (image == trueOrder[1]) { borderbloc8.BorderBrush = Brushes.LightGreen; b2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc3B": if (imageBloc3B) { friseHautObjet.bloc3 = "image"; } else { friseHautObjet.bloc3 = "text"; } orderFriseBas[2] = image; if (image == trueOrder[2]) { borderbloc9.BorderBrush = Brushes.LightGreen; b3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc4B": if (imageBloc4B) { friseHautObjet.bloc4 = "image"; } else { friseHautObjet.bloc4 = "text"; } orderFriseBas[3] = image; if (image == trueOrder[3]) { borderbloc10.BorderBrush = Brushes.LightGreen; b4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc5B": if (imageBloc5B) { friseHautObjet.bloc5 = "image"; } else { friseHautObjet.bloc5 = "text"; } orderFriseBas[4] = image; if (image == trueOrder[4]) { borderbloc11.BorderBrush = Brushes.LightGreen; b5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc6B": if (imageBloc6B) { friseHautObjet.bloc6 = "image"; } else { friseHautObjet.bloc6 = "text"; } orderFriseBas[5] = image; if (image == trueOrder[5]) { borderbloc12.BorderBrush = Brushes.LightGreen; b6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
             }
             testOrdre();
         }

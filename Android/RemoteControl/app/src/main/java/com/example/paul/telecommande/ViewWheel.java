@@ -31,10 +31,10 @@ public class ViewWheel extends Fragment {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.wheel_view, container, false);
 
-        String uriImg = "@drawable/touchme";
+
         Actions[] actions = new Actions[] { Actions.image, Actions.text, Actions.son, Actions.zoom};
 
-        CustomButton buttonTouchHere = new CustomButton(context, actions , uriImg);
+        CustomButton buttonTouchHere = new CustomButton(context, actions , R.drawable.touchme);
 
         RelativeLayout rl = (RelativeLayout)v.findViewById(R.id.wheelView);
 

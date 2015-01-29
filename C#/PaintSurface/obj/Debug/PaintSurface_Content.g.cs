@@ -9,10 +9,13 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("paintsurface.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/bravo.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/brosser.mp4")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/choixatelier.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/choixpiece.wav")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cracher.mp4")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/encouragement.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/essaie_encore.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/mettre_dentifrice.mp4")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/mouiller.mp4")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/placeractions.wav")]

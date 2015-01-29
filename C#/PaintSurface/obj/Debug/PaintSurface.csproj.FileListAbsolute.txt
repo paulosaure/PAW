@@ -288,3 +288,6 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\v
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction5.wmv
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction6.wmv
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\bravo.mp3
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\encouragement.mp3
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\essaie_encore.mp3

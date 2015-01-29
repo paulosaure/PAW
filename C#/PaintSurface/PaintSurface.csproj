@@ -136,15 +136,20 @@
     <Resource Include="Resources\rotateImg.png" />
     <Resource Include="Resources\friseD2.png" />
     <Resource Include="Resources\friseG2.png" />
+    <Content Include="Resources\bravo.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\brosser.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\brosserText.png" />
     <Content Include="Resources\choixAtelier.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\choixPiece.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\cracher.jpg" />
     <Content Include="Resources\cracher.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -154,24 +159,36 @@
     <Resource Include="Resources\cubeTopCoin.png" />
     <Resource Include="Resources\flechebot.png" />
     <Resource Include="Resources\flecheTop.png" />
+    <Resource Include="Resources\cracherText.png" />
+    <Content Include="Resources\encouragement.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\essaie_encore.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\mettreDentifriceText.png" />
     <Content Include="Resources\mettre_dentifrice.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\mouiller.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\mouiller_brosse.jpg" />
+    <Resource Include="Resources\mouillerBrosseText.png" />
     <Content Include="Resources\placerActions.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\poserObjetBrossageDents.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\prendreBrosseText.png" />
     <Content Include="Resources\prendre_brosse.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\rincer.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\rincerText.png" />
     <Content Include="Resources\selectionnerImagePourVideo.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

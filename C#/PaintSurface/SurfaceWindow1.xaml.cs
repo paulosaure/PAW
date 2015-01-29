@@ -46,6 +46,7 @@ namespace PaintSurface
         private int[] trueOrder;
         private int[] orderFriseHaut;
         private int[] orderFriseBas;
+        public int vueCourante = 1; //1= roue 2=piece 3=atelier 4= objet 5=ordonnancement 6=video
         
         /// <summary>
         /// Default constructor.
@@ -83,10 +84,7 @@ namespace PaintSurface
         private bool aideBrosse = false;
         private bool aideVerre = false;
 
-        public void sound(String str)
-        {
 
-        }
 
         public  void aide(String str)
         {
@@ -123,6 +121,134 @@ namespace PaintSurface
 
     }));
         }
+
+        public void soundRequete(String str)
+        {
+            son.Stop();
+            switch (str)
+            {
+                case "encouragement": son.Open(new Uri(@"Resources\encouragement.mp3", UriKind.Relative));son.Play(); break;
+                case "essaieEncore": son.Open(new Uri(@"Resources\essaie_encore.mp3", UriKind.Relative)); son.Play(); break;
+                case "felicitation": son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); break;
+                default: break;
+            }
+        }
+
+        public void clignoterRequete(string str)
+        {
+            if (ordonnacement)
+            {
+                DoubleAnimation da = new DoubleAnimation();
+                da.To = 1.2;
+                da.Duration = new Duration(TimeSpan.FromSeconds(1));
+                da.AutoReverse = true;
+
+                switch (str)
+                {
+                    case "dentifrice": if(dentifriceBool) createCircleDentifrice(dentifriceObjetPoint); break;
+                    case "verre": if(verreBool) createCircleVerre(verreObjetPoint); break;
+                    case "brosse": if(brosseadentBool) createCircleBrosse(brosseObjetPoint); break;
+                    case "prendreBrosse": ScaleTransform trans6 = new ScaleTransform();
+                        i6.RenderTransform = trans6;
+                        i6.RenderTransformOrigin = new Point(0.5, 0.5);
+                        trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                        trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+                    case "mouillerBrosse": ScaleTransform trans4 = new ScaleTransform();
+                        i4.RenderTransform = trans4;
+                        i4.RenderTransformOrigin = new Point(0.5, 0.5);
+                        trans4.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                        trans4.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+                    case "mettreDentifrice": ScaleTransform trans3 = new ScaleTransform();
+                        i3.RenderTransform = trans3;
+                        i3.RenderTransformOrigin = new Point(0.5, 0.5);
+                        trans3.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                        trans3.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+                    case "brosser": ScaleTransform trans5 = new ScaleTransform();
+                        i5.RenderTransform = trans5;
+                        i5.RenderTransformOrigin = new Point(0.5, 0.5);
+                        trans5.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                        trans5.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+                    case "rincer":
+                        ScaleTransform trans = new ScaleTransform();
+                        i.RenderTransform = trans;
+                        i.RenderTransformOrigin = new Point(0.5, 0.5);
+                        trans.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                        trans.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+                    case "cracher": ScaleTransform trans2 = new ScaleTransform();
+                        i2.RenderTransform = trans2;
+                        i2.RenderTransformOrigin = new Point(0.5, 0.5);
+                        trans2.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                        trans2.BeginAnimation(ScaleTransform.ScaleYProperty, da); break;
+                    default: break;
+                }
+            }
+        }
+        public void hardPushRequete(string str)
+        {
+            if (str == "next")
+            {
+                if(vueCourante<6)
+                    vueCourante++;
+                switch (vueCourante)
+                {
+                    case 1: break;
+                    case 2: myGrid.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
+                    case 3: maison.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
+                    case 4: objetVue(); break;
+                    case 5: aideTop.Visibility = Visibility.Hidden;
+                        aideBot.Visibility = Visibility.Hidden;
+                        ordonnancement.Visibility = Visibility.Visible;
+                        rotatefecheBas.Visibility = Visibility.Visible;
+                        rotatefecheHaut.Visibility = Visibility.Visible;
+                        son.Open(new Uri(@"Resources\placerActions.wav", UriKind.Relative));
+                        son.Play();
+                        ordonnacement = true;
+                        text.Text = "Ordonnancer les actions";
+                        text2.Text = "Ordonnancer les actions"; break;
+                    case 6: dernièreVue = true;
+                        ordonnacement = false;
+                        ordonnancement.Visibility = Visibility.Visible;
+
+                        videoHaut.Visibility = Visibility.Visible;
+                        videoBas.Visibility = Visibility.Visible;
+                        friseBas.Visibility = Visibility.Hidden;
+                        friseHaut.Visibility = Visibility.Hidden;
+                        text.Text = "Touchez une image pour lancer la vidéo";
+                        text2.Text = "Touchez une image pour lancer la vidéo";
+                        Trace.WriteLine("SUCCES BRAVO");
+                        son.Open(new Uri(@"Resources\selectionnerImagePourVideo.wav", UriKind.Relative));
+                        son.Play(); break;
+                    default: break;
+                }
+            }
+            else
+            {
+                if(vueCourante>2)
+                vueCourante--;
+                switch (vueCourante)
+                {
+                    case 1: break;
+                    case 2: myGrid.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
+                    case 3: maison.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
+                    case 4: objetVue(); ordonnacement = false; break;
+                    case 5: dernièreVue = false;
+                        aideTop.Visibility = Visibility.Hidden;
+                        aideBot.Visibility = Visibility.Hidden;
+                        ordonnancement.Visibility = Visibility.Visible;
+                        rotatefecheBas.Visibility = Visibility.Visible;
+                        rotatefecheHaut.Visibility = Visibility.Visible;
+                        son.Open(new Uri(@"Resources\placerActions.wav", UriKind.Relative));
+                        son.Play();
+                        ordonnacement = true;
+                        text.Text = "Ordonnancer les actions";
+                        text2.Text = "Ordonnancer les actions"; break; 
+                    case 6: break;
+                    default: break;
+                }
+            }
+        }
+
+        public void getFrise(int num) { }
         private  void texteAide()
         {
 
@@ -160,6 +286,8 @@ namespace PaintSurface
             await Task.Delay(1000);
           
         }
+
+
         private void _startServer()
         {
 
@@ -266,14 +394,15 @@ namespace PaintSurface
 
         private void touchez_Click(object sender, RoutedEventArgs e)
         {
+            vueCourante++;
             myGrid.Visibility = Visibility.Hidden;
             maison.Visibility = Visibility.Visible;
-
             animeMaison();
         }
 
         private async void animeMaison()
         {
+            son.Stop();
             DoubleAnimation da = new DoubleAnimation();
             da.To = 1.2;
             da.Duration = new Duration(TimeSpan.FromSeconds(1));
@@ -302,6 +431,7 @@ namespace PaintSurface
 
         private async void animeSalleDeBain()
         {
+            son.Stop();
             DoubleAnimation da = new DoubleAnimation();
             da.To = 1.2;
             da.Duration = new Duration(TimeSpan.FromSeconds(1));
@@ -332,38 +462,12 @@ namespace PaintSurface
         }
 
 
-        private void salledabain_Click(object sender, RoutedEventArgs e)
-        {
-            maison.Visibility = Visibility.Hidden;
-            atelier.Visibility = Visibility.Visible;
-            animeSalleDeBain();
-        }
-
-        private  void brosseadent_Click(object sender, RoutedEventArgs e)
-        {
-            atelier.Visibility = Visibility.Hidden;
-            objet.Visibility = Visibility.Visible;
-
-        }
-
-        private void brosseacheveux_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void douche_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rasoir_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void valideObjet(){
 
             if (brosseadentBool && verreBool && dentifriceBool)
             {
+                _sm.socket.Emit("changeView", 5);
+                vueCourante++;
                 aideTop.Visibility = Visibility.Hidden;
                 aideBot.Visibility = Visibility.Hidden;
                 ordonnancement.Visibility = Visibility.Visible;
@@ -428,7 +532,7 @@ namespace PaintSurface
             i2 = new Image();
             i2.Width = 200;
             i2.Height = 200;
-            i2.Source = new BitmapImage(new Uri("/Resources/cracher.png", UriKind.Relative));
+            i2.Source = new BitmapImage(new Uri("/Resources/cracher.jpg", UriKind.Relative));
             i2.SetValue(Canvas.LeftProperty, p.X-110);
             i2.SetValue(Canvas.TopProperty, p.Y+80);
             i2.TouchDown += i2_TouchDown;
@@ -458,7 +562,7 @@ namespace PaintSurface
             if (ordonnacement && !simpleTouch)
             {
                 simpleTouch = true;
-                Trace.WriteLine("touch down img");
+                /*Trace.WriteLine("touch down img");
                 TouchPoint p2 = e.GetTouchPoint(i3);
                 Trace.WriteLine("Position touch down i3 = " + p2.Position);
                 imgTmp.Margin = new Thickness(50, 50, 50, 50);
@@ -481,6 +585,7 @@ namespace PaintSurface
                 canvas.Children.Remove(i3);
                 canvas.Children.Add(imgTmp);
                 touchDownImage = true;
+                 * */
                 image = 3;
                 drop = true;
             }
@@ -497,16 +602,14 @@ namespace PaintSurface
             if (ordonnacement && !simpleTouch)
             {
                 simpleTouch = true;
-                Trace.WriteLine("touch down img");
-                TouchPoint p2 = e.GetTouchPoint(i2);
-                Trace.WriteLine("Position touch down i2 = " + p2.Position);
+                /*TouchPoint p2 = e.GetTouchPoint(i2);
+                //Trace.WriteLine("Position touch down i2 = " + p2.Position);
                 imgTmp.Margin = new Thickness(50, 50, 50, 50);
                 imgTmp.Width = i2.Width;
                 imgTmp.Height = i2.Height;
                 imgTmp.Source = i2.Source;
                 if (!versLeBas)
                 {
-                    Trace.WriteLine("ne retre pas mother");
                     imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
                     imgTmp.RenderTransform = new RotateTransform(180);
                 }
@@ -520,6 +623,7 @@ namespace PaintSurface
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i2);
                 canvas.Children.Add(imgTmp);
+                 * */
                 touchDownImage = true;
                 image = 2;
                 drop = true;
@@ -537,9 +641,9 @@ namespace PaintSurface
             if (ordonnacement && !simpleTouch)
             {
                 simpleTouch = true;
-                Trace.WriteLine("touch down img");
+                /*
                 TouchPoint p2 = e.GetTouchPoint(i);
-                Trace.WriteLine("Position touch down i = " + p2.Position);
+                //Trace.WriteLine("Position touch down i = " + p2.Position);
                 imgTmp.Margin = new Thickness(50, 50, 50, 50);
                 imgTmp.Width = i.Width;
                 imgTmp.Height = i.Height;
@@ -559,6 +663,7 @@ namespace PaintSurface
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i);
                 canvas.Children.Add(imgTmp);
+                 * */
                 touchDownImage = true;
                 image = 1;
                 drop = true;
@@ -577,9 +682,9 @@ namespace PaintSurface
             if (ordonnacement && !simpleTouch)
             {
                 simpleTouch = true;
-                Trace.WriteLine("touch down img");
+                /*
                 TouchPoint p2 = e.GetTouchPoint(i4);
-                Trace.WriteLine("Position touch down i4 = " + p2.Position);
+                //Trace.WriteLine("Position touch down i4 = " + p2.Position);
                 imgTmp.Margin = new Thickness(50, 50, 50, 50);
                 imgTmp.Width = i4.Width;
                 imgTmp.Height = i4.Height;
@@ -599,6 +704,7 @@ namespace PaintSurface
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i4);
                 canvas.Children.Add(imgTmp);
+                 * */
                 touchDownImage = true;
                 image = 4;
                 drop = true;
@@ -618,13 +724,12 @@ namespace PaintSurface
             if (ordonnacement && !simpleTouch)
             {
                 simpleTouch = true;
-                Trace.WriteLine("touch down img");
-                TouchPoint p2 = e.GetTouchPoint(i5);
-                imgTmp.Margin = new Thickness(50, 50, 50, 50);
-                imgTmp.Width = i5.Width;
-                imgTmp.Height = i5.Height;
-                imgTmp.Source = i5.Source;
-                if (!versLeBas)
+                //TouchPoint p2 = e.GetTouchPoint(i5);
+                //imgTmp.Margin = new Thickness(50, 50, 50, 50);
+                //imgTmp.Width = i5.Width;
+                //imgTmp.Height = i5.Height;
+                //imgTmp.Source = i5.Source;
+                /*if (!versLeBas)
                 {
                     imgTmp.RenderTransformOrigin = new Point(0.5, 0.5);
                     imgTmp.RenderTransform = new RotateTransform(180);
@@ -638,7 +743,7 @@ namespace PaintSurface
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i5) - p2.Position.Y);
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i5);
-                canvas.Children.Add(imgTmp);
+                canvas.Children.Add(imgTmp);*/
                 touchDownImage = true;
                 image = 5;
                 drop = true;
@@ -658,6 +763,7 @@ namespace PaintSurface
             if (ordonnacement && !simpleTouch)
             {
                 simpleTouch = true;
+                /*
                 TouchPoint p2 = e.GetTouchPoint(i6);
                 imgTmp.Margin = new Thickness(50, 50, 50, 50);
                 imgTmp.Width = i6.Width;
@@ -678,6 +784,7 @@ namespace PaintSurface
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i6);
                 canvas.Children.Add(imgTmp);
+                 * */
                 touchDownImage = true;
                 image = 6;
                 drop = true;
@@ -693,7 +800,7 @@ namespace PaintSurface
 
         }
         private bool ordonnacement = false;
-        private void imgTmp_TouchMove(object sender, TouchEventArgs e)
+       /* private void imgTmp_TouchMove(object sender, TouchEventArgs e)
         
         {
             if (ordonnacement)
@@ -706,14 +813,14 @@ namespace PaintSurface
                     imgTmp.SetValue(Canvas.TopProperty, p.Position.Y - 40);
                 }
             }
-        }
+        }*/
        
         private void createImageBrosse(Point p)
         {
             i4 = new Image();
             i4.Width = 200;
             i4.Height = 200;
-            i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.png", UriKind.Relative));
+            i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative));
             i4.SetValue(Canvas.LeftProperty, p.X +110);
             i4.SetValue(Canvas.TopProperty, p.Y - 280);
             i4.TouchDown += i4_TouchDown;
@@ -738,9 +845,83 @@ namespace PaintSurface
             canvas.Children.Add(i6);
         }
 
-     
+        private async void createCircleBrosse(Point p)
+        {
+            Ellipse myEllipse = new Ellipse();
+            myEllipse.StrokeThickness = 4;
+            myEllipse.Stroke = Brushes.LightGreen;
+            myEllipse.Width = 200;
+            myEllipse.Height = 200;
+            myEllipse.SetValue(Canvas.LeftProperty, p.X -100);
+            myEllipse.SetValue(Canvas.TopProperty, p.Y-100);
+            canvas.Children.Add(myEllipse);
+            DoubleAnimation da = new DoubleAnimation();
+            da.To = 1.2;
+            da.Duration = new Duration(TimeSpan.FromSeconds(1));
+            da.AutoReverse = true;
+
+            ScaleTransform trans6 = new ScaleTransform();
+            myEllipse.RenderTransform = trans6;
+            myEllipse.RenderTransformOrigin = new Point(0.5, 0.5);
+            trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+
+            await Task.Delay(2000);
+            canvas.Children.Remove(myEllipse);
+        }
+
+        private async void createCircleDentifrice(Point p)
+        {
+            Ellipse myEllipse2 = new Ellipse();
+            myEllipse2.StrokeThickness = 4;
+            myEllipse2.Stroke = Brushes.LightGreen;
+            myEllipse2.Width = 200;
+            myEllipse2.Height = 200;
+            myEllipse2.SetValue(Canvas.LeftProperty, p.X - 100);
+            myEllipse2.SetValue(Canvas.TopProperty, p.Y - 100);
+            canvas.Children.Add(myEllipse2);
+            DoubleAnimation da = new DoubleAnimation();
+            da.To = 1.2;
+            da.Duration = new Duration(TimeSpan.FromSeconds(1));
+            da.AutoReverse = true;
+
+            ScaleTransform trans6 = new ScaleTransform();
+            myEllipse2.RenderTransform = trans6;
+            myEllipse2.RenderTransformOrigin = new Point(0.5, 0.5);
+            trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+
+            await Task.Delay(2000);
+            canvas.Children.Remove(myEllipse2);
+        }
+
+        private async void createCircleVerre(Point p)
+        {
+            Ellipse myEllipse3 = new Ellipse();
+            myEllipse3.StrokeThickness = 4;
+            myEllipse3.Stroke = Brushes.LightGreen;
+            myEllipse3.Width = 200;
+            myEllipse3.Height = 200;
+            myEllipse3.SetValue(Canvas.LeftProperty, p.X - 100);
+            myEllipse3.SetValue(Canvas.TopProperty, p.Y - 100);
+            canvas.Children.Add(myEllipse3);
+            DoubleAnimation da = new DoubleAnimation();
+            da.To = 1.2;
+            da.Duration = new Duration(TimeSpan.FromSeconds(1));
+            da.AutoReverse = true;
+
+            ScaleTransform trans6 = new ScaleTransform();
+            myEllipse3.RenderTransform = trans6;
+            myEllipse3.RenderTransformOrigin = new Point(0.5, 0.5);
+            trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+            trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+
+            await Task.Delay(2000);
+            canvas.Children.Remove(myEllipse3);
+        }
 
         private bool aideBool = false;
+        private Point brosseObjetPoint, dentifriceObjetPoint, verreObjetPoint;
         private void OnVisualizationAdded(object sender, TagVisualizerEventArgs e)
         {
 
@@ -750,9 +931,9 @@ namespace PaintSurface
                 {
                     switch (e.TagVisualization.VisualizedTag.Value)
                     {
-                        case 0x31: createImageBrosse(t); if (aideBool || aideBrosse) { Trace.WriteLine("BOOL =" + aideBool + " " + aideBrosse); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; } brosseadentBool = true; valideObjet(); break;
-                        case 0x05: createImageDentifrice(t); if (aideBool || aideDentifrice) { borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; } borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
-                        case 0x24: createImageVerre(t); if (aideBool || aideVerre) { borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; } borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
+                        case 0x31: brosseObjetPoint = t; createImageBrosse(t); if (aideBool || aideBrosse) { Trace.WriteLine("BOOL =" + aideBool + " " + aideBrosse); borderAideBrosseDent.BorderBrush = Brushes.LightGreen; borderAideBrosseDent2.BorderBrush = Brushes.LightGreen; } brosseadentBool = true; valideObjet(); break;
+                        case 0x05: dentifriceObjetPoint = t; createImageDentifrice(t); if (aideBool || aideDentifrice) { borderDentifrice.BorderBrush = Brushes.LightGreen; borderDentifrice2.BorderBrush = Brushes.LightGreen; } borderDentifrice.Visibility = Visibility.Visible; dentifriceBool = true; valideObjet(); break;
+                        case 0x24: verreObjetPoint = t; createImageVerre(t); if (aideBool || aideVerre) { borderVerre.BorderBrush = Brushes.LightGreen; borderVerre2.BorderBrush = Brushes.LightGreen; } borderVerre.Visibility = Visibility.Visible; verreBool = true; valideObjet(); break;
                         default: break;
                     }
                 }
@@ -771,14 +952,25 @@ namespace PaintSurface
 
         private void touch(object sender, TouchEventArgs e)
         {
+            _sm.socket.Emit("changeView", 2);
             myGrid.Visibility = Visibility.Hidden;
       
            maison.Visibility = Visibility.Visible;
            animeMaison();
         }
 
-        private async void brosseadent_Touch(object sender, TouchEventArgs e)
+        private  void brosseadent_Touch(object sender, TouchEventArgs e)
         {
+            son.Stop();
+            _sm.socket.Emit("changeView", 4);
+            vueCourante++;
+            objetVue();
+           
+        }
+
+        private async void objetVue()
+        {
+            son.Stop();
 
             atelier.Visibility = Visibility.Hidden;
             objet.Visibility = Visibility.Visible;
@@ -801,11 +993,12 @@ namespace PaintSurface
             brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative));
             dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice_grand.png", UriKind.Relative));
             verre2.Source = new BitmapImage(new Uri("/Resources/verre_grand.png", UriKind.Relative));
-           
         }
-
         private void salledebain_Touch(object sender, TouchEventArgs e)
         {
+            son.Stop();
+            _sm.socket.Emit("changeView", 3);
+            vueCourante++;
             maison.Visibility = Visibility.Hidden;
             atelier.Visibility = Visibility.Visible;
             animeSalleDeBain();
@@ -880,16 +1073,16 @@ namespace PaintSurface
             {
                 Image img = sender as Image;
                 switch (image) {
-                    case 1: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6" ) { img.RenderTransformOrigin = new Point(0.5, 0.5);img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); canvas.Children.Add(i); break;
-                    case 2: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/cracher.png", UriKind.Relative)); canvas.Children.Add(i2); break;
-                    case 3: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); canvas.Children.Add(i3); break;
-                    case 4: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.png", UriKind.Relative)); canvas.Children.Add(i4); break;
-                    case 5: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative)); canvas.Children.Add(i5); break;
-                    case 6: if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative)); canvas.Children.Add(i6); break;
+                    case 1: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); break;//canvas.Children.Add(i); break;
+                    case 2: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/cracher.jpg", UriKind.Relative)); break;// canvas.Children.Add(i2); break;
+                    case 3: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); break;// canvas.Children.Add(i3); break;
+                    case 4: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative)); break;// canvas.Children.Add(i4); break;
+                    case 5: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative)); break;// canvas.Children.Add(i5); break;
+                    case 6: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative)); break;// canvas.Children.Add(i6); break;
                     default: break;
             }
                 entreOrdre(img);
-                canvas.Children.Remove(imgTmp);
+                //canvas.Children.Remove(imgTmp);
                 drop = false;
                 touchSurFrise = true;
                 touchDownImage = false;
@@ -900,18 +1093,20 @@ namespace PaintSurface
         {
             switch (img.Name)
             {
-                case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5]) { borderbloc1.BorderBrush = Brushes.LightGreen; h1 = true; } break;
-                case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[4]) {borderbloc2.BorderBrush = Brushes.LightGreen; h2=true; }break;
-                case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[3]){ borderbloc3.BorderBrush = Brushes.LightGreen;h3=true; } break;
-                case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[2]){ borderbloc4.BorderBrush = Brushes.LightGreen; h4=true; }break;
-                case "bloc5": orderFriseHaut[4] = image; if (image == trueOrder[1]) {borderbloc5.BorderBrush = Brushes.LightGreen;h5=true; } break;
-                case "bloc6": orderFriseHaut[5] = image; if (image == trueOrder[0]) {borderbloc6.BorderBrush = Brushes.LightGreen; h6=true; }break;
-                case "bloc1B": orderFriseBas[0] = image; if (image == trueOrder[0]) {borderbloc7.BorderBrush = Brushes.LightGreen; b1=true; }break;
-                case "bloc2B": orderFriseBas[1] = image; if (image == trueOrder[1]) {borderbloc8.BorderBrush = Brushes.LightGreen; b2=true; }break;
-                case "bloc3B": orderFriseBas[2] = image; if (image == trueOrder[2]) {borderbloc9.BorderBrush = Brushes.LightGreen; b3=true; }break;
-                case "bloc4B": orderFriseBas[3] = image; if (image == trueOrder[3]) {borderbloc10.BorderBrush = Brushes.LightGreen;b4=true; } break;
-                case "bloc5B": orderFriseBas[4] = image; if (image == trueOrder[4]) {borderbloc11.BorderBrush = Brushes.LightGreen; b5=true; }break;
-                case "bloc6B": orderFriseBas[5] = image; if (image == trueOrder[5]) {borderbloc12.BorderBrush = Brushes.LightGreen; b6=true; }break;
+                case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5])
+                    {
+                        borderbloc1.BorderBrush = Brushes.LightGreen; h1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play();} break;
+                case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[4]) { borderbloc2.BorderBrush = Brushes.LightGreen; h2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[3]) { borderbloc3.BorderBrush = Brushes.LightGreen; h3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[2]) { borderbloc4.BorderBrush = Brushes.LightGreen; h4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc5": orderFriseHaut[4] = image; if (image == trueOrder[1]) { borderbloc5.BorderBrush = Brushes.LightGreen; h5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc6": orderFriseHaut[5] = image; if (image == trueOrder[0]) { borderbloc6.BorderBrush = Brushes.LightGreen; h6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc1B": orderFriseBas[0] = image; if (image == trueOrder[0]) { borderbloc7.BorderBrush = Brushes.LightGreen; b1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc2B": orderFriseBas[1] = image; if (image == trueOrder[1]) { borderbloc8.BorderBrush = Brushes.LightGreen; b2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc3B": orderFriseBas[2] = image; if (image == trueOrder[2]) { borderbloc9.BorderBrush = Brushes.LightGreen; b3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc4B": orderFriseBas[3] = image; if (image == trueOrder[3]) { borderbloc10.BorderBrush = Brushes.LightGreen; b4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc5B": orderFriseBas[4] = image; if (image == trueOrder[4]) { borderbloc11.BorderBrush = Brushes.LightGreen; b5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc6B": orderFriseBas[5] = image; if (image == trueOrder[5]) { borderbloc12.BorderBrush = Brushes.LightGreen; b6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
             }
             testOrdre();
         }
@@ -941,6 +1136,8 @@ namespace PaintSurface
             {
                 //son bravo
                 // vue vidéo
+                _sm.socket.Emit("changeView", 6);
+                vueCourante++;
                 dernièreVue = true;
                 ordonnacement = false;
                 ordonnancement.Visibility = Visibility.Visible;
@@ -955,8 +1152,6 @@ namespace PaintSurface
                 son.Open(new Uri(@"Resources\selectionnerImagePourVideo.wav", UriKind.Relative));
                 son.Play();
             }
-            else
-                Trace.WriteLine("Pas encore");
         }
         private void mouveDelete(object sender, TouchEventArgs e)
         {
@@ -984,7 +1179,7 @@ namespace PaintSurface
             }
         }
         private bool h1, h2, h3, h4, h5, h6, b1, b2, b3, b4, b5, b6;
-  private void imgTmp_TouchUp(object sender, TouchEventArgs e)
+ /* private void imgTmp_TouchUp(object sender, TouchEventArgs e)
   {
       if (e.TouchDevice.GetIsFingerRecognized())
       {
@@ -1011,7 +1206,7 @@ namespace PaintSurface
           }
       }
         }
-
+        */
   private void OnvisualMoved(object sender, TagVisualizerEventArgs e)
   {
 
@@ -1051,7 +1246,6 @@ namespace PaintSurface
   {
       if (versLeBas)
       {
-          Trace.WriteLine(" rotate vers le haut");
           versLeBas = false;
           rotateAllImage(0);
       }
@@ -1065,6 +1259,7 @@ namespace PaintSurface
           rotateAllImage(1);
       }
   }
+
     }
 }
 

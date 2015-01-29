@@ -93,6 +93,26 @@ namespace PaintSurface
                     {
                         sur.aide((String)data);
                     });
+                this.socket.On("sound", (data) =>
+                {
+                    sur.soundRequete((String)data);
+                });
+                this.socket.On("hardPush", (data) =>
+                {
+                    sur.hardPushRequete((String)data);
+                });
+                this.socket.On("clignoter", (data) =>
+                {
+                    sur.hardPushRequete((String)data);
+                });
+                this.socket.On("view", (data) =>
+                {
+                    this.socket.Emit("changeView",sur.vueCourante);
+                });
+                this.socket.On("getFrise", (data) =>
+                {
+                    sur.getFrise((int)data);
+                });
                 this.socket.On("newTablet", (data) =>
                 {
                     Console.WriteLine(data);

@@ -146,7 +146,7 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Button Click="brosseadent_Click" TouchDown="brosseadent_Touch" x:Name="brosseadent" Width="350"  Height="350" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="200,67,202,183" Grid.RowSpan="2">
+                    <Button  TouchDown="brosseadent_Touch" x:Name="brosseadent" Width="350"  Height="350" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="200,67,202,183" Grid.RowSpan="2">
                         <Button.RenderTransform>
                             <ScaleTransform x:Name="brosseadentScale" ScaleX="1" ScaleY="1" CenterX="200"  CenterY="150"/>
                         </Button.RenderTransform>
@@ -157,7 +157,7 @@
                         </Button.Template>
                     </Button>
 
-                    <Button Click="brosseacheveux_Click" x:Name="brosseacheveux" Width="350"  Height="350"  Grid.Column="1" Grid.Row="0" Margin="546,67,-541,183" Grid.RowSpan="2" >
+                    <Button  x:Name="brosseacheveux" Width="350"  Height="350"  Grid.Column="1" Grid.Row="0" Margin="546,67,-541,183" Grid.RowSpan="2" >
                         <Button.RenderTransform>
                             <ScaleTransform x:Name="brosseacheveuxScale" ScaleX="1" ScaleY="1" CenterX="200"  CenterY="150"/>
                         </Button.RenderTransform>
@@ -168,7 +168,7 @@
                         </Button.Template>
                     </Button>
 
-                    <Button Click="rasoir_Click" x:Name="rasoir" Width="350"  Height="350" Grid.Column="0" Grid.Row="1" Margin="200,184,203,-234"  >
+                    <Button  x:Name="rasoir" Width="350"  Height="350" Grid.Column="0" Grid.Row="1" Margin="200,184,203,-234"  >
                         <Button.RenderTransform>
                             <ScaleTransform x:Name="rasoirScale" ScaleX="1" ScaleY="1" CenterX="200"  CenterY="150"/>
                         </Button.RenderTransform>
@@ -179,7 +179,7 @@
                         </Button.Template>
                     </Button>
 
-                    <Button Click="douche_Click" x:Name="douche" Width="350"  Height="350" Grid.Column="1" Grid.Row="1" Margin="547,184,-541,-234" >
+                    <Button  x:Name="douche" Width="350"  Height="350" Grid.Column="1" Grid.Row="1" Margin="547,184,-541,-234" >
                         <Button.RenderTransform>
                             <ScaleTransform x:Name="doucheScale" ScaleX="1" ScaleY="1" CenterX="200"  CenterY="150"/>
                         </Button.RenderTransform>
@@ -192,32 +192,32 @@
                 </Grid>
             </StackPanel>
         </Grid>
-        
+
 
 
 
         <!--Vue objet à poser sur table-->
-        <Canvas Name="canvas" TouchMove="imgTmp_TouchMove" TouchUp="imgTmp_TouchUp" Height="1080" Width="1920">
-          
+        <Canvas Name="canvas"  Height="1080" Width="1920">
+
             <Grid Name="objet" Visibility="Hidden" Grid.ColumnSpan="2">
                 <StackPanel >
-                    <WrapPanel Name="aideTop" Height="200"  Orientation="Horizontal" Margin="0,0,0,0">
-                        <Border Name="borderVerre"  BorderThickness="4" Margin="200,0,100,0">
-                            <Image Name="verre" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5" >
+                    <WrapPanel x:Name="aideTop" Height="200"  Orientation="Horizontal" Margin="0,0,0,0">
+                        <Border x:Name="borderVerre"  BorderThickness="4" Margin="200,0,100,0">
+                            <Image   x:Name="verre" Height="186" Width="186" RenderTransformOrigin="0.5, 0.5" >
                                 <Image.RenderTransform>
                                     <RotateTransform Angle="180"/>
                                 </Image.RenderTransform>
                             </Image>
                         </Border>
-                        <Border Name="borderDentifrice"  BorderThickness="4" Margin="100,0,100,0" >
-                            <Image Name="dentifrice" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5" >
+                        <Border x:Name="borderDentifrice"  BorderThickness="4" Margin="100,0,100,0" >
+                            <Image x:Name="dentifrice" Height="186" Width="186" RenderTransformOrigin="0.5, 0.5" >
                                 <Image.RenderTransform>
                                     <RotateTransform  Angle="180"/>
                                 </Image.RenderTransform>
                             </Image>
                         </Border>
-                        <Border Name="borderAideBrosseDent"  BorderThickness="4" Margin="100,0,100,0" >
-                            <Image Name="brosseDent" Height="200" Width="200" RenderTransformOrigin="0.5, 0.5">
+                        <Border x:Name="borderAideBrosseDent"  BorderThickness="4" Margin="100,0,100,0" >
+                            <Image x:Name="brosseDent" Height="186" Width="186" RenderTransformOrigin="0.5, 0.5">
                                 <Image.RenderTransform>
                                     <RotateTransform  Angle="180"/>
                                 </Image.RenderTransform>
@@ -228,13 +228,11 @@
                                 <RotateTransform  Angle="180"/>
                             </TextBlock.RenderTransform></TextBlock>
                     </WrapPanel>
-                    <Border Margin="0,5,0,0" BorderBrush="Black" BorderThickness="5" Name="borderObjet" >
+                    <Border Margin="0,5,0,0" BorderBrush="Black" BorderThickness="5" x:Name="borderObjet" >
                         <Grid Height="635" Width="1920">
-                            <TextBlock Name="text" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " Margin="24,23,0,560" >
+                            <TextBlock x:Name="text" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="50" Text="Placer les objets " Margin="24,23,0,560" />
 
-                            </TextBlock>
-
-                            <TextBlock   Name="text2" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " Margin="0,546,150,37" >
+                            <TextBlock   x:Name="text2" Foreground="LightPink" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="50" Text="Placer les objets " Margin="0,546,150,37" >
                                 <TextBlock.RenderTransform>
                                     <RotateTransform  Angle="180"/>
                                 </TextBlock.RenderTransform>
@@ -244,23 +242,23 @@
                                     <RowDefinition Height="81*"/>
                                     <RowDefinition Height="244*"/>
                                 </Grid.RowDefinitions>
-                                <s:TagVisualizer  Height="649" Width="1920" Name="tagBrosseaDent"  VisualizationMoved="OnvisualMoved" VisualizationRemoved="OnvisualEnd" VisualizationAdded="OnVisualizationAdded" Grid.RowSpan="2">
+                                <s:TagVisualizer  Height="649" Width="1920" x:Name="tagBrosseaDent"  VisualizationMoved="OnvisualMoved" VisualizationRemoved="OnvisualEnd" VisualizationAdded="OnVisualizationAdded" Grid.RowSpan="2">
                                     <s:TagVisualizer.Definitions>
                                         <s:TagVisualizationDefinition Source="dentifrice.xaml" 
-                                                  Value="0x31" 
-                                             OrientationOffsetFromTag="0" PhysicalCenterOffsetFromTag="0,0" TagRemovedBehavior="Disappear"
-                                                  UsesTagOrientation="True" 
+                							Value="0x31" 
+                							OrientationOffsetFromTag="0" PhysicalCenterOffsetFromTag="0,0" TagRemovedBehavior="Disappear"
+                							UsesTagOrientation="True" 
                                               />
                                         <s:TagVisualizationDefinition Value="0x05"  Source="dentifrice.xaml" TagRemovedBehavior="Disappear"
-                                              OrientationOffsetFromTag="0"
-                                              PhysicalCenterOffsetFromTag="0,0" 
-                                              UsesTagOrientation="True"
+                							OrientationOffsetFromTag="0"
+                							PhysicalCenterOffsetFromTag="0,0" 
+                							UsesTagOrientation="True"
                                                                       
                                               />
                                         <s:TagVisualizationDefinition Value="0x24" Source="dentifrice.xaml" TagRemovedBehavior="Disappear"
-                                              OrientationOffsetFromTag="0"
-                                              PhysicalCenterOffsetFromTag="0,0" 
-                                              UsesTagOrientation="True"
+                							OrientationOffsetFromTag="0"
+                							PhysicalCenterOffsetFromTag="0,0" 
+                							UsesTagOrientation="True"
                                                                       
                                               />
                                     </s:TagVisualizer.Definitions>
@@ -268,7 +266,7 @@
                             </Grid>
                         </Grid>
                     </Border>
-                    <WrapPanel Name="aideBot" Height="200" Orientation="Horizontal" Margin="0,0,0,0">
+                    <WrapPanel x:Name="aideBot" Height="200" Orientation="Horizontal" Margin="0,0,0,0">
                         <TextBlock   Foreground="LightPink"  FontSize="50" Height="200" HorizontalAlignment="Center" Margin="200,0,100,0"><Run Text="Aide :"/></TextBlock>
                         <Border x:Name="borderAideBrosseDent2"  BorderThickness="4" Margin="100,0,100,0" >
                             <Image x:Name="brosseDent2" Height="200" Width="200" />
@@ -282,7 +280,7 @@
                     </WrapPanel>
                 </StackPanel>
             </Grid>
-            <Grid Name="ordonnancement" Visibility="Hidden" Margin="10,0,-10,0">
+            <Grid Name="ordonnancement" Visibility="Hidden" Canvas.Left="10" Canvas.Top="7">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
@@ -292,7 +290,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <WrapPanel Name="videoHaut" Visibility="Hidden" Grid.Column="0"  Grid.Row="0" Margin="127,0,-127,0"  >
-                    <Image Name="QrcodeHaut" Height="200" Width="200" Margin="50,0,0,0"></Image>
+                    <Image Name="QrcodeHaut" Height="150" Width="150" Margin="50,0,0,0"></Image>
                     <MediaElement x:Name="media1"  LoadedBehavior="Manual" Height="200" Width="200"  Margin="650,0,100,0" >
                         <MediaElement.LayoutTransform>
                             <TransformGroup>
@@ -306,7 +304,7 @@
                         </TextBlock.RenderTransform>
                     </TextBlock>
                 </WrapPanel>
-                <WrapPanel Name="friseHaut" Grid.Column="0"  Grid.Row="0"  >
+                <WrapPanel Name="friseHaut" Grid.Column="0"  Grid.Row="0" Margin="0,-10,0,10"  >
                     <Button Name="rotatefecheHaut"  TouchDown="rotateHaut"  Height="100" Width="100"  >
 
                         <Button.Template>
@@ -370,14 +368,14 @@
                         </Button.Template>
                     </Button>
                 </WrapPanel>
-                <WrapPanel Name="videoBas" Visibility="Hidden" Grid.Column="0" Grid.Row="2" Margin="57,662,-57,-112" >
+                <WrapPanel Name="videoBas" Visibility="Hidden" Grid.Column="0" Grid.Row="2" Margin="57,638,-57,-88" >
                     <TextBlock  Margin="200,0,200,0" Foreground="LightPink"  FontSize="50" Text="Vidéo :" Height="200" VerticalAlignment="Center" RenderTransformOrigin="0.5, 0.5"/>
                     <MediaElement Margin="200,0,200,0" x:Name="media2" LoadedBehavior="Manual" Height="200" Width="200" />
-                    <Image Name="QrcodeBas" Height="200" Width="200" Margin="50,0,0,0"></Image>
+                    <Image x:Name="QrcodeBas" Height="138" Width="125" Margin="50,0,0,10"/>
                 </WrapPanel>
             </Grid>
-           
-        
+
+
 
 
 

@@ -398,26 +398,27 @@ namespace PaintSurface
             i6.Tag = "image";
         }
 
-        public string getFrise(int num) {
+        public string getFrise(String num) {
 
     DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Frise));
     MemoryStream ms = new MemoryStream();
-    if (num==0){
+            string s;
+    if (num=="0"){
         js.WriteObject(ms, friseHautObjet);
         ms.Position = 0;
         StreamReader sr = new StreamReader(ms);
-        string s = sr.ReadToEnd();
+        s = sr.ReadToEnd();
         Trace.WriteLine("JSON : " + s);
     }
     else {
              js.WriteObject(ms, friseBasObjet);
             ms.Position = 0;
             StreamReader sr = new StreamReader(ms);
-            string s = sr.ReadToEnd();
+             s = sr.ReadToEnd();
             Trace.WriteLine("JSON : "+s);
     }
 
-            return js.ToString();
+    return s;
     }
         private  void texteAide()
         {
@@ -689,6 +690,7 @@ namespace PaintSurface
             i.SetValue(Canvas.LeftProperty, p.X-110);
             i.SetValue(Canvas.TopProperty, p.Y-280);
             i.TouchDown += i_TouchDown;
+            i.Tag = "image";
             canvas.Children.Add(i);
 
             i2 = new Image();
@@ -698,6 +700,7 @@ namespace PaintSurface
             i2.SetValue(Canvas.LeftProperty, p.X-110);
             i2.SetValue(Canvas.TopProperty, p.Y+80);
             i2.TouchDown += i2_TouchDown;
+            i2.Tag = "image";
             canvas.Children.Add(i2);
         }
 
@@ -711,6 +714,7 @@ namespace PaintSurface
             i3.SetValue(Canvas.LeftProperty, p.X - 110);
             i3.SetValue(Canvas.TopProperty, p.Y - 280);
             i3.TouchDown += i3_TouchDown;
+            i3.Tag = "image";
             canvas.Children.Add(i3);
 
         }
@@ -989,6 +993,7 @@ namespace PaintSurface
             i4.SetValue(Canvas.LeftProperty, p.X +110);
             i4.SetValue(Canvas.TopProperty, p.Y - 280);
             i4.TouchDown += i4_TouchDown;
+            i4.Tag = "image";
             canvas.Children.Add(i4);
 
             i5 = new Image();
@@ -998,6 +1003,7 @@ namespace PaintSurface
             i5.SetValue(Canvas.LeftProperty, p.X - 280);
             i5.SetValue(Canvas.TopProperty, p.Y - 280);
             i5.TouchDown += i5_TouchDown;
+            i5.Tag = "image";
             canvas.Children.Add(i5);
 
             i6 = new Image();
@@ -1007,6 +1013,7 @@ namespace PaintSurface
             i6.SetValue(Canvas.LeftProperty, p.X - 110);
             i6.SetValue(Canvas.TopProperty, p.Y + 100);
             i6.TouchDown += i6_TouchDown;
+            i6.Tag = "image";
             canvas.Children.Add(i6);
         }
 
@@ -1257,13 +1264,13 @@ namespace PaintSurface
             {
                 case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5])
                     {
-                       if(imageBloc1){friseHautObjet.atelier="image";} else{friseHautObjet.atelier="text";}  borderbloc1.BorderBrush = Brushes.LightGreen; h1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play();} break;
+                       if(imageBloc1){friseHautObjet.bloc1="image";} else{friseHautObjet.bloc1="text";}  borderbloc1.BorderBrush = Brushes.LightGreen; h1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play();} break;
                 case "bloc2": if (imageBloc2) { friseHautObjet.bloc2 = "image"; } else { friseHautObjet.bloc2 = "text"; } orderFriseHaut[1] = image; if (image == trueOrder[4]) { borderbloc2.BorderBrush = Brushes.LightGreen; h2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
                 case "bloc3": if (imageBloc3) { friseHautObjet.bloc3 = "image"; } else { friseHautObjet.bloc3 = "text"; } orderFriseHaut[2] = image; if (image == trueOrder[3]) { borderbloc3.BorderBrush = Brushes.LightGreen; h3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
                 case "bloc4": if (imageBloc4) { friseHautObjet.bloc4 = "image"; } else { friseHautObjet.bloc4 = "text"; } orderFriseHaut[3] = image; if (image == trueOrder[2]) { borderbloc4.BorderBrush = Brushes.LightGreen; h4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
                 case "bloc5": if (imageBloc5) { friseHautObjet.bloc5 = "image"; } else { friseHautObjet.bloc5 = "text"; } orderFriseHaut[4] = image; if (image == trueOrder[1]) { borderbloc5.BorderBrush = Brushes.LightGreen; h5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
                 case "bloc6": if (imageBloc6) { friseHautObjet.bloc6 = "image"; } else { friseHautObjet.bloc6 = "text"; } orderFriseHaut[5] = image; if (image == trueOrder[0]) { borderbloc6.BorderBrush = Brushes.LightGreen; h6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc1B": if (imageBloc1B) { friseHautObjet.atelier = "image"; } else { friseHautObjet.atelier = "text"; } orderFriseBas[0] = image; if (image == trueOrder[0]) { borderbloc7.BorderBrush = Brushes.LightGreen; b1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc1B": if (imageBloc1B) { friseHautObjet.bloc1 = "image"; } else { friseHautObjet.bloc1 = "text"; } orderFriseBas[0] = image; if (image == trueOrder[0]) { borderbloc7.BorderBrush = Brushes.LightGreen; b1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
                 case "bloc2B": if (imageBloc2B) { friseHautObjet.bloc2 = "image"; } else { friseHautObjet.bloc2 = "text"; } orderFriseBas[1] = image; if (image == trueOrder[1]) { borderbloc8.BorderBrush = Brushes.LightGreen; b2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
                 case "bloc3B": if (imageBloc3B) { friseHautObjet.bloc3 = "image"; } else { friseHautObjet.bloc3 = "text"; } orderFriseBas[2] = image; if (image == trueOrder[2]) { borderbloc9.BorderBrush = Brushes.LightGreen; b3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
                 case "bloc4B": if (imageBloc4B) { friseHautObjet.bloc4 = "image"; } else { friseHautObjet.bloc4 = "text"; } orderFriseBas[3] = image; if (image == trueOrder[3]) { borderbloc10.BorderBrush = Brushes.LightGreen; b4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;

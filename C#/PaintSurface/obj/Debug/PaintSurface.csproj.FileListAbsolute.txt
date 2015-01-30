@@ -199,20 +199,15 @@ C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\douchez.
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\rasez.wav
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\salledebain.wav
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\salon.wav
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\brosseDents.xaml.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.pdb
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.dll
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.csprojResolveAssemblyReference.cache
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\brosseDents.baml
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\dentifrice.baml
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.baml
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\verre.baml
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\App.baml
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\brosseDents.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\dentifrice.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.g.cs
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\verre.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\App.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface_Content.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface_MarkupCompile.cache
@@ -278,3 +273,25 @@ C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\WebSocket4N
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.xml
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.pdb
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\brosser.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\choixAtelier.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\choixPiece.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\cracher.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\mettre_dentifrice.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\mouiller.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\placerActions.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\poserObjetBrossageDents.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\prendre_brosse.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\rincer.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\selectionnerImagePourVideo.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction1.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction2.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction3.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction4.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction5.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction6.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoBrossage.mpg
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\bravo.mp3
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\encouragement.mp3
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\essaie_encore.mp3
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\MessagingToolkit.QRCode.dll

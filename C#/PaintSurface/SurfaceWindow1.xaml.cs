@@ -84,14 +84,7 @@ namespace PaintSurface
 
             QrcodeBas.Source = QRCodeGenerator.generatorQRCodeForTableSide("left");
             QrcodeHaut.Source = QRCodeGenerator.generatorQRCodeForTableSide("right");
-            friseBasObjet = new Frise() { atelier="brossage de dents",bloc1 = "image", bloc2 = "image", bloc3 = "image", bloc4 = "image" };
-            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Frise));
-            MemoryStream ms = new MemoryStream();
-            js.WriteObject(ms, friseBasObjet);
-            ms.Position = 0;
-            StreamReader sr = new StreamReader(ms);
-            string s = sr.ReadToEnd();
-            Trace.WriteLine("JSON : "+s);
+            friseBasObjet = new Frise();
 
             friseHautObjet = new Frise();
         }

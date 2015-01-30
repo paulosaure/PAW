@@ -31,7 +31,7 @@ public class MainActivity extends FragmentActivity {
     private Socket socket;
     private int currentViewTable = 0;
 
-    private String url = "http://134.59.214.131:8080";
+    private String url = "http://192.168.1.6:8080";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,6 +1,7 @@
 package com.example.paul.telecommande;
 
 import android.animation.ObjectAnimator;
+import android.app.Fragment;
 import android.app.Notification;
 import android.content.Context;
 import android.content.res.Resources;
@@ -39,7 +40,7 @@ public class CustomButton extends ImageView {
     private int width;
 
     private boolean pressLong = false;
-
+    float radiusCircle = 80;
     float radius = 0;
 
     public CustomButton(Context context, Actions acts[], int img ) {
@@ -85,10 +86,10 @@ public class CustomButton extends ImageView {
 
     public float drawPetals()
     {
-        if(radius <= 80) {
+        if(radius <= radiusCircle) {
             radius = radius + 3;
         }
-        
+
         this.invalidate();
         return radius;
     }
@@ -97,14 +98,29 @@ public class CustomButton extends ImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int positionWidth =  width/4;
-        int positionHeight =  height/4;
         bitmap = getRound();
-        canvas.drawBitmap(bitmap, positionWidth, positionHeight, mTextPaint);
+
+        //centre de l'image
+        float centerX = this.getWidth()/2 - bitmap.getWidth()/2;
+        float centerY = this.getHeight()/2 - bitmap.getHeight()/2;
+        //largueur et longueur de la vue avec l'image
+        float heightImg = bitmap.getHeight();
+        float widthImg = bitmap.getWidth();
+
+        canvas.drawBitmap(bitmap, centerX, centerY , mTextPaint);
+
+        Log.e("test1 ", ""+this.getHeight());
+        Log.e("test2 ", ""+this.getWidth());
+
+        Log.e("test5 ", ""+bitmap.getHeight());
+        Log.e("test6 ", ""+bitmap.getWidth());
 
         if(pressLong)
         {
-            canvas.drawCircle(positionWidth , positionHeight, drawPetals() ,mTextPaint);
+            canvas.drawCircle(this.getHeight() - widthImg/2 - radiusCircle - 10  , this.getWidth() , drawPetals() ,mTextPaint);//gauche
+            canvas.drawCircle(this.getHeight()  + widthImg/2 + radiusCircle + 10, this.getWidth() , drawPetals() ,mTextPaint);//droite
+            canvas.drawCircle(this.getHeight(), this.getWidth() - heightImg/2 - radiusCircle - 10 , drawPetals() ,mTextPaint);//haut
+            canvas.drawCircle(this.getHeight() , this.getWidth() + heightImg/2 + radiusCircle + 10 , drawPetals() ,mTextPaint);//bas
         }
     }
 

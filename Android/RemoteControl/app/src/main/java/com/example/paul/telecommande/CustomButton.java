@@ -1,5 +1,6 @@
 package com.example.paul.telecommande;
 
+import android.animation.ObjectAnimator;
 import android.app.Notification;
 import android.content.Context;
 import android.content.res.Resources;
@@ -22,6 +23,8 @@ import android.widget.LinearLayout;
 
 import com.example.paul.remotecontrol.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by Paul on 29/01/2015.
  */
@@ -33,9 +36,15 @@ public class CustomButton extends ImageView {
     private int height;
     private int width;
     private boolean pressLong = false;
+    private ArrayList circles = new ArrayList();
+    Context ctx;
+    boolean transparencyOn;
+    int transparency;
+    float radius = 0;
 
     public CustomButton(Context context, Actions acts[], int img ) {
         super(context);
+        ctx = context;
         initPaint();
 
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -69,7 +78,9 @@ public class CustomButton extends ImageView {
 
         if(pressLong)
         {
-            canvas.drawCircle(positionWidth, positionHeight, 20, mTextPaint);
+            //canvas.drawCircle(positionWidth + 150, positionHeight + 150, 50, mTextPaint);
+            canvas.drawCircle(positionWidth , positionHeight, drawPetals() ,mTextPaint);
+
         }
     }
 
@@ -97,15 +108,20 @@ public class CustomButton extends ImageView {
         this.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                pressLong = true;
                 drawPetals();
                 return true;
             }
         });
     }
 
-    public void drawPetals()
+    public float drawPetals()
     {
-        //pressLong = true;
-        this.invalidate();
+        if(radius <= 80) {
+            radius = radius + 3;
+            this.invalidate();
+        }
+        return radius;
     }
+
 }

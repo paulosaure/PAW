@@ -41,7 +41,8 @@
         android:id="@+id/buttonFlash"
         android:layout_above="@+id/buttonFelicitation"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/buttonSon" />
+        android:layout_alignEnd="@+id/buttonSon"
+        android:onClick="sendFlash"/>
 
     <Button
         android:layout_width="90dp"
@@ -49,7 +50,8 @@
         android:text="Son"
         android:id="@+id/buttonSon"
         android:layout_above="@+id/buttonFlash"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="sendSon"/>
 
     <Button
         android:layout_width="90dp"
@@ -57,7 +59,8 @@
         android:text="Clignote"
         android:id="@+id/buttonClignote"
         android:layout_above="@+id/buttonSon"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="sendClignote"/>
 
     <ImageButton
         android:layout_width="50dp"

@@ -122,8 +122,8 @@ io.on('connection', function (socket) {
     socket.on('ask_for_workshop', function (side) {
 
         console.log("ask_for_workshop");
-        //tableSocket.emit('ask_for_workshop');
-
+        socket.broadcast.emit('getFrise', side);
+        //tableSocket.emit('getFrise', side);
 
         console.log(side);
         if (side === "left") {
@@ -180,9 +180,10 @@ io.on('connection', function (socket) {
         }
     });
 
-    socket.on('workshop', function (data) {
+    socket.on('pushFrise', function (data) {
         console.log("workshop");
-        iosSocket.emit('workshop', data);
+        socket.broadcast.emit('pushFrise', data);
+        //iosSocket.emit('pushFrise', data);
     });
 
     socket.on('aide', function (data) {
@@ -203,17 +204,16 @@ io.on('connection', function (socket) {
     socket.on('changeView', function (vue) {
 
         console.log("change_vue");
-        socket.broadcast.emit('changeView', vue);
+        socket.broadcast.emit('changeVue', vue);
         //tableSocket.emit('changeVue', vue);
-      
+        socket.on('changeVue', function (data) {
+            console.log("changeView");
+            socket.broadcast.emit('changeView', data);
+            // androidSocket.emit('changeView', data);
+        });
     });
 
-     socket.on('view', function () {
 
-            console.log("changeView");
-            socket.broadcast.emit('view');
-           // androidSocket.emit('changeView', data);
-        });
 
     socket.on('sound', function (data) {
         console.log("sound");
@@ -251,4 +251,6 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('play_video', video);
         // tableSocket.emit('play_video', video);
     });
+
+
 });

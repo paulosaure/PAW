@@ -124,7 +124,7 @@ namespace PaintSurface
                     } break;
                 case "brosse": switch (order[1])
                     {
-                        case "texte": aideBrosse = true; brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative)); break;
+                        case "texte": aideBrosse = true; brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative)); break;
                         case "image": aideBrosse = true; brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); break;
                         case "son": son.Open(new Uri(@"Resources\sonBrosseDent.wav", UriKind.Relative));
                             son.Play(); break;
@@ -211,6 +211,7 @@ namespace PaintSurface
         {
             this.Dispatcher.Invoke((Action)(() =>
 {
+    son.Stop();
     if (str == "next")
     {
         if (vueCourante < 6)
@@ -254,18 +255,30 @@ namespace PaintSurface
         switch (vueCourante)
         {
             case 1: break;
-            case 2: myGrid.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
-            case 3: maison.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
-            case 4: objetVue(); ordonnacement = false; break;
+            case 2: atelier.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
+            case 3: objet.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
+            case 4: objetVue(); ordonnacement = false; ordonnancement.Visibility = Visibility.Hidden;
+                rotatefecheBas.Visibility = Visibility.Hidden;
+                rotatefecheHaut.Visibility = Visibility.Hidden;
+                                aideTop.Visibility = Visibility.Visible;
+                aideBot.Visibility = Visibility.Visible;
+                text.Text = "Placer les objets";
+                text2.Text = "Placer les objets";
+                                son.Open(new Uri(@"Resources\poserObjetBrossageDents.wav", UriKind.Relative));
+                son.Play();break;
             case 5: dernièreVue = false;
-                aideTop.Visibility = Visibility.Hidden;
-                aideBot.Visibility = Visibility.Hidden;
                 ordonnancement.Visibility = Visibility.Visible;
                 rotatefecheBas.Visibility = Visibility.Visible;
                 rotatefecheHaut.Visibility = Visibility.Visible;
                 son.Open(new Uri(@"Resources\placerActions.wav", UriKind.Relative));
                 son.Play();
                 ordonnacement = true;
+                                ordonnancement.Visibility = Visibility.Visible;
+
+                videoHaut.Visibility = Visibility.Hidden;
+                videoBas.Visibility = Visibility.Hidden;
+                friseBas.Visibility = Visibility.Visible;
+                friseHaut.Visibility = Visibility.Visible;
                 text.Text = "Ordonnancer les actions";
                 text2.Text = "Ordonnancer les actions"; break;
             case 6: break;
@@ -397,10 +410,10 @@ namespace PaintSurface
         private  void texteAide()
         {
 
-            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative));
             dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
-            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative));
             dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
         }
@@ -1112,10 +1125,10 @@ namespace PaintSurface
             son.Play();
             //Objet en Texte
             await Task.Delay(3000);
-            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative));
             dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
-            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseadents.png", UriKind.Relative));
+            brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative));
             dentifrice2.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verre2.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
             aideBool = true;

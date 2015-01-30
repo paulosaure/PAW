@@ -203,16 +203,17 @@ io.on('connection', function (socket) {
     socket.on('changeView', function (vue) {
 
         console.log("change_vue");
-        socket.broadcast.emit('changeVue', vue);
+        socket.broadcast.emit('changeView', vue);
         //tableSocket.emit('changeVue', vue);
-        socket.on('changeVue', function (data) {
-            console.log("changeView");
-            socket.broadcast.emit('changeView', data);
-           // androidSocket.emit('changeView', data);
-        });
+      
     });
 
-   
+     socket.on('view', function () {
+
+            console.log("changeView");
+            socket.broadcast.emit('view');
+           // androidSocket.emit('changeView', data);
+        });
 
     socket.on('sound', function (data) {
         console.log("sound");

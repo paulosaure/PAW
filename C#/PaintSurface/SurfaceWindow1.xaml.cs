@@ -273,8 +273,7 @@ namespace PaintSurface
                 son.Open(new Uri(@"Resources\placerActions.wav", UriKind.Relative));
                 son.Play();
                 ordonnacement = true;
-                                ordonnancement.Visibility = Visibility.Visible;
-
+                ordonnancement.Visibility = Visibility.Visible;
                 videoHaut.Visibility = Visibility.Hidden;
                 videoBas.Visibility = Visibility.Hidden;
                 friseBas.Visibility = Visibility.Visible;

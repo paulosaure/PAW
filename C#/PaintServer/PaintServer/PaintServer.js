@@ -57,7 +57,7 @@ io.on('connection', function (socket) {
     //Surface Table actions
 
     socket.on('isAndroid', function () {
-        console.log("isTable");
+        console.log("isAndroid");
         isTable = true;
         tableSocket = tablets[socket.id];
         tablets[socket.id] = "";
@@ -192,7 +192,7 @@ io.on('connection', function (socket) {
         console.log("aide" + data);
         socket.broadcast.emit('aide', data);
     });
-    /*
+    
     socket.on('sound', function (data) {
         console.log("sound");
         socket.broadcast.emit('sound', data);
@@ -225,5 +225,4 @@ io.on('connection', function (socket) {
 
     });
 
-    */
 });

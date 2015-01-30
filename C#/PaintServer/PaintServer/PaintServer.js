@@ -193,7 +193,7 @@ io.on('connection', function (socket) {
     });
 
     socket.on('aideAction', function (data) {
-        console.log("aide" + data);
+        console.log("aide");
         socket.broadcast.emit('aideAction', data);
         tableSocket.emit('aide', data);
     });

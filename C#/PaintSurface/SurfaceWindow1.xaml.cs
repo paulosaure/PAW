@@ -47,6 +47,7 @@ namespace PaintSurface
         private bool aideBrosse = false;
         private bool aideVerre = false;
         private int image = -1;
+        private string tagImage;
         private Image imgTmp = new Image();
         private bool touchDownImage = false;
         private bool simpleTouch = false;
@@ -355,12 +356,12 @@ namespace PaintSurface
             switch (order[0])
             {
                 case "all": switch (order[1]) { case "texte": actionTexte(); break; case "image": actionImage(); break; } break;
-                case "prendreBrosse": switch (order[1]) { case "texte": i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative)); break; case "image": i6.Source = new BitmapImage(new Uri("/Resources/prendre_brosseadent.png", UriKind.Relative)); break; } break;
-                case "mouillerBrosse": switch (order[1]) { case "texte":    i4.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseText.png", UriKind.Relative)); break; case "image": i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative)); break; } break;
-                case "mettreDentifrice": switch (order[1]) { case "texte": i3.Source = new BitmapImage(new Uri("/Resources/mettreDentifriceText.png", UriKind.Relative)); break; case "image": i3.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); break; } break;
-                case "rincer": switch (order[1]) { case "texte": i.Source = new BitmapImage(new Uri("/Resources/rincerText.png", UriKind.Relative)); break; case "image": i.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); break; } break;
-                case "cracher": switch (order[1]) { case "texte": i2.Source = new BitmapImage(new Uri("/Resources/cracherText.png", UriKind.Relative)); break; case "image": i2.Source = new BitmapImage(new Uri("/Resources/cracher.jpg", UriKind.Relative)); break; } break;
-                case "brosser": switch (order[1]) { case "texte": i5.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative)); break; case "image": i2.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative)); break; } break;
+                case "prendreBrosse": switch (order[1]) { case "texte": i6.Tag = "text"; i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative)); break; case "image": i6.Tag = "image"; i6.Source = new BitmapImage(new Uri("/Resources/prendre_brosseadent.png", UriKind.Relative)); break; } break;
+                case "mouillerBrosse": switch (order[1]) { case "texte": i4.Tag = "text"; i4.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseText.png", UriKind.Relative)); break; case "image": i4.Tag = "image"; i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative)); break; } break;
+                case "mettreDentifrice": switch (order[1]) { case "texte": i3.Tag = "text"; i3.Source = new BitmapImage(new Uri("/Resources/mettreDentifriceText.png", UriKind.Relative)); break; case "image": i3.Tag = "image"; i3.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); break; } break;
+                case "rincer": switch (order[1]) { case "texte": i.Tag = "text"; i.Source = new BitmapImage(new Uri("/Resources/rincerText.png", UriKind.Relative)); break; case "image": i.Tag = "image"; i.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); break; } break;
+                case "cracher": switch (order[1]) { case "texte":i2.Tag = "text"; i2.Source = new BitmapImage(new Uri("/Resources/cracherText.png", UriKind.Relative)); break; case "image": i2.Tag = "image"; i2.Source = new BitmapImage(new Uri("/Resources/cracher.jpg", UriKind.Relative)); break; } break;
+                case "brosser": switch (order[1]) { case "texte": i5.Tag = "text"; i5.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative)); break; case "image": i5.Tag = "image"; i5.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative)); break; } break;
 
     }   
             }));
@@ -374,6 +375,12 @@ namespace PaintSurface
             i4.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseText.png", UriKind.Relative));
             i5.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative));
             i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative));
+            i.Tag = "text";
+            i2.Tag = "text";
+            i3.Tag = "text";
+            i4.Tag = "text";
+            i5.Tag = "text";
+            i6.Tag = "text";
         }
         private void actionImage()
         {
@@ -383,6 +390,12 @@ namespace PaintSurface
             i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative));
             i5.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative));
             i6.Source = new BitmapImage(new Uri("/Resources/prendre_brosseadent.png", UriKind.Relative));
+            i.Tag = "image";
+            i2.Tag = "image";
+            i3.Tag = "image";
+            i4.Tag = "image";
+            i5.Tag = "image";
+            i6.Tag = "image";
         }
 
         public string getFrise(int num) {
@@ -733,6 +746,7 @@ namespace PaintSurface
                 touchDownImage = true;
                  * */
                 image = 3;
+                tagImage = (string)i3.Tag;
                 drop = true;
             }
             if (dernièreVue)
@@ -772,6 +786,7 @@ namespace PaintSurface
                  * */
                 touchDownImage = true;
                 image = 2;
+                tagImage = (string)i2.Tag;
                 drop = true;
             }
             if (dernièreVue)
@@ -812,6 +827,7 @@ namespace PaintSurface
                  * */
                 touchDownImage = true;
                 image = 1;
+                tagImage = (string)i.Tag;
                 drop = true;
             }
             if (dernièreVue)
@@ -853,6 +869,7 @@ namespace PaintSurface
                  * */
                 touchDownImage = true;
                 image = 4;
+                tagImage = (string)i4.Tag;
                 drop = true;
             }
             if (dernièreVue)
@@ -892,6 +909,7 @@ namespace PaintSurface
                 canvas.Children.Add(imgTmp);*/
                 touchDownImage = true;
                 image = 5;
+                tagImage = (string)i5.Tag;
                 drop = true;
             }
             if (dernièreVue)
@@ -933,6 +951,7 @@ namespace PaintSurface
                  * */
                 touchDownImage = true;
                 image = 6;
+                tagImage = (string)i6.Tag;
                 drop = true;
             }
             if (dernièreVue)
@@ -1216,12 +1235,12 @@ namespace PaintSurface
             {
                 Image img = sender as Image;
                 switch (image) {
-                    case 1: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); break;//canvas.Children.Add(i); break;
-                    case 2: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/cracher.jpg", UriKind.Relative)); break;// canvas.Children.Add(i2); break;
-                    case 3: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); break;// canvas.Children.Add(i3); break;
-                    case 4: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative)); break;// canvas.Children.Add(i4); break;
-                    case 5: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative)); break;// canvas.Children.Add(i5); break;
-                    case 6: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } img.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative)); break;// canvas.Children.Add(i6); break;
+                    case 1: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } if (tagImage == "image") img.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); else img.Source = new BitmapImage(new Uri("/Resources/rincerText.png", UriKind.Relative)); break;//canvas.Children.Add(i); break;
+                    case 2: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } if (tagImage == "image") img.Source = new BitmapImage(new Uri("/Resources/cracher.jpg", UriKind.Relative)); else img.Source = new BitmapImage(new Uri("/Resources/cracherText.png", UriKind.Relative)); break;// canvas.Children.Add(i2); break;
+                    case 3: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } if (tagImage == "image") img.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); else img.Source = new BitmapImage(new Uri("/Resources/mettreDentifriceText.png", UriKind.Relative)); break;// canvas.Children.Add(i3); break;
+                    case 4: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } if (tagImage == "image") img.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative)); else img.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseText.png", UriKind.Relative));break;// canvas.Children.Add(i4); break;
+                    case 5: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } if (tagImage == "image") img.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative));else img.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative)); break;// canvas.Children.Add(i5); break;
+                    case 6: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } if (tagImage == "image")  img.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative)); else img.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative)); break;// canvas.Children.Add(i6); break;
                     default: break;
             }
                 entreOrdre(img);

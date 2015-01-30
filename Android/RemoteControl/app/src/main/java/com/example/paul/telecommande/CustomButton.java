@@ -1,5 +1,6 @@
 package com.example.paul.telecommande;
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -31,7 +32,7 @@ public class CustomButton extends ImageView {
     private Bitmap bitmap;
     private int height;
     private int width;
-
+    private boolean pressLong = false;
 
     public CustomButton(Context context, Actions acts[], int img ) {
         super(context);
@@ -61,7 +62,15 @@ public class CustomButton extends ImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawBitmap(getRound(), width/4, height/3, mTextPaint);
+        int positionWidth =  width/4;
+        int positionHeight =  height/4;
+        bitmap = getRound();
+        canvas.drawBitmap(bitmap, positionWidth, positionHeight, mTextPaint);
+
+        if(pressLong)
+        {
+            canvas.drawCircle(positionWidth, positionHeight, 20, mTextPaint);
+        }
     }
 
     public Bitmap getRound() {
@@ -88,15 +97,15 @@ public class CustomButton extends ImageView {
         this.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Log.e("test", "touche");
-                displayPetals();
+                drawPetals();
                 return true;
             }
         });
     }
 
-    public void displayPetals()
+    public void drawPetals()
     {
-
+        //pressLong = true;
+        this.invalidate();
     }
 }

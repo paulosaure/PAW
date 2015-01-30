@@ -16,6 +16,7 @@ import com.example.paul.remotecontrol.R;
 public class ViewWheel extends Fragment {
 
     private Context context;
+    private Actions[] actions = new Actions[] { Actions.image, Actions.text, Actions.son, Actions.zoom};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,8 @@ public class ViewWheel extends Fragment {
         View v =  inflater.inflate(R.layout.wheel_view, container, false);
 
 
-        Actions[] actions = new Actions[] { Actions.image, Actions.text, Actions.son, Actions.zoom};
-
         CustomButton buttonTouchHere = new CustomButton(context, actions , R.drawable.touchme);
-
         RelativeLayout rl = (RelativeLayout)v.findViewById(R.id.wheelView);
-
         rl.addView(buttonTouchHere);
 
         return v;

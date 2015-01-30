@@ -124,7 +124,7 @@ io.on('connection', function (socket) {
         console.log("ask_for_workshop");
         socket.broadcast.emit('getFrise', side);
         //tableSocket.emit('getFrise', side);
-
+/*
         console.log(side);
         if (side === "left") {
             socket.emit('workshop', {
@@ -177,7 +177,7 @@ io.on('connection', function (socket) {
                 }
                 ]
             });
-        }
+        }*/
     });
 
     socket.on('pushFrise', function (data) {
@@ -192,6 +192,23 @@ io.on('connection', function (socket) {
         tableSocket.emit('aide', data);
     });
 
+    socket.on('aideAction', function (data) {
+        console.log("aide" + data);
+        socket.broadcast.emit('aideAction', data);
+        tableSocket.emit('aide', data);
+    });
+
+    socket.on('aideAtelier', function (data) {
+        console.log("aide" + data);
+        socket.broadcast.emit('aideAtelier', data);
+        tableSocket.emit('aide', data);
+    });
+
+    socket.on('aidePlace', function (data) {
+        console.log("aide" + data);
+        socket.broadcast.emit('aidePlace', data);
+        tableSocket.emit('aide', data);
+    });
 
     socket.on('changeMode', function (mode) {
 

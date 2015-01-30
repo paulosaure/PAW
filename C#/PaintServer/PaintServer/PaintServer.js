@@ -57,9 +57,16 @@ io.on('connection', function (socket) {
     //Surface Table actions
 
     socket.on('isAndroid', function () {
-        console.log("isTable");
+        console.log("isAndroid");
         isTable = true;
-        tableSocket = tablets[socket.id];
+        androidSocket = tablets[socket.id];
+        tablets[socket.id] = "";
+    });
+
+    socket.on('isIos', function () {
+        console.log("isIos");
+        isTable = true;
+        androidSocket = tablets[socket.id];
         tablets[socket.id] = "";
     });
 
@@ -69,7 +76,6 @@ io.on('connection', function (socket) {
         isTable = true;
         tableSocket = tablets[socket.id];
         tablets[socket.id] = "";
-        //tableSocket.emit(changeMode, "string")
     });
 
 
@@ -116,114 +122,152 @@ io.on('connection', function (socket) {
     socket.on('ask_for_workshop', function (side) {
 
         console.log("ask_for_workshop");
-        
-      
-        
+        socket.broadcast.emit('getFrise', side);
+        //tableSocket.emit('getFrise', side);
+/*
         console.log(side);
-        if(side === "left"){
+        if (side === "left") {
             socket.emit('workshop', {
-            "name": "brossage de dents",
-            "frieze": [
-			{
-			    "position": 1,
-			    "image": "prendre_brossedent"
-			},
-			{
-			    "position": 2,
-			    "image": "mouiller_brosse"
-			},
-			{
-			    "position": 3,
-			    "image": "mettre_dentifrice"
-			},
-			{
-			    "position": 4,
-			    "image": "brosser"
-			},
-			{
-			    "position": 5,
-			    "image": "cracher"
-			},
-			{
-			    "position": 6,
-			    "image": "rincer_bouche"
-			}
-            ]
-        });
+                "name": "brossage de dents",
+                "frieze": [
+                {
+                    "position": 1,
+                    "image": "prendre_brossedent"
+                },
+                {
+                    "position": 2,
+                    "image": "mouiller_brosse"
+                },
+                {
+                    "position": 3,
+                    "image": "mettre_dentifrice"
+                },
+                {
+                    "position": 4,
+                    "image": "brosser"
+                },
+                {
+                    "position": 5,
+                    "image": "cracher"
+                },
+                {
+                    "position": 6,
+                    "image": "rincer_bouche"
+                }
+                ]
+            });
             console.log("emit left workshop");
         }
-         if(side === "right"){
+        if (side === "right") {
             console.log("emit right workshop");
             socket.emit('workshop', {
-            "name": "fake droit",
-            "frieze": [
-			{
-			    "position": 1,
-			    "image": "prendre_brossedent"
-			},
-			{
-			    "position": 2,
-			    "image": "mouiller_brosse"
-			},
-			{
-			    "position": 3,
-			    "image": "mettre_dentifrice"
-			}
-            ]
-        });
-        }
+                "name": "fake droit",
+                "frieze": [
+                {
+                    "position": 1,
+                    "image": "prendre_brossedent"
+                },
+                {
+                    "position": 2,
+                    "image": "mouiller_brosse"
+                },
+                {
+                    "position": 3,
+                    "image": "mettre_dentifrice"
+                }
+                ]
+            });
+        }*/
     });
-    /*
-        socket.on('changeMode', function (mode) {
-    
-            console.log("change_mode");
-            socket.broadcast.emit('changeMode', mode);
-    
-        });
-    
-        socket.on('vue', function (vue) {
-    
-            console.log("change_vue");
-            socket.emit('changeVue', vue);
-    
-        });
-        */
+
+    socket.on('pushFrise', function (data) {
+        console.log("workshop");
+        socket.broadcast.emit('pushFrise', data);
+        //iosSocket.emit('pushFrise', data);
+    });
+
     socket.on('aide', function (data) {
         console.log("aide" + data);
         socket.broadcast.emit('aide', data);
+        tableSocket.emit('aide', data);
     });
-    /*
+
+    socket.on('aideAction', function (data) {
+        console.log("aide");
+        socket.broadcast.emit('aideAction', data);
+        tableSocket.emit('aide', data);
+    });
+
+    socket.on('aideAtelier', function (data) {
+        console.log("aide" + data);
+        socket.broadcast.emit('aideAtelier', data);
+        tableSocket.emit('aide', data);
+    });
+
+    socket.on('aidePlace', function (data) {
+        console.log("aide" + data);
+        socket.broadcast.emit('aidePlace', data);
+        tableSocket.emit('aide', data);
+    });
+
+    socket.on('changeMode', function (mode) {
+
+        console.log("change_mode");
+        socket.broadcast.emit('changeMode', mode);
+        //tableSocket.emit('changemode', mode);
+
+    });
+
+    socket.on('changeView', function (vue) {
+
+        console.log("change_vue");
+        socket.broadcast.emit('changeVue', vue);
+        //tableSocket.emit('changeVue', vue);
+        socket.on('changeVue', function (data) {
+            console.log("changeView");
+            socket.broadcast.emit('changeView', data);
+            // androidSocket.emit('changeView', data);
+        });
+    });
+
+
+
     socket.on('sound', function (data) {
         console.log("sound");
         socket.broadcast.emit('sound', data);
+        //tableSocket.emit('sound', data);
     });
 
     socket.on('clignoter', function (data) {
         console.log("clignoter");
         socket.broadcast.emit('clignoter', data);
+        //tableSocket.emit('clignoter', data);
     });
 
     socket.on('flash', function (data) {
         console.log("flash");
         socket.broadcast.emit('flash', data);
+        //tableSocket.emit('flash', data);
     });
 
     socket.on('zoom', function (data) {
         console.log("zoom");
         socket.broadcast.emit('zoom', data);
+        //tableSocket.emit('zoom', data);
     });
 
     socket.on('hardPush', function (data) {
         console.log("hardPush");
-        socket.broadcast.emit('hardPush',data);
+        socket.broadcast.emit('hardPush', data);
+        //tableSocket.emit('hardPush', data);
     });
 
     socket.on('play_video', function (video) {
 
         console.log("play_video");
         socket.broadcast.emit('play_video', video);
-
+        // tableSocket.emit('play_video', video);
     });
 
-    */
+
 });

@@ -93,6 +93,48 @@ namespace PaintSurface
                     {
                         sur.aide((String)data);
                     });
+
+                this.socket.On("sound", (data) =>
+                {
+                    Console.WriteLine(data);
+                    sur.soundRequete((String)data);
+                });
+                this.socket.On("clignoter", (data) =>
+                {
+                    Console.WriteLine(data);
+                    sur.clignoterRequete((String)data);
+                });
+                this.socket.On("aideAtelier", (data) =>
+                {
+                    Console.WriteLine(data);
+                    sur.aideAtelierRequete((String)data);
+                });
+                this.socket.On("aidePlace", (data) =>
+                {
+                    Console.WriteLine(data);
+                    sur.aidePlaceRequete((String)data);
+                });
+                this.socket.On("aideAction", (data) =>
+                {
+                    Console.WriteLine(data);
+                    sur.aideActionRequete((String)data);
+                });
+                this.socket.On("hardPush", (data) =>
+                {
+                    Console.WriteLine(data);
+                    sur.hardPushRequete((String)data);
+                });
+                this.socket.On("getFrise", (data) =>
+                {
+                    Console.WriteLine(data);
+                    string str=sur.getFrise((String)data);
+
+                    this.socket.Emit("pushFrise", str);
+                });
+                this.socket.On("view", (data) =>
+                {
+                    this.socket.Emit("changeView",sur.vueCourante);
+                });
                 this.socket.On("newTablet", (data) =>
                 {
                     Console.WriteLine(data);

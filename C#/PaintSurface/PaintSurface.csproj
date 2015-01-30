@@ -43,6 +43,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EngineIoClientDotNet.0.9.15\lib\net45\EngineIoClientDotNet.dll</HintPath>
     </Reference>
+    <Reference Include="MessagingToolkit.QRCode">
+      <HintPath>..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -53,6 +56,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +82,7 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="Frise.cs" />
     <Compile Include="dentifrice.xaml.cs">
       <DependentUpon>dentifrice.xaml</DependentUpon>
     </Compile>
@@ -92,6 +98,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="QRCodeGenerator.cs" />
     <Compile Include="SocketManager.cs" />
     <Compile Include="SurfaceWindow1.xaml.cs">
       <DependentUpon>SurfaceWindow1.xaml</DependentUpon>
@@ -128,15 +135,99 @@
     <Content Include="PaintSurface.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\elt.png" />
+    <Resource Include="Resources\rotateImg.png" />
+    <Resource Include="Resources\friseD2.png" />
+    <Resource Include="Resources\friseG2.png" />
+    <Content Include="Resources\bravo.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\brosser.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\brosserText.png" />
+    <Content Include="Resources\brosser.wav" />
+    <Content Include="Resources\choixAtelier.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\choixPiece.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\cracher.jpg" />
+    <Content Include="Resources\cracher.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\cubeBot.png" />
+    <Resource Include="Resources\cubeBotCoin.png" />
+    <Resource Include="Resources\cubeTop.png" />
+    <Resource Include="Resources\cubeTopCoin.png" />
+    <Resource Include="Resources\flechebot.png" />
+    <Resource Include="Resources\flecheTop.png" />
+    <Resource Include="Resources\cracherText.png" />
+    <Content Include="Resources\cracher.wav" />
+    <Content Include="Resources\encouragement.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\essaie_encore.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\mettreDentifriceText.png" />
+    <Content Include="Resources\mettreDentifrice.wav" />
+    <Content Include="Resources\mettre_dentifrice.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\mouiller.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\mouiller_brosse.jpg" />
+    <Resource Include="Resources\mouillerBrosseText.png" />
+    <Content Include="Resources\mouillerBrosse.wav" />
+    <Content Include="Resources\placerActions.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\poserObjetBrossageDents.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\prendreBrosseText.png" />
+    <Content Include="Resources\prendreBrosse.wav" />
+    <Content Include="Resources\prendre_brosse.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\rincer.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\rincerText.png" />
+    <Content Include="Resources\rincer.wav" />
+    <Content Include="Resources\selectionnerImagePourVideo.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\SurfaceShell.exe" />
+    <Content Include="Resources\videoAction1.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction2.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction3.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction4.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction5.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoAction6.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoBrossage.mpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\brosser.jpg" />
     <Resource Include="Resources\cracher.png" />
     <Resource Include="Resources\mettre_dentifrice.png" />
     <Resource Include="Resources\mouiller_brosse.png" />
     <Resource Include="Resources\prendre_brossedent.png" />
     <Resource Include="Resources\rincer_bouche.png" />
-    <Resource Include="Resources\friseG.png" />
-    <Resource Include="Resources\friseD.png" />
     <Content Include="Resources\sonBrosseDent.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

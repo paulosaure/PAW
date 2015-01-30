@@ -79,33 +79,6 @@ D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\PaintSurfa
 D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\PaintSurface\obj\Debug\PaintSurface.g.resources
 D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
 D:\Cours2015\InterfaceTactiles\PaintSurface\PaintSurface\PaintSurface\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.xml
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe.config
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.pdb
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.dll
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.csprojResolveAssemblyReference.cache
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.baml
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\App.baml
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.g.cs
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\App.g.cs
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface_Content.g.cs
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface_MarkupCompile.cache
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.g.resources
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.pdb
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\cuisine.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\salledebain.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\salon.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\brossezlesdents.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\coiffez.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\douchez.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\rasez.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonBrosseDent.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonDentifrice.wav
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonVerre.wav
 C:\Users\Paul\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe.config
 C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
 C:\Users\Paul\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.pdb
@@ -166,9 +139,6 @@ C:\Users\Val\Desktop\Interface\C#\PaintSurface\obj\Debug\PaintSurface_MarkupComp
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\obj\Debug\PaintSurface.g.resources
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
 C:\Users\Val\Desktop\Interface\C#\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.baml
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.g.cs
-C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
 C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
 C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\brosseDents.baml
 C:\Users\ILoveOL\Documents\paw\C#\PaintSurface\obj\Debug\dentifrice.baml
@@ -229,20 +199,15 @@ C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\douchez.
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\rasez.wav
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\salledebain.wav
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\salon.wav
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\brosseDents.xaml.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\PaintSurface.pdb
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.dll
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface.csprojResolveAssemblyReference.cache
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\brosseDents.baml
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\dentifrice.baml
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.baml
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\verre.baml
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\App.baml
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\brosseDents.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\dentifrice.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.g.cs
-C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\verre.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\App.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface_Content.g.cs
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\obj\Debug\PaintSurface_MarkupCompile.cache
@@ -253,6 +218,80 @@ C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\EngineIoClientDotN
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\SocketIoClientDotNet.dll
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
 C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.xml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.csprojResolveAssemblyReference.cache
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.baml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.baml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\App.baml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\dentifrice.g.cs
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\SurfaceWindow1.g.cs
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\App.g.cs
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface_Content.g.cs
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface_MarkupCompile.cache
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.g.resources
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.Properties.Resources.resources
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.csproj.GenerateResource.Cache
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\bravo.mp3
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\brosser.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\choixAtelier.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\choixPiece.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\cracher.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\encouragement.mp3
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\essaie_encore.mp3
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\mettre_dentifrice.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\mouiller.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\placerActions.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\poserObjetBrossageDents.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\prendre_brosse.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\rincer.mp4
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\selectionnerImagePourVideo.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction1.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction2.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction3.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction4.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction5.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoAction6.wmv
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\videoBrossage.mpg
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.xml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonBrosseDent.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonDentifrice.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\sonVerre.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\brossezlesdents.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\coiffez.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\cuisine.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\douchez.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\rasez.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\salledebain.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Resources\salon.wav
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe.config
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.exe
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\PaintSurface.pdb
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\EngineIoClientDotNet.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.dll
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\SocketIoClientDotNet.dll
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\WebSocket4Net.dll
 C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\bin\Debug\Newtonsoft.Json.xml
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.exe
+C:\Users\vince\Desktop\Nouveau dossier\paw\C#\PaintSurface\obj\Debug\PaintSurface.pdb
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\brosser.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\choixAtelier.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\choixPiece.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\cracher.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\mettre_dentifrice.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\mouiller.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\placerActions.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\poserObjetBrossageDents.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\prendre_brosse.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\rincer.mp4
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\selectionnerImagePourVideo.wav
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction1.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction2.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction3.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction4.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction5.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoAction6.wmv
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\videoBrossage.mpg
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\bravo.mp3
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\encouragement.mp3
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\Resources\essaie_encore.mp3
+C:\Users\AtelierIHM\Desktop\Git\paw\C#\PaintSurface\bin\Debug\MessagingToolkit.QRCode.dll

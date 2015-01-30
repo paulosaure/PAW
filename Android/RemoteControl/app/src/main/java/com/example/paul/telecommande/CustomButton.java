@@ -1,6 +1,7 @@
 package com.example.paul.telecommande;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -25,16 +26,21 @@ import com.example.paul.remotecontrol.R;
  */
 public class CustomButton extends ImageView {
 
-    Actions actions[];
-    Drawable imageButton;
-    Paint mTextPaint;
-
+    private Actions actions[];
+    private Paint mTextPaint;
+    private Bitmap bitmap;
+    private int height;
+    private int width;
 
 
     public CustomButton(Context context, Actions acts[], int img ) {
         super(context);
         initPaint();
-        imageButton = context.getResources().getDrawable(img);
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 8;
+
+        bitmap = BitmapFactory.decodeResource(getResources(),img, options);
         actions = acts;
         setListener();
     }
@@ -42,34 +48,40 @@ public class CustomButton extends ImageView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-        int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
+        width = MeasureSpec.getSize(widthMeasureSpec);
+        height = MeasureSpec.getSize(heightMeasureSpec);
 
-        this.setMeasuredDimension(parentWidth, parentHeight);
+        this.setMeasuredDimension(width, height);
     }
 
     private void initPaint() {
         mTextPaint = new Paint();
-
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
-
-        Rect imageBounds = canvas.getClipBounds();  // Adjust this for where you want it
-
-        imageButton.setBounds(imageBounds);
-        imageButton.draw(canvas);
-
-
+        canvas.drawBitmap(getRound(), width/4, height/3, mTextPaint);
     }
 
-    /*    Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.touchme);
-        mTextPaint.setColor(Color.RED);
-        canvas.drawBitmap(b, 0, 0, mTextPaint);
-*/
+    public Bitmap getRound() {
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(),
+                bitmap.getHeight());
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        // paint.setColor(color);
+        canvas.drawCircle(bitmap.getWidth() / 2,
+                bitmap.getHeight() / 2, bitmap.getWidth() / 2, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, rect, rect, paint);
+        return output;
+    }
 
     public void setListener()
     {

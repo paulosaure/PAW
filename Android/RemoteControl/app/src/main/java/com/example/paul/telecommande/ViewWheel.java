@@ -45,13 +45,3 @@ public class ViewWheel extends Fragment {
 
 
 }
-/*
-        ImageButton touchHere = (ImageButton) v.findViewById(R.id.longPress);
-
-        touchHere.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Log.e("test", "touche");
-                return true;
-            }
-        });*/

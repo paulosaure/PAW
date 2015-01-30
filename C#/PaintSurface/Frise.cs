@@ -12,6 +12,8 @@ namespace PaintSurface
     class Frise
     {
         [DataMember]
+        public String atelier;
+        [DataMember]
         public String bloc1;
 
         [DataMember]

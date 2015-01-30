@@ -16,6 +16,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -33,40 +34,65 @@ public class CustomButton extends ImageView {
     private Actions actions[];
     private Paint mTextPaint;
     private Bitmap bitmap;
+
     private int height;
     private int width;
+
     private boolean pressLong = false;
-    private ArrayList circles = new ArrayList();
-    Context ctx;
-    boolean transparencyOn;
-    int transparency;
+
     float radius = 0;
 
     public CustomButton(Context context, Actions acts[], int img ) {
         super(context);
-        ctx = context;
-        initPaint();
+
+        mTextPaint = new Paint();
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 8;
 
         bitmap = BitmapFactory.decodeResource(getResources(),img, options);
         actions = acts;
-        setListener();
+        this.setOnLongClickListener(speakHoldListener);
+        this.setOnTouchListener(speakTouchListener);
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    private View.OnLongClickListener speakHoldListener = new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                pressLong = true;
+                radius = 0;
+                drawPetals();
+                return true;
+            }
+    };
 
-        width = MeasureSpec.getSize(widthMeasureSpec);
-        height = MeasureSpec.getSize(heightMeasureSpec);
+    private View.OnTouchListener speakTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View pView, MotionEvent pEvent) {
+            pView.onTouchEvent(pEvent);
+            // We're only interested in when the button is released.
+            if (pEvent.getAction() == MotionEvent.ACTION_UP) {
+                // We're only interested in anything if our speak button is currently pressed.
+                if (pressLong) {
+                    // Do something when the button is released.
+                    pressLong = false;
+                    drawPetals();
+                }
+            }
+            return false;
+        }
+    };
 
-        this.setMeasuredDimension(width, height);
+    public float drawPetals()
+    {
+        if(radius <= 80) {
+            radius = radius + 3;
+        }
+        
+        this.invalidate();
+        return radius;
     }
 
-    private void initPaint() {
-        mTextPaint = new Paint();
-    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -78,9 +104,7 @@ public class CustomButton extends ImageView {
 
         if(pressLong)
         {
-            //canvas.drawCircle(positionWidth + 150, positionHeight + 150, 50, mTextPaint);
             canvas.drawCircle(positionWidth , positionHeight, drawPetals() ,mTextPaint);
-
         }
     }
 
@@ -103,25 +127,12 @@ public class CustomButton extends ImageView {
         return output;
     }
 
-    public void setListener()
-    {
-        this.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                pressLong = true;
-                drawPetals();
-                return true;
-            }
-        });
-    }
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-    public float drawPetals()
-    {
-        if(radius <= 80) {
-            radius = radius + 3;
-            this.invalidate();
-        }
-        return radius;
-    }
+        width = MeasureSpec.getSize(widthMeasureSpec);
+        height = MeasureSpec.getSize(heightMeasureSpec);
 
+        this.setMeasuredDimension(width, height);
+    }
 }

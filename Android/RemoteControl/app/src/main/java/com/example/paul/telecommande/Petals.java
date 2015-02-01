@@ -17,30 +17,31 @@ import android.view.View;
  */
 public class Petals extends View {
     private Paint mTextPaint = new Paint();
-    private int number;
-    float radiusCircle = 80;
-    float radius = 0;
-    Bitmap imageButton;
+    private float radiusCircle = 80;
+    private float radius = 0;
+    private Bitmap imageButton;
     private float tailleFont = 24f;
     private int alpha = 80;
     private int speedGrowth = 4;
+    private boolean draw = true;
 
-    public Petals(Context context, Bitmap img, int n) {
+    public Petals(Context context, Bitmap img) {
         super(context);
-        number = n;
         imageButton = img;
-
+       // this.setBackgroundColor(Color.YELLOW);
     }
 
     @Override
     public void onDraw(Canvas canvas)
     {
-
-        float centerX = this.getWidth()/2 - imageButton.getWidth()/2 + 18;
+        float centerX = this.getWidth()/2 - imageButton.getWidth()/2 + 16;
         float centerY = this.getHeight()/2 - imageButton.getHeight()/2 + 20;
 
-        drawPetals(canvas, centerX, centerY);
-        drawText(canvas, centerX, centerY);
+        if(draw)
+        {
+            drawPetals(canvas, centerX, centerY);
+            drawText(canvas, centerX, centerY);
+        }
     }
 
     public void drawPetals(Canvas canvas, float centerX, float centerY){
@@ -65,25 +66,26 @@ public class Petals extends View {
         mTextPaint.setTextSize(tailleFont);
         mTextPaint.setAntiAlias(true);
         mTextPaint.setTextAlign(Paint.Align.CENTER);
-        int translation = 20;
+        int translation = 30;
 
-        //Text droit vertical
+        //Text gauche vertical
         Path path = new Path();
-        path.moveTo(centerX - imageButton.getWidth()/2 + radiusCircle - translation, this.getHeight());
+        path.moveTo(centerX - imageButton.getWidth()/2 + radiusCircle - translation, this.getHeight() );
         path.lineTo(centerX - imageButton.getWidth()/2 + radiusCircle - translation, 0);
         canvas.drawTextOnPath(Actions.Image.toString(), path, 0, 10, mTextPaint);
-        //Texte gauche vertical
-        Path path2 = new Path();path2.toggleInverseFillType();
-        path2.moveTo(centerX + imageButton.getWidth()/2 + radiusCircle + translation, this.getHeight());
+
+        canvas.drawText(Actions.Text.toString(), centerX +radiusCircle , centerY - imageButton.getHeight()/2 + radiusCircle - translation + 10 , mTextPaint);//haut
+
+        //Texte droit vertical
+        Path path2 = new Path();
+        path2.moveTo(centerX + imageButton.getWidth()/2 + radiusCircle + translation, this.getHeight() );
         path2.lineTo(centerX + imageButton.getWidth()/2 + radiusCircle + translation, 0);
 
-        canvas.drawText(Actions.Text.toString(), centerX +radiusCircle , centerY - imageButton.getHeight()/2 + radiusCircle - translation , mTextPaint);//haut
-
-        //Texte gauche Rotation 180°
+        //Texte droit Rotation 180°
         Matrix matrix = new Matrix();
         matrix.setScale(-1, -1, this.getWidth()/2, this.getHeight()/2);
         path2.transform(matrix);
-        canvas.drawTextOnPath(Actions.Son.toString(), path2, 0, -230, mTextPaint);
+        canvas.drawTextOnPath(Actions.Son.toString(), path2, 0, -240, mTextPaint);
 
         canvas.drawText(Actions.Zoom.toString(), centerX + radiusCircle , centerY + imageButton.getHeight()/2 + radiusCircle + translation, mTextPaint);//bas
     }
@@ -98,11 +100,21 @@ public class Petals extends View {
         return radius;
     }
 
+    public void drawPetals()
+    {
+        draw = true;
+    }
+
+    public void unDraw()
+    {
+        radius = 0;
+        draw = false;
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
         int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
-
 
         this.setMeasuredDimension(parentWidth, parentHeight );
     }

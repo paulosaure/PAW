@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.example.paul.remotecontrol.R;
 
@@ -21,7 +22,7 @@ public class ChoicePlace extends Fragment {
     private boolean pressLong = false;
     private View v;
     private Bitmap img;
-    private LinearLayout rl;
+    private RelativeLayout rl;
     private CustomButton buttonTouchHere1;
     private CustomButton buttonTouchHere2;
     private CustomButton buttonTouchHere3;
@@ -37,7 +38,7 @@ public class ChoicePlace extends Fragment {
 
         // Inflate the layout for this fragment
         v =  inflater.inflate(R.layout.choice_place, container, false);
-        rl = (LinearLayout)v.findViewById(R.id.choicePlace);
+        rl = (RelativeLayout)v.findViewById(R.id.choicePlace);
         drawButtons();
 
         // Inflate the layout for this fragment
@@ -67,7 +68,7 @@ public class ChoicePlace extends Fragment {
     public void drawPetals(Bitmap img)
     {
         int cpt = 1;
-        rl.addView(new Petals(context, img, cpt));
+        rl.addView(new Petals(context, img));
         cpt++;
     }
 

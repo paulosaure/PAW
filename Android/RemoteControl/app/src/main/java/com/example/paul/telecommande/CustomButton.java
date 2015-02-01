@@ -48,7 +48,7 @@ public class CustomButton extends ImageView implements GestureDetector.OnGesture
         number = n;
         decoupeImage(resize);
         mDetector = new GestureDetectorCompat(context,this);
-        setBackgroundColor(Color.YELLOW);
+        //setBackgroundColor(Color.YELLOW);
     }
 
     public Bitmap getBitmap()
@@ -68,7 +68,7 @@ public class CustomButton extends ImageView implements GestureDetector.OnGesture
         }
     }
 
-    public void depalcement()
+    public void deplacementButton()
     {
 
     }
@@ -79,11 +79,6 @@ public class CustomButton extends ImageView implements GestureDetector.OnGesture
 
         float centerX = this.getWidth()/2 - bitmap.getWidth()/2;
         float centerY = this.getHeight()/2 - bitmap.getHeight()/2;
-
-        Log.e("width bitmap 1 ", ""+ bitmap.getWidth());
-        Log.e("height  bitmap 2 ", ""+ bitmap.getHeight());
-        Log.e("width 1 ", ""+ this.getWidth());
-        Log.e("height 2  ", ""+ this.getHeight() );
 
         canvas.drawBitmap(bitmap, centerX, centerY , mTextPaint);
     }
@@ -114,13 +109,13 @@ public class CustomButton extends ImageView implements GestureDetector.OnGesture
 
         this.setMeasuredDimension(bitmap.getWidth(), bitmap.getHeight());
 
-        Log.e("width bitmap ", ""+ bitmap.getWidth());
-        Log.e("height  bitmap ", ""+ bitmap.getHeight());
+        Log.e("width Measure ", ""+ widthMeasureSpec);
+        Log.e("height  Measure ", ""+ heightMeasureSpec);
         Log.e("width  ", ""+ parentWidth);
         Log.e("height   ", ""+ parentHeight );
 
-        //this.setX(((number * parentWidth)/(number+1)) - bitmap.getWidth()/2);
-        //this.setY(((number * parentHeight)/(number+1)) - bitmap.getHeight()/2);
+        this.setX(((number * parentWidth)/(number+1)) - bitmap.getWidth()/2);
+        this.setY(((number * parentHeight)/(number+1)) - bitmap.getHeight()/2);
     }
 
     //Gesture detector

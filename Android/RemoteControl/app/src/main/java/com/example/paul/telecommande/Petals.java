@@ -74,7 +74,7 @@ public class Petals extends View {
         path.lineTo(centerX - imageButton.getWidth()/2 + radiusCircle - translation, 0);
         canvas.drawTextOnPath(Actions.Image.toString(), path, 0, 10, mTextPaint);
 
-        canvas.drawText(Actions.Text.toString(), centerX +radiusCircle , centerY - imageButton.getHeight()/2 + radiusCircle - translation + 10 , mTextPaint);//haut
+        canvas.drawText(Actions.Texte.toString(), centerX +radiusCircle , centerY - imageButton.getHeight()/2 + radiusCircle - translation + 10 , mTextPaint);//haut
 
         //Texte droit vertical
         Path path2 = new Path();

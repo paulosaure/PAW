@@ -45,6 +45,7 @@ public class ViewWheel extends Fragment {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.wheel_view, container, false);
         rl = (RelativeLayout) v.findViewById(R.id.wheelView);
+        rl.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
         drawButton();
 
       //  rl.setBackgroundColor(Color.YELLOW);
@@ -53,13 +54,12 @@ public class ViewWheel extends Fragment {
 
     public void drawButton() {
         buttonTouchHere = new CustomButton(context, R.drawable.touchme, needToResize, nbButton);
-        rl.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
         rl.addView(buttonTouchHere);
 
         buttonTouchHere.setOnTouchListener(speakTouchListener);
-        img = buttonTouchHere.getBitmap();
 
-        createPetals();
+        img = buttonTouchHere.getBitmap(); // Il faut associer le bouton touché à l'image
+        createPetals(); // On crée la pétale
     }
 
     public void createPetals() {
@@ -73,8 +73,8 @@ public class ViewWheel extends Fragment {
         public boolean onTouch(View v, MotionEvent event) {
             int action = event.getAction();
             if (action == MotionEvent.ACTION_DOWN) {
-                petals.drawPetals();
-                petals.invalidate();
+                petals.drawPetals(); // on dessine
+                petals.invalidate(); // on lance le draw
                 buttonTouchHere.bringToFront();
             } else if (action == MotionEvent.ACTION_UP) {
                 petals.unDraw();

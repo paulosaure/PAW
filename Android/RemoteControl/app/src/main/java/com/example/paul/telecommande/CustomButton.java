@@ -17,7 +17,9 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.shapes.OvalShape;
+import android.support.v4.view.GestureDetectorCompat;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,14 +33,13 @@ import java.util.ArrayList;
 /**
  * Created by Paul on 29/01/2015.
  */
-public class CustomButton extends ImageView {
+public class CustomButton extends ImageView implements GestureDetector.OnGestureListener {
 
-    private Paint mTextPaint = new Paint();;
+    private Paint mTextPaint = new Paint();
     private Bitmap bitmap;
     private int number;
-
-    private boolean pressLong = false;
-
+    private static final String DEBUG_TAG = "Gestures";
+    private GestureDetectorCompat mDetector;
     private int res;
 
     public CustomButton(Context context, int img, boolean resize, int n) {
@@ -46,20 +47,14 @@ public class CustomButton extends ImageView {
         res = img;
         number = n;
         decoupeImage(resize);
-
-
-
-        this.setBackgroundColor(Color.YELLOW);
-
-        this.setOnLongClickListener(speakHoldListener);
-        this.setOnTouchListener(speakTouchListener);
+        mDetector = new GestureDetectorCompat(context,this);
+        setBackgroundColor(Color.YELLOW);
     }
 
     public Bitmap getBitmap()
     {
         return bitmap;
     }
-
 
 
     public void decoupeImage(boolean needToResize)
@@ -73,19 +68,24 @@ public class CustomButton extends ImageView {
         }
     }
 
+    public void depalcement()
+    {
+
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        //centre de l'image
         float centerX = this.getWidth()/2 - bitmap.getWidth()/2;
         float centerY = this.getHeight()/2 - bitmap.getHeight()/2;
-        //largueur et longueur de la vue avec l'image
-        float heightImg = bitmap.getHeight();
-        float widthImg = bitmap.getWidth();
+
+        Log.e("width bitmap 1 ", ""+ bitmap.getWidth());
+        Log.e("height  bitmap 2 ", ""+ bitmap.getHeight());
+        Log.e("width 1 ", ""+ this.getWidth());
+        Log.e("height 2  ", ""+ this.getHeight() );
 
         canvas.drawBitmap(bitmap, centerX, centerY , mTextPaint);
-
     }
 
     public Bitmap getRound() {
@@ -114,35 +114,48 @@ public class CustomButton extends ImageView {
 
         this.setMeasuredDimension(bitmap.getWidth(), bitmap.getHeight());
 
-        this.setX(((number * parentWidth)/(number+1)) - bitmap.getWidth()/2);
-        this.setY(((number * parentHeight)/(number+1)) - bitmap.getHeight()/2);
+        Log.e("width bitmap ", ""+ bitmap.getWidth());
+        Log.e("height  bitmap ", ""+ bitmap.getHeight());
+        Log.e("width  ", ""+ parentWidth);
+        Log.e("height   ", ""+ parentHeight );
+
+        //this.setX(((number * parentWidth)/(number+1)) - bitmap.getWidth()/2);
+        //this.setY(((number * parentHeight)/(number+1)) - bitmap.getHeight()/2);
     }
 
-//Listener
-    private View.OnLongClickListener speakHoldListener = new View.OnLongClickListener() {
-        @Override
-        public boolean onLongClick(View v) {
-            pressLong = true;
-            radius = 0;
-            drawPetals();
-            return true;
-        }
-    };
+    //Gesture detector
+    @Override
+    public boolean onDown(MotionEvent e) {
+        Log.e(DEBUG_TAG,"onDown: " + e.toString());
+        return false;
+    }
 
-    private View.OnTouchListener speakTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View pView, MotionEvent pEvent) {
-            pView.onTouchEvent(pEvent);
-            // We're only interested in when the button is released.
-            if (pEvent.getAction() == MotionEvent.ACTION_UP) {
-                // We're only interested in anything if our speak button is currently pressed.
-                if (pressLong) {
-                    // Do something when the button is released.
-                    pressLong = false;
-                    drawPetals();
-                }
-            }
-            return false;
-        }
-    };
+    @Override
+    public void onShowPress(MotionEvent e) {
+        Log.d(DEBUG_TAG, "onShowPress: " + e.toString());
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        Log.d(DEBUG_TAG, "onSingleTapUp: " + e.toString());
+
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        Log.d(DEBUG_TAG, "onScroll: " + e1.toString()+e2.toString());
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+        Log.d(DEBUG_TAG, "onLongPress: " + e.toString());
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        Log.d(DEBUG_TAG, "onFling: " + e1.toString()+e2.toString());
+        return false;
+    }
 }

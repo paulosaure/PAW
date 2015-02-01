@@ -5,7 +5,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -19,7 +22,14 @@ import com.example.paul.remotecontrol.R;
 public class ViewWheel extends Fragment {
 
     private Context context;
-    private Actions[] actions = new Actions[] { Actions.image, Actions.text, Actions.son, Actions.zoom};
+    private boolean pressLong = false;
+    private View v;
+    private Bitmap img;
+    private LinearLayout rl;
+    private CustomButton buttonTouchHere;
+    private CustomButton buttonTouchHere2;
+    private int nbButton = 1;
+    private boolean needToResize = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,30 +43,61 @@ public class ViewWheel extends Fragment {
         context = this.getActivity().getApplicationContext();
 
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.wheel_view, container, false);
-
-        Bitmap img = drawButton(v);
-        drawPetals(v, img);
-
+        v =  inflater.inflate(R.layout.wheel_view, container, false);
+        rl = (LinearLayout)v.findViewById(R.id.wheelView);
+        drawButton();
 
         return v;
     }
 
-    public Bitmap drawButton(View v)
+    public void drawButton()
     {
-        CustomButton buttonTouchHere = new CustomButton(context , R.drawable.touchme, false, 1);
-        LinearLayout rl = (LinearLayout)v.findViewById(R.id.wheelView);
+        buttonTouchHere = new CustomButton(context , R.drawable.touchme, needToResize, nbButton);
+        rl.setGravity(Gravity.CENTER_VERTICAL |Gravity.CENTER_HORIZONTAL);
         rl.addView(buttonTouchHere);
 
-        return buttonTouchHere.getBitmap();
+        buttonTouchHere.setOnLongClickListener(speakHoldListener);
+       // buttonTouchHere.setOnTouchListener(speakTouchListener);
+        img = buttonTouchHere.getBitmap();
     }
 
-    public void drawPetals(View v, Bitmap img)
+    public void drawPetals(Bitmap img)
     {
         int cpt = 1;
-        for(Actions act: actions) {
-            new Petals(context, act, img, cpt);
-        }
+        rl.addView(new Petals(context, img, cpt));
+
+        cpt++;
     }
 
+    //Listener
+    private View.OnLongClickListener speakHoldListener = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+       //     Log.e("Click Listener","entre");
+       //     Log.e("taille fragment", "heigth "+ rl.getHeight()+" width "+rl.getWidth());
+            pressLong = true;
+            drawPetals(img);
+            buttonTouchHere.bringToFront();
+            //buttonTouchHere.setY();
+            return true;
+        }
+    };
+
+   /* private View.OnTouchListener speakTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View pView, MotionEvent pEvent) {
+            pView.onTouchEvent(pEvent);
+            // We're only interested in when the button is released.
+            if (pEvent.getAction() == MotionEvent.ACTION_UP) {
+                // We're only interested in anything if our speak button is currently pressed.
+                if (pressLong) {
+                    // Do something when the button is released.
+                    pressLong = false;
+                    rl.removeAllViews();
+                    rl.addView(buttonTouchHere);
+                }
+            }
+            return false;
+        }
+    };*/
 }

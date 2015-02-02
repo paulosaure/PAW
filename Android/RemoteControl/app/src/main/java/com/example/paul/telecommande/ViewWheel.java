@@ -20,7 +20,7 @@ import com.example.paul.remotecontrol.R;
 /**
  * Created by Paul on 08/01/2015.
  */
-public class ViewWheel extends Fragment{
+public class ViewWheel extends Fragment {
 
     private Context context;
     private View v;
@@ -47,7 +47,8 @@ public class ViewWheel extends Fragment{
 
         context = this.getActivity().getApplicationContext();
         gestureDetector = new GestureDetector(context, new MyGestureDetector(context));
-        
+
+        // Ca fait un deuxieme TouchListener ... chelou
         gestureListener = new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 return gestureDetector.onTouchEvent(event);
@@ -88,7 +89,7 @@ public class ViewWheel extends Fragment{
                 petals.unDraw();
                 petals.invalidate();
             }
-            return false;
+            return true;
         }
     };
 }

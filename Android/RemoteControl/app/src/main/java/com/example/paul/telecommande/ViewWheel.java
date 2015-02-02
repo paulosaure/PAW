@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -41,23 +42,15 @@ public class ViewWheel extends Fragment {
                              Bundle savedInstanceState) {
 
         context = this.getActivity().getApplicationContext();
-
-        // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.wheel_view, container, false);
-        rl = (RelativeLayout) v.findViewById(R.id.wheelView);
-        rl.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
         drawButton();
 
-      //  rl.setBackgroundColor(Color.YELLOW);
         return v;
     }
 
     public void drawButton() {
-        buttonTouchHere = new CustomButton(context, R.drawable.touchme, needToResize, nbButton);
-        rl.addView(buttonTouchHere);
-
+        buttonTouchHere = (CustomButton) v.findViewById(R.id.img);
         buttonTouchHere.setOnTouchListener(speakTouchListener);
-
         img = buttonTouchHere.getBitmap(); // Il faut associer le bouton touché à l'image
         createPetals(); // On crée la pétale
     }
@@ -65,7 +58,9 @@ public class ViewWheel extends Fragment {
     public void createPetals() {
         petals = new Petals(context, img);
         petals.unDraw();
-        rl.addView(petals);
+
+        RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        ((RelativeLayout) v.findViewById(R.id.wheelView)).addView(petals, relativeParams);
     }
 
     private View.OnTouchListener speakTouchListener = new View.OnTouchListener() {

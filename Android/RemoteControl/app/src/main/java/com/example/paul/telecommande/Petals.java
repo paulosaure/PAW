@@ -28,7 +28,6 @@ public class Petals extends View {
     public Petals(Context context, Bitmap img) {
         super(context);
         imageButton = img;
-       // this.setBackgroundColor(Color.YELLOW);
     }
 
     @Override

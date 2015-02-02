@@ -18,6 +18,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.support.v4.view.GestureDetectorCompat;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -36,11 +37,23 @@ import java.util.ArrayList;
 public class CustomButton extends ImageView implements GestureDetector.OnGestureListener {
 
     private Paint mTextPaint = new Paint();
-    private Bitmap bitmap;
+    private Bitmap bitmap ;
+    {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 8;
+        bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.touchme, options);
+    }
+
     private int number;
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetectorCompat mDetector;
     private int res;
+
+    public CustomButton(Context context, AttributeSet set) {
+        super(context, set);
+
+    }
+
 
     public CustomButton(Context context, int img, boolean resize, int n) {
         super(context);
@@ -64,7 +77,7 @@ public class CustomButton extends ImageView implements GestureDetector.OnGesture
         bitmap = BitmapFactory.decodeResource(getResources(),res, options);
 
         if(needToResize) {
-            bitmap = getRound();
+            //bitmap = getRound();
         }
     }
 
@@ -104,18 +117,11 @@ public class CustomButton extends ImageView implements GestureDetector.OnGesture
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        this.setMeasuredDimension(bitmap.getWidth(), bitmap.getHeight());
-
-        Log.e("width Measure ", ""+ widthMeasureSpec);
-        Log.e("height  Measure ", ""+ heightMeasureSpec);
-        Log.e("width  ", ""+ parentWidth);
-        Log.e("height   ", ""+ parentHeight );
-
-        this.setX(((number * parentWidth)/(number+1)) - bitmap.getWidth()/2);
-        this.setY(((number * parentHeight)/(number+1)) - bitmap.getHeight()/2);
+        if (bitmap != null)  {
+            this.setMeasuredDimension(bitmap.getWidth(), bitmap.getHeight());
+        }
     }
 
     //Gesture detector

@@ -34,7 +34,7 @@ import java.util.ArrayList;
 /**
  * Created by Paul on 29/01/2015.
  */
-public class CustomButton extends ImageView implements GestureDetector.OnGestureListener {
+public class CustomButton extends ImageView {
 
     private Paint mTextPaint = new Paint();
     private Bitmap bitmap ;
@@ -45,8 +45,8 @@ public class CustomButton extends ImageView implements GestureDetector.OnGesture
     }
 
     private int number;
-    private static final String DEBUG_TAG = "Gestures";
-    private GestureDetectorCompat mDetector;
+
+
     private int res;
 
     public CustomButton(Context context, AttributeSet set) {
@@ -60,7 +60,6 @@ public class CustomButton extends ImageView implements GestureDetector.OnGesture
         res = img;
         number = n;
         decoupeImage(resize);
-        mDetector = new GestureDetectorCompat(context,this);
         //setBackgroundColor(Color.YELLOW);
     }
 
@@ -122,41 +121,5 @@ public class CustomButton extends ImageView implements GestureDetector.OnGesture
         if (bitmap != null)  {
             this.setMeasuredDimension(bitmap.getWidth(), bitmap.getHeight());
         }
-    }
-
-    //Gesture detector
-    @Override
-    public boolean onDown(MotionEvent e) {
-        Log.e(DEBUG_TAG,"onDown: " + e.toString());
-        return false;
-    }
-
-    @Override
-    public void onShowPress(MotionEvent e) {
-        Log.d(DEBUG_TAG, "onShowPress: " + e.toString());
-    }
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent e) {
-        Log.d(DEBUG_TAG, "onSingleTapUp: " + e.toString());
-
-        return false;
-    }
-
-    @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        Log.d(DEBUG_TAG, "onScroll: " + e1.toString()+e2.toString());
-        return false;
-    }
-
-    @Override
-    public void onLongPress(MotionEvent e) {
-        Log.d(DEBUG_TAG, "onLongPress: " + e.toString());
-    }
-
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        Log.d(DEBUG_TAG, "onFling: " + e1.toString()+e2.toString());
-        return false;
     }
 }

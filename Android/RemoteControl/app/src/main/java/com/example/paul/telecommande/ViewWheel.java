@@ -3,25 +3,24 @@ package com.example.paul.telecommande;
 import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
 
 import com.example.paul.remotecontrol.R;
 
 /**
  * Created by Paul on 08/01/2015.
  */
-public class ViewWheel extends Fragment {
+public class ViewWheel extends Fragment{
 
     private Context context;
     private View v;
@@ -31,6 +30,11 @@ public class ViewWheel extends Fragment {
     private int nbButton = 1;
     private boolean needToResize = false;
     private Petals petals;
+    private static final String DEBUG_TAG = "Gestures";
+
+    private GestureDetector gestureDetector;
+    View.OnTouchListener gestureListener;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,11 +46,20 @@ public class ViewWheel extends Fragment {
                              Bundle savedInstanceState) {
 
         context = this.getActivity().getApplicationContext();
+        gestureDetector = new GestureDetector(context, new MyGestureDetector(context));
+        
+        gestureListener = new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        };
+
         v = inflater.inflate(R.layout.wheel_view, container, false);
         drawButton();
 
         return v;
     }
+
 
     public void drawButton() {
         buttonTouchHere = (CustomButton) v.findViewById(R.id.img);
@@ -75,7 +88,7 @@ public class ViewWheel extends Fragment {
                 petals.unDraw();
                 petals.invalidate();
             }
-            return true;
+            return false;
         }
     };
 }

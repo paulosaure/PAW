@@ -31,16 +31,14 @@ public class MainActivity extends FragmentActivity {
     private Socket socket;
     private int currentViewTable = 0;
 
-    private String url = "http://10.41.10.205:8080";
+    private String url = "http://192.168.1.6:8080";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         loadData();
-
     }
 
     @Override
@@ -82,7 +80,7 @@ public class MainActivity extends FragmentActivity {
     {
         if(currentViewTable >minView){
             loadView(currentViewTable-1);
-            forcePush(MessagesServer.nextView);
+            forcePush(MessagesServer.previousView);
         }
     }
 
@@ -90,7 +88,7 @@ public class MainActivity extends FragmentActivity {
     {
         if(currentViewTable < maxView){
             loadView(currentViewTable+1);
-            forcePush(MessagesServer.previousView);
+            forcePush(MessagesServer.nextView);
         }
     }
 
@@ -181,6 +179,7 @@ public class MainActivity extends FragmentActivity {
         socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
             @Override
             public void call(Object... args) {
+                socket.emit("isAndroid");
                 sendAskView(MessagesServer.whichView);
             }
         }).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
@@ -255,4 +254,18 @@ public class MainActivity extends FragmentActivity {
         return null;
     }
 
+
+    //Useless
+    public void sendFlash(View v){
+        sendAideAtelier("all texte");
+    }
+
+    public void sendClignote(View v){
+        sendClignoter("prendreBrosse");
+    }
+
+    public void sendSon(View v)
+    {
+        sendAideAction("all texte");
+    }
 }

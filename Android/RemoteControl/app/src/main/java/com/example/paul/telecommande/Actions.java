@@ -5,8 +5,8 @@ package com.example.paul.telecommande;
  */
 public enum Actions {
 
-    image,
-    text,
-    son,
-    zoom;
+    Image,
+    Texte,
+    Son,
+    Zoom;
 }

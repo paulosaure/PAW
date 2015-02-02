@@ -181,7 +181,7 @@ io.on('connection', function (socket) {
     });
 
     socket.on('pushFrise', function (data) {
-        console.log("workshop");
+        console.log("workshop data = "+data);
         socket.broadcast.emit('pushFrise', data);
         //iosSocket.emit('pushFrise', data);
     });

@@ -85,8 +85,8 @@ namespace PaintSurface
             QrcodeBas.Source = QRCodeGenerator.generatorQRCodeForTableSide("left");
             QrcodeHaut.Source = QRCodeGenerator.generatorQRCodeForTableSide("right");
             friseBasObjet = new Frise();
-
             friseHautObjet = new Frise();
+
         }
 
 
@@ -401,16 +401,16 @@ namespace PaintSurface
         ms.Position = 0;
         StreamReader sr = new StreamReader(ms);
         s = sr.ReadToEnd();
-        Trace.WriteLine("JSON : " + s);
+        //Trace.WriteLine("JSON : " + s);
     }
     else {
              js.WriteObject(ms, friseBasObjet);
             ms.Position = 0;
             StreamReader sr = new StreamReader(ms);
              s = sr.ReadToEnd();
-            Trace.WriteLine("JSON : "+s);
+            //Trace.WriteLine("JSON : "+s);
     }
-
+    //String json = Encoding.Default.GetString(ms.GetBuffer());
     return s;
     }
         private  void texteAide()
@@ -641,7 +641,7 @@ namespace PaintSurface
             DoubleAnimation rotateAnimation=null;
             if (ind == 0)
             {
-                Trace.WriteLine(" rotate 0");
+               
                 rotateAnimation = new DoubleAnimation(0, 180, TimeSpan.FromSeconds(1));
             }
             else
@@ -696,8 +696,6 @@ namespace PaintSurface
             i2.Tag = "image";
             canvas.Children.Add(i2);
         }
-
- 
         private void createImageDentifrice(Point p)
         {
             i3 = new Image();
@@ -711,8 +709,6 @@ namespace PaintSurface
             canvas.Children.Add(i3);
 
         }
-
-
         void i3_TouchDown(object sender, TouchEventArgs e)
         {
             if (ordonnacement && !simpleTouch)
@@ -742,6 +738,15 @@ namespace PaintSurface
                 canvas.Children.Add(imgTmp);
                 touchDownImage = true;
                  * */
+                DoubleAnimation da = new DoubleAnimation();
+                da.To = 1.2;
+                da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
+                da.AutoReverse = true;
+                ScaleTransform trans6 = new ScaleTransform();
+                i.RenderTransform = trans6;
+                i.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
                 image = 3;
                 tagImage = (string)i3.Tag;
                 drop = true;
@@ -781,6 +786,15 @@ namespace PaintSurface
                 canvas.Children.Remove(i2);
                 canvas.Children.Add(imgTmp);
                  * */
+                DoubleAnimation da = new DoubleAnimation();
+                da.To = 1.2;
+                da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
+                da.AutoReverse = true;
+                ScaleTransform trans6 = new ScaleTransform();
+                i2.RenderTransform = trans6;
+                i2.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
                 touchDownImage = true;
                 image = 2;
                 tagImage = (string)i2.Tag;
@@ -822,6 +836,15 @@ namespace PaintSurface
                 canvas.Children.Remove(i);
                 canvas.Children.Add(imgTmp);
                  * */
+                DoubleAnimation da = new DoubleAnimation();
+                da.To = 1.2;
+                da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
+                da.AutoReverse = true;
+                ScaleTransform trans6 = new ScaleTransform();
+                i.RenderTransform = trans6;
+                i.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
                 touchDownImage = true;
                 image = 1;
                 tagImage = (string)i.Tag;
@@ -864,6 +887,15 @@ namespace PaintSurface
                 canvas.Children.Remove(i4);
                 canvas.Children.Add(imgTmp);
                  * */
+                DoubleAnimation da = new DoubleAnimation();
+                da.To = 1.2;
+                da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
+                da.AutoReverse = true;
+                ScaleTransform trans6 = new ScaleTransform();
+                i4.RenderTransform = trans6;
+                i4.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
                 touchDownImage = true;
                 image = 4;
                 tagImage = (string)i4.Tag;
@@ -904,6 +936,15 @@ namespace PaintSurface
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i5);
                 canvas.Children.Add(imgTmp);*/
+                DoubleAnimation da = new DoubleAnimation();
+                da.To = 1.2;
+                da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
+                da.AutoReverse = true;
+                ScaleTransform trans6 = new ScaleTransform();
+                i5.RenderTransform = trans6;
+                i5.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
                 touchDownImage = true;
                 image = 5;
                 tagImage = (string)i5.Tag;
@@ -914,7 +955,7 @@ namespace PaintSurface
 
                 media1.Source = new Uri("Resources/videoAction4.wmv", UriKind.Relative);
                 media2.Source = new Uri("Resources/videoAction4.wmv", UriKind.Relative);
-                media2.Play();
+                media1.Play();
                 media2.Play();
             }
         }
@@ -946,6 +987,15 @@ namespace PaintSurface
                 canvas.Children.Remove(i6);
                 canvas.Children.Add(imgTmp);
                  * */
+                DoubleAnimation da = new DoubleAnimation();
+                da.To = 1.2;
+                da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
+                da.AutoReverse = true;
+                ScaleTransform trans6 = new ScaleTransform();
+                i6.RenderTransform = trans6;
+                i6.RenderTransformOrigin = new Point(0.5, 0.5);
+                trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
+                trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
                 touchDownImage = true;
                 image = 6;
                 tagImage = (string)i6.Tag;
@@ -1404,6 +1454,7 @@ namespace PaintSurface
   }
 
   private bool versLeBas = true;
+  private bool maisonVersBas = true,atelierVersBas=true;
   private void rotateHaut(object sender, TouchEventArgs e)
   {
       if (versLeBas)
@@ -1419,6 +1470,112 @@ namespace PaintSurface
       {
           versLeBas = true;
           rotateAllImage(1);
+      }
+  }
+
+  private void rotateMaisonBas(object sender, TouchEventArgs e)
+  {
+            if (!maisonVersBas)
+      {
+          maisonVersBas = true;
+          rotateMaison(1);
+      }
+  }
+
+ private void rotateMaison(int ind){
+            DoubleAnimation rotateAnimation=null;
+            if (ind == 0)
+            {
+               
+                rotateAnimation = new DoubleAnimation(0, 180, TimeSpan.FromSeconds(1));
+            }
+            else
+            {
+                rotateAnimation = new DoubleAnimation(180,0, TimeSpan.FromSeconds(1));
+            }
+                buttonCuisine.RenderTransform = new RotateTransform();
+                buttonCuisine.RenderTransformOrigin = new Point(0.5, 0.5);
+                RotateTransform rt = (RotateTransform)buttonCuisine.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+                buttonSalon.RenderTransform = new RotateTransform();
+                buttonSalon.RenderTransformOrigin = new Point(0.5, 0.5);
+                rt = (RotateTransform)buttonSalon.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+                buttonSalledebain.RenderTransform = new RotateTransform();
+                buttonSalledebain.RenderTransformOrigin = new Point(0.5, 0.5);
+                rt = (RotateTransform)buttonSalledebain.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+                consigneMaison.RenderTransform = new RotateTransform();
+                consigneMaison.RenderTransformOrigin = new Point(0.5, 0.5);
+                rt = (RotateTransform)consigneMaison.RenderTransform;
+                rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+        }
+
+ private void rotateAtelier(int ind)
+ {
+     DoubleAnimation rotateAnimation = null;
+     if (ind == 0)
+     {
+
+         rotateAnimation = new DoubleAnimation(0, 180, TimeSpan.FromSeconds(1));
+     }
+     else
+     {
+         rotateAnimation = new DoubleAnimation(180, 0, TimeSpan.FromSeconds(1));
+     }
+     brosseadent.RenderTransform = new RotateTransform();
+     brosseadent.RenderTransformOrigin = new Point(0.5, 0.5);
+     RotateTransform rt = (RotateTransform)brosseadent.RenderTransform;
+     rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+     douche.RenderTransform = new RotateTransform();
+     douche.RenderTransformOrigin = new Point(0.5, 0.5);
+     rt = (RotateTransform)douche.RenderTransform;
+     rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+     rasoir.RenderTransform = new RotateTransform();
+     rasoir.RenderTransformOrigin = new Point(0.5, 0.5);
+     rt = (RotateTransform)rasoir.RenderTransform;
+     rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+     brosseacheveux.RenderTransform = new RotateTransform();
+     brosseacheveux.RenderTransformOrigin = new Point(0.5, 0.5);
+     rt = (RotateTransform)brosseacheveux.RenderTransform;
+     rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+     consigneAtelier.RenderTransform = new RotateTransform();
+     consigneAtelier.RenderTransformOrigin = new Point(0.5, 0.5);
+     rt = (RotateTransform)consigneAtelier.RenderTransform;
+     rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+ }
+    
+  private void rotateMaisonHaut(object sender, TouchEventArgs e)
+  {
+       if (atelierVersBas)
+      {
+          atelierVersBas = false;
+          rotateMaison(0);
+      }
+  }
+
+  private void rotateAtelierHaut(object sender, TouchEventArgs e)
+  {
+      if (atelierVersBas)
+      {
+          atelierVersBas = false;
+          rotateMaison(0);
+      }
+  }
+
+  private void rotateAtelierBas(object sender, TouchEventArgs e)
+  {
+      if (!maisonVersBas)
+      {
+          maisonVersBas = true;
+          rotateMaison(1);
       }
   }
 

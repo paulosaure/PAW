@@ -90,7 +90,26 @@
 
         <!--Vue Lieu de la maison -->
         <Grid Name="maison" Visibility="Hidden" Grid.ColumnSpan="2">
-            <TextBlock Margin="5,0,5,0" Foreground="LightPink"  FontSize="50" HorizontalAlignment="Center">Choisir une pièce</TextBlock>
+            <Button Name="t"  TouchDown="rotateMaisonHaut"  Height="100" Width="100" Margin="42,20,1778,960"  >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Name="rotateFleche2" Source="Resources/rotateImg.png" RenderTransformOrigin="0.5, 0.5">
+                            <Image.RenderTransform>
+                                <RotateTransform  Angle="180"/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button   TouchDown="rotateMaisonBas"  Height="100" Width="100" Margin="1780,931,40,49"  >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Name="t2" Source="Resources/rotateImg.png" RenderTransformOrigin="0.5, 0.5">
+                        </Image>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <TextBlock Name="consigneMaison" Margin="5,0,5,0" Foreground="LightPink"  FontSize="50" HorizontalAlignment="Center">Choisir une pièce</TextBlock>
             <StackPanel  Orientation="Horizontal" Height="auto" Width="auto"  >
                 <Button  Name="buttonCuisine"  Width="350"  Height="350" Margin="150,100,150,100">
                     <Button.RenderTransform>
@@ -127,8 +146,27 @@
 
         <!--Vue Actions possibles-->
         <Grid Name="atelier" Visibility="Hidden" Margin="10,54,-10,-54">
+            <Button   TouchDown="rotateAtelierHaut"  Height="100" Width="100" Margin="42,20,1778,960"  >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image  Source="Resources/rotateImg.png" RenderTransformOrigin="0.5, 0.5">
+                            <Image.RenderTransform>
+                                <RotateTransform  Angle="180"/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button   TouchDown="rotateAtelierBas"  Height="100" Width="100" Margin="1775,884,45,96"  >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Name="t2" Source="Resources/rotateImg.png" RenderTransformOrigin="0.5, 0.5">
+                        </Image>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             <StackPanel>
-                <TextBlock  Margin="679,0,0,0" Foreground="LightPink"  FontSize="50" RenderTransformOrigin="0.5,0.5" Width="643" >
+                <TextBlock Name="consigneAtelier" Margin="679,0,0,0" Foreground="LightPink"  FontSize="50" RenderTransformOrigin="0.5,0.5" Width="643" >
                     <TextBlock.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -346,7 +384,7 @@
                     </Border>
 
                     <Border x:Name="borderbloc9"  BorderThickness="4" >
-                        <Image x:Name="bloc3B"  Height="200" Width="199"  Margin="20,0,30,0"
+                        <Image x:Name="bloc3B"  Height="200" Width="199" 
                                Source="/Resources/cubeBot.png"  TouchUp="touchTEST" TouchMove="mouveDelete"/>
                     </Border>
                     <Border x:Name="borderbloc10"  BorderThickness="4" Margin="20,0,30,0">

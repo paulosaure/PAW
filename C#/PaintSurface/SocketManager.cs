@@ -126,9 +126,8 @@ namespace PaintSurface
                 });
                 this.socket.On("getFrise", (data) =>
                 {
-                    Console.WriteLine(data);
                     string str=sur.getFrise((String)data);
-
+                    
                     this.socket.Emit("pushFrise", str);
                 });
                 this.socket.On("view", (data) =>

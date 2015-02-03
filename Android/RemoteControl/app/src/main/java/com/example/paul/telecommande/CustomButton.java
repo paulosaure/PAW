@@ -34,9 +34,11 @@ import java.util.ArrayList;
 /**
  * Created by Paul on 29/01/2015.
  */
-public class CustomButton extends ImageView {
+public class CustomButton extends ImageView implements OnGestureListener {
 
     private Paint mTextPaint = new Paint();
+    private GestureDetector gDetector;
+
     private Bitmap bitmap ;
     {
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -51,7 +53,7 @@ public class CustomButton extends ImageView {
 
     public CustomButton(Context context, AttributeSet set) {
         super(context, set);
-
+        gDetector = new GestureDetector(this);
     }
 
 
@@ -61,6 +63,7 @@ public class CustomButton extends ImageView {
         number = n;
         decoupeImage(resize);
         //setBackgroundColor(Color.YELLOW);
+        gDetector = new GestureDetector(this);
     }
 
     public Bitmap getBitmap()

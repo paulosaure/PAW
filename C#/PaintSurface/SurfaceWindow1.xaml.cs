@@ -709,6 +709,17 @@ namespace PaintSurface
             canvas.Children.Add(i3);
 
         }
+        private void feedBack(Image image)
+        {
+            i.Opacity = 0.5;
+            i2.Opacity = 0.5;
+            i3.Opacity = 0.5;
+            i4.Opacity = 0.5;
+            i5.Opacity = 0.5;
+            i6.Opacity = 0.5;
+            image.Opacity = 1;
+        }
+
         void i3_TouchDown(object sender, TouchEventArgs e)
         {
             if (ordonnacement && !simpleTouch)
@@ -743,13 +754,14 @@ namespace PaintSurface
                 da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
                 da.AutoReverse = true;
                 ScaleTransform trans6 = new ScaleTransform();
-                i.RenderTransform = trans6;
-                i.RenderTransformOrigin = new Point(0.5, 0.5);
+                i3.RenderTransform = trans6;
+                i3.RenderTransformOrigin = new Point(0.5, 0.5);
                 trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
                 trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
                 image = 3;
                 tagImage = (string)i3.Tag;
                 drop = true;
+                feedBack(i3);
             }
             if (dernièreVue)
             {
@@ -799,6 +811,7 @@ namespace PaintSurface
                 image = 2;
                 tagImage = (string)i2.Tag;
                 drop = true;
+                feedBack(i2);
             }
             if (dernièreVue)
             {
@@ -849,6 +862,7 @@ namespace PaintSurface
                 image = 1;
                 tagImage = (string)i.Tag;
                 drop = true;
+                feedBack(i);
             }
             if (dernièreVue)
             {
@@ -900,6 +914,7 @@ namespace PaintSurface
                 image = 4;
                 tagImage = (string)i4.Tag;
                 drop = true;
+                feedBack(i4);
             }
             if (dernièreVue)
             {
@@ -949,6 +964,7 @@ namespace PaintSurface
                 image = 5;
                 tagImage = (string)i5.Tag;
                 drop = true;
+                feedBack(i5);
             }
             if (dernièreVue)
             {
@@ -1000,6 +1016,7 @@ namespace PaintSurface
                 image = 6;
                 tagImage = (string)i6.Tag;
                 drop = true;
+                feedBack(i6);
             }
             if (dernièreVue)
             {
@@ -1283,6 +1300,12 @@ namespace PaintSurface
             simpleTouch = false;
             if (drop)
             {
+                i.Opacity = 1;
+                i2.Opacity = 1;
+                i3.Opacity = 1;
+                i4.Opacity = 1;
+                i5.Opacity = 1;
+                i6.Opacity = 1;
                 Image img = sender as Image;
                 switch (image) {
                     case 1: if ((img.Name == "bloc1" && h1) || (img.Name == "bloc2" && h2) || (img.Name == "bloc3" && h3) || (img.Name == "bloc4" && h4) || (img.Name == "bloc5" && h5) || (img.Name == "bloc6" && h6) || (img.Name == "bloc1B" && b1) || (img.Name == "bloc2B" && b2) || (img.Name == "bloc3B" && b3) || (img.Name == "bloc4B" && b4) || (img.Name == "bloc5B" && b5) || (img.Name == "bloc6B" && b6)) { break; } if (img.Name == "bloc1" || img.Name == "bloc5" || img.Name == "bloc4" || img.Name == "bloc2" || img.Name == "bloc3" || img.Name == "bloc6") { img.RenderTransformOrigin = new Point(0.5, 0.5); img.RenderTransform = new RotateTransform(180); } if (tagImage == "image") img.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); else img.Source = new BitmapImage(new Uri("/Resources/rincerText.png", UriKind.Relative)); break;//canvas.Children.Add(i); break;
@@ -1554,9 +1577,9 @@ namespace PaintSurface
     
   private void rotateMaisonHaut(object sender, TouchEventArgs e)
   {
-       if (atelierVersBas)
+       if (maisonVersBas)
       {
-          atelierVersBas = false;
+          maisonVersBas = false;
           rotateMaison(0);
       }
   }
@@ -1566,16 +1589,16 @@ namespace PaintSurface
       if (atelierVersBas)
       {
           atelierVersBas = false;
-          rotateMaison(0);
+          rotateAtelier(0);
       }
   }
 
   private void rotateAtelierBas(object sender, TouchEventArgs e)
   {
-      if (!maisonVersBas)
+      if (!atelierVersBas)
       {
-          maisonVersBas = true;
-          rotateMaison(1);
+          atelierVersBas = true;
+          rotateAtelier(1);
       }
   }
 

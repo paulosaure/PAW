@@ -52,7 +52,7 @@ namespace PaintSurface
         private bool touchDownImage = false;
         private bool simpleTouch = false;
         private bool imageBloc1 = true, imageBloc1B = true, imageBloc2 = true, imageBloc2B = true, imageBloc3 = true, imageBloc3B = true, imageBloc4 = true, imageBloc4B = true, imageBloc5 = true, imageBloc5B = true, imageBloc6 = true, imageBloc6B = true;
-        private Image i, i2, i3, i4, i5, i6;
+        private Image i = new Image(), i2 = new Image(), i3 = new Image(), i4 = new Image(), i5 = new Image(), i6 = new Image();
         private Frise friseHautObjet, friseBasObjet;
         /// <summary>
         /// Default constructor.

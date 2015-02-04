@@ -346,6 +346,7 @@ namespace PaintSurface
             {
                 son.Stop();
                 String[] order = str.Split(' ');
+                Console.WriteLine(" aide action entre " + str);
             switch (order[0])
             {
                 case "all": switch (order[1]) { case "texte": actionTexte(); break; case "image": actionImage(); break; } break;

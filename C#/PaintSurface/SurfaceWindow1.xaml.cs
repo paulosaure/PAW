@@ -212,7 +212,7 @@ namespace PaintSurface
             vueCourante++;
         switch (vueCourante)
         {
-            case 1: break;
+            case 1:  break;
             case 2: myGrid.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
             case 3: maison.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
             case 4: objetVue(); break;
@@ -244,11 +244,11 @@ namespace PaintSurface
     }
     else
     {
-        if (vueCourante > 2)
+        if (vueCourante > 1)
             vueCourante--;
         switch (vueCourante)
         {
-            case 1: break;
+            case 1: maison.Visibility = Visibility.Hidden; myGrid.Visibility = Visibility.Visible; break;
             case 2: atelier.Visibility = Visibility.Hidden; maison.Visibility = Visibility.Visible; animeMaison(); break;
             case 3: objet.Visibility = Visibility.Hidden; atelier.Visibility = Visibility.Visible; animeSalleDeBain(); break;
             case 4: objetVue(); ordonnacement = false; ordonnancement.Visibility = Visibility.Hidden;
@@ -711,18 +711,24 @@ namespace PaintSurface
         }
         private void feedBack(Image image)
         {
+            if(i!=null)
             i.Opacity = 0.5;
+            if (i2 != null)
             i2.Opacity = 0.5;
+            if (i3 != null)
             i3.Opacity = 0.5;
+            if (i4 != null)
             i4.Opacity = 0.5;
+            if (i5 != null)
             i5.Opacity = 0.5;
+            if (i6 != null)
             i6.Opacity = 0.5;
             image.Opacity = 1;
         }
 
         void i3_TouchDown(object sender, TouchEventArgs e)
         {
-            if (ordonnacement && !simpleTouch)
+            if (ordonnacement && !simpleTouch && e.TouchDevice.GetIsFingerRecognized())
             {
                 simpleTouch = true;
                 /*Trace.WriteLine("touch down img");
@@ -773,7 +779,7 @@ namespace PaintSurface
         }
         void i2_TouchDown(object sender, TouchEventArgs e)
         {
-            if (ordonnacement && !simpleTouch)
+            if (ordonnacement && !simpleTouch && e.TouchDevice.GetIsFingerRecognized())
             {
                 simpleTouch = true;
                 /*TouchPoint p2 = e.GetTouchPoint(i2);
@@ -823,7 +829,7 @@ namespace PaintSurface
         }
         void i_TouchDown(object sender, TouchEventArgs e)
         {
-            if (ordonnacement && !simpleTouch)
+            if (ordonnacement && !simpleTouch && e.TouchDevice.GetIsFingerRecognized())
             {
                 simpleTouch = true;
                 /*
@@ -875,7 +881,7 @@ namespace PaintSurface
 
         void i4_TouchDown(object sender, TouchEventArgs e)
         {
-            if (ordonnacement && !simpleTouch)
+            if (ordonnacement && !simpleTouch && e.TouchDevice.GetIsFingerRecognized())
             {
                 simpleTouch = true;
                 /*
@@ -928,7 +934,7 @@ namespace PaintSurface
         }
         void i5_TouchDown(object sender, TouchEventArgs e)
         {
-            if (ordonnacement && !simpleTouch)
+            if (ordonnacement && !simpleTouch && e.TouchDevice.GetIsFingerRecognized())
             {
                 simpleTouch = true;
                 //TouchPoint p2 = e.GetTouchPoint(i5);
@@ -978,7 +984,7 @@ namespace PaintSurface
 
         void i6_TouchDown(object sender, TouchEventArgs e)
         {
-            if (ordonnacement && !simpleTouch)
+            if (ordonnacement && !simpleTouch && e.TouchDevice.GetIsFingerRecognized())
             {
                 simpleTouch = true;
                 /*
@@ -1184,6 +1190,7 @@ namespace PaintSurface
 
         private void touch(object sender, TouchEventArgs e)
         {
+            vueCourante++;
             _sm.socket.Emit("changeView", 2);
             myGrid.Visibility = Visibility.Hidden;
       

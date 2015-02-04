@@ -193,9 +193,9 @@ io.on('connection', function (socket) {
     });
 
     socket.on('aideAction', function (data) {
-        console.log("aide");
+        console.log("aide  action "+data);
         socket.broadcast.emit('aideAction', data);
-        tableSocket.emit('aide', data);
+        //tableSocket.emit('aide', data);
     });
 
     socket.on('aideAtelier', function (data) {
@@ -220,14 +220,9 @@ io.on('connection', function (socket) {
 
     socket.on('changeView', function (vue) {
 
-        console.log("change_vue");
-        socket.broadcast.emit('changeVue', vue);
-        //tableSocket.emit('changeVue', vue);
-        socket.on('changeVue', function (data) {
-            console.log("changeView");
-            socket.broadcast.emit('changeView', data);
-            // androidSocket.emit('changeView', data);
-        });
+        console.log("changeView vue = "+vue);
+        socket.broadcast.emit('changeView', vue);
+
     });
 
 
@@ -268,6 +263,10 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('play_video', video);
         // tableSocket.emit('play_video', video);
     });
+    socket.on('view', function () {
 
+        console.log("demande de vue");
+        socket.broadcast.emit('view');
+    });
 
 });

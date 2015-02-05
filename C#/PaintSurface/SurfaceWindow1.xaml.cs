@@ -89,7 +89,44 @@ namespace PaintSurface
 
         }
 
-
+        public void videoRequest(String str)
+        {
+            Console.WriteLine(" video request " + str);
+            this.Dispatcher.Invoke((Action)(() =>
+            {
+                if (dernièreVue)
+                {
+                    switch (str)
+                    {
+                        case "prendreBrosse": media1.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
+                            media2.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
+                            media1.Play();
+                            media2.Play(); break;
+                        case "mouillerBrosse": media1.Source = new Uri("Resources/videoAction2.wmv", UriKind.Relative);
+                            media2.Source = new Uri("Resources/videoAction2.wmv", UriKind.Relative);
+                            media1.Play();
+                            media2.Play(); break;
+                        case "mettreDentifrice": media1.Source = new Uri("Resources/videoAction3.wmv", UriKind.Relative);
+                            media2.Source = new Uri("Resources/videoAction3.wmv", UriKind.Relative);
+                            media1.Play();
+                            media2.Play(); break;
+                        case "brosser": media1.Source = new Uri("Resources/videoAction4.wmv", UriKind.Relative);
+                            media2.Source = new Uri("Resources/videoAction4.wmv", UriKind.Relative);
+                            media1.Play();
+                            media2.Play(); break;
+                        case "rincer": media1.Source = new Uri("Resources/videoAction6.wmv", UriKind.Relative);
+                            media2.Source = new Uri("Resources/videoAction6.wmv", UriKind.Relative);
+                            media1.Play();
+                            media2.Play(); break;
+                        case "cracher": media1.Source = new Uri("Resources/videoAction5.wmv", UriKind.Relative);
+                            media2.Source = new Uri("Resources/videoAction5.wmv", UriKind.Relative);
+                            media1.Play();
+                            media2.Play(); break;
+                        default: break;
+                    }
+                }
+            }));
+        }
 
 
         public  void aide(String str)

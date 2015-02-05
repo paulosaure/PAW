@@ -134,6 +134,10 @@ namespace PaintSurface
                 {
                     this.socket.Emit("changeView",sur.vueCourante);
                 });
+                this.socket.On("video", (data) =>
+                {
+                    sur.videoRequest((String)data);
+                });
                 this.socket.On("newTablet", (data) =>
                 {
                     Console.WriteLine(data);

@@ -257,16 +257,16 @@ io.on('connection', function (socket) {
         //tableSocket.emit('hardPush', data);
     });
 
-    socket.on('play_video', function (video) {
 
-        console.log("play_video");
-        socket.broadcast.emit('play_video', video);
-        // tableSocket.emit('play_video', video);
-    });
     socket.on('view', function () {
 
         console.log("demande de vue");
         socket.broadcast.emit('view');
+    });
+    socket.on('video', function (video) {
+
+        console.log("envoie video");
+        socket.broadcast.emit('video',video);
     });
 
 });

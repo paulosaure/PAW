@@ -86,7 +86,7 @@ namespace PaintSurface
             QrcodeHaut.Source = QRCodeGenerator.generatorQRCodeForTableSide("right");
             friseBasObjet = new Frise();
             friseHautObjet = new Frise();
-
+            _sm.socket.Emit("changeView", 1);
         }
 
         public void videoRequest(String str)
@@ -94,11 +94,11 @@ namespace PaintSurface
             Console.WriteLine(" video request " + str);
             this.Dispatcher.Invoke((Action)(() =>
             {
-                if (dernièreVue)
-                {
+
                     switch (str)
                     {
-                        case "prendreBrosse": media1.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
+                        case "prendreBrosse":
+                            media1.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
                             media2.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
                             media1.Play();
                             media2.Play(); break;
@@ -124,7 +124,7 @@ namespace PaintSurface
                             media2.Play(); break;
                         default: break;
                     }
-                }
+                
             }));
         }
 
@@ -190,6 +190,7 @@ namespace PaintSurface
         {
             this.Dispatcher.Invoke((Action)(() =>
 {
+    Console.WriteLine(str);
     if (ordonnacement)
     {
         DoubleAnimation da = new DoubleAnimation();
@@ -387,7 +388,7 @@ namespace PaintSurface
             switch (order[0])
             {
                 case "all": switch (order[1]) { case "texte": actionTexte(); break; case "image": actionImage(); break; } break;
-                case "prendreBrosse": switch (order[1]) { case "texte": i6.Tag = "text"; i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative)); break; case "image": i6.Tag = "image"; i6.Source = new BitmapImage(new Uri("/Resources/prendre_brosseadent.png", UriKind.Relative)); break; } break;
+                case "prendreBrosse": switch (order[1]) { case "texte": i6.Tag = "text"; i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative)); break; case "image": i6.Tag = "image"; i6.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative)); break; } break;
                 case "mouillerBrosse": switch (order[1]) { case "texte": i4.Tag = "text"; i4.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseText.png", UriKind.Relative)); break; case "image": i4.Tag = "image"; i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative)); break; } break;
                 case "mettreDentifrice": switch (order[1]) { case "texte": i3.Tag = "text"; i3.Source = new BitmapImage(new Uri("/Resources/mettreDentifriceText.png", UriKind.Relative)); break; case "image": i3.Tag = "image"; i3.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); break; } break;
                 case "rincer": switch (order[1]) { case "texte": i.Tag = "text"; i.Source = new BitmapImage(new Uri("/Resources/rincerText.png", UriKind.Relative)); break; case "image": i.Tag = "image"; i.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); break; } break;

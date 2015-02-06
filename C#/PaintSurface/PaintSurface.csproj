@@ -141,11 +141,14 @@
     <Content Include="Resources\bravo.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\brosseDentsText.png" />
     <Content Include="Resources\brosser.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\brosserText.png" />
     <Content Include="Resources\brosser.wav" />
+    <Resource Include="Resources\brosserTextI.png" />
+    <Resource Include="Resources\brosserI.png" />
     <Content Include="Resources\choixAtelier.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -164,6 +167,8 @@
     <Resource Include="Resources\flecheTop.png" />
     <Resource Include="Resources\cracherText.png" />
     <Content Include="Resources\cracher.wav" />
+    <Resource Include="Resources\cracherI.png" />
+    <Resource Include="Resources\cracherTextI.png" />
     <Content Include="Resources\encouragement.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -172,15 +177,22 @@
     </Content>
     <Resource Include="Resources\mettreDentifriceText.png" />
     <Content Include="Resources\mettreDentifrice.wav" />
+    <Resource Include="Resources\mettreDentifriceTextI.png" />
     <Content Include="Resources\mettre_dentifrice.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\mettre_dentifriceI.png" />
     <Content Include="Resources\mouiller.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\mouiller_brosse.jpg" />
     <Resource Include="Resources\mouillerBrosseText.png" />
     <Content Include="Resources\mouillerBrosse.wav" />
+    <Resource Include="Resources\mouiller_brosseI.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\mouiller_brosseI.png" />
+    <Resource Include="Resources\mouillerBrosseTextI.png" />
     <Content Include="Resources\placerActions.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -189,14 +201,18 @@
     </Content>
     <Resource Include="Resources\prendreBrosseText.png" />
     <Content Include="Resources\prendreBrosse.wav" />
+    <Resource Include="Resources\prendreBrosseTextI.png" />
     <Content Include="Resources\prendre_brosse.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\prendre_brossedentI.png" />
     <Content Include="Resources\rincer.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\rincerText.png" />
     <Content Include="Resources\rincer.wav" />
+    <Resource Include="Resources\rincer_boucheI.png" />
+    <Resource Include="Resources\rincerTextI.png" />
     <Content Include="Resources\selectionnerImagePourVideo.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -227,7 +243,9 @@
     <Resource Include="Resources\mettre_dentifrice.png" />
     <Resource Include="Resources\mouiller_brosse.png" />
     <Resource Include="Resources\prendre_brossedent.png" />
-    <Resource Include="Resources\rincer_bouche.png" />
+    <Resource Include="Resources\rincer_bouche.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Resources\sonBrosseDent.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -86,7 +86,7 @@ namespace PaintSurface
             QrcodeHaut.Source = QRCodeGenerator.generatorQRCodeForTableSide("right");
             friseBasObjet = new Frise();
             friseHautObjet = new Frise();
-            _sm.socket.Emit("changeView", 1);
+
         }
 
         public void videoRequest(String str)
@@ -94,11 +94,11 @@ namespace PaintSurface
             Console.WriteLine(" video request " + str);
             this.Dispatcher.Invoke((Action)(() =>
             {
-
+                if (dernièreVue)
+                {
                     switch (str)
                     {
-                        case "prendreBrosse":
-                            media1.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
+                        case "prendreBrosse": media1.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
                             media2.Source = new Uri("Resources/videoAction1.wmv", UriKind.Relative);
                             media1.Play();
                             media2.Play(); break;
@@ -124,7 +124,7 @@ namespace PaintSurface
                             media2.Play(); break;
                         default: break;
                     }
-                
+                }
             }));
         }
 
@@ -155,7 +155,7 @@ namespace PaintSurface
                     } break;
                 case "brosse": switch (order[1])
                     {
-                        case "texte": aideBrosse = true; brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative)); break;
+                        case "texte": aideBrosse = true; brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosseDentsText.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseDentsText.png", UriKind.Relative)); break;
                         case "image": aideBrosse = true; brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); brosseDent.Source = new BitmapImage(new Uri("/Resources/brosse_grandT.png", UriKind.Relative)); break;
                         case "son": son.Open(new Uri(@"Resources\sonBrosseDent.wav", UriKind.Relative));
                             son.Play(); break;
@@ -190,7 +190,6 @@ namespace PaintSurface
         {
             this.Dispatcher.Invoke((Action)(() =>
 {
-    Console.WriteLine(str);
     if (ordonnacement)
     {
         DoubleAnimation da = new DoubleAnimation();
@@ -388,7 +387,7 @@ namespace PaintSurface
             switch (order[0])
             {
                 case "all": switch (order[1]) { case "texte": actionTexte(); break; case "image": actionImage(); break; } break;
-                case "prendreBrosse": switch (order[1]) { case "texte": i6.Tag = "text"; i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative)); break; case "image": i6.Tag = "image"; i6.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative)); break; } break;
+                case "prendreBrosse": switch (order[1]) { case "texte": i6.Tag = "text"; i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative)); break; case "image": i6.Tag = "image"; i6.Source = new BitmapImage(new Uri("/Resources/prendre_brosseadent.png", UriKind.Relative)); break; } break;
                 case "mouillerBrosse": switch (order[1]) { case "texte": i4.Tag = "text"; i4.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseText.png", UriKind.Relative)); break; case "image": i4.Tag = "image"; i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative)); break; } break;
                 case "mettreDentifrice": switch (order[1]) { case "texte": i3.Tag = "text"; i3.Source = new BitmapImage(new Uri("/Resources/mettreDentifriceText.png", UriKind.Relative)); break; case "image": i3.Tag = "image"; i3.Source = new BitmapImage(new Uri("/Resources/mettre_dentifrice.png", UriKind.Relative)); break; } break;
                 case "rincer": switch (order[1]) { case "texte": i.Tag = "text"; i.Source = new BitmapImage(new Uri("/Resources/rincerText.png", UriKind.Relative)); break; case "image": i.Tag = "image"; i.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative)); break; } break;
@@ -440,14 +439,14 @@ namespace PaintSurface
         ms.Position = 0;
         StreamReader sr = new StreamReader(ms);
         s = sr.ReadToEnd();
-        //Trace.WriteLine("JSON : " + s);
+        Trace.WriteLine("JSON : " + s);
     }
     else {
              js.WriteObject(ms, friseBasObjet);
             ms.Position = 0;
             StreamReader sr = new StreamReader(ms);
              s = sr.ReadToEnd();
-            //Trace.WriteLine("JSON : "+s);
+            Trace.WriteLine("JSON : "+s);
     }
     //String json = Encoding.Default.GetString(ms.GetBuffer());
     return s;
@@ -711,7 +710,7 @@ namespace PaintSurface
                 i6.RenderTransformOrigin = new Point(0.5, 0.5);
                 rt = (RotateTransform)i6.RenderTransform;
                 rt.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-            
+         
         }
         private void createImageVerre(Point p)
         {
@@ -794,7 +793,7 @@ namespace PaintSurface
                 canvas.Children.Add(imgTmp);
                 touchDownImage = true;
                  * */
-                DoubleAnimation da = new DoubleAnimation();
+              /*  DoubleAnimation da = new DoubleAnimation();
                 da.To = 1.2;
                 da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
                 da.AutoReverse = true;
@@ -803,6 +802,7 @@ namespace PaintSurface
                 i3.RenderTransformOrigin = new Point(0.5, 0.5);
                 trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
                 trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+                */
                 image = 3;
                 tagImage = (string)i3.Tag;
                 drop = true;
@@ -842,7 +842,7 @@ namespace PaintSurface
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i2);
                 canvas.Children.Add(imgTmp);
-                 * */
+                 * 
                 DoubleAnimation da = new DoubleAnimation();
                 da.To = 1.2;
                 da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
@@ -852,6 +852,21 @@ namespace PaintSurface
                 i2.RenderTransformOrigin = new Point(0.5, 0.5);
                 trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
                 trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+                if (i2verBas)
+                {
+                    if (i2.Tag == "image")
+                        i2.Source = new BitmapImage(new Uri("/Resources/cracher.jpg", UriKind.Relative));
+                    else
+                        i2.Source = new BitmapImage(new Uri("/Resources/cracherText.png", UriKind.Relative));
+                }
+                else
+                {
+                    if (i2.Tag == "image")
+                        i2.Source = new BitmapImage(new Uri("/Resources/cracherI.jpg", UriKind.Relative));
+                    else
+                        i2.Source = new BitmapImage(new Uri("/Resources/cracherTextI.png", UriKind.Relative));
+
+                }*/
                 touchDownImage = true;
                 image = 2;
                 tagImage = (string)i2.Tag;
@@ -893,7 +908,7 @@ namespace PaintSurface
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i);
                 canvas.Children.Add(imgTmp);
-                 * */
+                 * 
                 DoubleAnimation da = new DoubleAnimation();
                 da.To = 1.2;
                 da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
@@ -903,6 +918,21 @@ namespace PaintSurface
                 i.RenderTransformOrigin = new Point(0.5, 0.5);
                 trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
                 trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+                if (iverBas)
+                {
+                    if (i.Tag == "image")
+                        i.Source = new BitmapImage(new Uri("/Resources/rincer_bouche.png", UriKind.Relative));
+                    else
+                        i.Source = new BitmapImage(new Uri("/Resources/rincerText.png", UriKind.Relative));
+                }
+                else
+                {
+                    if (i.Tag == "image")
+                        i.Source = new BitmapImage(new Uri("/Resources/rincer_boucheI.png", UriKind.Relative));
+                    else
+                        i.Source = new BitmapImage(new Uri("/Resources/rincerTextI.png", UriKind.Relative));
+
+                }*/
                 touchDownImage = true;
                 image = 1;
                 tagImage = (string)i.Tag;
@@ -917,7 +947,7 @@ namespace PaintSurface
                 media2.Play();
             }
         }
-
+        private bool i4verBas = true, i3verBas = true, i2verBas = true, iverBas = true, i5verBas = true, i6verBas = true;
         void i4_TouchDown(object sender, TouchEventArgs e)
         {
             if (ordonnacement && !simpleTouch && e.TouchDevice.GetIsFingerRecognized())
@@ -945,7 +975,7 @@ namespace PaintSurface
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i4);
                 canvas.Children.Add(imgTmp);
-                 * */
+                 * 
                 DoubleAnimation da = new DoubleAnimation();
                 da.To = 1.2;
                 da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
@@ -955,6 +985,21 @@ namespace PaintSurface
                 i4.RenderTransformOrigin = new Point(0.5, 0.5);
                 trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
                 trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+                if (i4verBas)
+                {
+                    if (i4.Tag=="image")
+                    i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosse.jpg", UriKind.Relative));
+                    else
+                        i4.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseText.png", UriKind.Relative));
+                }
+                else
+                {
+                    if (i4.Tag == "image")
+                        i4.Source = new BitmapImage(new Uri("/Resources/mouiller_brosseI.jpg", UriKind.Relative));
+                    else
+                        i4.Source = new BitmapImage(new Uri("/Resources/mouillerBrosseTextI.png", UriKind.Relative));
+
+                }*/
                 touchDownImage = true;
                 image = 4;
                 tagImage = (string)i4.Tag;
@@ -995,7 +1040,7 @@ namespace PaintSurface
                 imgTmp.SetValue(Canvas.TopProperty, Canvas.GetTop(i5) - p2.Position.Y);
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i5);
-                canvas.Children.Add(imgTmp);*/
+                canvas.Children.Add(imgTmp);
                 DoubleAnimation da = new DoubleAnimation();
                 da.To = 1.2;
                 da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
@@ -1005,6 +1050,21 @@ namespace PaintSurface
                 i5.RenderTransformOrigin = new Point(0.5, 0.5);
                 trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
                 trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+                if (i5verBas)
+                {
+                    if (i5.Tag == "image")
+                        i5.Source = new BitmapImage(new Uri("/Resources/brosser.jpg", UriKind.Relative));
+                    else
+                        i5.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative));
+                }
+                else
+                {
+                    if (i5.Tag == "image")
+                        i5.Source = new BitmapImage(new Uri("/Resources/brosserI.jpg", UriKind.Relative));
+                    else
+                        i5.Source = new BitmapImage(new Uri("/Resources/brosserTextI.png", UriKind.Relative));
+
+                }*/
                 touchDownImage = true;
                 image = 5;
                 tagImage = (string)i5.Tag;
@@ -1047,7 +1107,7 @@ namespace PaintSurface
                 imgTmp.TouchMove += imgTmp_TouchMove;
                 canvas.Children.Remove(i6);
                 canvas.Children.Add(imgTmp);
-                 * */
+                 *
                 DoubleAnimation da = new DoubleAnimation();
                 da.To = 1.2;
                 da.Duration = new Duration(TimeSpan.FromSeconds(0.2));
@@ -1057,6 +1117,21 @@ namespace PaintSurface
                 i6.RenderTransformOrigin = new Point(0.5, 0.5);
                 trans6.BeginAnimation(ScaleTransform.ScaleXProperty, da);
                 trans6.BeginAnimation(ScaleTransform.ScaleYProperty, da);
+                if (i6verBas)
+                {
+                    if (i6.Tag == "image")
+                        i6.Source = new BitmapImage(new Uri("/Resources/prendre_brossedent.png", UriKind.Relative));
+                    else
+                        i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseText.png", UriKind.Relative));
+                }
+                else
+                {
+                    if (i6.Tag == "image")
+                        i6.Source = new BitmapImage(new Uri("/Resources/prendre_brossedentI.png", UriKind.Relative));
+                    else
+                        i6.Source = new BitmapImage(new Uri("/Resources/prendreBrosseTextI.png", UriKind.Relative));
+
+                }*/
                 touchDownImage = true;
                 image = 6;
                 tagImage = (string)i6.Tag;
@@ -1256,7 +1331,7 @@ namespace PaintSurface
             son.Play();
             //Objet en Texte
             await Task.Delay(3000);
-            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative));
+            brosseDent.Source = new BitmapImage(new Uri("/Resources/brosseDentsText.png", UriKind.Relative));
             dentifrice.Source = new BitmapImage(new Uri("/Resources/dentifrice.png", UriKind.Relative));
             verre.Source = new BitmapImage(new Uri("/Resources/verre.png", UriKind.Relative));
             brosseDent2.Source = new BitmapImage(new Uri("/Resources/brosserText.png", UriKind.Relative));
@@ -1376,18 +1451,18 @@ namespace PaintSurface
             {
                 case "bloc1": orderFriseHaut[0] = image; if (image == trueOrder[5])
                     {
-                       if(imageBloc1){friseHautObjet.bloc1="image";} else{friseHautObjet.bloc1="text";}  borderbloc1.BorderBrush = Brushes.LightGreen; h1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play();} break;
-                case "bloc2": if (imageBloc2) { friseHautObjet.bloc2 = "image"; } else { friseHautObjet.bloc2 = "text"; } orderFriseHaut[1] = image; if (image == trueOrder[4]) { borderbloc2.BorderBrush = Brushes.LightGreen; h2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc3": if (imageBloc3) { friseHautObjet.bloc3 = "image"; } else { friseHautObjet.bloc3 = "text"; } orderFriseHaut[2] = image; if (image == trueOrder[3]) { borderbloc3.BorderBrush = Brushes.LightGreen; h3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc4": if (imageBloc4) { friseHautObjet.bloc4 = "image"; } else { friseHautObjet.bloc4 = "text"; } orderFriseHaut[3] = image; if (image == trueOrder[2]) { borderbloc4.BorderBrush = Brushes.LightGreen; h4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc5": if (imageBloc5) { friseHautObjet.bloc5 = "image"; } else { friseHautObjet.bloc5 = "text"; } orderFriseHaut[4] = image; if (image == trueOrder[1]) { borderbloc5.BorderBrush = Brushes.LightGreen; h5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc6": if (imageBloc6) { friseHautObjet.bloc6 = "image"; } else { friseHautObjet.bloc6 = "text"; } orderFriseHaut[5] = image; if (image == trueOrder[0]) { borderbloc6.BorderBrush = Brushes.LightGreen; h6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc1B": if (imageBloc1B) { friseHautObjet.bloc1 = "image"; } else { friseHautObjet.bloc1 = "text"; } orderFriseBas[0] = image; if (image == trueOrder[0]) { borderbloc7.BorderBrush = Brushes.LightGreen; b1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc2B": if (imageBloc2B) { friseHautObjet.bloc2 = "image"; } else { friseHautObjet.bloc2 = "text"; } orderFriseBas[1] = image; if (image == trueOrder[1]) { borderbloc8.BorderBrush = Brushes.LightGreen; b2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc3B": if (imageBloc3B) { friseHautObjet.bloc3 = "image"; } else { friseHautObjet.bloc3 = "text"; } orderFriseBas[2] = image; if (image == trueOrder[2]) { borderbloc9.BorderBrush = Brushes.LightGreen; b3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc4B": if (imageBloc4B) { friseHautObjet.bloc4 = "image"; } else { friseHautObjet.bloc4 = "text"; } orderFriseBas[3] = image; if (image == trueOrder[3]) { borderbloc10.BorderBrush = Brushes.LightGreen; b4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc5B": if (imageBloc5B) { friseHautObjet.bloc5 = "image"; } else { friseHautObjet.bloc5 = "text"; } orderFriseBas[4] = image; if (image == trueOrder[4]) { borderbloc11.BorderBrush = Brushes.LightGreen; b5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
-                case "bloc6B": if (imageBloc6B) { friseHautObjet.bloc6 = "image"; } else { friseHautObjet.bloc6 = "text"; } orderFriseBas[5] = image; if (image == trueOrder[5]) { borderbloc12.BorderBrush = Brushes.LightGreen; b6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                       if(tagImage=="image"){friseHautObjet.bloc1="image";} else{friseHautObjet.bloc1="text";}  borderbloc1.BorderBrush = Brushes.LightGreen; h1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play();} break;
+                case "bloc2": orderFriseHaut[1] = image; if (image == trueOrder[4]) { if (tagImage=="image") { friseHautObjet.bloc2 = "image"; } else { friseHautObjet.bloc2 = "text"; } borderbloc2.BorderBrush = Brushes.LightGreen; h2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc3": orderFriseHaut[2] = image; if (image == trueOrder[3]) { if (tagImage=="image") { friseHautObjet.bloc3 = "image"; } else { friseHautObjet.bloc3 = "text"; } borderbloc3.BorderBrush = Brushes.LightGreen; h3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc4": orderFriseHaut[3] = image; if (image == trueOrder[2]) { if (tagImage=="image") { friseHautObjet.bloc4 = "image"; } else { friseHautObjet.bloc4 = "text"; } borderbloc4.BorderBrush = Brushes.LightGreen; h4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc5": orderFriseHaut[4] = image; if (image == trueOrder[1]) { if (tagImage=="image") { friseHautObjet.bloc5 = "image"; } else { friseHautObjet.bloc5 = "text"; } borderbloc5.BorderBrush = Brushes.LightGreen; h5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc6": orderFriseHaut[5] = image; if (image == trueOrder[0]) { if (tagImage=="image") { friseHautObjet.bloc6 = "image"; } else { friseHautObjet.bloc6 = "text"; } borderbloc6.BorderBrush = Brushes.LightGreen; h6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc1B": orderFriseBas[0] = image; if (image == trueOrder[0]) { if (tagImage=="image") { friseHautObjet.bloc1 = "image"; } else { friseHautObjet.bloc1 = "text"; } borderbloc7.BorderBrush = Brushes.LightGreen; b1 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc2B": orderFriseBas[1] = image; if (image == trueOrder[1]) { if (tagImage=="image") { friseHautObjet.bloc2 = "image"; } else { friseHautObjet.bloc2 = "text"; } borderbloc8.BorderBrush = Brushes.LightGreen; b2 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc3B": orderFriseBas[2] = image; if (image == trueOrder[2]) { if (tagImage=="image") { friseHautObjet.bloc3 = "image"; } else { friseHautObjet.bloc3 = "text"; } borderbloc9.BorderBrush = Brushes.LightGreen; b3 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc4B": orderFriseBas[3] = image; if (image == trueOrder[3]) { if (tagImage=="image") { friseHautObjet.bloc4 = "image"; } else { friseHautObjet.bloc4 = "text"; } borderbloc10.BorderBrush = Brushes.LightGreen; b4 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc5B": orderFriseBas[4] = image; if (image == trueOrder[4]) { if (tagImage=="image") { friseHautObjet.bloc5 = "image"; } else { friseHautObjet.bloc5 = "text"; } borderbloc11.BorderBrush = Brushes.LightGreen; b5 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
+                case "bloc6B": orderFriseBas[5] = image; if (image == trueOrder[5]) { if (tagImage=="image") { friseHautObjet.bloc6 = "image"; } else { friseHautObjet.bloc6 = "text"; } borderbloc12.BorderBrush = Brushes.LightGreen; b6 = true; son.Open(new Uri(@"Resources\bravo.mp3", UriKind.Relative)); son.Play(); } break;
             }
             testOrdre();
         }
@@ -1529,6 +1604,12 @@ namespace PaintSurface
       if (versLeBas)
       {
           versLeBas = false;
+          iverBas = false;
+          i2verBas = false;
+          i3verBas = false;
+          i4verBas = false;
+          i5verBas = false;
+          i6verBas = false;
           rotateAllImage(0);
       }
   }
@@ -1538,6 +1619,12 @@ namespace PaintSurface
       if (!versLeBas)
       {
           versLeBas = true;
+          iverBas = true;
+          i2verBas = true;
+          i3verBas = true;
+          i4verBas = true;
+          i5verBas = true;
+          i6verBas = true;
           rotateAllImage(1);
       }
   }

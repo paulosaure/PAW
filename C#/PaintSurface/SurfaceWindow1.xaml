@@ -121,7 +121,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button  Name="buttonSalon" Width="350"  Height="350" Margin="150,100,150,100">
+                <Button  Name="buttonSalon"  Width="350"  Height="350" Margin="150,100,150,100">
                     <Button.RenderTransform>
                         <ScaleTransform x:Name="salonScale" ScaleX="1" ScaleY="1" CenterX="200"  CenterY="150"/>
                     </Button.RenderTransform>
